@@ -1,0 +1,161 @@
+/** ***** IMPORT GLOBAL STYLE ***** */
+@import '../../../../../styles/styles.scss';
+
+/** ***** MODULE STEEL CASE ***** */
+.selectors {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+
+    &-text {
+        font-size: 12px;
+        line-height: 1.5;
+        color: $brandPantonDescription;
+    }
+
+    &-module {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 7px;
+        font-size: 14px;
+
+        &:hover {
+            border-radius: 25px;
+            background-color: $brandPantonHover;
+
+            .selectors-module__info {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 1px;
+                margin-left: 10px;
+                font-size: 10px;
+                font-weight: 500;
+                letter-spacing: 0.5px;
+                color: $brandPantonBlue;
+                cursor: default;
+    
+                &:hover {
+                    .selectors-module__info-arrow {
+                        margin-left: 10px;
+                        width: 15px;
+                        height: 7px;
+                        background: url('../../../../../images/icon/arrow-more.svg') no-repeat center;
+                    }
+                }
+            }
+        }
+
+        &__left {
+            display: flex;
+            align-items: center;
+            width: 75%;
+        }
+
+        &__right {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        &__icon {
+            display: block;
+            min-width: 30px;
+            height: 30px;
+            margin-right: 1%;
+        }
+
+        &__price {
+            margin-right: 10px;
+            font-size: 10px;
+            font-weight: 500;
+            color: $brandPantonBlue;
+        }
+        &__text {
+            font-size: 14px;
+            line-height: 1.29;
+            color: $brandPantonText;
+        }
+         &__info {
+            display: none;
+        }
+    }
+}
+/**  ***** STEEL CASE ICONS STYLES *****  */
+.steel {
+    display: block;
+    min-width: 30px;
+    height: 30px;
+    margin-right: 1%;
+    background: url('../../../../../images/icon/stainless-case.svg') no-repeat center;
+}
+
+/**  ***** DISABLED STEEL CASE SELECTOR *****  */
+.none {
+    opacity: 0.5;
+}
+
+// ***** SWITCHER STEEL CASE SELECTOR ***** //
+.onoffswitch8 {
+    position: relative; min-width: 50px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+    }
+    .onoffswitch8-checkbox {
+    display: none;
+    }
+    .onoffswitch8-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border-radius: 15.5px;
+    }
+    .onoffswitch8-inner {
+    display: block; width: 200%; margin-left: -100%;
+    -webkit-transition: margin 0.1s ease-in 0s;
+    -o-transition: margin 0.1s ease-in 0s;
+    transition: margin 0.1s ease-in 0s;
+    }
+    .onoffswitch8-inner:before, .onoffswitch8-inner:after {
+    display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+    font-size: 10px; color: white; font-family: 'Gotham Pro'; font-weight: bold;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    }
+    .onoffswitch8-inner:before {
+    content: "";
+    padding-left: 7px;
+    background-color: #1d68d9; 
+    color: #FFFFFF;
+    }
+    .onoffswitch8-inner:after {
+    content: "";
+    padding-right: 7px;
+    background-color: #ebeff3; 
+    color: #666666;
+    text-align: right;
+    }
+.onoffswitch8-switch {
+    display: block; 
+    width: 25px; 
+    margin: 2px;
+    background: #FFFFFF;
+    position: absolute; 
+    top: 0; 
+    bottom: 0;
+    right: 22px;
+    border: 1px solid rgba(0, 0, 0, 0.1); 
+    border-radius: 13px;
+    -webkit-transition: all 0.1s ease-in 0s;
+    -o-transition: all 0.1s ease-in 0s;
+    transition: all 0.1s ease-in 0s;  
+    &:hover {
+    border: 1px solid #1d68d9;
+    } 
+}
+.onoffswitch8-checkbox:checked + .onoffswitch8-label .onoffswitch8-inner {
+    margin-left: 0;
+}
+.onoffswitch8-checkbox:checked + .onoffswitch8-label .onoffswitch8-switch {
+    right: 0px; 
+}

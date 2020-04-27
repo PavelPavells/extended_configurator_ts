@@ -1,0 +1,80 @@
+/** ***** IMPORT GLOBAL STYLE ***** */
+@import '../../styles/styles.scss';
+
+/** ***** TURNSTILE COMPONENT ***** */
+.turnstile {
+    display: flex;
+    flex-direction: column;
+
+    /** ***** WRAPPER BASKET COMPONENT ***** */
+    &-basket {
+       width: 100%;
+    }
+
+    &-main {
+        display: flex;
+        width: 100%;
+        padding-top: 40px;
+        background-color: #fafafa;
+    
+        &__slider {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 45%;
+            margin: 0 40px;
+
+            /** ***** WRAPPER IMAGE COMPONENT ***** */
+            &-image {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 600px;
+                background-color: $brandPantonGrey;
+            }
+
+            /** ***** WRAPPER LIST COMPONENT ***** */
+            &-list {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+            }
+        }
+
+        &__basis {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-right: 40px;
+
+            /** ***** WRAPPER BUTTONS COMPONENT ***** */
+            &-buttons {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            /** ***** WRAPPER SELECTORS COMPONENT ***** */
+            &-selectors {
+                display: flex;
+                height: 50vh;
+            }
+        }
+    }
+
+    /** ***** WRAPPER CONFIGURATION COMPONENT ***** */
+    &-configuration {
+        display: flex;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color:#fafafa;
+    }
+
+    /** ***** WRAPPER EQUIPMENT COMPONENT ***** */
+    &-equipment {
+        display: flex;
+        width: 100%;
+        padding-bottom: 40px;
+        background-color: $white;
+    }
+}

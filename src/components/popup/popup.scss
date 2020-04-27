@@ -1,0 +1,153 @@
+/** ***** IMPORT GLOBAL STYLE ***** */
+@import "../../styles/styles.scss";
+
+
+/** ***** POPUP ***** */
+.popup {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
+  border: 1px solid #ebeff3;
+  background-color: #ffffff;
+  z-index: 10000;
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 35%;
+    height: 100%;
+    background-color: #f1f1f1;
+
+    &__image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 82%;
+      width: 85%;
+
+      & > .image {
+        max-height: 100%;
+        max-width: 100%;
+        background-size: contain;
+      }
+    }
+  }
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 65%;
+    height: 100%;
+    margin-left: 40px;
+    //border: 1px solid green;
+
+    &-header {
+      display: flex;
+      flex: 0 0 auto;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 10vh;
+
+      &__icon {
+        display: block;
+        width: 30px;
+        height: 30px;
+        background: url("../../images/icon/shape.svg") no-repeat center;
+      }
+
+      &__description {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 80%;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 1.28;
+        color: $brandPantonText;
+
+        &-toggle {
+          margin-left: 10px;
+          font-size: 10px;
+          font-weight: 500;
+          line-height: 1;
+          letter-spacing: 0.5px;
+          color: $brandPantonBlue;
+        }
+      }
+
+      &__close {
+        display: block;
+        width: 22px;
+        height: 22px;
+        background: url("../../images/icon/close-modal.svg") no-repeat center;
+        margin-right: 40px;
+
+        &:hover {
+          background: url("../../images/icon/close-modal-blue.svg") no-repeat
+            center;
+          cursor: pointer;
+        }
+      }
+    }
+
+    &-main {
+      display: flex;
+      flex: 1 0 auto;
+      width: 100%;
+
+      &__info {
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+        margin-right: 40px;
+        font-size: 14px;
+        line-height: 1.7;
+        color: #8b9298;
+      }
+    }
+
+    &-footer {
+      display: flex;
+      flex: 0 0 auto;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 10vh;
+
+      &__price {
+        font-size: 26px;
+        line-height: 1.27;
+        font-weight: 500;
+        color: #293440;
+      }
+
+      &__btn {
+        padding: 11px 84px 10px 84px;
+        margin-right: 40px;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.36;
+        color: #1d68d9;
+        border: 2px solid #1d68d9;
+        border-radius: 20px;
+
+        &:hover {
+          color: #ffffff;
+          background-color: #1d68d9;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

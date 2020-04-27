@@ -1,0 +1,120 @@
+/** ***** IMPORT GLOBAL STYLE ***** */
+@import '../../../styles/styles.scss';
+
+/** ***** MODULE CONFIGURATION ***** */
+.configuration {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-right: 40px;
+    background-color: $white;
+
+    &-options {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-left: 40px;
+        width: 45%;
+        min-width: 450px;
+
+        /** ***** AMOUNT ***** */
+        &__amount {
+            display: flex;
+            align-items: center;
+            margin-right: 80px;
+
+            &-text {
+                margin-right: 10px;
+                font-size: 12px;
+                line-height: 1.5;
+                color: $brandPantonDescription;
+            }
+
+            &-value {
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 1;
+                color: $brandPantonText;
+            }
+        }
+
+        /** ***** AMOUNT ADD / DELETE ***** */
+        &__more {
+            display: flex;
+            align-items: center;
+            margin-right: 60px;
+            border-radius: 5px;
+            background-color: #efefef;
+
+            &-minus {
+                width: 30px;
+                height: 30px;
+                background: url('../../../images/icon/minus.svg') no-repeat center;
+                
+                &:hover {
+                    border-radius: 5px 0 0 5px;
+                    background: url('../../../images/icon/minus-hover.svg') no-repeat center;
+                    background-color: $brandPantonBlue;
+                }
+            }
+
+            &-plus {
+                width: 30px;
+                height: 30px;
+                background: url('../../../images/icon/plus.svg') no-repeat center;
+
+                &:hover {
+                    border-radius: 0 5px 5px 0;
+                    background: url('../../../images/icon/plus-hover.svg') no-repeat center;
+                    background-color: $brandPantonBlue;
+                }
+            }
+        }
+        &__summ {
+            display: flex;
+            align-items: center;
+
+            &-text {
+                margin-right: 10px;
+                font-size: 12px;
+                line-height: 1.5;
+                color: $brandPantonDescription;
+            }
+
+            &-value {
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 1;
+                color: $brandPantonText;
+            }
+        }
+    }
+
+    /** ***** BUTTON ADD CONFIGURATION ***** */
+    &-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 15px 0;
+        border-radius: 30px;
+        background-color: $brandPantonBlue;
+
+        &__icon {
+            width: 40px;
+            height: 30px;
+            transform: scale(2);
+            background: url('../../../images/icon/add_config.svg') no-repeat center;
+        }
+
+        &__text {
+            margin-left: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.36;
+            letter-spacing: 1px;
+            color: $white;
+        }
+    }
+}
