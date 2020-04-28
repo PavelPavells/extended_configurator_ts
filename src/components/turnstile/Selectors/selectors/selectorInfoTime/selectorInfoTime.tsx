@@ -7,6 +7,7 @@ import React, { Fragment, lazy } from 'react';
 import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
+import { ConfiguratorState } from '../../../../../store/store';
 
 /**
  * Импорт экшенов
@@ -26,14 +27,34 @@ import './selectorInfoTime.scss';
  */
 const PopUp = lazy(() => import('../../../../popup/popup'));
 
-class SelectorInfoTime extends React.PureComponent {
-    state = { selectFive: 0 };
+/**
+ * Интерфейс компонента SelectorBiometry
+ */
+interface SelectorInfoTimeProps {
+    data: any,
+    fetchDataTurnstile: (data: any, trigger: number) => void,
+    togglePopupWindowTurnstile: () => void
+}
+
+interface SelectorInfoTimeState {
+    selectFive: number
+}
+
+class SelectorInfoTime extends React.PureComponent<SelectorInfoTimeProps, SelectorInfoTimeState> {
+    static propTypes: {
+        togglePopupWindowTurnstile: PropTypes.Validator<(...args: any[]) => any>;
+        fetchDataTurnstile: PropTypes.Validator<(...args: any[]) => any>
+        data: PropTypes.Validator<object>;
+        turnstile: PropTypes.Requireable<object>;
+        isFetching: PropTypes.Requireable<boolean>;
+    };
+
+    state: SelectorInfoTimeState = { selectFive: 0 };
 
     /**
      * Открыть/Закрыть модальное окно
      */
     handleToggleModal = () => {
-        // @ts-ignore
         this.props.togglePopupWindowTurnstile();
     }
 
@@ -41,7 +62,6 @@ class SelectorInfoTime extends React.PureComponent {
      * Хэндлер для обработки запроса селектора 'Информационный дисплей учета рабочего времени'
      */
     handleClickFiveSelect = () => {
-        // @ts-ignore
         const { page_view } = this.props.data.turnstile.data;
         this.setState({
             selectFive: +!page_view.module_selectors[4].state
@@ -61,7 +81,6 @@ class SelectorInfoTime extends React.PureComponent {
                 selectSeven: page_view.module_selectors[6].state,
                 selectEight: page_view.module_selectors[7].state
             };
-            // @ts-ignore
             this.props.fetchDataTurnstile(data, data.trigger);
         });
     }
@@ -70,18 +89,15 @@ class SelectorInfoTime extends React.PureComponent {
         /**
          * Данные из глобального стора
          */
-        // @ts-ignore
         const { turnstile } = this.props.data;
-        //console.log(turnstile);
+
         return (
 
             /**
              * Селектор 'Информационный дисплей учета рабочего времени'
              */
             <Fragment>
-                {turnstile.data.page_view.module_selectors.slice(4, 5).map(
-                    // @ts-ignore
-                    (index, key) => {
+                {turnstile.data.page_view.module_selectors.slice(4, 5).map((index: { state: number; index: string | number | undefined; }) => {
                     if (index.state === -1) {
                         return (
                             <div key={index.index} className="selectors-module none">
@@ -150,7 +166,7 @@ class SelectorInfoTime extends React.PureComponent {
         );
     }
 }
-// @ts-ignore
+
 SelectorInfoTime.propTypes = {
     fetchDataTurnstile: PropTypes.func.isRequired,
     togglePopupWindowTurnstile: PropTypes.func.isRequired,
@@ -158,8 +174,8 @@ SelectorInfoTime.propTypes = {
     turnstile: PropTypes.object,
     isFetching: PropTypes.bool
 };
-// @ts-ignore
-const mapStateToProps = state => ({
+
+const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
 export default connect(mapStateToProps, { fetchDataTurnstile, togglePopupWindowTurnstile })(SelectorInfoTime);

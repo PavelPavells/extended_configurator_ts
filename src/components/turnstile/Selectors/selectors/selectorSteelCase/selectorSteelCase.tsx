@@ -7,6 +7,7 @@ import React, { Fragment, lazy } from 'react';
 import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
+import { ConfiguratorState } from '../../../../../store/store';
 
 /**
  * Импорт экшенов
@@ -26,14 +27,34 @@ import './selectorSteelCase.scss';
  */
 const PopUp = lazy(() => import('../../../../popup/popup'));
 
-class SelectorSteelCase extends React.PureComponent {
-    state = { selectEight: 0 };
+/**
+ * Интерфейс компонента SelectorBiometry
+ */
+interface SelectorSteelCaseProps {
+    data: any,
+    fetchDataTurnstile: (data: any, trigger: number) => void,
+    togglePopupWindowTurnstile: () => void
+}
+
+interface SelectorSteelCaseState {
+    selectEight: number
+}
+
+class SelectorSteelCase extends React.PureComponent<SelectorSteelCaseProps, SelectorSteelCaseState> {
+    static propTypes: {
+        togglePopupWindowTurnstile: PropTypes.Validator<(...args: any[]) => any>;
+        fetchDataTurnstile: PropTypes.Validator<(...args: any[]) => any>
+        data: PropTypes.Validator<object>;
+        turnstile: PropTypes.Requireable<object>;
+        isFetching: PropTypes.Requireable<boolean>;
+    };
+
+    state: SelectorSteelCaseState = { selectEight: 0 };
 
     /**
      * Открыть/Закрыть модальное окно
      */
     handleToggleModal = () => {
-        // @ts-ignore
         this.props.togglePopupWindowTurnstile();
     }
 
@@ -41,7 +62,6 @@ class SelectorSteelCase extends React.PureComponent {
     * Хэндлер для обработки запроса селектора 'Корпус'
     */
     handleClickEightSelect = () => {
-        // @ts-ignore
         const { page_view } = this.props.data.turnstile.data;
         this.setState({
             selectEight: +!page_view.module_selectors[7].state
@@ -61,7 +81,6 @@ class SelectorSteelCase extends React.PureComponent {
                 selectSeven: page_view.module_selectors[6].state,
                 selectEight: page_view.module_selectors[7].state
             };
-            // @ts-ignore
             this.props.fetchDataTurnstile(data, data.trigger);
         });
     }
@@ -70,18 +89,15 @@ class SelectorSteelCase extends React.PureComponent {
         /**
          * Данные из глобального стора
          */
-        // @ts-ignore
         const { turnstile } = this.props.data;
-        //console.log(turnstile);
+
         return (
 
             /**
              * Селектор 'Корпус'
              */
             <Fragment>
-                {turnstile.data.page_view.module_selectors.slice(7, 8).map(
-                    // @ts-ignore
-                    (index, key) => {
+                {turnstile.data.page_view.module_selectors.slice(7, 8).map((index: { state: number; index: string | number | undefined; }) => {
                     if (index.state === -1) {
                         return (
                             <div key={index.index} className="selectors-module none">
@@ -153,7 +169,7 @@ class SelectorSteelCase extends React.PureComponent {
         );
     }
 }
-// @ts-ignore
+
 SelectorSteelCase.propTypes = {
     togglePopupWindowTurnstile: PropTypes.func.isRequired,
     fetchDataTurnstile: PropTypes.func.isRequired,
@@ -161,8 +177,8 @@ SelectorSteelCase.propTypes = {
     turnstile: PropTypes.object,
     isFetching: PropTypes.bool
 };
-// @ts-ignore
-const mapStateToProps = state => ({
+
+const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
 export default connect(mapStateToProps, { fetchDataTurnstile, togglePopupWindowTurnstile })(SelectorSteelCase);

@@ -2,14 +2,16 @@
  * Импорт глобальных переменных
  */
 import {
+    TurnstileActions,
+    TurnstileState,
     FETCHING_DATA_TURNSTILE_REQUEST,
     FETCHING_DATA_TURNSTILE_SUCCESS,
     FETCHING_DATA_TURNSTILE_FAILURE,
     TOGGLE_MODAL_TURNSTILE,
-    TOGGLE_MODAL_TURNSTILE_MAIN_INFO
+    TOGGLE_MODAL_TURNSTILE_MAIN_INFO,
 } from '../constants/constants';
 
-const initialState = {
+const initialState: TurnstileState = {
     isFetching: false,
     errorMessage: '',
     modal: false,
@@ -22,21 +24,18 @@ const initialState = {
  * Редьюсер Компонента Турникеты
  */
 
- // @ts-ignore
-export default function (state = initialState, action) {
+export default function (state = initialState, action: TurnstileActions): TurnstileState {
     switch (action.type) {
         case FETCHING_DATA_TURNSTILE_REQUEST:
             return {
                 ...state,
                 isFetching: true,
-                trigger: action.trigger
             };
         case FETCHING_DATA_TURNSTILE_FAILURE:
             return {
                 ...state,
                 isFetching: false,
                 errorMessage: action.payload,
-                trigger: action.trigger
             };
         case FETCHING_DATA_TURNSTILE_SUCCESS:
             return {

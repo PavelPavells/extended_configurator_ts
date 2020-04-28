@@ -1,7 +1,9 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
+
 import React from 'react';
 import { shallow } from 'enzyme';
 import moduleBasket from '../components/turnstile/Basket/moduleBasket';
-//import Loader from '../__utils__/Loader/Loader';
 
 describe('Компонент moduleBasket инициализирован', () => {
     const props = {
@@ -13,7 +15,7 @@ describe('Компонент moduleBasket инициализирован', () =>
     };
     const moduleBasket = shallow(<moduleBasket {...props} />);
 
-    it('Секция не отрендерилась', () => {
+    it('Первая отрисовка компонента ModuleBasket', () => {
         expect(moduleBasket.find('section.basket')).toHaveLength(0);
     });
 
@@ -27,6 +29,19 @@ describe('Компонент moduleBasket инициализирован', () =>
         };
         const moduleBasket = shallow(<moduleBasket {...nextProps} />);
 
-        expect(moduleBasket.find('div')).toHaveLength(1);
+        expect(moduleBasket.find('div')).toHaveLength(0);
+    });
+
+    it('Компонент moduleBasket загрузился', () => {
+        const nextProps = {
+            ...props,
+            data: {
+                ...props.data,
+                isFetching: false
+            }
+        };
+        const moduleBasket = shallow(<moduleBasket {...nextProps} />);
+
+        expect(moduleBasket.find('Loader')).toHaveLength(0);
     });
 });

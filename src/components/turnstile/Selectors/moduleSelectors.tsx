@@ -3,6 +3,7 @@ import React, { Fragment, Suspense, lazy } from 'react';
 import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
+import { ConfiguratorState } from '../../../store/store';
 
 /** ************* IMPORT SELECTORS FOR MODULE SELECTORS COMPONENT ************* */
 import SelectorEP from './selectors/selectorEP/selectorEP';
@@ -20,18 +21,30 @@ import './moduleSelectors.scss';
 /** ************* IMPORT __UTILS__ FOR SELECTORS COMPONENT ************* */
 const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
 
-class ModuleSelectors extends React.PureComponent {
+/**
+ * Интерфейс компонента ModuleSelectors
+ */
+interface ModuleSelectorsProps {
+    data: any
+}
+
+class ModuleSelectors extends React.PureComponent<ModuleSelectorsProps> {
+    static propTypes: {
+        data: PropTypes.Validator<object>;
+        turnstile: PropTypes.Requireable<object>;
+        isFetching: PropTypes.Requireable<boolean>;
+    };
+
     render () {
         /** ************* DATA FROM STORE ************* */
-        // @ts-ignore
         const { turnstile, isFetching } = this.props.data;
-        //console.log(turnstile);
+
         if (turnstile.data.length === 0 && !isFetching) {
             return <Suspense fallback={<div><Loader /></div>} />;
         }
         return (
             /** ************* MODULE SELECTORS ************* */
-            <div className="selectors">
+            <section className="selectors">
                 <div className="selectors-text">Дополнительные модули</div>
 
                 {/** ************* CHOICE EP-2000 SELECTOR ************* */}
@@ -73,18 +86,18 @@ class ModuleSelectors extends React.PureComponent {
                 <Fragment>
                     <SelectorSteelCase />
                 </Fragment>
-            </div>
+            </section>
         );
     }
 }
-// @ts-ignore
+
 ModuleSelectors.propTypes = {
     data: PropTypes.object.isRequired,
     turnstile: PropTypes.object,
     isFetching: PropTypes.bool
 };
-// @ts-ignore
-const mapStateToProps = state => ({
+
+const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
 export default connect(mapStateToProps, null)(ModuleSelectors);

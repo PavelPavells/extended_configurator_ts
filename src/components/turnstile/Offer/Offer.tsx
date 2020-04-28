@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
+import { ConfiguratorState } from '../../../store/store';
 
 /**
  * Импорт экшенов
@@ -21,15 +22,33 @@ import { fetchDataTurnstile } from '../../../actions/dataTurnstileActions';
  */
 import './Offer.scss';
 
+
 /**
  * Импорт прелоадера
  */
 const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
 
-class Offer extends React.PureComponent {
-    state = {
-        modalOne: false,
-        modalTwo: false,
+/**
+ * Интерфейс компонента Offer
+ */
+interface OfferProps {
+    data: any,
+    fetchDataTurnstile: (data: any) => void
+}
+
+interface OfferState {
+    modal: boolean
+}
+
+class Offer extends React.PureComponent<OfferProps, OfferState> {
+    static propTypes: { 
+        fetchDataTurnstile: PropTypes.Validator<(...args: any[]) => any>;
+        data: PropTypes.Validator<object>;
+        turnstile: PropTypes.Requireable<object>;
+        isFetching: PropTypes.Requireable<boolean>;
+    };
+
+    state: OfferState = {
         modal: false
     };
 
@@ -37,11 +56,9 @@ class Offer extends React.PureComponent {
     * Запрос данных
     */
     componentDidMount () {
-        // @ts-ignore
         const { page_view } = this.props.data.turnstile.data;
         let data = {
             app_id: 'id',
-            // @ts-ignore
             trigger: this.props.data.turnstile.trigger ? this.props.data.turnstile.trigger : 1,
             trigger_state: 0,
             seria: 0,
@@ -56,7 +73,6 @@ class Offer extends React.PureComponent {
             selectSeven: page_view ? page_view.module_selectors[6].state : 0,
             selectEight: page_view ? page_view.module_selectors[7].state : 0
         };
-        // @ts-ignore
         this.props.fetchDataTurnstile(data);
     }
 
@@ -74,9 +90,8 @@ class Offer extends React.PureComponent {
         /**
         * Данные из Глобального Стора
         */
-       // @ts-ignore
         const { turnstile, isFetching } = this.props.data;
-        //console.log(turnstile);
+
         if (turnstile.data.length === 0 && !isFetching) {
             return (
                 <Suspense fallback={<div><Loader /></div>} />
@@ -127,9 +142,7 @@ class Offer extends React.PureComponent {
                             <div className="category-wrapper__summ">Сумма</div>
                         </div>
                     </div>
-                    {turnstile.data.page_view.model_module_list.map(
-                        // @ts-ignore
-                        (index, key) => (
+                    {turnstile.data.page_view.model_module_list.map((index: { name: string | number | undefined; caption: {} | null | undefined; price: {} | null | undefined; }, key: number) => (
                         <div key={index.name} className="blocks">
                             <div className="main">
                                 <div className="block-left">
@@ -166,9 +179,7 @@ class Offer extends React.PureComponent {
                                         <div className="offer-caption">
                                             <p className="offer-caption__description">Стандартная комплектация</p>
                                             <div className="offer-caption__list">
-                                                {turnstile.data.page_view.model_module_list.map(
-                                                    // @ts-ignore
-                                                    (index) => (
+                                                {turnstile.data.page_view.model_module_list.map((index: { name: string | number | undefined; caption: React.ReactNode; }) => (
                                                     <div key={index.name} className="offer-equipment">
                                                         <div className="offer-equipment__paragraph">{index.caption}</div>
                                                         <span className="offer-equipment__amount">{turnstile.data.page_view.model_module_list.length}</span>
@@ -179,9 +190,7 @@ class Offer extends React.PureComponent {
                                         <div className="offer-caption">
                                             <p className="offer-caption__description">Опции</p>
                                             <div className="offer-caption__list">
-                                                {turnstile.data.page_view.model_module_list.slice(1).map(
-                                                    // @ts-ignore
-                                                    (index) => (
+                                                {turnstile.data.page_view.model_module_list.slice(1).map((index: { name: string | number | undefined; caption: React.ReactNode; price: {} | null | undefined; }) => (
                                                     <div key={index.name} className="offer-equipment">
                                                         <div className="offer-equipment__paragraph">{index.caption}</div>
                                                         <div className="offer-equipment__info">
@@ -238,15 +247,15 @@ class Offer extends React.PureComponent {
         );
     }
 }
-// @ts-ignore
+
 Offer.propTypes = {
     fetchDataTurnstile: PropTypes.func.isRequired,
     data: PropTypes.object.isRequired,
     turnstile: PropTypes.object,
     isFetching: PropTypes.bool
 };
-// @ts-ignore
-const mapStateToProps = state => ({
+
+const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
 export default connect(mapStateToProps, { fetchDataTurnstile })(Offer);

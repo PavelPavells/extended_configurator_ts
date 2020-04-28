@@ -6,6 +6,7 @@ import React, { Suspense, lazy } from 'react';
 import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
+import { ConfiguratorState } from '../../../store/store';
 
 /**
  * Импорт экшенов
@@ -22,7 +23,21 @@ import './moduleConfiguration.scss';
  */
 const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
 
-class ModuleConfiguration extends React.PureComponent {
+/**
+ * Интерфейс компонента ModuleConfiguration
+ */
+interface ModuleConfigurationProps {
+    data: any,
+    fetchDataTurnstile: () => void,
+}
+
+class ModuleConfiguration extends React.PureComponent<ModuleConfigurationProps> {
+    static propTypes: { 
+        fetchDataTurnstile: PropTypes.Validator<(...args: any[]) => any>;
+        data: PropTypes.Validator<object>;
+        turnstile: PropTypes.Requireable<object>;
+        isFetching: PropTypes.Requireable<boolean>;
+    };
     /**
      * //
      */
@@ -45,9 +60,8 @@ class ModuleConfiguration extends React.PureComponent {
         /**
         * Данные из Глобального Стора
         */
-       // @ts-ignore
         const { turnstile, isFetching } = this.props.data;
-        //console.log(turnstile);
+
         if (turnstile.data.length === 0 && !isFetching) {
             return (
                 <Suspense fallback={<div><Loader /></div>} />
@@ -93,15 +107,15 @@ class ModuleConfiguration extends React.PureComponent {
         );
     }
 }
-// @ts-ignore
+
 ModuleConfiguration.propTypes = {
     fetchDataTurnstile: PropTypes.func.isRequired,
     data: PropTypes.object.isRequired,
     turnstile: PropTypes.object,
     isFetching: PropTypes.bool
 };
-// @ts-ignore
-const mapStateToProps = state => ({
+
+const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
 export default connect(mapStateToProps, { fetchDataTurnstile })(ModuleConfiguration);

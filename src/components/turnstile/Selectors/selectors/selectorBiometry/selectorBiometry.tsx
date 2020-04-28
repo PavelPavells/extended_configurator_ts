@@ -7,6 +7,7 @@ import React, { Fragment, lazy } from 'react';
 import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
+import { ConfiguratorState } from '../../../../../store/store';
 
 /**
  * Импорт экшенов
@@ -26,14 +27,34 @@ import './selectorBiometry.scss';
  */
 const PopUp = lazy(() => import('../../../../popup/popup'));
 
-class SelectorBiometry extends React.PureComponent {
-    state = { selectFour: 0 };
+/**
+ * Интерфейс компонента SelectorBiometry
+ */
+interface SelectorBiometryProps {
+    data: any,
+    fetchDataTurnstile: (data: any, trigger: number) => void,
+    togglePopupWindowTurnstile: () => void
+}
+
+interface SelectorBiometryState {
+    selectFour: number
+}
+
+class SelectorBiometry extends React.PureComponent<SelectorBiometryProps, SelectorBiometryState> {
+    static propTypes: {
+        togglePopupWindowTurnstile: PropTypes.Validator<(...args: any[]) => any>;
+        fetchDataTurnstile: PropTypes.Validator<(...args: any[]) => any>
+        data: PropTypes.Validator<object>;
+        turnstile: PropTypes.Requireable<object>;
+        isFetching: PropTypes.Requireable<boolean>;
+    };
+
+    state: SelectorBiometryState = { selectFour: 0 };
 
     /**
      * Открыть/Закрыть модальное окно
      */
     handleToggleModal = () => {
-        // @ts-ignore
         this.props.togglePopupWindowTurnstile();
     }
 
@@ -41,7 +62,6 @@ class SelectorBiometry extends React.PureComponent {
     * Хэндлер для обработки запроса селектора 'Биометрия'
     */
     handleClickFourSelect = () => {
-        // @ts-ignore
         const { page_view } = this.props.data.turnstile.data;
         this.setState({
             selectFour: +!page_view.module_selectors[3].state
@@ -61,7 +81,6 @@ class SelectorBiometry extends React.PureComponent {
                 selectSeven: page_view.module_selectors[6].state,
                 selectEight: page_view.module_selectors[7].state
             };
-            // @ts-ignore
             this.props.fetchDataTurnstile(data, data.trigger);
         });
     }
@@ -70,18 +89,15 @@ class SelectorBiometry extends React.PureComponent {
         /**
          * Данные из глобального стора
          */
-        // @ts-ignore
         const { turnstile } = this.props.data;
-        //console.log(turnstile);
+
         return (
 
             /**
              * Селектор 'Биометрия'
              */
             <Fragment>
-                {turnstile.data.page_view.module_selectors.slice(3, 4).map(
-                    // @ts-ignore
-                    (index, key) => (
+                {turnstile.data.page_view.module_selectors.slice(3, 4).map((index: { index: string | number | undefined; }) => (
                     <div key={index.index} className="selectors-module">
                         <div className="selectors-module__left">
                             <div className="selectors-module__icon bio" />
@@ -123,7 +139,7 @@ class SelectorBiometry extends React.PureComponent {
         );
     }
 }
-// @ts-ignore
+
 SelectorBiometry.propTypes = {
     togglePopupWindowTurnstile: PropTypes.func.isRequired,
     fetchDataTurnstile: PropTypes.func.isRequired,
@@ -131,8 +147,8 @@ SelectorBiometry.propTypes = {
     turnstile: PropTypes.object,
     isFetching: PropTypes.bool
 };
-// @ts-ignore
-const mapStateToProps = state => ({
+
+const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
 export default connect(mapStateToProps, { fetchDataTurnstile, togglePopupWindowTurnstile })(SelectorBiometry);

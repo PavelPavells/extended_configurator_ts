@@ -7,6 +7,7 @@ import React, { Fragment, lazy } from 'react';
 import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
+import { ConfiguratorState } from '../../../../../store/store';
 
 /**
  * Импорт экшенов
@@ -26,14 +27,34 @@ import './selectorControl2D.scss';
  */
 const PopUp = lazy(() => import('../../../../popup/popup'));
 
-class SelectorControl2D extends React.PureComponent {
-    state = { selectSix: 0 };
+/**
+ * Интерфейс компонента SelectorControl2D
+ */
+interface SelectorControl2DProps {
+    data: any,
+    fetchDataTurnstile: (data: any, trigger: number) => void,
+    togglePopupWindowTurnstile: () => void
+}
+
+interface SelectorControl2DState {
+    selectSix: number
+}
+
+class SelectorControl2D extends React.PureComponent<SelectorControl2DProps, SelectorControl2DState> {
+    static propTypes: {
+        togglePopupWindowTurnstile: PropTypes.Validator<(...args: any[]) => any>;
+        fetchDataTurnstile: PropTypes.Validator<(...args: any[]) => any>
+        data: PropTypes.Validator<object>;
+        turnstile: PropTypes.Requireable<object>;
+        isFetching: PropTypes.Requireable<boolean>;
+    };
+
+    state: SelectorControl2DState = { selectSix: 0 };
 
     /**
      * Открыть/Закрыть модальное окно
      */
     handleToggleModal = () => {
-        // @ts-ignore
         this.props.togglePopupWindowTurnstile();
     }
 
@@ -41,7 +62,6 @@ class SelectorControl2D extends React.PureComponent {
     * Хэндлер для обработки запроса селектора 'Контроля по 2D-штрихкодам'
     */
     handleClickSixSelect = () => {
-        // @ts-ignore
         const { page_view } = this.props.data.turnstile.data;
         this.setState({
             selectSix: +!page_view.module_selectors[5].state
@@ -61,7 +81,6 @@ class SelectorControl2D extends React.PureComponent {
                 selectSeven: page_view.module_selectors[6].state,
                 selectEight: page_view.module_selectors[7].state
             };
-            // @ts-ignore
             this.props.fetchDataTurnstile(data, data.trigger);
         });
     }
@@ -70,17 +89,14 @@ class SelectorControl2D extends React.PureComponent {
         /**
          * Данные из глобального стора
          */
-        // @ts-ignore
         const { turnstile } = this.props.data;
-        //console.log(turnstile);
+
         return (
             /**
              * Селектор 'Контроль по 2D-штрихкодам'
              */
             <Fragment>
-                {turnstile.data.page_view.module_selectors.slice(5, 6).map(
-                    // @ts-ignore
-                    (index, key) => {
+                {turnstile.data.page_view.module_selectors.slice(5, 6).map((index: { state: number; index: string | number | undefined; }) => {
                     if (index.state === -1) {
                         return (
                             <div key={index.index} className="selectors-module none">
@@ -150,7 +166,7 @@ class SelectorControl2D extends React.PureComponent {
         );
     }
 }
-// @ts-ignore
+
 SelectorControl2D.propTypes = {
     togglePopupWindowTurnstile: PropTypes.func.isRequired,
     fetchDataTurnstile: PropTypes.func.isRequired,
@@ -158,8 +174,8 @@ SelectorControl2D.propTypes = {
     turnstile: PropTypes.object,
     isFetching: PropTypes.bool
 };
-// @ts-ignore
-const mapStateToProps = state => ({
+
+const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
 export default connect(mapStateToProps, { fetchDataTurnstile, togglePopupWindowTurnstile })(SelectorControl2D);

@@ -7,6 +7,7 @@ import React, { Fragment, lazy } from 'react';
 import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
+import { ConfiguratorState } from '../../../../../store/store';
 
 /**
  * Импорт экшенов
@@ -26,14 +27,34 @@ import './selectorEP.scss';
  */
 const PopUp = lazy(() => import('../../../../popup/popup'));
 
-class SelectorEP extends React.PureComponent {
-    state = { selectOne: 0 };
+/**
+ * Интерфейс компонента SelectorBiometry
+ */
+interface SelectorEPProps {
+    data: any,
+    fetchDataTurnstile: (data: any, trigger: number) => void,
+    togglePopupWindowTurnstile: () => void
+}
+
+interface SelectorEPState {
+    selectOne: number
+}
+
+class SelectorEP extends React.PureComponent<SelectorEPProps, SelectorEPState> {
+    static propTypes: {
+        togglePopupWindowTurnstile: PropTypes.Validator<(...args: any[]) => any>;
+        fetchDataTurnstile: PropTypes.Validator<(...args: any[]) => any>
+        data: PropTypes.Validator<object>;
+        turnstile: PropTypes.Requireable<object>;
+        isFetching: PropTypes.Requireable<boolean>;
+    };
+
+    state: SelectorEPState = { selectOne: 0 };
 
     /**
      * Открыть/Закрыть модальное окно
      */
     handleToggleModal = () => {
-        // @ts-ignore
         this.props.togglePopupWindowTurnstile();
     }
 
@@ -41,7 +62,6 @@ class SelectorEP extends React.PureComponent {
     * Хэндлер для обработки запроса селектора 'EP-2000'
     */
     handleClickOneSelect = () => {
-        // @ts-ignore
         const { page_view } = this.props.data.turnstile.data;
         this.setState({
             selectOne: +!page_view.module_selectors[0].state
@@ -61,7 +81,6 @@ class SelectorEP extends React.PureComponent {
                 selectSeven: page_view.module_selectors[6].state,
                 selectEight: page_view.module_selectors[7].state
             };
-            // @ts-ignore
             this.props.fetchDataTurnstile(data, data.trigger);
         });
     }
@@ -70,18 +89,15 @@ class SelectorEP extends React.PureComponent {
         /**
          * Данные из глобального стора
          */
-        // @ts-ignore
         const { turnstile } = this.props.data;
-        //console.log(turnstile);
+        
         return (
 
             /**
              * Селектор 'EP-2000'
              */
             <Fragment>
-                {turnstile.data.page_view.module_selectors.slice(0, 1).map(
-                    // @ts-ignore
-                    (index, key) => (
+                {turnstile.data.page_view.module_selectors.slice(0, 1).map((index: { index: string | number | undefined; }) => (
                     <div key={index.index} className="selectors-module">
                         <div className="selectors-module__left">
                             <div className="selectors-module__icon ep" />
@@ -120,7 +136,7 @@ class SelectorEP extends React.PureComponent {
         );
     }
 }
-// @ts-ignore
+
 SelectorEP.propTypes = {
     fetchDataTurnstile: PropTypes.func.isRequired,
     togglePopupWindowTurnstile: PropTypes.func.isRequired,
@@ -128,8 +144,8 @@ SelectorEP.propTypes = {
     turnstile: PropTypes.object,
     isFetching: PropTypes.bool
 };
-// @ts-ignore
-const mapStateToPtops = state => ({
+
+const mapStateToPtops = (state: ConfiguratorState) => ({
     data: state
 });
 export default connect(mapStateToPtops, { fetchDataTurnstile, togglePopupWindowTurnstile })(SelectorEP);
