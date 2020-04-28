@@ -7,6 +7,7 @@ import React, { Fragment, lazy } from 'react';
 import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
+import { ConfiguratorState } from '../../../../../store/store';
 
 /**
  * Импорт экшенов
@@ -26,14 +27,34 @@ import './selectorGuest2D.scss';
  */
 const PopUp = lazy(() => import('../../../../popup/popup'));
 
-class SelectorGuest2D extends React.PureComponent {
-    state = { selectSeven: 0 };
+/**
+ * Интерфейс компонента SelectorBiometry
+ */
+interface SelectorGuest2DProps {
+    data: any,
+    fetchDataTurnstile: (data: any, trigger: number) => void,
+    togglePopupWindowTurnstile: () => void
+}
+
+interface SelectorGuest2DState {
+    selectSeven: number
+}
+
+class SelectorGuest2D extends React.PureComponent<SelectorGuest2DProps, SelectorGuest2DState> {
+    static propTypes: {
+        togglePopupWindowTurnstile: PropTypes.Validator<(...args: any[]) => any>;
+        fetchDataTurnstile: PropTypes.Validator<(...args: any[]) => any>
+        data: PropTypes.Validator<object>;
+        turnstile: PropTypes.Requireable<object>;
+        isFetching: PropTypes.Requireable<boolean>;
+    };
+
+    state: SelectorGuest2DState = { selectSeven: 0 };
 
     /**
      * Открыть/Закрыть модальное окно
      */
     handleToggleModal = () => {
-        // @ts-ignore
         this.props.togglePopupWindowTurnstile();
     }
 
@@ -41,7 +62,6 @@ class SelectorGuest2D extends React.PureComponent {
     * Хэндлер для обработки запроса селектора 'Гостевой доступ по 2D штрих-кодам'
     */
     handleClickSevenSelect = () => {
-        // @ts-ignore
         const { page_view } = this.props.data.turnstile.data;
         this.setState({
             selectSeven: +!page_view.module_selectors[6].state
@@ -61,7 +81,6 @@ class SelectorGuest2D extends React.PureComponent {
                 selectSeven: page_view.module_selectors[6].state,
                 selectEight: page_view.module_selectors[7].state
             };
-            // @ts-ignore
             this.props.fetchDataTurnstile(data, data.trigger);
         });
     }
@@ -70,17 +89,14 @@ class SelectorGuest2D extends React.PureComponent {
         /**
          * Данные из глобального стора
          */
-        // @ts-ignore
         const { turnstile } = this.props.data;
-        //console.log(turnstile);
+        
         return (
             /**
              * Селектор 'Гостевой доступ по 2D-штрих-кодам'
              */
             <Fragment>
-                {turnstile.data.page_view.module_selectors.slice(6, 7).map(
-                    // @ts-ignore
-                    (index, key) => {
+                {turnstile.data.page_view.module_selectors.slice(6, 7).map((index: { state: number; index: string | number | undefined; }) => {
                     if (index.state === -1) {
                         return (
                             <div key={index.index} className="selectors-module none">
@@ -151,7 +167,7 @@ class SelectorGuest2D extends React.PureComponent {
         );
     }
 }
-// @ts-ignore
+
 SelectorGuest2D.propTypes = {
     togglePopupWindowTurnstile: PropTypes.func.isRequired,
     fetchDataTurnstile: PropTypes.func.isRequired,
@@ -159,8 +175,8 @@ SelectorGuest2D.propTypes = {
     turnstile: PropTypes.object,
     isFetching: PropTypes.bool
 };
-// @ts-ignore
-const mapStateToProps = state => ({
+
+const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
 export default connect(mapStateToProps, { fetchDataTurnstile, togglePopupWindowTurnstile })(SelectorGuest2D);

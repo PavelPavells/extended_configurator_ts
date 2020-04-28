@@ -6,6 +6,7 @@ import React, { Suspense, lazy } from 'react';
 import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
+import { ConfiguratorState } from '../../../../store/store';
 
 /**
  * Импорт экшенов
@@ -22,17 +23,23 @@ import './equipmentModal.scss';
  */
 const Loader = lazy(() => import('../../../../__utils__/Loader/Loader'));
 
-class EquipmentModal extends React.Component {
+/**
+ * Интерфейс компонента ModuleEquipmentModal
+ */
+interface EquipmentModalProps {
+    data: any,
+    fetchDataTurnstile: () => void
+}
+
+class EquipmentModal extends React.PureComponent<EquipmentModalProps> {
     /** ************* FETCHING DATA ************* */
     componentDidMount () {
-        // @ts-ignore
         this.props.fetchDataTurnstile();
     }
     render () {
         /** ************* DATA FROM STORE ************* */
-        // @ts-ignore
         const { turnstile, isFetching } = this.props.data;
-        //console.log(turnstile);
+        
         if (turnstile.data.length === 0 && !isFetching) {
             return <Suspense fallback={<div><Loader /></div>} />;
         }
@@ -41,7 +48,7 @@ class EquipmentModal extends React.Component {
             /**
              * Всплывающее меню компонента Equipment
              */
-            <div className="modal">
+            <section className="modal">
 
                 {/**
                  * Блоки описания для всплывающего окна
@@ -211,7 +218,7 @@ class EquipmentModal extends React.Component {
                     </div>
                 </div>
 
-            </div>
+            </section>
         );
     }
 }
@@ -222,8 +229,8 @@ EquipmentModal.propTypes = {
     turnstile: PropTypes.object,
     isFetching: PropTypes.bool
 };
-// @ts-ignore
-const mapStateToProps = state => ({
+
+const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
 export default connect(mapStateToProps, { fetchDataTurnstile })(EquipmentModal);

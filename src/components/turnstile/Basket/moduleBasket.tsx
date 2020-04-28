@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
+import { ConfiguratorState } from '../../../store/store';
 
 /**
  * Импорт экшенов
@@ -23,14 +24,28 @@ import './moduleBasket.scss';
  */
 const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
 
-class ModuleBasket extends React.PureComponent {
+/**
+ * Интерфейс компонента ModuleBasket
+ */
+interface ModuleBasketProps {
+    data: any,
+    fetchDataTurnstile: () => void
+}
+
+class ModuleBasket extends React.PureComponent<ModuleBasketProps> {
+    static propTypes: { 
+        fetchDataTurnstile: PropTypes.Validator<(...args: any[]) => any>; 
+        data: PropTypes.Validator<object>; 
+        turnstile: PropTypes.Requireable<object>; 
+        isFetching: PropTypes.Requireable<boolean>; 
+    };
+    
     render () {
         /**
         * Данные из Глобального Стора
         */
-       // @ts-ignore
         const { turnstile, isFetching } = this.props.data;
-        //console.log(turnstile);
+
         if (turnstile.data.length === 0 && !isFetching) {
             return (
                 <Suspense fallback={<div><Loader /></div>} />
@@ -68,15 +83,15 @@ class ModuleBasket extends React.PureComponent {
         );
     }
 }
-// @ts-ignore
+
 ModuleBasket.propTypes = {
     fetchDataTurnstile: PropTypes.func.isRequired,
     data: PropTypes.object.isRequired,
     turnstile: PropTypes.object,
     isFetching: PropTypes.bool
 };
-// @ts-ignore
-const mapStateToProps = state => ({
+
+const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
 export default connect(mapStateToProps, { fetchDataTurnstile })(ModuleBasket);

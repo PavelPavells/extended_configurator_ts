@@ -5,6 +5,7 @@ import React, { Suspense, lazy } from 'react';
 import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
+import { ConfiguratorState } from '../../../store/store';
 
 /**
  * Импорт экшенов
@@ -21,19 +22,31 @@ import './moduleImage.scss';
  */
 const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
 
-class ModuleImage extends React.PureComponent {
+/**
+ * Интерфейс компонента ModuleImage
+ */
+interface ModuleImageProps {
+    data: any,
+    fetchDataTurnstile: () => void
+}
+
+class ModuleImage extends React.PureComponent<ModuleImageProps> {
+    static propTypes: { 
+        fetchDataTurnstile: PropTypes.Validator<(...args: any[]) => any>;
+        data: PropTypes.Validator<object>;
+        turnstile: PropTypes.Requireable<object>;
+        isFetching: PropTypes.Requireable<boolean>;
+    };
     /**
     * Запрос данных
     */
     componentDidMount () {
-        // @ts-ignore
         this.props.fetchDataTurnstile();
     }
     render () {
         /**
         * Данные из Глобального Стора
         */
-       // @ts-ignore
         const { turnstile, isFetching } = this.props.data;
         if (turnstile.data.length === 0 && !isFetching) {
             return <Suspense fallback={<div><Loader /></div>} />;
@@ -42,25 +55,25 @@ class ModuleImage extends React.PureComponent {
             /**
              *  Модуль Изображение
              */
-            <div className="image">
+            <section className="image">
                 <img
                     src={turnstile.data.page_view.model_main_photo}
                     className="image__turnstile"
                     alt=""
                 />
-            </div>
+            </section>
         );
     }
 }
-// @ts-ignore
+
 ModuleImage.propTypes = {
     fetchDataTurnstile: PropTypes.func.isRequired,
     data: PropTypes.object.isRequired,
     turnstile: PropTypes.object,
     isFetching: PropTypes.bool
 };
-// @ts-ignore
-const mapStateToProps = state => ({
+
+const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
 export default connect(mapStateToProps, { fetchDataTurnstile })(ModuleImage);

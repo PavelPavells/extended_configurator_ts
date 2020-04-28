@@ -6,6 +6,7 @@ import React, { Suspense, lazy } from 'react';
 import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
+import { ConfiguratorState } from '../../../store/store';
 
 /**
  * Импорт экшенов
@@ -27,8 +28,30 @@ import './moduleEquipment.scss';
  */
 const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
 
-class ModuleEquipment extends React.PureComponent {
-    state = {
+/**
+ * Интерфейс компонента ModuleEquipment
+ */
+interface ModuleEquipmentProps {
+    data: any,
+    fetchDataTurnstile: () => void,
+}
+
+interface ModuleEquipmentState {
+    listEquipmentOne: boolean,
+    listEquipmentTwo: boolean,
+    listEquipmentThree: boolean,
+    listEquipmentFour: boolean
+}
+
+class ModuleEquipment extends React.PureComponent<ModuleEquipmentProps, ModuleEquipmentState> {
+    static propTypes: { 
+        fetchDataTurnstile: PropTypes.Validator<(...args: any[]) => any>;
+        data: PropTypes.Validator<object>;
+        turnstile: PropTypes.Requireable<object>;
+        isFetching: PropTypes.Requireable<boolean>;
+    };
+
+    state: ModuleEquipmentState = {
         listEquipmentOne: false,
         listEquipmentTwo: false,
         listEquipmentThree: false,
@@ -124,9 +147,8 @@ class ModuleEquipment extends React.PureComponent {
         /**
         * Данные из Глобального Стора
         */
-       // @ts-ignore
         const { turnstile, isFetching } = this.props.data;
-        //console.log(turnstile);
+
         if (turnstile.data.length === 0 && !isFetching) {
             return <Suspense fallback={<div><Loader /></div>} />;
         }
@@ -135,7 +157,7 @@ class ModuleEquipment extends React.PureComponent {
             /**
              *  Модуль Комплектующие
              */
-            <div className="equipment">
+            <section className="equipment">
                 <p className="equipment-description">Дополнительное оборудование</p>
                 <div className="equipment-list">
 
@@ -216,19 +238,19 @@ class ModuleEquipment extends React.PureComponent {
                     </div>
 
                 </div>
-            </div>
+            </section>
         );
     }
 }
-// @ts-ignore
+
 ModuleEquipment.propTypes = {
     fetchDataTurnstile: PropTypes.func.isRequired,
     data: PropTypes.object.isRequired,
     turnstile: PropTypes.object,
     isFetching: PropTypes.bool
 };
-// @ts-ignore
-const mapStateToProps = state => ({
+
+const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
 export default connect(mapStateToProps, { fetchDataTurnstile })(ModuleEquipment);

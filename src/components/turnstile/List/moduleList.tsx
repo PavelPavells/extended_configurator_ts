@@ -5,6 +5,7 @@ import React, { Suspense, lazy } from 'react';
 import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
+import { ConfiguratorState } from '../../../store/store';
 
 /**
  * Импорт экшенов
@@ -21,19 +22,32 @@ import './moduleList.scss';
  */
 const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
 
-class ModuleList extends React.PureComponent {
+/**
+ * Интерфейс компонента ModuleList
+ */
+interface ModuleListProps {
+    data: any,
+    fetchDataTurnstile: () => void
+}
+
+class ModuleList extends React.PureComponent<ModuleListProps> {
+    static propTypes: { 
+        fetchDataTurnstile: PropTypes.Validator<(...args: any[]) => any>;
+        data: PropTypes.Validator<object>;
+        turnstile: PropTypes.Requireable<object>;
+        isFetching: PropTypes.Requireable<boolean>;
+    };
+    
     /**
     * Запрос данных
     */
     componentDidMount () {
-        // @ts-ignore
         this.props.fetchDataTurnstile();
     }
     render () {
         /**
         * Данные из Глобального Стора
         */
-       // @ts-ignore
         const { turnstile, isFetching } = this.props.data;
 
         if (turnstile.data.length === 0 && !isFetching) {
@@ -45,26 +59,24 @@ class ModuleList extends React.PureComponent {
             /**
              *  Модуль Список
              */
-            <div className="list">
+            <section className="list">
                 <p className="list-description">Состав модели:</p>
-                {turnstile.data.page_view.model_module_list.map(
-                    // @ts-ignore
-                    (index) => (
+                {turnstile.data.page_view.model_module_list.map((index: { index: string | number | undefined; caption: React.ReactNode; }) => (
                     <div className="list-options" key={index.index}>{index.caption}</div>
                 ))}
-            </div>
+            </section>
         );
     }
 }
-// @ts-ignore
+
 ModuleList.propTypes = {
     fetchDataTurnstile: PropTypes.func.isRequired,
     data: PropTypes.object.isRequired,
     turnstile: PropTypes.object,
     isFetching: PropTypes.bool
 };
-// @ts-ignore
-const mapStateToProps = state => ({
+
+const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
 export default connect(mapStateToProps, { fetchDataTurnstile })(ModuleList);

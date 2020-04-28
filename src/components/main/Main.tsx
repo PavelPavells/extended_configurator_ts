@@ -8,6 +8,7 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
+import { ConfiguratorState } from '../../store/store';
 
 /**
  * Импорт экшенов
@@ -33,12 +34,26 @@ import './Main.scss';
  */
 const Loader = lazy(() => import('../../__utils__/Loader/Loader'));
 
-class Main extends React.PureComponent {
+/**
+ * Интерфейс компонента Main
+ */
+interface MainProps {
+    data: any,
+    fetchDataMain: () => void
+}
+
+class Main extends React.PureComponent<MainProps> {
+    static propTypes: { 
+        fetchDataMain: PropTypes.Validator<(...args: any[]) => any>;
+        data: PropTypes.Validator<object>; 
+        main: PropTypes.Requireable<object>; 
+        isFetching: PropTypes.Requireable<boolean>; 
+    };
+    
     /**
      * Запрос данных
      */
     componentDidMount () {
-        // @ts-ignore
         this.props.fetchDataMain();
     }
 
@@ -46,9 +61,8 @@ class Main extends React.PureComponent {
         /**
         * Данные из Глобального Стора
         */
-       // @ts-ignore
         const { main, isFetching } = this.props.data;
-        //console.log(main);
+
         if (main.data.length === 0 && !isFetching) {
             return (
                 <Suspense fallback={<div><Loader /></div>} />
@@ -71,9 +85,7 @@ class Main extends React.PureComponent {
                     {/**
                     * Шлагбаумы
                     */}
-                    {main.data.page_view.device_buttons.slice(0, 1).map(
-                        // @ts-ignore
-                        (index, key) => {
+                    {main.data.page_view.device_buttons.slice(0, 1).map((index: { index: string | number | undefined; caption: React.ReactNode; }) => {
                         return (
                             <NavLink to="/main" key={index.index} className="main-block">
                                 <div className="main-block__image">
@@ -99,9 +111,7 @@ class Main extends React.PureComponent {
                     {/**
                     * Турникеты
                     */}
-                    {main.data.page_view.device_buttons.slice(1, 2).map(
-                        // @ts-ignore
-                        (index, key) => {
+                    {main.data.page_view.device_buttons.slice(1, 2).map((index: { index: string | number | undefined; caption: React.ReactNode; }) => {
                         return (
                             <NavLink to="/turnstile" key={index.index} className="main-block">
                                 <div className="main-block__image">
@@ -129,15 +139,15 @@ class Main extends React.PureComponent {
         );
     }
 }
-// @ts-ignore
+
 Main.propTypes = {
     fetchDataMain: PropTypes.func.isRequired,
     data: PropTypes.object.isRequired,
     main: PropTypes.object,
     isFetching: PropTypes.bool
 };
-// @ts-ignore
-const mapStateToProps = state => ({
+
+const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
 export default connect(mapStateToProps, { fetchDataMain })(Main);

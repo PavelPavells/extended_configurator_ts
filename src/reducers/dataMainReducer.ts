@@ -2,12 +2,14 @@
  * Импорт глобальных переменных
  */
 import {
+    MainState,
+    MainActions,
     FETCHING_DATA_MAIN_REQUEST,
     FETCHING_DATA_MAIN_SUCCESS,
     FETCHING_DATA_MAIN_FAILURE
 } from '../constants/constants';
 
-const initialState = {
+const initialState: MainState = {
     isFetching: false,
     errorMessage: '',
     data: []
@@ -17,8 +19,7 @@ const initialState = {
  * Редьюсер Компонента Main
  */
 
- // @ts-ignore
-export default function (state = initialState, action) {
+export default function (state = initialState, action: MainActions): MainState {
     switch (action.type) {
         case FETCHING_DATA_MAIN_REQUEST:
             return {

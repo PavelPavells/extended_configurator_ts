@@ -2,10 +2,11 @@
 /**
  * Импорт зависимостей из NPM
  */
-import React, { Suspense } from "react";
-import PropTypes from "prop-types";
+import React, { Suspense } from 'react';
+import PropTypes from 'prop-types';
 // @ts-ignore
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
+import { ConfiguratorState } from '../../store/store';
 
 /**
  * Импорт экшенов
@@ -30,23 +31,41 @@ import photo from "../../images/str-compact1.png";
  */
 import './popup.scss';
 
-class Popup extends React.PureComponent {
-    /**
+/**
+ * Интерфейс компонента Popup
+ */
+interface PopupProps {
+    data: any,
+    handleCloseModal: () => void,
+    togglePopupWindowTurnstile: () => void,
+    togglePopupWindowMainInfoTurnstile: () => void
+}
+
+class Popup extends React.PureComponent<PopupProps> {
+    static propTypes: { 
+        fetchDataTurnstile: PropTypes.Requireable<(...args: any[]) => any>;
+        togglePopupWindowTurnstile: PropTypes.Validator<(...args: any[]) => any>;
+        togglePopupWindowMainInfoTurnstile: PropTypes.Validator<(...args: any[]) => any>;
+        data: PropTypes.Validator<object>;
+        turnstile: PropTypes.Requireable<object>; 
+    };
+
+  /**
    * Запрос данных
    */
-    componentDidMount () {
-    //this.props.fetchDataTurnstile();
-    }
+  //componentDidMount () {
+   //this.props.fetchDataTurnstile();
+  //}
 
-  /** ************* HANDLE CLOSE MODAL ************* */
-  // @ts-ignore
-  handleCloseModal = event => {
-      // @ts-ignore
+  /**
+   *  Обработчик экшена Открытия/Закрытия модального окна
+   */
+
+  handleCloseModal = () => {
       this.props.togglePopupWindowTurnstile();
 
       document.addEventListener('keydown', event => {
           if (event.keyCode === 27) {
-              // @ts-ignore
               this.handleCloseModal();
           }
       });
@@ -55,9 +74,7 @@ class Popup extends React.PureComponent {
   /**
    * Открыть/Закрыть Popup
    */
-  // @ts-ignore
-  handleToggleMainInfo = event => {
-      // @ts-ignore
+  handleToggleMainInfo = () => {
       this.props.togglePopupWindowMainInfoTurnstile();
   };
 
@@ -65,9 +82,8 @@ class Popup extends React.PureComponent {
       /**
      * Данные из Глобального Стора
      */
-    // @ts-ignore
       const { turnstile, isFetching } = this.props.data;
-      //console.log(turnstile);
+
       if (turnstile.data.length === 0 && !isFetching) {
           return (
               <Suspense fallback={<div><Loader /></div>} />
@@ -77,7 +93,7 @@ class Popup extends React.PureComponent {
 
       /**
        * Компонент Popup
-      */
+       */
           <section className="popup">
               <div className="left">
                   <div className="left__image">
@@ -153,7 +169,7 @@ class Popup extends React.PureComponent {
       );
   }
 }
-// @ts-ignore
+
 Popup.propTypes = {
     fetchDataTurnstile: PropTypes.func,
     togglePopupWindowTurnstile: PropTypes.func.isRequired,
@@ -161,8 +177,8 @@ Popup.propTypes = {
     data: PropTypes.object.isRequired,
     turnstile: PropTypes.object
 };
-// @ts-ignore
-const mapStateToProps = state => ({
+
+const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
 export default connect(

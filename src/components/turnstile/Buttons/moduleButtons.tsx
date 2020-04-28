@@ -7,6 +7,7 @@ import React, { Fragment, Suspense, lazy } from 'react';
 import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
+import { ConfiguratorState } from '../../../store/store';
 
 /**
  * Импорт экшенов
@@ -23,16 +24,29 @@ import './moduleButtons.scss';
  */
 const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
 
-class ModuleButtons extends React.PureComponent {
+/**
+ * Интерфейс компонента ModuleButtons
+ */
+interface ModuleButtonsProps {
+    data: any,
+    fetchDataTurnstile: (data: any, trigger: number) => void
+}
+
+class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
+    static propTypes: { 
+        fetchDataTurnstile: PropTypes.Validator<(...args: any[]) => any>; 
+        data: PropTypes.Validator<object>; 
+        turnstile: PropTypes.Requireable<object>; 
+        isFetching: PropTypes.Requireable<boolean>; 
+    };
+    
     /**
     * Запрос данных
     */
     componentDidMount () {
-        // @ts-ignore
         const { page_view } = this.props.data.turnstile.data;
         let data = {
             app_id: 'id',
-            // @ts-ignore
             trigger: this.props.data.turnstile.trigger ? this.props.data.turnstile.trigger : 1,
             trigger_state: 0,
             seria: 0,
@@ -47,15 +61,13 @@ class ModuleButtons extends React.PureComponent {
             selectSeven: page_view ? page_view.module_selectors[6].state : 0,
             selectEight: page_view ? page_view.module_selectors[7].state : 0
         };
-        // @ts-ignore
-        this.props.fetchDataTurnstile(data);
+        this.props.fetchDataTurnstile(data, data.trigger);
     }
 
     /**
     * Хэндлер для обработки запроса Серии STR
     */
     handleClickSeriaSTR = () => {
-        // @ts-ignore
         const { page_view } = this.props.data.turnstile.data;
         let data = {
             app_id: 'id',
@@ -74,7 +86,6 @@ class ModuleButtons extends React.PureComponent {
             selectEight: page_view.module_selectors[7].state !== -1 ? page_view.module_selectors[7].state : 0
 
         };
-        // @ts-ignore
         this.props.fetchDataTurnstile(data, data.trigger);
     }
 
@@ -82,7 +93,6 @@ class ModuleButtons extends React.PureComponent {
     * Хэндлер для обработки запроса Серии STX
     */
     handleClickSeriaSTX = () => {
-        // @ts-ignore
         const { page_view } = this.props.data.turnstile.data;
         let data = {
             app_id: 'id',
@@ -100,7 +110,6 @@ class ModuleButtons extends React.PureComponent {
             selectSeven: page_view.module_selectors[6].state !== -1 ? page_view.module_selectors[6].state : 0,
             selectEight: page_view.module_selectors[7].state !== -1 ? page_view.module_selectors[7].state : 0
         };
-        // @ts-ignore
         this.props.fetchDataTurnstile(data, data.trigger);
     }
 
@@ -108,7 +117,6 @@ class ModuleButtons extends React.PureComponent {
     * Хэндлер для обработки запроса Исполнение STR
     */
     handleClickExecutionCompact = () => {
-        // @ts-ignore
         const { page_view } = this.props.data.turnstile.data;
         let data = {
             app_id: 'id',
@@ -126,7 +134,6 @@ class ModuleButtons extends React.PureComponent {
             selectSeven: page_view.module_selectors[6].state !== -1 ? page_view.module_selectors[6].state : 0,
             selectEight: page_view.module_selectors[7].state !== -1 ? page_view.module_selectors[7].state : 0
         };
-        // @ts-ignore
         this.props.fetchDataTurnstile(data, data.trigger);
     }
 
@@ -134,7 +141,6 @@ class ModuleButtons extends React.PureComponent {
     * Хэндлер для обработки запроса Исполнение STR
     */
     handleClickExecutionThumb = () => {
-        // @ts-ignore
         const { page_view } = this.props.data.turnstile.data;
         let data = {
             app_id: 'id',
@@ -152,14 +158,11 @@ class ModuleButtons extends React.PureComponent {
             selectSeven: page_view.module_selectors[6].state !== -1 ? page_view.module_selectors[6].state : 0,
             selectEight: page_view.module_selectors[7].state !== -1 ? page_view.module_selectors[7].state : 0
         };
-        // @ts-ignore
         this.props.fetchDataTurnstile(data, data.trigger);
     }
     handleClickResetSelectors = () => {
-        // @ts-ignore
         const { page_view } = this.props.data.turnstile.data;
         let data = {
-            // @ts-ignore
             trigger: this.props.data.turnstile.trigger,
             button_seria_state: page_view.btn_seria,
             button_corpse_state: page_view.btn_corpse,
@@ -173,16 +176,14 @@ class ModuleButtons extends React.PureComponent {
             selectSeven: 0,
             selectEight: 0
         };
-        // @ts-ignore
         this.props.fetchDataTurnstile(data, data.trigger);
     }
     render () {
         /**
         * Данные из Глобального Стора
         */
-       // @ts-ignore
         const { turnstile, isFetching } = this.props.data;
-        //console.log(turnstile);
+
         if (turnstile.data.length === 0 && !isFetching) {
             return <Suspense fallback={<div><Loader /></div>} />;
         }
@@ -191,7 +192,7 @@ class ModuleButtons extends React.PureComponent {
             /**
              *  Модуль выбора Серии/Исполнения
              */
-            <div className="buttons">
+            <section className="buttons">
                 <div className="top">
 
                     {/**
@@ -286,19 +287,19 @@ class ModuleButtons extends React.PureComponent {
                         }
                     </div>
                 </div>
-            </div>
+            </section>
         );
     }
 }
-// @ts-ignore
+
 ModuleButtons.propTypes = {
     fetchDataTurnstile: PropTypes.func.isRequired,
     data: PropTypes.object.isRequired,
     turnstile: PropTypes.object,
     isFetching: PropTypes.bool
 };
-// @ts-ignore
-const mapStateToProps = state => ({
+
+const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
 export default connect(mapStateToProps, { fetchDataTurnstile })(ModuleButtons);
