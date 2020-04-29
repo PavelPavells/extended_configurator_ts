@@ -32,12 +32,16 @@ interface EquipmentModalProps {
 }
 
 class EquipmentModal extends React.PureComponent<EquipmentModalProps> {
-    /** ************* FETCHING DATA ************* */
+    /**
+    * Запрос данных
+    */
     componentDidMount () {
         this.props.fetchDataTurnstile();
     }
     render () {
-        /** ************* DATA FROM STORE ************* */
+        /**
+        * Данные из Глобального Стора
+        */
         const { turnstile, isFetching } = this.props.data;
         
         if (turnstile.data.length === 0 && !isFetching) {

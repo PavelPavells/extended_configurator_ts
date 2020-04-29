@@ -4,7 +4,6 @@
 import React from 'react';
 // @ts-ignore
 import { Provider } from 'react-redux';
-// @ts-ignore
 import { BrowserRouter } from 'react-router-dom';
 
 /**
