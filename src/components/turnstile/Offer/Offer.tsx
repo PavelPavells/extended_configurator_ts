@@ -5,7 +5,6 @@
  * Импорт зависимостей из NPM
  */
 import React, { Suspense, lazy } from 'react';
-// @ts-ignore
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 // @ts-ignore
@@ -33,7 +32,8 @@ const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
  */
 interface OfferProps {
     data: any,
-    fetchDataTurnstile: (data: any) => void
+    fetchDataTurnstile: (data: any) => void,
+    handleOpenModal: (index: any, key: number) => void
 }
 
 interface OfferState {
@@ -75,13 +75,11 @@ class Offer extends React.PureComponent<OfferProps, OfferState> {
         };
         this.props.fetchDataTurnstile(data);
     }
-
-    // @ts-ignore
-    handleOpenModal = (index, key) => {
+    
+    handleOpenModal = (index: any, key: number) => {
         //console.log('INDEX ' + index.name);
         //console.log('KEY ' + key);
         if (index.index === 0 && key === 0) {
-            // @ts-ignore
             this.setState({ modal: !this.state.modal });
         }
     }

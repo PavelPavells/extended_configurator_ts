@@ -2,7 +2,6 @@
  * Импорт зависимостей из NPM
  */
 import React, { Suspense, lazy } from 'react';
-// @ts-ignore
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 // @ts-ignore
@@ -94,4 +93,5 @@ ModuleBasket.propTypes = {
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
+
 export default connect(mapStateToProps, { fetchDataTurnstile })(ModuleBasket);

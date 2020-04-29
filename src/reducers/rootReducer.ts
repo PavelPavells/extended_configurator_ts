@@ -7,6 +7,4 @@ const rootReducer = combineReducers({
     turnstile: dataTurnstileReducer
 })
 
-//export type ConfiguratorState = ReturnType<typeof rootReducer>;
-
 export default rootReducer;

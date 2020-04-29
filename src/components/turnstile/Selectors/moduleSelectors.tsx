@@ -34,7 +34,7 @@ class ModuleSelectors extends React.PureComponent<ModuleSelectorsProps> {
         turnstile: PropTypes.Requireable<object>;
         isFetching: PropTypes.Requireable<boolean>;
     };
-
+    
     render () {
         /** ************* DATA FROM STORE ************* */
         const { turnstile, isFetching } = this.props.data;

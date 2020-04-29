@@ -35,7 +35,7 @@ interface ModuleButtonsProps {
 class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
     static propTypes: { 
         fetchDataTurnstile: PropTypes.Validator<(...args: any[]) => any>; 
-        data: PropTypes.Validator<object>; 
+        data: PropTypes.Validator<object>;
         turnstile: PropTypes.Requireable<object>; 
         isFetching: PropTypes.Requireable<boolean>; 
     };
@@ -76,10 +76,10 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
             seria: 0,
             button_seria_state: 0,
             button_corpse_state: page_view.btn_corpse,
-            selectOne: page_view.module_selectors[0].state !== -1 ? page_view.module_selectors[0].state : 0,
-            selectTwo: page_view.module_selectors[1].state !== -1 ? page_view.module_selectors[1].state : 0,
-            selectThree: page_view.module_selectors[2].state !== -1 ? page_view.module_selectors[2].state : 0,
-            selectFour: page_view.module_selectors[3].state !== -1 ? page_view.module_selectors[3].state : 0,
+            selectOne: page_view ? page_view.module_selectors[0].state : 0,
+            selectTwo: page_view ? page_view.module_selectors[1].state : 0,
+            selectThree: page_view ? page_view.module_selectors[2].state : 0,
+            selectFour: page_view ? page_view.module_selectors[3].state : 0,
             selectFive: page_view.module_selectors[4].state !== -1 ? page_view.module_selectors[4].state : 0,
             selectSix: page_view.module_selectors[5].state !== -1 ? page_view.module_selectors[5].state : 0,
             selectSeven: page_view.module_selectors[6].state !== -1 ? page_view.module_selectors[6].state : 0,
@@ -101,10 +101,10 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
             seria: 0,
             button_seria_state: 1,
             button_corpse_state: page_view.btn_corpse,
-            selectOne: page_view.module_selectors[0].state !== -1 ? page_view.module_selectors[0].state : 0,
-            selectTwo: page_view.module_selectors[1].state !== -1 ? page_view.module_selectors[1].state : 0,
-            selectThree: page_view.module_selectors[2].state !== -1 ? page_view.module_selectors[2].state : 0,
-            selectFour: page_view.module_selectors[3].state !== -1 ? page_view.module_selectors[3].state : 0,
+            selectOne: page_view ? page_view.module_selectors[0].state : 0,
+            selectTwo: page_view ? page_view.module_selectors[1].state : 0,
+            selectThree: page_view ? page_view.module_selectors[2].state : 0,
+            selectFour: page_view ? page_view.module_selectors[3].state : 0,
             selectFive: page_view.module_selectors[4].state !== -1 ? page_view.module_selectors[4].state : 0,
             selectSix: page_view.module_selectors[5].state !== -1 ? page_view.module_selectors[5].state : 0,
             selectSeven: page_view.module_selectors[6].state !== -1 ? page_view.module_selectors[6].state : 0,
@@ -125,10 +125,10 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
             seria: 0,
             button_seria_state: page_view.btn_seria,
             button_corpse_state: 0,
-            selectOne: page_view.module_selectors[0].state !== -1 ? page_view.module_selectors[0].state : 0,
-            selectTwo: page_view.module_selectors[1].state !== -1 ? page_view.module_selectors[1].state : 0,
-            selectThree: page_view.module_selectors[2].state !== -1 ? page_view.module_selectors[2].state : 0,
-            selectFour: page_view.module_selectors[3].state !== -1 ? page_view.module_selectors[3].state : 0,
+            selectOne: page_view ? page_view.module_selectors[0].state : 0,
+            selectTwo: page_view ? page_view.module_selectors[1].state : 0,
+            selectThree: page_view ? page_view.module_selectors[2].state : 0,
+            selectFour: page_view ? page_view.module_selectors[3].state : 0,
             selectFive: page_view.module_selectors[4].state !== -1 ? page_view.module_selectors[4].state : 0,
             selectSix: page_view.module_selectors[5].state !== -1 ? page_view.module_selectors[5].state : 0,
             selectSeven: page_view.module_selectors[6].state !== -1 ? page_view.module_selectors[6].state : 0,
@@ -149,10 +149,10 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
             seria: 0,
             button_seria_state: page_view.btn_seria,
             button_corpse_state: 1,
-            selectOne: page_view.module_selectors[0].state !== -1 ? page_view.module_selectors[0].state : 0,
-            selectTwo: page_view.module_selectors[1].state !== -1 ? page_view.module_selectors[1].state : 0,
-            selectThree: page_view.module_selectors[2].state !== -1 ? page_view.module_selectors[2].state : 0,
-            selectFour: page_view.module_selectors[3].state !== -1 ? page_view.module_selectors[3].state : 0,
+            selectOne: page_view ? page_view.module_selectors[0].state : 0,
+            selectTwo: page_view ? page_view.module_selectors[1].state : 0,
+            selectThree: page_view ? page_view.module_selectors[2].state : 0,
+            selectFour: page_view ? page_view.module_selectors[3].state : 0,
             selectFive: page_view.module_selectors[4].state !== -1 ? page_view.module_selectors[4].state : 0,
             selectSix: page_view.module_selectors[5].state !== -1 ? page_view.module_selectors[5].state : 0,
             selectSeven: page_view.module_selectors[6].state !== -1 ? page_view.module_selectors[6].state : 0,
@@ -183,7 +183,7 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
         * Данные из Глобального Стора
         */
         const { turnstile, isFetching } = this.props.data;
-
+        //console.log(this.props.data.turnstile.trigger)
         if (turnstile.data.length === 0 && !isFetching) {
             return <Suspense fallback={<div><Loader /></div>} />;
         }
@@ -199,9 +199,9 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
                      * Описание
                      */}
                     <div className="top-captions">
-                        <div className="top-captions__description">Модель</div>
-                        <div className="top-captions__description">Серия</div>
-                        <div className="top-captions__description">Итоговая стоимость</div>
+                        <div className="top-captions__model">Модель</div>
+                        <div className="top-captions__seria">Серия</div>
+                        <div className="top-captions__summ">Итоговая стоимость</div>
                     </div>
                     <div className="top-select">
                         <div className="top-select__model">{turnstile.data.page_view.model_name}</div>

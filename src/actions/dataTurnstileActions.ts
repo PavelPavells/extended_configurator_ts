@@ -75,22 +75,22 @@ export const fetchDataTurnstile = (data: any, trigger: number) => (dispatch: (ar
                 },
                 {
                     module: 4,
-                    // @ts-ignore  /** Typescript не применяет "<", т.к. не работает с boolean и number */
+                    // @ts-ignore  /** Typescript не применяет "<", т.к. не работает с boolean как с number */
                     state: data.selectFive && !data.selectFive < 0 ? data.selectFive : 0
                 },
                 {
                     module: 5,
-                    // @ts-ignore  /** Typescript не применяет "<", т.к. не работает с boolean и number */
+                    // @ts-ignore  /** Typescript не применяет "<", т.к. не работает с boolean как с number */
                     state: data.selectSix && !data.selectSix < 0 ? data.selectSix : 0
                 },
                 {
                     module: 6,
-                    // @ts-ignore  /** Typescript не применяет "<", т.к. не работает с boolean и number */
+                    // @ts-ignore  /** Typescript не применяет "<", т.к. не работает с boolean как с number */
                     state: data.selectSeven && !data.selectSeven < 0 ? data.selectSeven : 0
                 },
                 {
                     module: 7,
-                    // @ts-ignore  /** Typescript не применяет "<", т.к. не работает с boolean и number */
+                    // @ts-ignore  /** Typescript не применяет "<", т.к. не работает с boolean как с number */
                     state: data.selectEight && !data.selectEight < 0 ? data.selectEight : 0
                 }
             ]

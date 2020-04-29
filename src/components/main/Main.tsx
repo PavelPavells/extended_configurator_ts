@@ -3,7 +3,6 @@
  * Импорт зависимостей из NPM
  */
 import React, { Suspense, lazy } from 'react';
-// @ts-ignore
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 // @ts-ignore

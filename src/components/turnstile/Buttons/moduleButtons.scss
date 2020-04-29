@@ -20,7 +20,22 @@
         width: 100%;
         margin-bottom: 7px;
         
-        &__description {
+        &__model {
+            font-size: 12px;
+            line-height: 1.5;
+            letter-spacing: normal;
+            color: $brandPantonDescription;
+        }
+
+        &__seria {
+            margin-left: 60px;
+            font-size: 12px;
+            line-height: 1.5;
+            letter-spacing: normal;
+            color: $brandPantonDescription;
+        }
+
+        &__summ {
             font-size: 12px;
             line-height: 1.5;
             letter-spacing: normal;
@@ -48,6 +63,7 @@
             display: flex;
             flex-direction: row;
             border-radius: 20px;
+            margin-left: 60px;
             border: 1px solid $brandPantonBorderButton;
 
             &-str {
