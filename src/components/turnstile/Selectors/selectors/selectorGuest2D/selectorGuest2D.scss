@@ -1,7 +1,11 @@
-/** ***** IMPORT GLOBAL STYLE ***** */
+/**
+    Импорт глобальных переменных
+*/
 @import '../../../../../styles/styles.scss';
 
-/** ***** MODULE GUEST 2D ***** */
+/**
+    Стили компонента selectorGuest2D
+*/
 .selectors {
     display: flex;
     flex-direction: column;
@@ -14,7 +18,6 @@
         color: $brandPantonDescription;
     }
 
-    /** ***** MODULE GUEST 2D SELECTOR ***** */
     &-module {
         display: flex;
         flex-direction: row;
@@ -86,7 +89,9 @@
     }
 }
 
-/**  ***** GUEST 2D SELECTORS ICONS STYLES *****  */
+/**
+    Стили иконок компонента selectorGuest2D
+*/
 .guest-access {
     display: block;
     min-width: 30px;
@@ -94,12 +99,17 @@
     margin-right: 1%;
     background: url('../../../../../images/icon/guest-access.svg') no-repeat center;
 }
-/**  ***** DISABLED GUEST 2D SELECTOR *****  */
+
+/**
+    Стили для недоступных селекторов
+*/
 .none {
     opacity: 0.5;
 }
 
-// ***** SWITHCER GUEST 2D SELECTOR ***** //
+/**
+    Стили переключателя selectorGuest2D
+*/
 .onoffswitch7 {
     position: relative; min-width: 50px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;

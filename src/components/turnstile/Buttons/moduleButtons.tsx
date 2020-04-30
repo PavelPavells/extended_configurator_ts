@@ -3,7 +3,7 @@
 /**
  * Импорт зависимостей из NPM
  */
-import React, { Fragment, Suspense, lazy } from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
@@ -22,7 +22,7 @@ import './moduleButtons.scss';
 /**
  * Импорт прелоадера
  */
-const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
+import Loader from '../../../__utils__/Loader/Loader';
 
 /**
  * Интерфейс компонента ModuleButtons
@@ -47,7 +47,7 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
         const { page_view } = this.props.data.turnstile.data;
         let data = {
             app_id: 'id',
-            trigger: this.props.data.turnstile.trigger ? this.props.data.turnstile.trigger : 1,
+            trigger: this.props.data.turnstile.trigger,
             trigger_state: 0,
             seria: 0,
             button_seria_state: page_view ? page_view.btn_seria : 0,
@@ -185,7 +185,7 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
         const { turnstile, isFetching } = this.props.data;
         //console.log(this.props.data.turnstile.trigger)
         if (turnstile.data.length === 0 && !isFetching) {
-            return <Suspense fallback={<div><Loader /></div>} />;
+            return <Loader />;
         }
         return (
 

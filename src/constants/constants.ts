@@ -40,7 +40,7 @@ export const TOGGLE_MODAL_TURNSTILE_MAIN_INFO = 'TOGGLE_MODAL_TURNSTILE_MAIN_INF
 export const TOGGLE_MODAL_BARRIER = 'TOGGLE_MODAL_BARRIER';
 
 /**
- * Интерфейсы стейта Компонента Turnstile
+ * Интерфейсы стейта Компонента Турникеты
  */
 
  export interface MainState {
@@ -66,7 +66,7 @@ export const TOGGLE_MODAL_BARRIER = 'TOGGLE_MODAL_BARRIER';
  export type MainActions = MainRequest | MainSuccess | MainFailure;
  
 /**
- * Интерфейсы стейта Компонента Turnstile
+ * Интерфейсы стейта Компонента Турникеты
  */
 
  export interface TurnstileState {

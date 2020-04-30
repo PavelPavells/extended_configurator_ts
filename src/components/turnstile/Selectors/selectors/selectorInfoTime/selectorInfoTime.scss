@@ -1,7 +1,11 @@
-/** ***** IMPORT GLOBAL STYLE ***** */
+/**
+    Импорт глобальных переменных
+*/
 @import '../../../../../styles/styles.scss';
 
-/** ***** MODULE INFO TIME ***** */
+/**
+    Стили компонента selectorInfoTime
+*/
 .selectors {
     display: flex;
     flex-direction: column;
@@ -84,7 +88,9 @@
         }
     }
 }
-/**  ***** INFO TIME ICONS STYLES *****  */
+/**
+    Стили иконок компонента selectorInfoTime
+*/
 .time {
     display: block;
     min-width: 30px;
@@ -93,14 +99,16 @@
     background: url('../../../../../images/icon/time.svg') no-repeat center;
 }
 
-/**  ***** DISABLED MODULE INFO TIME SELECTOR *****  */
+/**
+    Стили для недоступных селекторов
+*/
 .none {
     opacity: 0.5;
 }
   
-/**  ***** SWITCHERS *****  */
-
-// ***** SWITCHERS INFO TIME SELECTOR ***** //
+/**
+    Стили переключателя selectorInfoTime
+*/
 .onoffswitch5 {
     position: relative; min-width: 50px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;

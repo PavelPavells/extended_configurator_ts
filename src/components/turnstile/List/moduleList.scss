@@ -1,7 +1,11 @@
-/** ***** IMPORT GLOBAL STYLE ***** */
+/**
+    Импорт глобальных переменных
+*/
 @import '../../../styles/styles.scss';
 
-/** ***** MODULE LIST ***** */
+/**
+    Стили компонента moduleList
+*/
 .list {
     display: flex;
     flex-direction: column;

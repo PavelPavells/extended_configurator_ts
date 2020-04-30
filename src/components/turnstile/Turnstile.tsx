@@ -1,7 +1,7 @@
 /**
  * Импорт зависимостей из NPM
  */
-import React, { lazy } from 'react';
+import React from 'react';
 // @ts-ignore
 import { connect } from 'react-redux';
 
@@ -13,13 +13,13 @@ import './Turnstile.scss';
 /**
  * Импорт основных подмодулей
  */
-const ModuleImage = lazy(() => import('./Image/moduleImage'));
-const ModuleList = lazy(() => import('./List/moduleList'));
-const ModuleButtons = lazy(() => import('./Buttons/moduleButtons'));
-const ModuleSelectors = lazy(() => import('./Selectors/moduleSelectors'));
-const ModuleBasket = lazy(() => import('./Basket/moduleBasket'));
-const ModuleConfiguration = lazy(() => import('./Configuration/moduleConfiguration'));
-const ModuleEquipment = lazy(() => import ('./Equipment/moduleEquipment'));
+import ModuleImage from './Image/moduleImage';
+import ModuleList from './List/moduleList';
+import ModuleButtons from './Buttons/moduleButtons';
+import ModuleSelectors from './Selectors/moduleSelectors';
+import ModuleBasket from './Basket/moduleBasket';
+import ModuleConfiguration from './Configuration/moduleConfiguration';
+import ModuleEquipment from './Equipment/moduleEquipment';
 
 class Turnstile extends React.PureComponent {
     render () {
@@ -89,4 +89,5 @@ class Turnstile extends React.PureComponent {
         );
     }
 }
+
 export default connect(null, null)(Turnstile);

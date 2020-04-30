@@ -2,7 +2,7 @@
 /**
  * Импорт зависимостей из NPM
  */
-import React, { Suspense, lazy } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 // @ts-ignore
@@ -31,7 +31,7 @@ import './Main.scss';
 /**
  * Импорт прелоадера
  */
-const Loader = lazy(() => import('../../__utils__/Loader/Loader'));
+import Loader from '../../__utils__/Loader/Loader';
 
 /**
  * Интерфейс компонента Main
@@ -63,9 +63,7 @@ class Main extends React.PureComponent<MainProps> {
         const { main, isFetching } = this.props.data;
 
         if (main.data.length === 0 && !isFetching) {
-            return (
-                <Suspense fallback={<div><Loader /></div>} />
-            );
+            return <Loader />;
         }
         return (
             /**

@@ -1,7 +1,11 @@
-/** ***** IMPORT GLOBAL STYLE ***** */
+/**
+    Импорт глобальных переменных
+*/
 @import '../../../styles/styles.scss';
 
-/** ***** MODULE IMAGE ***** */
+/**
+    Стили компонента Image
+*/
 .image {
     display: flex;
     width: 350px;

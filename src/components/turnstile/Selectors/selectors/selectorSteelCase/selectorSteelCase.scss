@@ -1,7 +1,11 @@
-/** ***** IMPORT GLOBAL STYLE ***** */
+/**
+    Импорт глобальных переменных
+*/
 @import '../../../../../styles/styles.scss';
 
-/** ***** MODULE STEEL CASE ***** */
+/**
+    Стили компонента selectorSteelCase
+*/
 .selectors {
     display: flex;
     flex-direction: column;
@@ -84,7 +88,10 @@
         }
     }
 }
-/**  ***** STEEL CASE ICONS STYLES *****  */
+
+/**
+    Стили иконок компонента selectorSteelCase
+*/
 .steel {
     display: block;
     min-width: 30px;
@@ -93,12 +100,16 @@
     background: url('../../../../../images/icon/stainless-case.svg') no-repeat center;
 }
 
-/**  ***** DISABLED STEEL CASE SELECTOR *****  */
+/**
+    Стили для недоступных селекторов
+*/
 .none {
     opacity: 0.5;
 }
 
-// ***** SWITCHER STEEL CASE SELECTOR ***** //
+/**
+    Стили переключателя selectorSteelCase
+*/
 .onoffswitch8 {
     position: relative; min-width: 50px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;

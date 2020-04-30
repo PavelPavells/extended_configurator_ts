@@ -1,7 +1,11 @@
-/** ***** IMPORT GLOBAL STYLE ***** */
+/**
+    Импорт глобальных переменных
+*/
 @import '../../../../../styles/styles.scss';
 
-/** ***** MODULE MIFIRE ***** */
+/**
+    Стили компонента selectorMifire
+*/
 .selectors {
     display: flex;
     flex-direction: column;
@@ -84,8 +88,10 @@
         }
     }
 }
-/**  ***** MIFIRE ICONS STYLES *****  */
 
+/**
+    Стили иконок компонента selectorSteelCase
+*/
 .mifire {
     display: block;
     min-width: 30px;
@@ -94,12 +100,16 @@
     background: url('../../../../../images/icon/mifare.svg') no-repeat center;
 }
 
-/**  ***** DISABLED MIFIRE SELECTOR *****  */
+/**
+    Стили для недоступных селекторов
+*/
 .none {
     opacity: 0.5;
 }
 
-// ***** SWITCHER MIFIRE SELECTOR ***** //
+/**
+    Стили переключателя selectorMifire
+*/
 .onoffswitch3 {
     position: relative; min-width: 50px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
