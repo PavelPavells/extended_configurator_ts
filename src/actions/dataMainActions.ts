@@ -24,8 +24,6 @@ export const fetchingDataMainRequest = (): MainActions => ({
 /**
  *  Экшен для обработки и запись полученных данных в редьюсер
  */
-
-// @ts-ignore
 export const fetchingDataMainSuccess = (data: any): MainActions => ({
     type: FETCHING_DATA_MAIN_SUCCESS,
     payload: data.data
@@ -34,8 +32,6 @@ export const fetchingDataMainSuccess = (data: any): MainActions => ({
 /**
  * Экшен для обработки запроса с ошибкой
  */
-
- // @ts-ignore
 export const fetchingDataMainFailure = (error: any): MainActions => ({
     type: FETCHING_DATA_MAIN_FAILURE,
     payload: error
