@@ -1,7 +1,11 @@
-/** ***** IMPORT GLOBAL STYLE ***** */
+/**
+    Импорт глобальных переменных
+*/
 @import '../../../styles/styles.scss';
 
-/** ***** MODULE OFFER ***** */
+/**
+    Стили компонента Offer
+*/
 .offer {
     display: flex;
     flex-direction: column;
@@ -9,7 +13,9 @@
     align-items: center;
     background-color: #fafafa;
 
-    /** ***** OFFER DESCRIPTION ***** */
+    /**
+        Описание
+    */
     &-description {
         display: flex;
         justify-content: space-between;
@@ -84,7 +90,9 @@
         }
     }
 
-    /** ***** MAIN BLOCK OFFER ***** */
+    /**
+        Основной блок предложения
+    */
     &-goods {
         display: flex;
         flex-direction: column;
@@ -318,7 +326,9 @@
             }
         }
 
-        /** ***** MAIN BLOCK OFFER POPUP ***** */
+        /**
+            Стили всплывающего окна
+        */
         .offer-popup {
             width: 100%;
         }
@@ -430,7 +440,9 @@
         }
     }
 
-    /** ***** DOWNLOAD OFFER ***** */
+    /**
+        Кнопка скачать предложение
+    */
     &-price {
         display: flex;
         justify-content: space-between;

@@ -1,14 +1,20 @@
-/** ***** IMPORT GLOBAL STYLE ***** */
+/**
+    Импорт глобальных переменных
+*/
 @import '../../../styles/styles.scss';
 
-/** ***** MODULE BASKET ***** */
+/**
+    Стили компонента moduleBasket
+*/
 .basket {
     display: flex;
     justify-content: space-between;
     width: 100%;
     border-bottom: 1px solid $brandPantonBorderButton;
 
-    /** ***** DESCRIPTION ***** */
+    /**
+        Описание модуля Корзина
+    */
     &-description {
         margin: 0;
         font-size: 26px;
@@ -17,7 +23,9 @@
         padding: 23px 0 24px 40px;
     }
 
-    /** ***** BASKET INFO ***** */
+    /**
+        Корзина
+    */
     &-data {
         display: flex;
         flex-direction: row;

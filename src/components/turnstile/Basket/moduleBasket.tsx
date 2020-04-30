@@ -1,7 +1,7 @@
 /**
  * Импорт зависимостей из NPM
  */
-import React, { Suspense, lazy } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 // @ts-ignore
@@ -21,7 +21,7 @@ import './moduleBasket.scss';
 /**
  * Импорт прелоадера
  */
-const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
+import Loader from '../../../__utils__/Loader/Loader';
 
 /**
  * Интерфейс компонента ModuleBasket
@@ -46,9 +46,7 @@ class ModuleBasket extends React.PureComponent<ModuleBasketProps> {
         const { turnstile, isFetching } = this.props.data;
 
         if (turnstile.data.length === 0 && !isFetching) {
-            return (
-                <Suspense fallback={<div><Loader /></div>} />
-            );
+            return <Loader />;
         }
         return (
 

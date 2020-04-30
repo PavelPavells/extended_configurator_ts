@@ -3,7 +3,7 @@
 /**
  * Импорт зависимостей из NPM
  */
-import React, { Fragment, lazy } from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
@@ -25,7 +25,7 @@ import './selectorMifire.scss';
 /**
  * Импорт прелоадера
  */
-const PopUp = lazy(() => import('../../../../popup/popup'));
+import PopUp from '../../../../popup/popup';
 
 /**
  * Интерфейс компонента SelectorBiometry

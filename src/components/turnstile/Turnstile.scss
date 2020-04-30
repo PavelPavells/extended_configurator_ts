@@ -1,12 +1,18 @@
-/** ***** IMPORT GLOBAL STYLE ***** */
+/**
+    Импорт глобальных переменных
+*/
 @import '../../styles/styles.scss';
 
-/** ***** TURNSTILE COMPONENT ***** */
+/**
+    Стили компонента Turnstile
+*/
 .turnstile {
     display: flex;
     flex-direction: column;
 
-    /** ***** WRAPPER BASKET COMPONENT ***** */
+    /**
+        Обертка компонента Basket
+    */
     &-basket {
        width: 100%;
     }
@@ -24,7 +30,9 @@
             width: 45%;
             margin: 0 40px;
 
-            /** ***** WRAPPER IMAGE COMPONENT ***** */
+            /**
+                Обертка компонента Image
+            */
             &-image {
                 display: flex;
                 justify-content: center;
@@ -33,7 +41,9 @@
                 background-color: $brandPantonGrey;
             }
 
-            /** ***** WRAPPER LIST COMPONENT ***** */
+            /**
+                Обертка компонента List
+            */
             &-list {
                 display: flex;
                 justify-content: flex-start;
@@ -47,14 +57,18 @@
             width: 100%;
             margin-right: 40px;
 
-            /** ***** WRAPPER BUTTONS COMPONENT ***** */
+            /**
+                Обертка компонента Buttons
+            */
             &-buttons {
                 display: flex;
                 justify-content: center;
                 align-items: center;
             }
 
-            /** ***** WRAPPER SELECTORS COMPONENT ***** */
+            /**
+                обертка компонента Selectors
+            */
             &-selectors {
                 display: flex;
                 height: 50vh;
@@ -62,7 +76,9 @@
         }
     }
 
-    /** ***** WRAPPER CONFIGURATION COMPONENT ***** */
+    /**
+        Обертка компонента Configuration
+    */
     &-configuration {
         display: flex;
         padding-top: 40px;
@@ -70,7 +86,9 @@
         background-color:#fafafa;
     }
 
-    /** ***** WRAPPER EQUIPMENT COMPONENT ***** */
+    /**
+        Обертка компонента Equipment
+    */
     &-equipment {
         display: flex;
         width: 100%;

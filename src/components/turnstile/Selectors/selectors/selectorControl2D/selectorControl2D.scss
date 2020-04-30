@@ -1,7 +1,11 @@
-/** ***** IMPORT GLOBAL STYLE ***** */
+/**
+    Импорт глобальных переменных
+*/
 @import '../../../../../styles/styles.scss';
 
-/** ***** MODULE CONTROL 2D ***** */
+/**
+    Стили компонента selectorControl2D
+*/
 .selectors {
     display: flex;
     flex-direction: column;
@@ -84,8 +88,10 @@
         }
     }
 }
-/**  ***** MODULE CONTROL 2D ICONS STYLES *****  */
 
+/**
+    Стили иконок компонента selectorControl2D
+*/
 .one-visits {
     display: block;
     min-width: 30px;
@@ -94,12 +100,16 @@
     background: url('../../../../../images/icon/one-time-control.svg') no-repeat center;
 }
 
-/**  ***** DISABLED MODULE CONTROL 2D SELECTOR *****  */
+/**
+    Стили для недоступных селекторов
+*/
 .none {
     opacity: 0.5;
 }
 
-// ***** SWITCHER MODULE CONTROL 2D SELECTOR ***** //
+/**
+    Стили переключателя selectorControl2D
+*/
 .onoffswitch6 {
     position: relative; min-width: 50px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;

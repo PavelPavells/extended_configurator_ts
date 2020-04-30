@@ -1,7 +1,11 @@
-/** ***** IMPORT GLOBAL STYLE ***** */
+/**
+    Импорт глобальных переменных
+*/
 @import '../../styles/styles.scss';
 
-/** ***** MAIN ***** */
+/**
+    Стили компонента Main
+*/
 .main {
     display: flex;
     flex-direction: column;
@@ -31,7 +35,9 @@
         width: 100%;
     }
 
-    /** ****************** BARRIER AND TURNSTILE ****************** */
+    /**
+        Стили основных блоков Турникеты и Шлагбаумы компонента Main
+    */
     &-block {
         display: flex;
         justify-content: space-between;

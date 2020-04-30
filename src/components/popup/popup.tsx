@@ -2,7 +2,7 @@
 /**
  * Импорт зависимостей из NPM
  */
-import React, { Suspense } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
@@ -19,7 +19,7 @@ import {
 /**
  * Импорт прелоадера
  */
-import Loader from "../../__utils__/Loader/Loader";
+//import Loader from "../../__utils__/Loader/Loader";
 
 /**
  * Импорт фото
@@ -62,13 +62,12 @@ class Popup extends React.PureComponent<PopupProps> {
    */
 
   handleCloseModal = () => {
-      this.props.togglePopupWindowTurnstile();
-
       document.addEventListener('keydown', event => {
           if (event.keyCode === 27) {
-              this.handleCloseModal();
+            this.props.togglePopupWindowTurnstile();
           }
       });
+      this.props.togglePopupWindowTurnstile();
   };
 
   /**
@@ -82,13 +81,12 @@ class Popup extends React.PureComponent<PopupProps> {
       /**
      * Данные из Глобального Стора
      */
-      const { turnstile, isFetching } = this.props.data;
+      const { turnstile } = this.props.data;
 
-      if (turnstile.data.length === 0 && !isFetching) {
-          return (
-              <Suspense fallback={<div><Loader /></div>} />
-          );
-      }
+      //if (turnstile.data.length === 0 && !isFetching) {
+      //    return <Loader />;
+      //}
+      console.log(turnstile.data.page_view.model_price)
       return (
 
       /**
@@ -106,8 +104,8 @@ class Popup extends React.PureComponent<PopupProps> {
                       <div className="right-header__description">
                           <p>Универсальный сетевой контроллер расширения EP-2000</p>
                           {turnstile.info === false ?
-                              <div onClick={this.handleToggleMainInfo} className="right-header__description-toggle">ХАРАКТЕРИСТИКИ</div> :
-                              <div onClick={this.handleToggleMainInfo} className="right-header__description-toggle">ПОКАЗАТЬ ОПИСАНИЕ</div>
+                            <div onClick={this.handleToggleMainInfo} className="right-header__description-toggle">ХАРАКТЕРИСТИКИ</div> :
+                            <div onClick={this.handleToggleMainInfo} className="right-header__description-toggle">ПОКАЗАТЬ ОПИСАНИЕ</div>
                           }
                       </div>
                       <div onClick={this.handleCloseModal} className="right-header__close" />
@@ -161,7 +159,7 @@ class Popup extends React.PureComponent<PopupProps> {
                       </div>
                   </div>
                   <div className="right-footer">
-                      <div className="right-footer__price">13123 Р</div>
+                      <div className="right-footer__price">{turnstile.data.page_view.model_price}</div>
                       <div className="right-footer__btn">Закрыть</div>
                   </div>
               </div>

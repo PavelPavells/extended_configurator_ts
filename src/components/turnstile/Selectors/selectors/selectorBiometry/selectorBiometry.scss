@@ -1,7 +1,11 @@
-/** ***** IMPORT GLOBAL STYLE ***** */
+/**
+    Импорт глобальных переменных
+*/
 @import '../../../../../styles/styles.scss';
 
-/** ***** MODULE BIOMETRY ***** */
+/**
+    Стили компонента selectorBiometry
+*/
 .selectors {
     display: flex;
     flex-direction: column;
@@ -84,8 +88,10 @@
         }
     }
 }
-/**  ***** BIOMETRY ICONS STYLES *****  */
 
+/**
+    Стили иконок компонента selectorBiometry
+*/
 .bio {
     display: block;
     min-width: 30px;
@@ -94,12 +100,16 @@
     background: url('../../../../../images/icon/biometric.svg') no-repeat center;
 }
 
-/**  ***** DISABLED BIOMETRY SELECTOR *****  */
+/**
+    Стили для недоступных селекторов
+*/
 .none {
     opacity: 0.5;
 }
 
-// ***** SWITHCER BIOMETRY SELECTOR ***** //
+/**
+    Стили переключателя selectorBiometry
+*/
 .onoffswitch4 {
     position: relative; min-width: 50px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;

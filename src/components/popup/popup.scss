@@ -1,8 +1,12 @@
-/** ***** IMPORT GLOBAL STYLE ***** */
+/**
+    Импорт глобальных переменных
+*/
 @import "../../styles/styles.scss";
 
 
-/** ***** POPUP ***** */
+/**
+    Стили компонента Main
+*/
 .popup {
   display: flex;
   position: absolute;
@@ -49,7 +53,6 @@
     width: 65%;
     height: 100%;
     margin-left: 40px;
-    //border: 1px solid green;
 
     &-header {
       display: flex;

@@ -1,7 +1,11 @@
-/** ***** IMPORT GLOBAL STYLE ***** */
+/**
+    Импорт глобальных переменных
+*/
 @import '../../../styles/styles.scss';
 
-/** ***** MODULE BUTTONS ***** */
+/**
+    Стили копонента moduleBasket
+*/
 .buttons {
     display: flex;
     flex-direction: column;
@@ -12,7 +16,9 @@
     flex-direction: column;
     width: 100%;
 
-    /** ***** CAPTIONS ***** */
+    /**
+        Описание
+    */
     &-captions {
         display: flex;
         flex-direction: row;
@@ -58,7 +64,9 @@
             color: $brandPantonText;
         }
 
-        /** ***** SERIA ***** */
+        /**
+            Серия
+        */
         &__seria {
             display: flex;
             flex-direction: row;
@@ -118,7 +126,9 @@
         }
     }
 
-    /** ***** OPTIONS ***** */
+    /**
+        Опции
+    */
     &-options {
         display: flex;
         justify-content: flex-end;
@@ -158,7 +168,9 @@
     flex-direction: column;
     width: 100%;
 
-    /** ***** EXECUTUION BLOCK ***** */
+    /**
+        Исполнение
+    */
     &-execution {
         font-size: 12px;
         line-height: 1.5;
@@ -205,7 +217,9 @@
     }
 }
 
-/** ***** STYLES FOR DYNAMIC DRAWING ***** */
+/**
+    Стили для динамической отрисовки выбранных кнопок
+*/
 .opacity {
     display: none;
     opacity: 0.5;

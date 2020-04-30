@@ -1,7 +1,11 @@
-/** ***** IMPORT GLOBAL STYLE ***** */
+/**
+    Импорт глобальных переменных
+*/
 @import '../../../../styles/styles.scss';
 
-/** ***** EQUIPMENT MODAL ***** */
+/**
+    Стили компонента equipmentModal
+*/
 .modal {
     display: flex;
     flex-wrap: wrap;
@@ -17,7 +21,9 @@
         width: 220px;
         margin: 20px;
 
-        /** ***** EQUIPMENT MODAL BLOCKS ***** */
+        /**
+            Стили блоков компонента всплывающего окна
+        */
         .block {
             display: flex;
             flex-direction: column;
@@ -163,7 +169,9 @@
     }
 }
 
-/** ***** MEDIA QUERY FOR HD, FULL HD ***** */
+/**
+    Медиа запросы для HD, FULL HD
+*/
 @media (max-width: 1200px) {
     .modal {
         height: 85vh;

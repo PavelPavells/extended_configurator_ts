@@ -4,7 +4,7 @@
 /**
  * Импорт зависимостей из NPM
  */
-import React, { Suspense, lazy } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 // @ts-ignore
@@ -25,7 +25,7 @@ import './Offer.scss';
 /**
  * Импорт прелоадера
  */
-const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
+import Loader from '../../../__utils__/Loader/Loader';
 
 /**
  * Интерфейс компонента Offer
@@ -55,26 +55,26 @@ class Offer extends React.PureComponent<OfferProps, OfferState> {
     /**
     * Запрос данных
     */
-    componentDidMount () {
-        const { page_view } = this.props.data.turnstile.data;
-        let data = {
-            app_id: 'id',
-            trigger: this.props.data.turnstile.trigger ? this.props.data.turnstile.trigger : 1,
-            trigger_state: 0,
-            seria: 0,
-            button_seria_state: page_view ? page_view.btn_seria : 0,
-            button_corpse_state: page_view ? page_view.btn_corpse : 0,
-            selectOne: page_view ? page_view.module_selectors[0].state : 0,
-            selectTwo: page_view ? page_view.module_selectors[1].state : 0,
-            selectThree: page_view ? page_view.module_selectors[2].state : 0,
-            selectFour: page_view ? page_view.module_selectors[3].state : 0,
-            selectFive: page_view ? page_view.module_selectors[4].state : 0,
-            selectSix: page_view ? page_view.module_selectors[5].state : 0,
-            selectSeven: page_view ? page_view.module_selectors[6].state : 0,
-            selectEight: page_view ? page_view.module_selectors[7].state : 0
-        };
-        this.props.fetchDataTurnstile(data);
-    }
+    // componentDidMount () {
+    //     const { page_view } = this.props.data.turnstile.data;
+    //     let data = {
+    //         app_id: 'id',
+    //         trigger: this.props.data.turnstile.trigger ? this.props.data.turnstile.trigger : 1,
+    //         trigger_state: 0,
+    //         seria: 0,
+    //         button_seria_state: page_view ? page_view.btn_seria : 0,
+    //         button_corpse_state: page_view ? page_view.btn_corpse : 0,
+    //         selectOne: page_view ? page_view.module_selectors[0].state : 0,
+    //         selectTwo: page_view ? page_view.module_selectors[1].state : 0,
+    //         selectThree: page_view ? page_view.module_selectors[2].state : 0,
+    //         selectFour: page_view ? page_view.module_selectors[3].state : 0,
+    //         selectFive: page_view ? page_view.module_selectors[4].state : 0,
+    //         selectSix: page_view ? page_view.module_selectors[5].state : 0,
+    //         selectSeven: page_view ? page_view.module_selectors[6].state : 0,
+    //         selectEight: page_view ? page_view.module_selectors[7].state : 0
+    //     };
+    //     this.props.fetchDataTurnstile(data);
+    // }
     
     handleOpenModal = (index: any, key: number) => {
         //console.log('INDEX ' + index.name);
@@ -91,9 +91,7 @@ class Offer extends React.PureComponent<OfferProps, OfferState> {
         const { turnstile, isFetching } = this.props.data;
 
         if (turnstile.data.length === 0 && !isFetching) {
-            return (
-                <Suspense fallback={<div><Loader /></div>} />
-            );
+            return <Loader />;
         }
         return (
 

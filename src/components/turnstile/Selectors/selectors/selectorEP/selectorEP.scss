@@ -1,7 +1,11 @@
-/** ***** IMPORT GLOBAL STYLE ***** */
+/**
+    Импорт глобальных переменных
+*/
 @import '../../../../../styles/styles.scss';
 
-/** ***** MODULE EP ***** */
+/**
+    Стили компонента selectorEP
+*/
 .selectors {
     display: flex;
     flex-direction: column;
@@ -84,8 +88,10 @@
         }
     }
 }
-/**  ***** EP ICONS STYLES *****  */
 
+/**
+    Стили иконок компонента selectorEP
+*/
 .ep {
     display: block;
     min-width: 30px;
@@ -94,12 +100,16 @@
     background: url('../../../../../images/icon/shape.svg') no-repeat center;
 }
 
-/**  ***** DISABLED EP SELECTOR *****  */
+/**
+    Стили для недоступных селекторов
+*/
 .none {
     opacity: 0.5;
 }
-// ***** SWITCHER EP SELECTOR ***** //
 
+/**
+    Стили переключателя selectorEP
+*/
 .onoffswitch {
     position: relative; min-width: 50px;
         -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;

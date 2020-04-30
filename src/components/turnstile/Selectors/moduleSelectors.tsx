@@ -1,11 +1,15 @@
-/** ************* IMPORT DEPENDENCIES ************* */
-import React, { Fragment, Suspense, lazy } from 'react';
+/**
+ * Импорт зависимостей из NPM
+ */
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../store/store';
 
-/** ************* IMPORT SELECTORS FOR MODULE SELECTORS COMPONENT ************* */
+/**
+ * Импорт модулей селекторов
+ */
 import SelectorEP from './selectors/selectorEP/selectorEP';
 import SelectorEMMarin from './selectors/selectorEMMarin/selectorEMMarin';
 import SelectorMifire from './selectors/selectorMifire/selectorMifire';
@@ -15,11 +19,15 @@ import SelectorControl2D from './selectors/selectorControl2D/selectorControl2D';
 import SelectorGuest2D from './selectors/selectorGuest2D/selectorGuest2D';
 import SelectorSteelCase from './selectors/selectorSteelCase/selectorSteelCase';
 
-/** ************* IMPORT STYLES FOR MODULE SELECTORS IN TURNSTILE COMPONENT ************* */
+/**
+ * Импорт стилей контейнера модулей селекторов
+ */
 import './moduleSelectors.scss';
 
-/** ************* IMPORT __UTILS__ FOR SELECTORS COMPONENT ************* */
-const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
+/**
+ * Импорт Лоадера
+ */
+import Loader from '../../../__utils__/Loader/Loader';
 
 /**
  * Интерфейс компонента ModuleSelectors
@@ -36,53 +44,74 @@ class ModuleSelectors extends React.PureComponent<ModuleSelectorsProps> {
     };
     
     render () {
-        /** ************* DATA FROM STORE ************* */
+        /**
+         * Данные из Глобального Стора
+         */
         const { turnstile, isFetching } = this.props.data;
 
         if (turnstile.data.length === 0 && !isFetching) {
-            return <Suspense fallback={<div><Loader /></div>} />;
+            return <Loader />;
         }
         return (
-            /** ************* MODULE SELECTORS ************* */
+
+            /**
+             * Модуль Селекторы
+             */
             <section className="selectors">
                 <div className="selectors-text">Дополнительные модули</div>
 
-                {/** ************* CHOICE EP-2000 SELECTOR ************* */}
+                {/**
+                 * Селектор Универсальный сетевой контроллер расширения EP-2000
+                 */}
                 <Fragment>
                     <SelectorEP />
                 </Fragment>
 
-                {/** ************* CHOICE EMMARIN SELECTOR ************* */}
+                {/**
+                 * Селектор RFID идентификаторы EMMarine 125kHZ
+                 */}
                 <Fragment>
                     <SelectorEMMarin />
                 </Fragment>
 
-                {/** ************* CHOICE MIFIRE SELECTOR ************* */}
+                {/**
+                 * Селектор RFID идентификаторы Mifire 13.56MHz
+                 */}
                 <Fragment>
                     <SelectorMifire />
                 </Fragment>
 
-                {/** ************* CHOICE BIOMETRY SELECTOR ************* */}
+                {/**
+                 * Селектор Биометрическая идентификация по отпечаткам пальцев
+                 */}
                 <Fragment>
                     <SelectorBiometry />
                 </Fragment>
 
-                {/** ************* CHOICE INFO TIME SELECTOR ************* */}
+                {/**
+                 * Селектор Информационный дисплей учета рабочего времени
+                 */}
                 <Fragment>
                     <SelectorInfoTime />
                 </Fragment>
 
-                {/** ************* CHOICE CONTROL 2D SELECTOR ************* */}
+                {/**
+                 * Селектор Контроль разовых посещений по 2D штрих-кодам
+                 */}
                 <Fragment>
                     <SelectorControl2D />
                 </Fragment>
 
-                {/** ************* CHOICE GUEST 2D SELECTOR ************* */}
+                {/**
+                 * Селектор Гостевой доступ по 2D штрих-кодам
+                 */}
                 <Fragment>
                     <SelectorGuest2D />
                 </Fragment>
 
-                {/** ************* CHOICE STEEL CASE SELECTOR ************* */}
+                {/**
+                 * Селектор Корпус кожуха из нержавеющей стали
+                 */}
                 <Fragment>
                     <SelectorSteelCase />
                 </Fragment>
