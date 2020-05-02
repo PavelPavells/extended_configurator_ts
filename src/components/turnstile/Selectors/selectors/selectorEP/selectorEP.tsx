@@ -54,14 +54,14 @@ class SelectorEP extends React.PureComponent<SelectorEPProps, SelectorEPState> {
     /**
      * Открыть/Закрыть модальное окно
      */
-    handleToggleModal = () => {
+    private handleToggleModal = () => {
         this.props.togglePopupWindowTurnstile();
     }
 
     /**
     * Хэндлер для обработки запроса селектора 'EP-2000'
     */
-    handleClickOneSelect = () => {
+    private handleClickOneSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({
             selectOne: +!page_view.module_selectors[0].state
@@ -85,7 +85,7 @@ class SelectorEP extends React.PureComponent<SelectorEPProps, SelectorEPState> {
         });
     }
 
-    render () {
+    public render () {
         /**
          * Данные из глобального стора
          */

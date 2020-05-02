@@ -54,14 +54,14 @@ class SelectorEMMarin extends React.PureComponent<SelectorEMMarinProps, Selector
     /**
      * Открыть/Закрыть модальное окно
      */
-    handleToggleModal = () => {
+    private handleToggleModal = () => {
         this.props.togglePopupWindowTurnstile();
     }
 
     /**
     * Хэндлер для обработки запроса селектора 'EMMarin'
     */
-    handleClickTwoSelect = () => {
+    private handleClickTwoSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({
             selectTwo: +!page_view.module_selectors[1].state
@@ -85,7 +85,7 @@ class SelectorEMMarin extends React.PureComponent<SelectorEMMarinProps, Selector
         });
     }
 
-    render () {
+    public render () {
         /**
          * Данные из глобального стора
          */

@@ -35,10 +35,10 @@ class EquipmentModal extends React.PureComponent<EquipmentModalProps> {
     /**
     * Запрос данных
     */
-    componentDidMount () {
+    public componentDidMount () {
         this.props.fetchDataTurnstile();
     }
-    render () {
+    public render () {
         /**
         * Данные из Глобального Стора
         */

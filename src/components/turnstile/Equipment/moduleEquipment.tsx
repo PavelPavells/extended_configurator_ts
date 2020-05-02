@@ -68,7 +68,7 @@ class ModuleEquipment extends React.PureComponent<ModuleEquipmentProps, ModuleEq
     /**
     * Хэндлер удаления количетсва товара
     */
-    handleMinusOptions = () => {
+    private handleMinusOptions = () => {
         //const { page_view } = this.props.data.turnstile.data;
         //console.log(page_view);
         // some code
@@ -77,7 +77,7 @@ class ModuleEquipment extends React.PureComponent<ModuleEquipmentProps, ModuleEq
     /**
     * Хэндлер добавления количества товара
     */
-    handlePlusOptions = () => {
+    private handlePlusOptions = () => {
         //const { page_view } = this.props.data.turnstile.data;
         //console.log(page_view);
         // some code
@@ -86,7 +86,7 @@ class ModuleEquipment extends React.PureComponent<ModuleEquipmentProps, ModuleEq
     /**
     * Хэндлер обработки запросов для блока 'Пульты Управления'
     */
-    handleChangeModalWindowOne = () => {
+    private handleChangeModalWindowOne = () => {
         this.setState({ listEquipmentOne: !this.state.listEquipmentOne });
         let text = document.getElementsByClassName('text-remote')[0];
         text.classList.toggle('toggle-text');
@@ -101,7 +101,7 @@ class ModuleEquipment extends React.PureComponent<ModuleEquipmentProps, ModuleEq
     /**
     * Хэндлер обработки запросов для блока 'Пульты Управления'
     */
-    handleChangeModalWindowTwo = () => {
+    private handleChangeModalWindowTwo = () => {
         this.setState({ listEquipmentTwo: !this.state.listEquipmentTwo });
         let text = document.getElementsByClassName('text-slats')[0];
         text.classList.toggle('toggle-text');
@@ -116,7 +116,7 @@ class ModuleEquipment extends React.PureComponent<ModuleEquipmentProps, ModuleEq
     /**
     * Хэндлер обработки запросов для блока 'Преграждающие планки'
     */
-    handleChangeModalWindowThree = () => {
+    private handleChangeModalWindowThree = () => {
         this.setState({ listEquipmentThree: !this.state.listEquipmentThree });
         let text = document.getElementsByClassName('text-suply')[0];
         text.classList.toggle('toggle-text');
@@ -131,7 +131,7 @@ class ModuleEquipment extends React.PureComponent<ModuleEquipmentProps, ModuleEq
     /**
     * Хэндлер обработки запросов для блока 'Ограждения прохода и секции "Антипаника"'
     */
-    handleChangeModalWindowFour = () => {
+    private handleChangeModalWindowFour = () => {
         this.setState({ listEquipmentFour: !this.state.listEquipmentFour });
         let text = document.getElementsByClassName('text-awarding')[0];
         text.classList.toggle('toggle-text');
@@ -143,7 +143,7 @@ class ModuleEquipment extends React.PureComponent<ModuleEquipmentProps, ModuleEq
         arrow.classList.toggle('block-info__arrow-hover');
     }
 
-    render () {
+    public render () {
         /**
         * Данные из Глобального Стора
         */

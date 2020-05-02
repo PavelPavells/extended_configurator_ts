@@ -3,6 +3,7 @@
 */
 import axios from 'axios';
 import site from '../constants/constants';
+import { Dispatch } from 'react';
 
 /**
  * Импорт основных констант для экшенов
@@ -41,7 +42,7 @@ export const fetchingDataMainFailure = (error: any): MainActions => ({
  * Экшен для вызовов в Компонентах
  */
 
-export const fetchDataMain = () => (dispatch: (arg: MainActions) => void) => {
+export const fetchDataMain = () => (dispatch: Dispatch<MainActions>) => {
     dispatch(fetchingDataMainRequest());
     try {
         axios.get(`${site}/main`)

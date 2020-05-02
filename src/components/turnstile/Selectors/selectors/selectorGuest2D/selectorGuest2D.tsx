@@ -54,14 +54,14 @@ class SelectorGuest2D extends React.PureComponent<SelectorGuest2DProps, Selector
     /**
      * Открыть/Закрыть модальное окно
      */
-    handleToggleModal = () => {
+    private handleToggleModal = () => {
         this.props.togglePopupWindowTurnstile();
     }
 
     /**
     * Хэндлер для обработки запроса селектора 'Гостевой доступ по 2D штрих-кодам'
     */
-    handleClickSevenSelect = () => {
+    private handleClickSevenSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({
             selectSeven: +!page_view.module_selectors[6].state
@@ -85,7 +85,7 @@ class SelectorGuest2D extends React.PureComponent<SelectorGuest2DProps, Selector
         });
     }
 
-    render () {
+    public render () {
         /**
          * Данные из глобального стора
          */

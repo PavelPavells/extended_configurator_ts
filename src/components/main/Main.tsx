@@ -52,11 +52,11 @@ class Main extends React.PureComponent<MainProps> {
     /**
      * Запрос данных
      */
-    componentDidMount () {
+    public componentDidMount () {
         this.props.fetchDataMain();
     }
 
-    render () {
+    public render () {
         /**
         * Данные из Глобального Стора
         */

@@ -54,14 +54,14 @@ class SelectorInfoTime extends React.PureComponent<SelectorInfoTimeProps, Select
     /**
      * Открыть/Закрыть модальное окно
      */
-    handleToggleModal = () => {
+    private handleToggleModal = () => {
         this.props.togglePopupWindowTurnstile();
     }
 
     /**
      * Хэндлер для обработки запроса селектора 'Информационный дисплей учета рабочего времени'
      */
-    handleClickFiveSelect = () => {
+    private handleClickFiveSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({
             selectFive: +!page_view.module_selectors[4].state
@@ -85,7 +85,7 @@ class SelectorInfoTime extends React.PureComponent<SelectorInfoTimeProps, Select
         });
     }
 
-    render () {
+    public render () {
         /**
          * Данные из глобального стора
          */

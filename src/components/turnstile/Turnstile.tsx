@@ -22,7 +22,7 @@ import ModuleConfiguration from './Configuration/moduleConfiguration';
 import ModuleEquipment from './Equipment/moduleEquipment';
 
 class Turnstile extends React.PureComponent {
-    render () {
+    public render () {
         return (
 
             /**

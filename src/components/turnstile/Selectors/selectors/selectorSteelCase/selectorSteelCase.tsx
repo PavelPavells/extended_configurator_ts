@@ -54,14 +54,14 @@ class SelectorSteelCase extends React.PureComponent<SelectorSteelCaseProps, Sele
     /**
      * Открыть/Закрыть модальное окно
      */
-    handleToggleModal = () => {
+    private handleToggleModal = () => {
         this.props.togglePopupWindowTurnstile();
     }
 
     /**
     * Хэндлер для обработки запроса селектора 'Корпус'
     */
-    handleClickEightSelect = () => {
+    private handleClickEightSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({
             selectEight: +!page_view.module_selectors[7].state
@@ -85,7 +85,7 @@ class SelectorSteelCase extends React.PureComponent<SelectorSteelCaseProps, Sele
         });
     }
 
-    render () {
+    public render () {
         /**
          * Данные из глобального стора
          */

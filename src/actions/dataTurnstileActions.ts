@@ -3,6 +3,7 @@
 */
 import axios from 'axios';
 import site from '../constants/constants';
+import { Dispatch } from 'react';
 
 /**
  * Импорт основных констант для экшенов
@@ -46,7 +47,7 @@ export const fetchingDataTurnstileFailure = (error: any): TurnstileActions => ({
  * Экшен для вызовов в Компонентах
  */
 
-export const fetchDataTurnstile = (data: any, trigger: number) => (dispatch: (arg: TurnstileActions) => void) => {
+export const fetchDataTurnstile = (data: any, trigger: number) => (dispatch: Dispatch<TurnstileActions>) => {
     dispatch(fetchingDataTurnstileRequest());
     try {
         axios.post(`${site}/turnstile`, {

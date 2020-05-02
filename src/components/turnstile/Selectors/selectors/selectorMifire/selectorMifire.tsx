@@ -54,14 +54,14 @@ class SelectorMifire extends React.PureComponent<SelectorMifireProps, SelectorMi
     /**
      * Открыть/Закрыть модальное окно
      */
-    handleToggleModal = () => {
+    private handleToggleModal = () => {
         this.props.togglePopupWindowTurnstile();
     }
 
     /**
     * Хэндлер для обработки запроса селектора 'Mifire'
     */
-    handleClickThreeSelect = () => {
+    private handleClickThreeSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({
             selectThree: +!page_view.module_selectors[2].state
@@ -85,7 +85,7 @@ class SelectorMifire extends React.PureComponent<SelectorMifireProps, SelectorMi
         });
     }
 
-    render () {
+    public render () {
         /**
          * Данные из глобального стора
          */

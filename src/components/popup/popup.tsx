@@ -50,122 +50,122 @@ class Popup extends React.PureComponent<PopupProps> {
         turnstile: PropTypes.Requireable<object>; 
     };
 
-  /**
-   * Запрос данных
-   */
-  //componentDidMount () {
-   //this.props.fetchDataTurnstile();
-  //}
-
-  /**
-   *  Обработчик экшена Открытия/Закрытия модального окна
-   */
-
-  handleCloseModal = () => {
-      document.addEventListener('keydown', event => {
-          if (event.keyCode === 27) {
-            this.props.togglePopupWindowTurnstile();
-          }
-      });
-      this.props.togglePopupWindowTurnstile();
-  };
-
-  /**
-   * Открыть/Закрыть Popup
-   */
-  handleToggleMainInfo = () => {
-      this.props.togglePopupWindowMainInfoTurnstile();
-  };
-
-  render () {
-      /**
-     * Данные из Глобального Стора
+    /**
+     * Запрос данных
      */
-      const { turnstile } = this.props.data;
+    //componentDidMount () {
+    //this.props.fetchDataTurnstile();
+    //}
 
-      //if (turnstile.data.length === 0 && !isFetching) {
-      //    return <Loader />;
-      //}
-      console.log(turnstile.data.page_view.model_price)
-      return (
+    /**
+     *  Обработчик экшена Открытия/Закрытия модального окна
+     */
 
-      /**
-       * Компонент Popup
-       */
-          <section className="popup">
-              <div className="left">
-                  <div className="left__image">
-                      <img className="image" src={photo} alt="" />
-                  </div>
-              </div>
-              <div className="right">
-                  <div className="right-header">
-                      <div className="right-header__icon" />
-                      <div className="right-header__description">
-                          <p>Универсальный сетевой контроллер расширения EP-2000</p>
-                          {turnstile.info === false ?
-                            <div onClick={this.handleToggleMainInfo} className="right-header__description-toggle">ХАРАКТЕРИСТИКИ</div> :
-                            <div onClick={this.handleToggleMainInfo} className="right-header__description-toggle">ПОКАЗАТЬ ОПИСАНИЕ</div>
-                          }
-                      </div>
-                      <div onClick={this.handleCloseModal} className="right-header__close" />
-                  </div>
-                  <div className="right-main">
-                      <div className="right-main__info">
-                          <p>
-                            Модуль расширения “EP-2000” предназначен для расширения
-                            функционала турникетов CARDDEX.
-                          </p>
-                          <strong>Данный модуль оснащен интерфейсами:</strong>
-                          <ul>
-                              <li>Ethernet;</li>
-                              <li>RS-485;</li>
-                              <li>UART;</li>
-                              <li>I2C.</li>
-                          </ul>
-                          <p>
-                            Также оснащен дополнительным выходом для подключения различных
-                            исполнительных устройств. Встроенное ПО СКУД “CARDDEX IMS/AR” с
-                            функцией “Учет рабочего времени” избавляет от необходимости
-                            использовать внешние серверы программного обеспечения.
-                          </p>
-                          <strong>
-                            Широкий набор встроенных каналов подключения позволяет
-                            обеспечить:
-                          </strong>
-                          <ul>
-                              <li>
-                                одновременную работу с внешними считывателями бесконтактных
-                                карт, биометрическими сканерами отпечатков пальцев или
-                                универсальным 2D сканером QR-кодов;
-                              </li>
-                              <li>
-                                подключение до 32 дверных контроллеров CARDDEX по “общей шине”
-                                RS-485;
-                              </li>
-                              <li>
-                                подключение секции “Антипаника” с электромагнитным замком.
-                              </li>
-                          </ul>
-                          <strong>
-                            Энергонезависимая память контроллера позволяет хранить:
-                          </strong>
-                          <ul>
-                              <li>50 000 бесконтактных ключей;</li>
-                              <li>500 отпечатков пальцев;</li>
-                              <li>5 000 QR-кодов;</li>
-                              <li>250 000 событий;</li>
-                          </ul>
-                      </div>
-                  </div>
-                  <div className="right-footer">
-                      <div className="right-footer__price">{turnstile.data.page_view.model_price}</div>
-                      <div className="right-footer__btn">Закрыть</div>
-                  </div>
-              </div>
-          </section>
-      );
-  }
+    private handleCloseModal = () => {
+        document.addEventListener('keydown', event => {
+            if (event.keyCode === 27) {
+                this.props.togglePopupWindowTurnstile();
+            }
+        });
+        this.props.togglePopupWindowTurnstile();
+    };
+
+    /**
+     * Открыть/Закрыть Popup
+     */
+    private handleToggleMainInfo = () => {
+        this.props.togglePopupWindowMainInfoTurnstile();
+    };
+
+    public render () {
+        /**
+         * Данные из Глобального Стора
+         */
+        const { turnstile } = this.props.data;
+
+        //if (turnstile.data.length === 0 && !isFetching) {
+        //    return <Loader />;
+        //}
+        console.log(turnstile.data.page_view.model_price)
+        return (
+
+        /**
+         * Компонент Popup
+         */
+            <section className="popup">
+                <div className="left">
+                    <div className="left__image">
+                        <img className="image" src={photo} alt="" />
+                    </div>
+                </div>
+                <div className="right">
+                    <div className="right-header">
+                        <div className="right-header__icon" />
+                        <div className="right-header__description">
+                            <p>Универсальный сетевой контроллер расширения EP-2000</p>
+                            {turnstile.info === false ?
+                                <div onClick={this.handleToggleMainInfo} className="right-header__description-toggle">ХАРАКТЕРИСТИКИ</div> :
+                                <div onClick={this.handleToggleMainInfo} className="right-header__description-toggle">ПОКАЗАТЬ ОПИСАНИЕ</div>
+                            }
+                        </div>
+                        <div onClick={this.handleCloseModal} className="right-header__close" />
+                    </div>
+                    <div className="right-main">
+                        <div className="right-main__info">
+                            <p>
+                                Модуль расширения “EP-2000” предназначен для расширения
+                                функционала турникетов CARDDEX.
+                            </p>
+                            <strong>Данный модуль оснащен интерфейсами:</strong>
+                            <ul>
+                                <li>Ethernet;</li>
+                                <li>RS-485;</li>
+                                <li>UART;</li>
+                                <li>I2C.</li>
+                            </ul>
+                            <p>
+                                Также оснащен дополнительным выходом для подключения различных
+                                исполнительных устройств. Встроенное ПО СКУД “CARDDEX IMS/AR” с
+                                функцией “Учет рабочего времени” избавляет от необходимости
+                                использовать внешние серверы программного обеспечения.
+                            </p>
+                            <strong>
+                                Широкий набор встроенных каналов подключения позволяет
+                                обеспечить:
+                            </strong>
+                            <ul>
+                                <li>
+                                    одновременную работу с внешними считывателями бесконтактных
+                                    карт, биометрическими сканерами отпечатков пальцев или
+                                    универсальным 2D сканером QR-кодов;
+                                </li>
+                                <li>
+                                    подключение до 32 дверных контроллеров CARDDEX по “общей шине”
+                                    RS-485;
+                                </li>
+                                <li>
+                                    подключение секции “Антипаника” с электромагнитным замком.
+                                </li>
+                            </ul>
+                            <strong>
+                                Энергонезависимая память контроллера позволяет хранить:
+                            </strong>
+                            <ul>
+                                <li>50 000 бесконтактных ключей;</li>
+                                <li>500 отпечатков пальцев;</li>
+                                <li>5 000 QR-кодов;</li>
+                                <li>250 000 событий;</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="right-footer">
+                        <div className="right-footer__price">{turnstile.data.page_view.model_price}</div>
+                        <div className="right-footer__btn">Закрыть</div>
+                    </div>
+                </div>
+            </section>
+        );
+    }
 }
 
 Popup.propTypes = {

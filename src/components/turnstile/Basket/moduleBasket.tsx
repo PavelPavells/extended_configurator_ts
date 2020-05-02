@@ -39,7 +39,7 @@ class ModuleBasket extends React.PureComponent<ModuleBasketProps> {
         isFetching: PropTypes.Requireable<boolean>; 
     };
     
-    render () {
+    public render () {
         /**
         * Данные из Глобального Стора
         */
