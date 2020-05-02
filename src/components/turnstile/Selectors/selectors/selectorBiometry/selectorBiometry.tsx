@@ -54,14 +54,14 @@ class SelectorBiometry extends React.PureComponent<SelectorBiometryProps, Select
     /**
      * Открыть/Закрыть модальное окно
      */
-    handleToggleModal = () => {
+    private handleToggleModal = () => {
         this.props.togglePopupWindowTurnstile();
     }
 
     /**
     * Хэндлер для обработки запроса селектора 'Биометрия'
     */
-    handleClickFourSelect = () => {
+    private handleClickFourSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({
             selectFour: +!page_view.module_selectors[3].state
@@ -85,7 +85,7 @@ class SelectorBiometry extends React.PureComponent<SelectorBiometryProps, Select
         });
     }
 
-    render () {
+    public render () {
         /**
          * Данные из глобального стора
          */

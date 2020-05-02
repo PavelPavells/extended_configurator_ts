@@ -20,7 +20,7 @@ import Turnstile from '../components/turnstile/Turnstile';
 import moduleOffer from '../components/turnstile/Offer/Offer';
 
 class Layout extends React.PureComponent {
-    render () {
+    public render () {
         return (
             <Router>
                 {/**

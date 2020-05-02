@@ -54,14 +54,14 @@ class SelectorControl2D extends React.PureComponent<SelectorControl2DProps, Sele
     /**
      * Открыть/Закрыть модальное окно
      */
-    handleToggleModal = () => {
+    private handleToggleModal = () => {
         this.props.togglePopupWindowTurnstile();
     }
 
     /**
     * Хэндлер для обработки запроса селектора 'Контроля по 2D-штрихкодам'
     */
-    handleClickSixSelect = () => {
+    private handleClickSixSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({
             selectSix: +!page_view.module_selectors[5].state
@@ -85,7 +85,7 @@ class SelectorControl2D extends React.PureComponent<SelectorControl2DProps, Sele
         });
     }
 
-    render () {
+    public render () {
         /**
          * Данные из глобального стора
          */

@@ -22,7 +22,7 @@ import store from './store/store';
 import './App.scss';
 
 class App extends React.PureComponent {
-    render () {
+    public render () {
         return (
             <Provider store={store}>
                 <BrowserRouter>

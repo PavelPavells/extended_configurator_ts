@@ -76,7 +76,7 @@ class Offer extends React.PureComponent<OfferProps, OfferState> {
     //     this.props.fetchDataTurnstile(data);
     // }
     
-    handleOpenModal = (index: any, key: number) => {
+    private handleOpenModal = (index: any, key: number) => {
         //console.log('INDEX ' + index.name);
         //console.log('KEY ' + key);
         if (index.index === 0 && key === 0) {
@@ -84,7 +84,7 @@ class Offer extends React.PureComponent<OfferProps, OfferState> {
         }
     }
 
-    render () {
+    public render () {
         /**
         * Данные из Глобального Стора
         */

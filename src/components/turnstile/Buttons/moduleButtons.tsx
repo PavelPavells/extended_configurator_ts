@@ -43,7 +43,7 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
     /**
     * Запрос данных
     */
-    componentDidMount () {
+    public componentDidMount () {
         const { page_view } = this.props.data.turnstile.data;
         let data = {
             app_id: 'id',
@@ -67,7 +67,7 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
     /**
     * Хэндлер для обработки запроса Серии STR
     */
-    handleClickSeriaSTR = () => {
+    private handleClickSeriaSTR = () => {
         const { page_view } = this.props.data.turnstile.data;
         let data = {
             app_id: 'id',
@@ -92,7 +92,7 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
     /**
     * Хэндлер для обработки запроса Серии STX
     */
-    handleClickSeriaSTX = () => {
+    private handleClickSeriaSTX = () => {
         const { page_view } = this.props.data.turnstile.data;
         let data = {
             app_id: 'id',
@@ -116,7 +116,7 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
     /**
     * Хэндлер для обработки запроса Исполнение STR
     */
-    handleClickExecutionCompact = () => {
+    private handleClickExecutionCompact = () => {
         const { page_view } = this.props.data.turnstile.data;
         let data = {
             app_id: 'id',
@@ -140,7 +140,7 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
     /**
     * Хэндлер для обработки запроса Исполнение STR
     */
-    handleClickExecutionThumb = () => {
+    private handleClickExecutionThumb = () => {
         const { page_view } = this.props.data.turnstile.data;
         let data = {
             app_id: 'id',
@@ -160,7 +160,7 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
         };
         this.props.fetchDataTurnstile(data, data.trigger);
     }
-    handleClickResetSelectors = () => {
+    private handleClickResetSelectors = () => {
         const { page_view } = this.props.data.turnstile.data;
         let data = {
             trigger: this.props.data.turnstile.trigger,
@@ -178,7 +178,7 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
         };
         this.props.fetchDataTurnstile(data, data.trigger);
     }
-    render () {
+    public render () {
         /**
         * Данные из Глобального Стора
         */

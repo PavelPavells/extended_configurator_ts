@@ -43,7 +43,7 @@ class ModuleSelectors extends React.PureComponent<ModuleSelectorsProps> {
         isFetching: PropTypes.Requireable<boolean>;
     };
     
-    render () {
+    public render () {
         /**
          * Данные из Глобального Стора
          */

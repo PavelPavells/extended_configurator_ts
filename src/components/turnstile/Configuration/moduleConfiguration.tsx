@@ -41,7 +41,7 @@ class ModuleConfiguration extends React.PureComponent<ModuleConfigurationProps> 
     /**
      * //
      */
-    handleMinusOptions = () => {
+    private handleMinusOptions = () => {
         //const { page_view } = this.props.data.turnstile.data;
         //console.log(page_view);
         // some code
@@ -50,13 +50,13 @@ class ModuleConfiguration extends React.PureComponent<ModuleConfigurationProps> 
     /**
      * //
      */
-    handlePlusOptions = () => {
+    private handlePlusOptions = () => {
         //const { page_view } = this.props.data.turnstile.data;
         //console.log(page_view);
         // some code
     }
 
-    render () {
+    public render () {
         /**
         * Данные из Глобального Стора
         */
