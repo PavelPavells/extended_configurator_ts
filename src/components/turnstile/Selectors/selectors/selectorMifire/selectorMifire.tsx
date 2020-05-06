@@ -4,7 +4,6 @@
  * Импорт зависимостей из NPM
  */
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../../../store/store';
@@ -28,26 +27,24 @@ import './selectorMifire.scss';
 import PopUp from '../../../../popup/popup';
 
 /**
+ * Импорт Лоадера
+ */
+import Loader from '../../../../../__utils__/Loader/Loader';
+
+/**
  * Интерфейс компонента SelectorBiometry
  */
 interface SelectorMifireProps {
-    data: any,
-    fetchDataTurnstile: (data: any, trigger: number) => void,
-    togglePopupWindowTurnstile: () => void
+    readonly data: any,
+    readonly fetchDataTurnstile: (data: any, trigger: number) => void,
+    readonly togglePopupWindowTurnstile: () => void
 }
 
 interface SelectorMifireState {
-    selectThree: number
+    readonly selectThree: number
 }
 
 class SelectorMifire extends React.PureComponent<SelectorMifireProps, SelectorMifireState> {
-    static propTypes: {
-        togglePopupWindowTurnstile: PropTypes.Validator<(...args: any[]) => any>;
-        fetchDataTurnstile: PropTypes.Validator<(...args: any[]) => any>
-        data: PropTypes.Validator<object>;
-        turnstile: PropTypes.Requireable<object>;
-        isFetching: PropTypes.Requireable<boolean>;
-    };
 
     state: SelectorMifireState = { selectThree: 0 };
 
@@ -89,7 +86,10 @@ class SelectorMifire extends React.PureComponent<SelectorMifireProps, SelectorMi
         /**
          * Данные из глобального стора
          */
-        const { turnstile } = this.props.data;
+        const { turnstile, isFetching } = this.props.data;
+        if (turnstile.data.length === 0 && !isFetching) {
+           return <Loader />;
+        }
 
         return (
             /**
@@ -138,15 +138,8 @@ class SelectorMifire extends React.PureComponent<SelectorMifireProps, SelectorMi
     }
 }
 
-SelectorMifire.propTypes = {
-    togglePopupWindowTurnstile: PropTypes.func.isRequired,
-    fetchDataTurnstile: PropTypes.func.isRequired,
-    data: PropTypes.object.isRequired,
-    turnstile: PropTypes.object,
-    isFetching: PropTypes.bool
-};
-
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect(mapStateToProps, { fetchDataTurnstile, togglePopupWindowTurnstile })(SelectorMifire);
+
+export default connect<{}, {}, SelectorMifireProps>(mapStateToProps, { fetchDataTurnstile, togglePopupWindowTurnstile })(SelectorMifire);

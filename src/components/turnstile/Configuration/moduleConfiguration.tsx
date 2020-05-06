@@ -3,7 +3,6 @@
  * Импорт зависимостей из NPM
  */
 import React from 'react';
-import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../store/store';
@@ -27,19 +26,14 @@ import Loader from '../../../__utils__/Loader/Loader';
  * Интерфейс компонента ModuleConfiguration
  */
 interface ModuleConfigurationProps {
-    data: any,
-    fetchDataTurnstile: () => void,
+    readonly data: any,
+    readonly fetchDataTurnstile: () => void,
 }
 
 class ModuleConfiguration extends React.PureComponent<ModuleConfigurationProps> {
-    static propTypes: { 
-        fetchDataTurnstile: PropTypes.Validator<(...args: any[]) => any>;
-        data: PropTypes.Validator<object>;
-        turnstile: PropTypes.Requireable<object>;
-        isFetching: PropTypes.Requireable<boolean>;
-    };
+
     /**
-     * //
+     *
      */
     private handleMinusOptions = () => {
         //const { page_view } = this.props.data.turnstile.data;
@@ -48,7 +42,7 @@ class ModuleConfiguration extends React.PureComponent<ModuleConfigurationProps> 
     }
 
     /**
-     * //
+     *
      */
     private handlePlusOptions = () => {
         //const { page_view } = this.props.data.turnstile.data;
@@ -106,14 +100,8 @@ class ModuleConfiguration extends React.PureComponent<ModuleConfigurationProps> 
     }
 }
 
-ModuleConfiguration.propTypes = {
-    fetchDataTurnstile: PropTypes.func.isRequired,
-    data: PropTypes.object.isRequired,
-    turnstile: PropTypes.object,
-    isFetching: PropTypes.bool
-};
-
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect(mapStateToProps, { fetchDataTurnstile })(ModuleConfiguration);
+
+export default connect<{}, {}, ModuleConfigurationProps>(mapStateToProps, { fetchDataTurnstile })(ModuleConfiguration);

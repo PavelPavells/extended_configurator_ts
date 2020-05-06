@@ -4,7 +4,6 @@
  * Импорт зависимостей из NPM
  */
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../../../store/store';
@@ -28,26 +27,24 @@ import './selectorControl2D.scss';
 import PopUp from '../../../../popup/popup';
 
 /**
+ * Импорт Лоадера
+ */
+import Loader from '../../../../../__utils__/Loader/Loader';
+
+/**
  * Интерфейс компонента SelectorControl2D
  */
 interface SelectorControl2DProps {
-    data: any,
-    fetchDataTurnstile: (data: any, trigger: number) => void,
-    togglePopupWindowTurnstile: () => void
+    readonly data: any,
+    readonly fetchDataTurnstile: (data: any, trigger: number) => void,
+    readonly togglePopupWindowTurnstile: () => void
 }
 
 interface SelectorControl2DState {
-    selectSix: number
+    readonly selectSix: number
 }
 
 class SelectorControl2D extends React.PureComponent<SelectorControl2DProps, SelectorControl2DState> {
-    static propTypes: {
-        togglePopupWindowTurnstile: PropTypes.Validator<(...args: any[]) => any>;
-        fetchDataTurnstile: PropTypes.Validator<(...args: any[]) => any>
-        data: PropTypes.Validator<object>;
-        turnstile: PropTypes.Requireable<object>;
-        isFetching: PropTypes.Requireable<boolean>;
-    };
 
     state: SelectorControl2DState = { selectSix: 0 };
 
@@ -89,7 +86,10 @@ class SelectorControl2D extends React.PureComponent<SelectorControl2DProps, Sele
         /**
          * Данные из глобального стора
          */
-        const { turnstile } = this.props.data;
+        const { turnstile, isFetching } = this.props.data;
+        if (turnstile.data.length === 0 && !isFetching) {
+           return <Loader />;
+        }
 
         return (
             /**
@@ -167,15 +167,8 @@ class SelectorControl2D extends React.PureComponent<SelectorControl2DProps, Sele
     }
 }
 
-SelectorControl2D.propTypes = {
-    togglePopupWindowTurnstile: PropTypes.func.isRequired,
-    fetchDataTurnstile: PropTypes.func.isRequired,
-    data: PropTypes.object.isRequired,
-    turnstile: PropTypes.object,
-    isFetching: PropTypes.bool
-};
-
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect(mapStateToProps, { fetchDataTurnstile, togglePopupWindowTurnstile })(SelectorControl2D);
+
+export default connect<{}, {}, SelectorControl2DProps>(mapStateToProps, { fetchDataTurnstile, togglePopupWindowTurnstile })(SelectorControl2D);

@@ -2,10 +2,6 @@
  * Импорт зависимостей из NPM
  */
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
-// @ts-ignore
-import { connect } from 'react-redux';
-import { ConfiguratorState } from '../../../store/store';
 
 /**
  * Импорт модулей селекторов
@@ -24,34 +20,9 @@ import SelectorSteelCase from './selectors/selectorSteelCase/selectorSteelCase';
  */
 import './moduleSelectors.scss';
 
-/**
- * Импорт Лоадера
- */
-import Loader from '../../../__utils__/Loader/Loader';
-
-/**
- * Интерфейс компонента ModuleSelectors
- */
-interface ModuleSelectorsProps {
-    data: any
-}
-
-class ModuleSelectors extends React.PureComponent<ModuleSelectorsProps> {
-    static propTypes: {
-        data: PropTypes.Validator<object>;
-        turnstile: PropTypes.Requireable<object>;
-        isFetching: PropTypes.Requireable<boolean>;
-    };
+class ModuleSelectors extends React.PureComponent {
     
     public render () {
-        /**
-         * Данные из Глобального Стора
-         */
-        const { turnstile, isFetching } = this.props.data;
-
-        if (turnstile.data.length === 0 && !isFetching) {
-            return <Loader />;
-        }
         return (
 
             /**
@@ -120,13 +91,4 @@ class ModuleSelectors extends React.PureComponent<ModuleSelectorsProps> {
     }
 }
 
-ModuleSelectors.propTypes = {
-    data: PropTypes.object.isRequired,
-    turnstile: PropTypes.object,
-    isFetching: PropTypes.bool
-};
-
-const mapStateToProps = (state: ConfiguratorState) => ({
-    data: state
-});
-export default connect(mapStateToProps, null)(ModuleSelectors);
+export default ModuleSelectors;

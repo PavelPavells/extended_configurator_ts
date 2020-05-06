@@ -4,7 +4,6 @@
  * Импорт зависимостей из NPM
  */
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../store/store';
@@ -28,17 +27,11 @@ import Loader from '../../../__utils__/Loader/Loader';
  * Интерфейс компонента ModuleButtons
  */
 interface ModuleButtonsProps {
-    data: any,
-    fetchDataTurnstile: (data: any, trigger: number) => void
+    readonly data: any,
+    readonly fetchDataTurnstile: (data: any, trigger: number) => void
 }
 
 class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
-    static propTypes: { 
-        fetchDataTurnstile: PropTypes.Validator<(...args: any[]) => any>; 
-        data: PropTypes.Validator<object>;
-        turnstile: PropTypes.Requireable<object>; 
-        isFetching: PropTypes.Requireable<boolean>; 
-    };
     
     /**
     * Запрос данных
@@ -292,14 +285,8 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
     }
 }
 
-ModuleButtons.propTypes = {
-    fetchDataTurnstile: PropTypes.func.isRequired,
-    data: PropTypes.object.isRequired,
-    turnstile: PropTypes.object,
-    isFetching: PropTypes.bool
-};
-
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect(mapStateToProps, { fetchDataTurnstile })(ModuleButtons);
+
+export default connect<{}, {}, ModuleButtonsProps>(mapStateToProps, { fetchDataTurnstile })(ModuleButtons);

@@ -3,7 +3,6 @@
  * Импорт зависимостей из NPM
  */
 import React from 'react';
-import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../../store/store';
@@ -27,8 +26,8 @@ import Loader from '../../../../__utils__/Loader/Loader';
  * Интерфейс компонента ModuleEquipmentModal
  */
 interface EquipmentModalProps {
-    data: any,
-    fetchDataTurnstile: () => void
+    readonly data: any,
+    readonly fetchDataTurnstile: () => void
 }
 
 class EquipmentModal extends React.PureComponent<EquipmentModalProps> {
@@ -226,15 +225,9 @@ class EquipmentModal extends React.PureComponent<EquipmentModalProps> {
         );
     }
 }
-// @ts-ignore
-EquipmentModal.propTypes = {
-    fetchDataTurnstile: PropTypes.func.isRequired,
-    data: PropTypes.object,
-    turnstile: PropTypes.object,
-    isFetching: PropTypes.bool
-};
 
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect(mapStateToProps, { fetchDataTurnstile })(EquipmentModal);
+
+export default connect<{}, {}, EquipmentModalProps>(mapStateToProps, { fetchDataTurnstile })(EquipmentModal);

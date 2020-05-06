@@ -1,5 +1,5 @@
 /**
- * Глобальные переменные для Экшенов и Редюсеров
+ * Глобальные настройки для продакш сервера
  */
 //const site = "https://embedded.carddex.konstructor.online/api/dw";
 const site = "https://embedded.carddex.master-conf.online/api/dw";
@@ -15,32 +15,32 @@ export const FETCHING_DATA_MAIN_SUCCESS = 'FETCHING_DATA_MAIN_SUCCESS';
 export const FETCHING_DATA_MAIN_FAILURE = 'FETCHING_DATA_MAIN_FAILURE';
 
 /**
- * Глобальные переменные для запросов данных в Компоненте 'Турникеты'
+ * Глобальные переменные для запросов данных в Компоненте Turnstile
  */
 export const FETCHING_DATA_TURNSTILE_REQUEST = 'FETCHING_DATA_TURNSTILE_REQUEST';
 export const FETCHING_DATA_TURNSTILE_SUCCESS = 'FETCHING_DATA_TURNSTILE_SUCCESS';
 export const FETCHING_DATA_TURNSTILE_FAILURE = 'FETCHING_DATA_TURNSTILE_FAILURE';
 
 /**
- * Глобальные переменные для запросов данных в Компоненте 'Шлагбаумы'
+ * Глобальные переменные для запросов данных в Компоненте Barrier
  */
 export const FETCHING_DATA_BARRIER_REQUEST = 'FETCHING_DATA_BARRIER_REQUEST';
 export const FETCHING_DATA_BARRIER_SUCCESS = 'FETCHING_DATA_BARRIER_SUCCESS';
 export const FETCHING_DATA_BARRIER_FAILURE = 'FETCHING_DATA_BARRIER_FAILURE';
 
 /**
- * Открыть/Закрыть модальное окно Компонента 'Турникеты'
+ * Открыть/Закрыть модальное окно Компонента Turnstile
  */
 export const TOGGLE_MODAL_TURNSTILE = 'TOGGLE_MODAL_TURNSTILE';
 export const TOGGLE_MODAL_TURNSTILE_MAIN_INFO = 'TOGGLE_MODAL_TURNSTILE_MAIN_INFO';
 
 /**
- * Открыть/Закрыть модальное окно Компонента 'Шлагбаумы'
+ * Открыть/Закрыть модальное окно Компонента Barrier
  */
 export const TOGGLE_MODAL_BARRIER = 'TOGGLE_MODAL_BARRIER';
 
 /**
- * Интерфейсы стейта Компонента Турникеты
+ * *********************** Интерфейсы стейта Компонента Main ***********************
  */
 
  export interface MainState {
@@ -66,7 +66,7 @@ export const TOGGLE_MODAL_BARRIER = 'TOGGLE_MODAL_BARRIER';
  export type MainActions = MainRequest | MainSuccess | MainFailure;
  
 /**
- * Интерфейсы стейта Компонента Турникеты
+ * *********************** Интерфейсы стейта Компонента Турникеты ***********************
  */
 
  export interface TurnstileState {

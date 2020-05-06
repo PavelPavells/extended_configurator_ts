@@ -6,7 +6,6 @@
  */
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../store/store';
@@ -31,22 +30,16 @@ import Loader from '../../../__utils__/Loader/Loader';
  * Интерфейс компонента Offer
  */
 interface OfferProps {
-    data: any,
-    fetchDataTurnstile: (data: any) => void,
-    handleOpenModal: (index: any, key: number) => void
+    readonly data: any,
+    readonly fetchDataTurnstile: (data: any) => void,
+    readonly handleOpenModal: (index: any, key: number) => void
 }
 
 interface OfferState {
-    modal: boolean
+    readonly modal: boolean
 }
 
 class Offer extends React.PureComponent<OfferProps, OfferState> {
-    static propTypes: { 
-        fetchDataTurnstile: PropTypes.Validator<(...args: any[]) => any>;
-        data: PropTypes.Validator<object>;
-        turnstile: PropTypes.Requireable<object>;
-        isFetching: PropTypes.Requireable<boolean>;
-    };
 
     state: OfferState = {
         modal: false
@@ -244,14 +237,7 @@ class Offer extends React.PureComponent<OfferProps, OfferState> {
     }
 }
 
-Offer.propTypes = {
-    fetchDataTurnstile: PropTypes.func.isRequired,
-    data: PropTypes.object.isRequired,
-    turnstile: PropTypes.object,
-    isFetching: PropTypes.bool
-};
-
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect(mapStateToProps, { fetchDataTurnstile })(Offer);
+export default connect<{}, {}, OfferProps>(mapStateToProps, { fetchDataTurnstile })(Offer);

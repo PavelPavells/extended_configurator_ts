@@ -3,8 +3,6 @@
  */
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-// @ts-ignore
-import { connect } from 'react-redux';
 
 /**
  * Импорт стилей
@@ -39,4 +37,4 @@ class Layout extends React.PureComponent {
     }
 }
 
-export default connect(null, null)(Layout);
+export default Layout;
