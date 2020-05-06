@@ -4,7 +4,6 @@
  * Импорт зависимостей из NPM
  */
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../../../store/store';
@@ -28,26 +27,24 @@ import './selectorEP.scss';
 import PopUp from '../../../../popup/popup';
 
 /**
+ * Импорт Лоадера
+ */
+import Loader from '../../../../../__utils__/Loader/Loader';
+
+/**
  * Интерфейс компонента SelectorBiometry
  */
 interface SelectorEPProps {
-    data: any,
-    fetchDataTurnstile: (data: any, trigger: number) => void,
-    togglePopupWindowTurnstile: () => void
+    readonly data: any,
+    readonly fetchDataTurnstile: (data: any, trigger: number) => void,
+    readonly togglePopupWindowTurnstile: () => void
 }
 
 interface SelectorEPState {
-    selectOne: number
+    readonly selectOne: number
 }
 
 class SelectorEP extends React.PureComponent<SelectorEPProps, SelectorEPState> {
-    static propTypes: {
-        togglePopupWindowTurnstile: PropTypes.Validator<(...args: any[]) => any>;
-        fetchDataTurnstile: PropTypes.Validator<(...args: any[]) => any>
-        data: PropTypes.Validator<object>;
-        turnstile: PropTypes.Requireable<object>;
-        isFetching: PropTypes.Requireable<boolean>;
-    };
 
     state: SelectorEPState = { selectOne: 0 };
 
@@ -89,7 +86,10 @@ class SelectorEP extends React.PureComponent<SelectorEPProps, SelectorEPState> {
         /**
          * Данные из глобального стора
          */
-        const { turnstile } = this.props.data;
+        const { turnstile, isFetching } = this.props.data;
+        if (turnstile.data.length === 0 && !isFetching) {
+           return <Loader />;
+        }
         
         return (
 
@@ -137,15 +137,8 @@ class SelectorEP extends React.PureComponent<SelectorEPProps, SelectorEPState> {
     }
 }
 
-SelectorEP.propTypes = {
-    fetchDataTurnstile: PropTypes.func.isRequired,
-    togglePopupWindowTurnstile: PropTypes.func.isRequired,
-    data: PropTypes.object.isRequired,
-    turnstile: PropTypes.object,
-    isFetching: PropTypes.bool
-};
-
 const mapStateToPtops = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect(mapStateToPtops, { fetchDataTurnstile, togglePopupWindowTurnstile })(SelectorEP);
+
+export default connect<{}, {}, SelectorEPProps>(mapStateToPtops, { fetchDataTurnstile, togglePopupWindowTurnstile })(SelectorEP);

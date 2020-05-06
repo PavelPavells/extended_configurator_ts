@@ -4,7 +4,6 @@
  * Импорт зависимостей из NPM
  */
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../../../store/store';
@@ -28,26 +27,24 @@ import './selectorBiometry.scss';
 import PopUp from '../../../../popup/popup';
 
 /**
+ * Импорт Лоадера
+ */
+import Loader from '../../../../../__utils__/Loader/Loader';
+
+/**
  * Интерфейс компонента SelectorBiometry
  */
 interface SelectorBiometryProps {
-    data: any,
-    fetchDataTurnstile: (data: any, trigger: number) => void,
-    togglePopupWindowTurnstile: () => void
+    readonly data: any,
+    readonly fetchDataTurnstile: (data: any, trigger: number) => void,
+    readonly togglePopupWindowTurnstile: () => void
 }
 
 interface SelectorBiometryState {
-    selectFour: number
+    readonly selectFour: number
 }
 
 class SelectorBiometry extends React.PureComponent<SelectorBiometryProps, SelectorBiometryState> {
-    static propTypes: {
-        togglePopupWindowTurnstile: PropTypes.Validator<(...args: any[]) => any>;
-        fetchDataTurnstile: PropTypes.Validator<(...args: any[]) => any>
-        data: PropTypes.Validator<object>;
-        turnstile: PropTypes.Requireable<object>;
-        isFetching: PropTypes.Requireable<boolean>;
-    };
 
     state: SelectorBiometryState = { selectFour: 0 };
 
@@ -89,7 +86,10 @@ class SelectorBiometry extends React.PureComponent<SelectorBiometryProps, Select
         /**
          * Данные из глобального стора
          */
-        const { turnstile } = this.props.data;
+        const { turnstile, isFetching } = this.props.data;
+        if (turnstile.data.length === 0 && !isFetching) {
+           return <Loader />;
+        }
 
         return (
 
@@ -140,15 +140,8 @@ class SelectorBiometry extends React.PureComponent<SelectorBiometryProps, Select
     }
 }
 
-SelectorBiometry.propTypes = {
-    togglePopupWindowTurnstile: PropTypes.func.isRequired,
-    fetchDataTurnstile: PropTypes.func.isRequired,
-    data: PropTypes.object.isRequired,
-    turnstile: PropTypes.object,
-    isFetching: PropTypes.bool
-};
-
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect(mapStateToProps, { fetchDataTurnstile, togglePopupWindowTurnstile })(SelectorBiometry);
+
+export default connect<{}, {}, SelectorBiometryProps>(mapStateToProps, { fetchDataTurnstile, togglePopupWindowTurnstile })(SelectorBiometry);

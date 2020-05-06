@@ -2,7 +2,6 @@
  * Импорт зависимостей из NPM
  */
 import React from 'react';
-import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../store/store';
@@ -26,17 +25,11 @@ import Loader from '../../../__utils__/Loader/Loader';
  * Интерфейс компонента ModuleList
  */
 interface ModuleListProps {
-    data: any,
-    fetchDataTurnstile: () => void
+    readonly data: any,
+    readonly fetchDataTurnstile: () => void
 }
 
 class ModuleList extends React.PureComponent<ModuleListProps> {
-    static propTypes: { 
-        fetchDataTurnstile: PropTypes.Validator<(...args: any[]) => any>;
-        data: PropTypes.Validator<object>;
-        turnstile: PropTypes.Requireable<object>;
-        isFetching: PropTypes.Requireable<boolean>;
-    };
     
     /**
     * Запрос данных
@@ -67,14 +60,8 @@ class ModuleList extends React.PureComponent<ModuleListProps> {
     }
 }
 
-ModuleList.propTypes = {
-    fetchDataTurnstile: PropTypes.func.isRequired,
-    data: PropTypes.object.isRequired,
-    turnstile: PropTypes.object,
-    isFetching: PropTypes.bool
-};
-
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect(mapStateToProps, { fetchDataTurnstile })(ModuleList);
+
+export default connect<{}, {}, ModuleListProps>(mapStateToProps, { fetchDataTurnstile })(ModuleList);

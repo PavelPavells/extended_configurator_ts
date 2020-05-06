@@ -47,10 +47,10 @@ export const fetchingDataTurnstileFailure = (error: any): TurnstileActions => ({
  * Экшен для вызовов в Компонентах
  */
 
-export const fetchDataTurnstile = (data: any, trigger: number) => (dispatch: Dispatch<TurnstileActions>) => {
+export const fetchDataTurnstile = (data: any, trigger: number) => async (dispatch: Dispatch<TurnstileActions>) => {
     dispatch(fetchingDataTurnstileRequest());
     try {
-        axios.post(`${site}/turnstile`, {
+        await axios.post(`${site}/turnstile`, {
             app_id: 'APP_ID',
             trigger: data.trigger,
             trigger_state: data.trigger_state,

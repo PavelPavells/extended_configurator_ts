@@ -4,7 +4,6 @@
  */
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../store/store';
@@ -37,17 +36,13 @@ import Loader from '../../__utils__/Loader/Loader';
  * Интерфейс компонента Main
  */
 interface MainProps {
-    data: any,
+    readonly data: any,
+    readonly main: any,
+    readonly isFetching: boolean,
     fetchDataMain: () => void
 }
 
 class Main extends React.PureComponent<MainProps> {
-    static propTypes: { 
-        fetchDataMain: PropTypes.Validator<(...args: any[]) => any>;
-        data: PropTypes.Validator<object>; 
-        main: PropTypes.Requireable<object>; 
-        isFetching: PropTypes.Requireable<boolean>; 
-    };
     
     /**
      * Запрос данных
@@ -137,14 +132,12 @@ class Main extends React.PureComponent<MainProps> {
     }
 }
 
-Main.propTypes = {
-    fetchDataMain: PropTypes.func.isRequired,
-    data: PropTypes.object.isRequired,
-    main: PropTypes.object,
-    isFetching: PropTypes.bool
-};
-
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect(mapStateToProps, { fetchDataMain })(Main);
+
+// const mapDispatchToProps = (dispatch: Dispatch<ConfiguratorState>) => ({
+//     main: bindActionCreators(fetchDataMain, dispatch)
+// })
+
+export default connect<{}, {}, MainProps>(mapStateToProps, { fetchDataMain })(Main);

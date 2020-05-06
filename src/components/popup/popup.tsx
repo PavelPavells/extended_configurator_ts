@@ -3,7 +3,6 @@
  * Импорт зависимостей из NPM
  */
 import React from 'react';
-import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../store/store';
@@ -35,20 +34,13 @@ import './popup.scss';
  * Интерфейс компонента Popup
  */
 interface PopupProps {
-    data: any,
-    handleCloseModal: () => void,
-    togglePopupWindowTurnstile: () => void,
-    togglePopupWindowMainInfoTurnstile: () => void
+    readonly data: any,
+    readonly handleCloseModal: () => void,
+    readonly togglePopupWindowTurnstile: () => void,
+    readonly togglePopupWindowMainInfoTurnstile: () => void
 }
 
 class Popup extends React.PureComponent<PopupProps> {
-    static propTypes: { 
-        fetchDataTurnstile: PropTypes.Requireable<(...args: any[]) => any>;
-        togglePopupWindowTurnstile: PropTypes.Validator<(...args: any[]) => any>;
-        togglePopupWindowMainInfoTurnstile: PropTypes.Validator<(...args: any[]) => any>;
-        data: PropTypes.Validator<object>;
-        turnstile: PropTypes.Requireable<object>; 
-    };
 
     /**
      * Запрос данных
@@ -168,18 +160,10 @@ class Popup extends React.PureComponent<PopupProps> {
     }
 }
 
-Popup.propTypes = {
-    fetchDataTurnstile: PropTypes.func,
-    togglePopupWindowTurnstile: PropTypes.func.isRequired,
-    togglePopupWindowMainInfoTurnstile: PropTypes.func.isRequired,
-    data: PropTypes.object.isRequired,
-    turnstile: PropTypes.object
-};
-
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect(
+export default connect<{}, {}, PopupProps>(
     mapStateToProps,
     {
         togglePopupWindowTurnstile,

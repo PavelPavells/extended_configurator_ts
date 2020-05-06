@@ -3,7 +3,6 @@
  */
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../store/store';
@@ -27,17 +26,11 @@ import Loader from '../../../__utils__/Loader/Loader';
  * Интерфейс компонента ModuleBasket
  */
 interface ModuleBasketProps {
-    data: any,
-    fetchDataTurnstile: () => void
+    readonly data: any,
+    readonly fetchDataTurnstile: () => void
 }
 
 class ModuleBasket extends React.PureComponent<ModuleBasketProps> {
-    static propTypes: { 
-        fetchDataTurnstile: PropTypes.Validator<(...args: any[]) => any>; 
-        data: PropTypes.Validator<object>; 
-        turnstile: PropTypes.Requireable<object>; 
-        isFetching: PropTypes.Requireable<boolean>; 
-    };
     
     public render () {
         /**
@@ -81,15 +74,8 @@ class ModuleBasket extends React.PureComponent<ModuleBasketProps> {
     }
 }
 
-ModuleBasket.propTypes = {
-    fetchDataTurnstile: PropTypes.func.isRequired,
-    data: PropTypes.object.isRequired,
-    turnstile: PropTypes.object,
-    isFetching: PropTypes.bool
-};
-
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
 
-export default connect(mapStateToProps, { fetchDataTurnstile })(ModuleBasket);
+export default connect<{}, {}, ModuleBasketProps>(mapStateToProps, { fetchDataTurnstile })(ModuleBasket);

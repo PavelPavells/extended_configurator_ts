@@ -4,7 +4,6 @@
  * Импорт зависимостей из NPM
  */
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../../../store/store';
@@ -28,26 +27,24 @@ import './selectorEMMarin.scss';
 import PopUp from '../../../../popup/popup';
 
 /**
+ * Импорт Лоадера
+ */
+import Loader from '../../../../../__utils__/Loader/Loader';
+
+/**
  * Интерфейс компонента SelectorEMMarin
  */
 interface SelectorEMMarinProps {
-    data: any,
-    fetchDataTurnstile: (data: any, trigger: number) => void,
-    togglePopupWindowTurnstile: () => void
+    readonly data: any,
+    readonly fetchDataTurnstile: (data: any, trigger: number) => void,
+    readonly togglePopupWindowTurnstile: () => void
 }
 
 interface SelectorEMMarinState {
-    selectTwo: number
+    readonly selectTwo: number
 }
 
 class SelectorEMMarin extends React.PureComponent<SelectorEMMarinProps, SelectorEMMarinState> {
-    static propTypes: {
-        togglePopupWindowTurnstile: PropTypes.Validator<(...args: any[]) => any>;
-        fetchDataTurnstile: PropTypes.Validator<(...args: any[]) => any>
-        data: PropTypes.Validator<object>;
-        turnstile: PropTypes.Requireable<object>;
-        isFetching: PropTypes.Requireable<boolean>;
-    };
 
     state: SelectorEMMarinState = { selectTwo: 0 };
 
@@ -89,7 +86,10 @@ class SelectorEMMarin extends React.PureComponent<SelectorEMMarinProps, Selector
         /**
          * Данные из глобального стора
          */
-        const { turnstile } = this.props.data;
+        const { turnstile, isFetching } = this.props.data;
+        if (turnstile.data.length === 0 && !isFetching) {
+           return <Loader />;
+        }
 
         return (
             /**
@@ -138,15 +138,8 @@ class SelectorEMMarin extends React.PureComponent<SelectorEMMarinProps, Selector
     }
 }
 
-SelectorEMMarin.propTypes = {
-    togglePopupWindowTurnstile: PropTypes.func.isRequired,
-    fetchDataTurnstile: PropTypes.func.isRequired,
-    data: PropTypes.object.isRequired,
-    turnstile: PropTypes.object,
-    isFetching: PropTypes.bool
-};
-
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect(mapStateToProps, { fetchDataTurnstile, togglePopupWindowTurnstile })(SelectorEMMarin);
+
+export default connect<SelectorEMMarinProps>(mapStateToProps, { fetchDataTurnstile, togglePopupWindowTurnstile })(SelectorEMMarin);

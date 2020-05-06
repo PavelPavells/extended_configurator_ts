@@ -2,8 +2,6 @@
  * Импорт зависимостей из NPM
  */
 import React from 'react';
-// @ts-ignore
-import { connect } from 'react-redux';
 
 /**
  * Импорт стилей
@@ -90,4 +88,4 @@ class Turnstile extends React.PureComponent {
     }
 }
 
-export default connect(null, null)(Turnstile);
+export default Turnstile;

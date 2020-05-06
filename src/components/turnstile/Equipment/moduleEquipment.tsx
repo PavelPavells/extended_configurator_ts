@@ -3,7 +3,6 @@
  * Импорт зависимостей из NPM
  */
 import React from 'react';
-import PropTypes from 'prop-types';
 // @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../store/store';
@@ -32,24 +31,18 @@ import Loader from '../../../__utils__/Loader/Loader';
  * Интерфейс компонента ModuleEquipment
  */
 interface ModuleEquipmentProps {
-    data: any,
-    fetchDataTurnstile: () => void,
+    readonly data: any,
+    readonly fetchDataTurnstile: () => void,
 }
 
 interface ModuleEquipmentState {
-    listEquipmentOne: boolean,
-    listEquipmentTwo: boolean,
-    listEquipmentThree: boolean,
-    listEquipmentFour: boolean
+    readonly listEquipmentOne: boolean,
+    readonly listEquipmentTwo: boolean,
+    readonly listEquipmentThree: boolean,
+    readonly listEquipmentFour: boolean
 }
 
 class ModuleEquipment extends React.PureComponent<ModuleEquipmentProps, ModuleEquipmentState> {
-    static propTypes: { 
-        fetchDataTurnstile: PropTypes.Validator<(...args: any[]) => any>;
-        data: PropTypes.Validator<object>;
-        turnstile: PropTypes.Requireable<object>;
-        isFetching: PropTypes.Requireable<boolean>;
-    };
 
     state: ModuleEquipmentState = {
         listEquipmentOne: false,
@@ -243,14 +236,8 @@ class ModuleEquipment extends React.PureComponent<ModuleEquipmentProps, ModuleEq
     }
 }
 
-ModuleEquipment.propTypes = {
-    fetchDataTurnstile: PropTypes.func.isRequired,
-    data: PropTypes.object.isRequired,
-    turnstile: PropTypes.object,
-    isFetching: PropTypes.bool
-};
-
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect(mapStateToProps, { fetchDataTurnstile })(ModuleEquipment);
+
+export default connect<{}, {}, ModuleEquipmentProps>(mapStateToProps, { fetchDataTurnstile })(ModuleEquipment);

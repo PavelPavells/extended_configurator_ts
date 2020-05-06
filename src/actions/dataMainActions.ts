@@ -42,10 +42,10 @@ export const fetchingDataMainFailure = (error: any): MainActions => ({
  * Экшен для вызовов в Компонентах
  */
 
-export const fetchDataMain = () => (dispatch: Dispatch<MainActions>) => {
+export const fetchDataMain = () => async (dispatch: Dispatch<MainActions>) => {
     dispatch(fetchingDataMainRequest());
     try {
-        axios.get(`${site}/main`)
+        await axios.get(`${site}/main`)
             .then(data => {
                 dispatch(fetchingDataMainSuccess(data));
             })

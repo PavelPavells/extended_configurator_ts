@@ -24,7 +24,8 @@ export default function (state = initialState, action: MainActions): MainState {
         case FETCHING_DATA_MAIN_REQUEST:
             return {
                 ...state,
-                isFetching: true
+                isFetching: true,
+                //data: null
             };
         case FETCHING_DATA_MAIN_FAILURE:
             return {
