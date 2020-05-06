@@ -55,7 +55,7 @@ export const TOGGLE_MODAL_BARRIER = 'TOGGLE_MODAL_BARRIER';
 
  interface MainSuccess {
     type: typeof FETCHING_DATA_MAIN_SUCCESS,
-    payload: any
+    payload: MainState[]
  }
 
  interface MainFailure {
@@ -85,7 +85,7 @@ export const TOGGLE_MODAL_BARRIER = 'TOGGLE_MODAL_BARRIER';
  interface TurnstileSuccess {
     type: typeof FETCHING_DATA_TURNSTILE_SUCCESS,
     trigger: number,
-    payload: any
+    payload: TurnstileState[]
  }
 
  interface TurnstileFailure {
