@@ -6,7 +6,6 @@
 /**
     Стили компонента selectorBiometry
 */
-
 .selectors__module, .module {
     display: flex;
     flex-direction: row;
@@ -80,7 +79,6 @@
 
 }
 
-
 /**
     Стили иконок компонента selectorBiometry
 */
@@ -102,43 +100,43 @@
 /**
     Стили переключателя selectorBiometry
 */
-.onoffswitch4 {
+.onoffswitch9 {
     position: relative; min-width: 50px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
     }
-    .onoffswitch4-checkbox {
+    .onoffswitch9-checkbox {
     display: none;
     }
-    .onoffswitch4-label {
+    .onoffswitch9-label {
     display: block; overflow: hidden; cursor: pointer;
     border-radius: 15.5px;
     }
-    .onoffswitch4-inner {
+    .onoffswitch9-inner {
     display: block; width: 200%; margin-left: -100%;
     -webkit-transition: margin 0.1s ease-in 0s;
     -o-transition: margin 0.1s ease-in 0s;
     transition: margin 0.1s ease-in 0s;
     }
-    .onoffswitch4-inner:before, .onoffswitch4-inner:after {
+    .onoffswitch9-inner:before, .onoffswitch9-inner:after {
     display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
     font-size: 10px; color: white; font-family: 'Gotham Pro'; font-weight: bold;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     }
-    .onoffswitch4-inner:before {
+    .onoffswitch9-inner:before {
     content: "";
     padding-left: 7px;
     background-color: #1d68d9; 
     color: #FFFFFF;
     }
-    .onoffswitch4-inner:after {
+    .onoffswitch9-inner:after {
     content: "";
     padding-right: 7px;
     background-color: #ebeff3; 
     color: #666666;
     text-align: right;
     }
-.onoffswitch4-switch {
+.onoffswitch9-switch {
     display: block; 
     width: 25px; 
     margin: 2px;
@@ -156,9 +154,9 @@
     border: 1px solid #1d68d9;
     } 
 }
-.onoffswitch4-checkbox:checked + .onoffswitch4-label .onoffswitch4-inner {
+.onoffswitch9-checkbox:checked + .onoffswitch9-label .onoffswitch9-inner {
     margin-left: 0;
 }
-.onoffswitch4-checkbox:checked + .onoffswitch4-label .onoffswitch4-switch {
+.onoffswitch9-checkbox:checked + .onoffswitch9-label .onoffswitch9-switch {
     right: 0px; 
 }

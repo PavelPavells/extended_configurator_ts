@@ -14,7 +14,7 @@
     margin-right: 40px;
     background-color: $white;
 
-    &-options {
+    &__options, .options {
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -25,19 +25,19 @@
         /**
             Количество
         */
-        &__amount {
+        &__amount, .amount {
             display: flex;
             align-items: center;
             margin-right: 80px;
 
-            &-text {
+            &__text {
                 margin-right: 10px;
                 font-size: 12px;
                 line-height: 1.5;
                 color: $brandPantonDescription;
             }
 
-            &-value {
+            &__value {
                 font-size: 14px;
                 font-weight: 500;
                 line-height: 1;
@@ -48,14 +48,14 @@
         /**
             Удалить/Добавить количество
         */
-        &__more {
+        &__more, .more {
             display: flex;
             align-items: center;
             margin-right: 60px;
             border-radius: 5px;
             background-color: #efefef;
 
-            &-minus {
+            &__minus {
                 width: 30px;
                 height: 30px;
                 background: url('../../../images/icon/minus.svg') no-repeat center;
@@ -67,7 +67,7 @@
                 }
             }
 
-            &-plus {
+            &__plus {
                 width: 30px;
                 height: 30px;
                 background: url('../../../images/icon/plus.svg') no-repeat center;
@@ -79,18 +79,18 @@
                 }
             }
         }
-        &__summ {
+        &__summ, .summ {
             display: flex;
             align-items: center;
 
-            &-text {
+            &__text {
                 margin-right: 10px;
                 font-size: 12px;
                 line-height: 1.5;
                 color: $brandPantonDescription;
             }
 
-            &-value {
+            &__value {
                 font-size: 14px;
                 font-weight: 500;
                 line-height: 1;
@@ -102,7 +102,7 @@
     /**
         Кнопка добавить конфигурацию
     */
-    &-button {
+    &__button, .button {
         display: flex;
         justify-content: center;
         align-items: center;

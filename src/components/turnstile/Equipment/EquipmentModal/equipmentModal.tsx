@@ -230,4 +230,9 @@ const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
 
-export default connect<{}, {}, EquipmentModalProps>(mapStateToProps, { fetchDataTurnstile })(EquipmentModal);
+export default connect<{}, {}, EquipmentModalProps>(
+    mapStateToProps,
+    {
+        fetchDataTurnstile
+    }
+)(EquipmentModal);

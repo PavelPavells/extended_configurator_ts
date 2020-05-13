@@ -13,17 +13,17 @@
     /**
         Обертка компонента Basket
     */
-    &-basket {
+    &__basket {
        width: 100%;
     }
 
-    &-main {
+    &__main {
         display: flex;
         width: 100%;
         padding-top: 40px;
         background-color: #fafafa;
     
-        &__slider {
+        &__slider, .slider {
             display: flex;
             flex-direction: column;
             height: 100%;
@@ -33,7 +33,7 @@
             /**
                 Обертка компонента Image
             */
-            &-image {
+            &__image {
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -44,14 +44,14 @@
             /**
                 Обертка компонента List
             */
-            &-list {
+            &__list {
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
             }
         }
 
-        &__basis {
+        &__basis, .basis {
             display: flex;
             flex-direction: column;
             width: 100%;
@@ -60,7 +60,7 @@
             /**
                 Обертка компонента Buttons
             */
-            &-buttons {
+            &__buttons {
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -69,7 +69,7 @@
             /**
                 обертка компонента Selectors
             */
-            &-selectors {
+            &__selectors {
                 display: flex;
                 height: 50vh;
             }
@@ -79,7 +79,7 @@
     /**
         Обертка компонента Configuration
     */
-    &-configuration {
+    &__configuration {
         display: flex;
         padding-top: 40px;
         padding-bottom: 40px;
@@ -89,7 +89,7 @@
     /**
         Обертка компонента Equipment
     */
-    &-equipment {
+    &__equipment {
         display: flex;
         width: 100%;
         padding-bottom: 40px;

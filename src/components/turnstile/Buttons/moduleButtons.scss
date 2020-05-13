@@ -10,222 +10,231 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-}
-.top {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
 
-    /**
-        Описание
-    */
-    &-captions {
+    &__top, .top {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        flex-direction: column;
         width: 100%;
-        margin-bottom: 7px;
-        
-        &__model {
-            font-size: 12px;
-            line-height: 1.5;
-            letter-spacing: normal;
-            color: $brandPantonDescription;
+    
+        /**
+            Описание
+        */
+        &__captions, .captions {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 7px;
+            
+            &__model {
+                font-size: 12px;
+                line-height: 1.5;
+                letter-spacing: normal;
+                color: $brandPantonDescription;
+            }
+    
+            &__seria {
+                margin-left: 60px;
+                font-size: 12px;
+                line-height: 1.5;
+                letter-spacing: normal;
+                color: $brandPantonDescription;
+            }
+    
+            &__summ {
+                font-size: 12px;
+                line-height: 1.5;
+                letter-spacing: normal;
+                color: $brandPantonDescription;
+            }
+        }
+    
+        &__select, .select {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 11px;
+    
+            &__model {
+                width: 180px;
+                font-size: 26px;
+                line-height: 1.5;
+                color: $brandPantonText;
+            }
+    
+            /**
+                Серия
+            */
+            &__seria, .seria {
+                display: flex;
+                flex-direction: row;
+                border-radius: 20px;
+                margin-left: 60px;
+                border: 1px solid $brandPantonBorderButton;
+    
+                &__str {
+                    padding: 5px 20px;
+                    border-radius: 20px;
+                    border: solid 2px transparent;
+    
+                    &:hover {
+                        color: $brandPantonBlue;
+                    }
+                }
+
+                &__stx {
+                    padding: 5px 20px;
+                    border-radius: 20px;
+                    border: 2px solid transparent;
+    
+                    &:hover {
+                        color: $brandPantonBlue;
+                    }
+                }
+
+                /**
+                 * Стили для динамической отрисовки выбранных кнопок
+                 */
+                .open {
+                    border: 2px solid $brandPantonBlue;
+                    color: $brandPantonBlue;
+                    transition: all 0.1s ease-in;
+                }
+            }
+            &__price {
+                width: 250px;
+                font-size: 26px;
+                line-height: 1.5;
+                letter-spacing: normal;
+                text-align: right;
+                color: #293440;
+            }
         }
 
-        &__seria {
-            margin-left: 60px;
-            font-size: 12px;
-            line-height: 1.5;
-            letter-spacing: normal;
-            color: $brandPantonDescription;
+        &__info, .info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+    
+            &__docs {
+                font-size: 10px;
+                font-weight: 500;
+                line-height: 1;
+                letter-spacing: 0.5px;
+                text-decoration: none;
+                color: $brandPantonBlue;
+            }
+            &__base {
+                font-size: 10px;
+                font-weight: 500;
+                line-height: 1;
+                letter-spacing: 0.5px;
+                text-decoration: none;
+                color: $brandPantonBlue;
+            }
         }
-
-        &__summ {
-            font-size: 12px;
-            line-height: 1.5;
-            letter-spacing: normal;
-            color: $brandPantonDescription;
+    
+        /**
+            Опции
+        */
+        &__options, .options {
+            display: flex;
+            justify-content: flex-end;
+            border-bottom: 1px solid $brandPantonBorderButton;
+            padding-bottom: 19px;
+            margin-bottom: 16px;
+    
+            &__value {
+                font-size: 10px;
+                font-weight: 500;
+                line-height: 1;
+                letter-spacing: 0.5px;
+                text-align: right;
+                color: $brandPantonDescription;
+            }
+            &__reset {
+                margin-left: 10px;
+                font-size: 10px;
+                font-weight: 500;
+                line-height: 1;
+                letter-spacing: 0.5px;
+                border-bottom: 1px solid $brandPantonDescription;
+                text-align: right;
+                color: $brandPantonDescription;
+    
+                &:hover {
+                    color: $brandPantonRed;
+                    border-bottom: 1px solid $brandPantonRed;
+                    cursor: pointer;
+                }
+            }
         }
     }
 
-    &-select {
+    &__bottom, .bottom {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+        flex-direction: column;
         width: 100%;
-        margin-bottom: 11px;
-
-        &__model {
-            width: 180px;
-            font-size: 26px;
+    
+        /**
+            Исполнение
+        */
+        &__execution {
+            font-size: 12px;
             line-height: 1.5;
-            color: $brandPantonText;
+            color: $brandPantonDescription;
+            margin-bottom: 10px;
+        }
+    
+        &__buttons, .buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            border: 1px solid $brandPantonBorderButton;
+    
+            &__compact {
+                text-align: center;
+                padding: 11px 0;
+                width: 50%;
+                border-radius: 20px;
+                font-size: 14px;
+                color: $brandPantonBlack;
+                border: 2px solid transparent;
+    
+                &:hover {
+                    color: $brandPantonBlue;
+                }
+            }
+            &__thumb {
+                text-align: center;
+                padding: 11px 0;
+                width: 50%;
+                border-radius: 20px;
+                font-size: 14px;
+                color: $brandPantonBlack;
+                border: 2px solid transparent;
+    
+                &:hover {
+                    color: $brandPantonBlue;
+                }
+            }
         }
 
         /**
-            Серия
-        */
-        &__seria {
-            display: flex;
-            flex-direction: row;
-            border-radius: 20px;
-            margin-left: 60px;
-            border: 1px solid $brandPantonBorderButton;
-
-            &-str {
-                padding: 5px 20px;
-                border-radius: 20px;
-                border: solid 2px transparent;
-
-                &:hover {
-                    color: $brandPantonBlue;
-                }
-            }
-            &-stx {
-                padding: 5px 20px;
-                border-radius: 20px;
-                border: 2px solid transparent;
-
-                &:hover {
-                    color: $brandPantonBlue;
-                }
-            }
-        }
-        &__price {
-            width: 250px;
-            font-size: 26px;
-            line-height: 1.5;
-            letter-spacing: normal;
-            text-align: right;
-            color: #293440;
-        }
-    }
-    &-info {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 6px;
-
-        &__docs {
-            font-size: 10px;
-            font-weight: 500;
-            line-height: 1;
-            letter-spacing: 0.5px;
-            text-decoration: none;
+         * Стили для динамической отрисовки выбранных кнопок
+         */
+        .open {
+            border: 2px solid $brandPantonBlue;
             color: $brandPantonBlue;
-        }
-        &__base {
-            font-size: 10px;
-            font-weight: 500;
-            line-height: 1;
-            letter-spacing: 0.5px;
-            text-decoration: none;
-            color: $brandPantonBlue;
+            transition: all 0.1s ease-in;
         }
     }
 
-    /**
-        Опции
-    */
-    &-options {
-        display: flex;
-        justify-content: flex-end;
-        border-bottom: 1px solid $brandPantonBorderButton;
-        padding-bottom: 19px;
-        margin-bottom: 16px;
-
-        &__value {
-            font-size: 10px;
-            font-weight: 500;
-            line-height: 1;
-            letter-spacing: 0.5px;
-            text-align: right;
-            color: $brandPantonDescription;
-        }
-        &__reset {
-            margin-left: 10px;
-            font-size: 10px;
-            font-weight: 500;
-            line-height: 1;
-            letter-spacing: 0.5px;
-            border-bottom: 1px solid $brandPantonDescription;
-            text-align: right;
-            color: $brandPantonDescription;
-
-            &:hover {
-                color: $brandPantonRed;
-                border-bottom: 1px solid $brandPantonRed;
-                cursor: pointer;
-            }
-        }
-    }
-}
-
-.bottom {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-
-    /**
-        Исполнение
-    */
-    &-execution {
-        font-size: 12px;
-        line-height: 1.5;
-        color: $brandPantonDescription;
-        margin-bottom: 10px;
-    }
-
-    &-buttons {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        border-radius: 20px;
-        margin-bottom: 20px;
-        border: 1px solid $brandPantonBorderButton;
-
-        &__compact {
-            text-align: center;
-            padding: 11px 0;
-            width: 50%;
-            border-radius: 20px;
-            font-size: 14px;
-            color: $brandPantonBlack;
-            border: 2px solid transparent;
-
-            &:hover {
-                color: $brandPantonBlue;
-            }
-        }
-        &__thumb {
-            text-align: center;
-            padding: 11px 0;
-            width: 50%;
-            border-radius: 20px;
-            font-size: 14px;
-            color: $brandPantonBlack;
-            border: 2px solid transparent;
-
-            &:hover {
-                color: $brandPantonBlue;
-            }
-        }
-    }
-}
-
-/**
-    Стили для динамической отрисовки выбранных кнопок
-*/
-.opacity {
-    display: none;
-    opacity: 0.5;
-}
-.open {
-    border: 2px solid $brandPantonBlue;
-    color: $brandPantonBlue;
-    transition: all 0.1s ease-in;
 }

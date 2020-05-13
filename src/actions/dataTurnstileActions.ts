@@ -94,6 +94,11 @@ export const fetchDataTurnstile = (data: any, trigger: number) => async (dispatc
                     // @ts-ignore  /** Typescript не применяет "<", т.к. не работает с boolean как с number */
                     state: data.selectEight && data.selectEight < 0 ? 0 : data.selectEight
                 }
+                //{
+                //    module: 8,
+                    // @ts-ignore  /** Typescript не применяет "<", т.к. не работает с boolean как с number */
+                //    state: data.selectNine && data.selectNine < 0 ? 0 : data.selectNine
+                //}
             ]
         })
             .then(data => {

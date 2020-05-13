@@ -51,9 +51,9 @@ class ModuleList extends React.PureComponent<ModuleListProps> {
              *  Модуль Список
              */
             <section className="list">
-                <p className="list-description">Состав модели:</p>
+                <p className="list__description">Состав модели:</p>
                 {turnstile.data.page_view.model_module_list.map((index: { index: string | number | undefined; caption: React.ReactNode; }) => (
-                    <div className="list-options" key={index.index}>{index.caption}</div>
+                    <div className="list__options" key={index.index}>{index.caption}</div>
                 ))}
             </section>
         );
@@ -64,4 +64,9 @@ const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
 
-export default connect<{}, {}, ModuleListProps>(mapStateToProps, { fetchDataTurnstile })(ModuleList);
+export default connect<{}, {}, ModuleListProps>(
+    mapStateToProps,
+    {
+        fetchDataTurnstile
+    }
+)(ModuleList);

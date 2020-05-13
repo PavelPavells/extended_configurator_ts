@@ -14,6 +14,7 @@ import SelectorInfoTime from './selectors/selectorInfoTime/selectorInfoTime';
 import SelectorControl2D from './selectors/selectorControl2D/selectorControl2D';
 import SelectorGuest2D from './selectors/selectorGuest2D/selectorGuest2D';
 import SelectorSteelCase from './selectors/selectorSteelCase/selectorSteelCase';
+import SelectorRDU from './selectors/selectorRDU/selectorRDU';
 
 /**
  * Импорт стилей контейнера модулей селекторов
@@ -29,7 +30,7 @@ class ModuleSelectors extends React.PureComponent {
              * Модуль Селекторы
              */
             <section className="selectors">
-                <div className="selectors-text">Дополнительные модули</div>
+                <div className="selectors__text">Дополнительные модули</div>
 
                 {/**
                  * Селектор Универсальный сетевой контроллер расширения EP-2000
@@ -85,6 +86,13 @@ class ModuleSelectors extends React.PureComponent {
                  */}
                 <Fragment>
                     <SelectorSteelCase />
+                </Fragment>
+
+                {/**
+                 * Селектор RDU
+                 */}
+                <Fragment>
+                    <SelectorRDU />
                 </Fragment>
             </section>
         );
