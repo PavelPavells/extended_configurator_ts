@@ -84,11 +84,11 @@ class ModuleEquipment extends React.PureComponent<ModuleEquipmentProps, ModuleEq
         let text = document.getElementsByClassName('text-remote')[0];
         text.classList.toggle('toggle-text');
 
-        let icon = document.getElementsByClassName('block-info__icon1')[0];
-        icon.classList.toggle('block-info__icon1-hover');
+        let icon = document.getElementsByClassName('wrap__icon1')[0];
+        icon.classList.toggle('wrap__icon1-hover');
 
         let arrow = document.getElementsByClassName('arrow-remote')[0];
-        arrow.classList.toggle('block-info__arrow-hover');
+        arrow.classList.toggle('wrap__arrow-hover');
     }
 
     /**
@@ -99,11 +99,11 @@ class ModuleEquipment extends React.PureComponent<ModuleEquipmentProps, ModuleEq
         let text = document.getElementsByClassName('text-slats')[0];
         text.classList.toggle('toggle-text');
 
-        let icon = document.getElementsByClassName('block-info__icon2')[0];
-        icon.classList.toggle('block-info__icon2-hover');
+        let icon = document.getElementsByClassName('wrap__icon2')[0];
+        icon.classList.toggle('wrap__icon2-hover');
 
         let arrow = document.getElementsByClassName('arrow-slats')[0];
-        arrow.classList.toggle('block-info__arrow-hover');
+        arrow.classList.toggle('wrap__arrow-hover');
     }
 
     /**
@@ -114,11 +114,11 @@ class ModuleEquipment extends React.PureComponent<ModuleEquipmentProps, ModuleEq
         let text = document.getElementsByClassName('text-suply')[0];
         text.classList.toggle('toggle-text');
 
-        let icon = document.getElementsByClassName('block-info__icon3')[0];
-        icon.classList.toggle('block-info__icon3-hover');
+        let icon = document.getElementsByClassName('wrap__icon3')[0];
+        icon.classList.toggle('wrap__icon3-hover');
 
         let arrow = document.getElementsByClassName('arrow-suply')[0];
-        arrow.classList.toggle('block-info__arrow-hover');
+        arrow.classList.toggle('wrap__arrow-hover');
     }
 
     /**
@@ -129,11 +129,11 @@ class ModuleEquipment extends React.PureComponent<ModuleEquipmentProps, ModuleEq
         let text = document.getElementsByClassName('text-awarding')[0];
         text.classList.toggle('toggle-text');
 
-        let icon = document.getElementsByClassName('block-info__icon4')[0];
-        icon.classList.toggle('block-info__icon4-hover');
+        let icon = document.getElementsByClassName('wrap__icon4')[0];
+        icon.classList.toggle('wrap__icon4-hover');
 
         let arrow = document.getElementsByClassName('arrow-awarding')[0];
-        arrow.classList.toggle('block-info__arrow-hover');
+        arrow.classList.toggle('wrap__arrow-hover');
     }
 
     public render () {
@@ -151,21 +151,21 @@ class ModuleEquipment extends React.PureComponent<ModuleEquipmentProps, ModuleEq
              *  Модуль Комплектующие
              */
             <section className="equipment">
-                <p className="equipment-description">Дополнительное оборудование</p>
-                <div className="equipment-list">
+                <p className="equipment__description">Дополнительное оборудование</p>
+                <div className="equipment__list checklist">
 
                     {/**
                         * Блок 'Пульты Управления'
                      */}
-                    <div className="equipment-list__block">
-                        <div onClick={this.handleChangeModalWindowOne} className="block-info">
-                            <div className="block-info__wrap">
-                                <div className="block-info__icon1" />
-                                <div className="block-info__text text-remote">Пульты управления</div>
-                                <div className="block-info__goods">{turnstile.data.page_view.model_module_list.length}</div>
-                                <div className="block-info__goods">товаров</div>
+                    <div className="checklist__block block">
+                        <div onClick={this.handleChangeModalWindowOne} className="block__info info">
+                            <div className="info__wrap wrap">
+                                <div className="wrap__icon1" />
+                                <div className="wrap__text text-remote">Пульты управления</div>
+                                <div className="wrap__goods">{turnstile.data.page_view.model_module_list.length}</div>
+                                <div className="wrap__goods">товаров</div>
                             </div>
-                            <div className="block-info__arrow arrow-remote" />
+                            <div className="info__arrow arrow-remote" />
                         </div>
                         {this.state.listEquipmentOne ?
                             <div><EquipmentModal /></div> :
@@ -176,15 +176,15 @@ class ModuleEquipment extends React.PureComponent<ModuleEquipmentProps, ModuleEq
                     {/**
                         * Блок 'Преграждающие планки'
                      */}
-                    <div className="equipment-list__block">
-                        <div onClick={this.handleChangeModalWindowTwo} className="block-info">
-                            <div className="block-info__wrap">
-                                <div className="block-info__icon2" />
-                                <div className="block-info__text text-slats">Преграждающие планки</div>
-                                <div className="block-info__goods">{turnstile.data.page_view.model_module_list.length}</div>
-                                <div className="block-info__goods">товаров</div>
+                    <div className="checklist__block block">
+                        <div onClick={this.handleChangeModalWindowTwo} className="block__info info">
+                            <div className="info__wrap wrap">
+                                <div className="wrap__icon2" />
+                                <div className="wrap__text text-slats">Преграждающие планки</div>
+                                <div className="wrap__goods">{turnstile.data.page_view.model_module_list.length}</div>
+                                <div className="wrap__goods">товаров</div>
                             </div>
-                            <div className="block-info__arrow arrow-slats" />
+                            <div className="info__arrow arrow-slats" />
                         </div>
                         {this.state.listEquipmentTwo ?
                             <div><EquipmentModal /></div> :
@@ -195,15 +195,15 @@ class ModuleEquipment extends React.PureComponent<ModuleEquipmentProps, ModuleEq
                     {/**
                         * Блок 'Блоки питания'
                      */}
-                    <div className="equipment-list__block">
-                        <div onClick={this.handleChangeModalWindowThree} className="block-info">
-                            <div className="block-info__wrap">
-                                <div className="block-info__icon3" />
-                                <div className="block-info__text text-suply">Блоки питания</div>
-                                <div className="block-info__goods">{turnstile.data.page_view.model_module_list.length}</div>
-                                <div className="block-info__goods">товара</div>
+                    <div className="checklist__block block">
+                        <div onClick={this.handleChangeModalWindowThree} className="block__info info">
+                            <div className="info__wrap wrap">
+                                <div className="wrap__icon3" />
+                                <div className="wrap__text text-suply">Блоки питания</div>
+                                <div className="wrap__goods">{turnstile.data.page_view.model_module_list.length}</div>
+                                <div className="wrap__goods">товара</div>
                             </div>
-                            <div className="block-info__arrow arrow-suply" />
+                            <div className="info__arrow arrow-suply" />
                         </div>
                         {this.state.listEquipmentThree ?
                             <div><EquipmentModal /></div> :
@@ -214,15 +214,15 @@ class ModuleEquipment extends React.PureComponent<ModuleEquipmentProps, ModuleEq
                     {/**
                         * Блок 'Ограждения прохода и секции "Антипаника"'
                      */}
-                    <div className="equipment-list__block">
-                        <div onClick={this.handleChangeModalWindowFour} className="block-info">
-                            <div className="block-info__wrap">
-                                <div className="block-info__icon4" />
-                                <div className="block-info__text text-awarding">Ограждения прохода и секции «Антипаника»</div>
-                                <div className="block-info__goods">{turnstile.data.page_view.model_module_list.length}</div>
-                                <div className="block-info__goods">товара</div>
+                    <div className="checklist__block block">
+                        <div onClick={this.handleChangeModalWindowFour} className="block__info info">
+                            <div className="info__wrap wrap">
+                                <div className="wrap__icon4" />
+                                <div className="wrap__text text-awarding">Ограждения прохода и секции «Антипаника»</div>
+                                <div className="wrap__goods">{turnstile.data.page_view.model_module_list.length}</div>
+                                <div className="wrap__goods">товара</div>
                             </div>
-                            <div className="block-info__arrow arrow-awarding" />
+                            <div className="info__arrow arrow-awarding" />
                         </div>
                         {this.state.listEquipmentFour ?
                             <div><EquipmentModal /></div> :
