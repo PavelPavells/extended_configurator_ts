@@ -64,4 +64,9 @@ const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
 
-export default connect<{}, {}, ModuleImageProps>(mapStateToProps, { fetchDataTurnstile })(ModuleImage);
+export default connect<{}, {}, ModuleImageProps>(
+    mapStateToProps,
+    {
+        fetchDataTurnstile
+    }
+)(ModuleImage);

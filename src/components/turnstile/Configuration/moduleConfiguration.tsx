@@ -65,35 +65,35 @@ class ModuleConfiguration extends React.PureComponent<ModuleConfigurationProps> 
              *  Модуль Конфигурация
              */
             <section className="configuration">
-                <div className="configuration-options">
+                <div className="configuration__options options">
 
                     {/**
                         * Количество
                      */}
-                    <div className="configuration-options__amount">
-                        <p className="configuration-options__amount-text">Количество:</p>
-                        <span className="configuration-options__amount-value">{turnstile.data.page_view.model_module_list.length}</span>
+                    <div className="options__amount amount">
+                        <p className="amount__text">Количество:</p>
+                        <span className="amount__value">{turnstile.data.page_view.model_module_list.length}</span>
                     </div>
 
                     {/**
                         * Добавить/Удалить Количетсво
                      */}
-                    <div className="configuration-options__more">
-                        <div onClick={this.handleMinusOptions} className="configuration-options__more-minus" />
-                        <div onClick={this.handlePlusOptions} className="configuration-options__more-plus" />
+                    <div className="options__more more">
+                        <div onClick={this.handleMinusOptions} className="more__minus" />
+                        <div onClick={this.handlePlusOptions} className="more__plus" />
                     </div>
-                    <div className="configuration-options__summ">
-                        <div className="configuration-options__summ-text">Сумма:</div>
-                        <span className="configuration-options__summ-value">{turnstile.data.page_view.model_price}</span>
+                    <div className="options__summ summ">
+                        <div className="summ__text">Сумма:</div>
+                        <span className="summ__value">{turnstile.data.page_view.model_price}</span>
                     </div>
                 </div>
 
                 {/**
                     * Кнопка добавления конфигурации
                 */}
-                <div className="configuration-button">
-                    <div className="configuration-button__icon" />
-                    <div className="configuration-button__text">ДОБАВИТЬ ЭТУ КОНФИГУРАЦИЮ</div>
+                <div className="configuration__button button">
+                    <div className="button__icon" />
+                    <div className="button__text">ДОБАВИТЬ ЭТУ КОНФИГУРАЦИЮ</div>
                 </div>
             </section>
         );
@@ -104,4 +104,9 @@ const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
 
-export default connect<{}, {}, ModuleConfigurationProps>(mapStateToProps, { fetchDataTurnstile })(ModuleConfiguration);
+export default connect<{}, {}, ModuleConfigurationProps>(
+    mapStateToProps,
+    {
+        fetchDataTurnstile
+    }
+)(ModuleConfiguration);

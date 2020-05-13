@@ -76,7 +76,8 @@ class SelectorControl2D extends React.PureComponent<SelectorControl2DProps, Sele
                 selectFive: page_view.module_selectors[4].state,
                 selectSix: page_view.module_selectors[5].state,
                 selectSeven: page_view.module_selectors[6].state,
-                selectEight: page_view.module_selectors[7].state
+                selectEight: page_view.module_selectors[7].state,
+                //selectNine: page_view.module_selectors[8].state
             };
             this.props.fetchDataTurnstile(data, data.trigger);
         });
@@ -99,12 +100,12 @@ class SelectorControl2D extends React.PureComponent<SelectorControl2DProps, Sele
                 {turnstile.data.page_view.module_selectors.slice(5, 6).map((index: { state: number; index: string | number | undefined; }) => {
                     if (index.state === -1) {
                         return (
-                            <div key={index.index} className="selectors-module none">
-                                <div className="selectors-module__left">
-                                    <div className="selectors-module__icon one-visits" />
-                                    <div className="selectors-module__text">Контроль разовых посещений по 2D штрих-кодам</div>
+                            <div key={index.index} className="selectors__module module none">
+                                <div className="module__left left">
+                                    <div className="left__icon one-visits" />
+                                    <div className="left__text">Контроль разовых посещений по 2D штрих-кодам</div>
                                 </div>
-                                <div className="selectors-module__right">
+                                <div className="module__right right">
                                     <div className="onoffswitch6">
                                         <input
                                             type="checkbox"
@@ -121,20 +122,20 @@ class SelectorControl2D extends React.PureComponent<SelectorControl2DProps, Sele
                         );
                     } else {
                         return (
-                            <div key={index.index} className="selectors-module">
-                                <div className="selectors-module__left">
-                                    <div className="selectors-module__icon one-visits" />
-                                    <div className="selectors-module__text">Контроль разовых посещений по 2D штрих-кодам</div>
-                                    <div className="selectors-module__info">
-                                        <div className="selectors-module__info-text">
+                            <div key={index.index} className="selectors__module module">
+                                <div className="module__left left">
+                                    <div className="left__icon one-visits" />
+                                    <div className="left__text">Контроль разовых посещений по 2D штрих-кодам</div>
+                                    <div className="left__info info">
+                                        <div className="info__text">
                                             <div onClick={this.handleToggleModal}>ПОДРОБНЕЕ</div>
                                             {turnstile.modal ? <PopUp /> : null}
                                         </div>
-                                        <div className="selectors-module__info-arrow" />
+                                        <div className="info__arrow" />
                                     </div>
                                 </div>
-                                <div className="selectors-module__right">
-                                    <div className="selectors-module__price">
+                                <div className="module__right right">
+                                    <div className="right__price">
                                         {turnstile.data.page_view.model_module_list[1] !== undefined && turnstile.data.page_view.model_module_list[1].name === 'qrguests' && '+ ' + turnstile.data.page_view.model_module_list[1].price}
                                         {turnstile.data.page_view.model_module_list[2] !== undefined && turnstile.data.page_view.model_module_list[2].name === 'qrguests' && '+ ' + turnstile.data.page_view.model_module_list[2].price}
                                         {turnstile.data.page_view.model_module_list[3] !== undefined && turnstile.data.page_view.model_module_list[3].name === 'qrguests' && '+ ' + turnstile.data.page_view.model_module_list[3].price}
@@ -170,5 +171,10 @@ class SelectorControl2D extends React.PureComponent<SelectorControl2DProps, Sele
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-
-export default connect<{}, {}, SelectorControl2DProps>(mapStateToProps, { fetchDataTurnstile, togglePopupWindowTurnstile })(SelectorControl2D);
+export default connect<{}, {}, SelectorControl2DProps>(
+    mapStateToProps,
+    {
+        fetchDataTurnstile,
+        togglePopupWindowTurnstile
+    }
+)(SelectorControl2D);

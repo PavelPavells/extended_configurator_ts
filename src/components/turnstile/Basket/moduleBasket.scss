@@ -15,7 +15,7 @@
     /**
         Описание модуля Корзина
     */
-    &-description {
+    &__description {
         margin: 0;
         font-size: 26px;
         line-height: 1.27;
@@ -26,7 +26,7 @@
     /**
         Корзина
     */
-    &-data {
+    &__data, .data {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
@@ -34,14 +34,14 @@
         border-radius: 10px;
         text-decoration: none;
 
-        &__wrapper {
+        &__wrapper, .wrapper {
             display: flex;
             flex-direction: column;
             width: 10em;
             margin-right: 20px;
             text-decoration: none;
 
-            &-info {
+            &__info, .info {
                 display: flex;
                 align-items: center;
                 font-size: 15px;
@@ -49,13 +49,13 @@
                 line-height: 1;
                 color: black;
     
-                .text {
+                &__text {
                     display: flex;
                     flex-direction: column;
                     width: 100%;
                 }
     
-                .count {
+                &__count {
                     display: flex;
                     flex-direction: column;
                     width: 100%;
@@ -70,11 +70,11 @@
             background-color: $brandPantonBlue;
             transition: all 0.2s ease-in;
 
-            .basket-data__wrapper-info {
+            .wrapper__info {
                 color: $white;
             }
             
-            .basket-more {
+            .basket__more {
                 width: 50px;
                 background: url('../../../images/icon/arrow_more_white.svg') no-repeat center;
             } 

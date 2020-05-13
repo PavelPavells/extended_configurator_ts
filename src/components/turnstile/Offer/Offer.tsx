@@ -240,4 +240,9 @@ class Offer extends React.PureComponent<OfferProps, OfferState> {
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect<{}, {}, OfferProps>(mapStateToProps, { fetchDataTurnstile })(Offer);
+export default connect<{}, {}, OfferProps>(
+    mapStateToProps,
+    {
+        fetchDataTurnstile
+    }
+)(Offer);

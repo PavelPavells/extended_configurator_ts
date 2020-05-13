@@ -140,4 +140,9 @@ const mapStateToProps = (state: ConfiguratorState) => ({
 //     main: bindActionCreators(fetchDataMain, dispatch)
 // })
 
-export default connect<{}, {}, MainProps>(mapStateToProps, { fetchDataMain })(Main);
+export default connect<{}, {}, MainProps>(
+    mapStateToProps,
+    {
+        fetchDataMain
+    }
+)(Main);

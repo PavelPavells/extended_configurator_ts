@@ -76,7 +76,8 @@ class SelectorEMMarin extends React.PureComponent<SelectorEMMarinProps, Selector
                 selectFive: page_view.module_selectors[4].state,
                 selectSix: page_view.module_selectors[5].state,
                 selectSeven: page_view.module_selectors[6].state,
-                selectEight: page_view.module_selectors[7].state
+                selectEight: page_view.module_selectors[7].state,
+                //selectNine: page_view.module_selectors[8].state
             };
             this.props.fetchDataTurnstile(data, data.trigger);
         });
@@ -97,20 +98,20 @@ class SelectorEMMarin extends React.PureComponent<SelectorEMMarinProps, Selector
              */
             <Fragment>
                 {turnstile.data.page_view.module_selectors.slice(1, 2).map((index: { index: string | number | undefined; }) => (
-                    <div key={index.index} className="selectors-module">
-                        <div className="selectors-module__left">
-                            <div className="selectors-module__icon emmarine" />
-                            <div className="selectors-module__text">RFID идентификаторы EMMarine 125kHZ</div>
-                            <div className="selectors-module__info">
-                                <div className="selectors-module__info-text">
+                    <div key={index.index} className="selectors__module module">
+                        <div className="module__left left">
+                            <div className="left__icon emmarine" />
+                            <div className="left__text">RFID идентификаторы EMMarine 125kHZ</div>
+                            <div className="left__info info">
+                                <div className="info__text">
                                     <div onClick={this.handleToggleModal}>ПОДРОБНЕЕ</div>
                                     {turnstile.modal ? <PopUp turnstile={turnstile} /> : null}
                                 </div>
-                                <div className="selectors-module__info-arrow" />
+                                <div className="info__arrow" />
                             </div>
                         </div>
-                        <div className="selectors-module__right">
-                            <div className="selectors-module__price">
+                        <div className="module__right right">
+                            <div className="right__price">
                                 {turnstile.data.page_view.model_module_list[1] !== undefined && turnstile.data.page_view.model_module_list[1].name === 'emarine' && '+ ' + turnstile.data.page_view.model_module_list[1].price}
                                 {turnstile.data.page_view.model_module_list[2] !== undefined && turnstile.data.page_view.model_module_list[2].name === 'emarine' && '+ ' + turnstile.data.page_view.model_module_list[2].price}
                                 {turnstile.data.page_view.model_module_list[3] !== undefined && turnstile.data.page_view.model_module_list[3].name === 'emarine' && '+ ' + turnstile.data.page_view.model_module_list[3].price}
@@ -141,5 +142,10 @@ class SelectorEMMarin extends React.PureComponent<SelectorEMMarinProps, Selector
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-
-export default connect<SelectorEMMarinProps>(mapStateToProps, { fetchDataTurnstile, togglePopupWindowTurnstile })(SelectorEMMarin);
+export default connect<SelectorEMMarinProps>(
+    mapStateToProps,
+    {
+        fetchDataTurnstile,
+        togglePopupWindowTurnstile
+    }
+)(SelectorEMMarin);

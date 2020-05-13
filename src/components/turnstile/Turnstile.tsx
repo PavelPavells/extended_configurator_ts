@@ -31,39 +31,39 @@ class Turnstile extends React.PureComponent {
                 {/**
                  * Обертка компонента 'Корзина'
                  */}
-                <div className="turnstile-basket">
+                <div className="turnstile__basket">
                     <ModuleBasket />
                 </div>
-                <div className="turnstile-main">
-                    <div className="turnstile-main__slider">
+                <div className="turnstile__main turnstile-main">  {/** Cтиль .main перетирается. Исправить! */}
+                    <div className="turnstile-main__slider slider">
 
                         {/**
                          * Обертка компонента 'Изображение'
                          */}
-                        <div className="turnstile-main__slider-image">
+                        <div className="slider__image">
                             <ModuleImage />
                         </div>
 
                         {/**
                          * Обертка компонента 'Список'
                          */}
-                        <div className="turnstile-main__slider-list">
+                        <div className="slider__list">
                             <ModuleList />
                         </div>
                     </div>
-                    <div className="turnstile-main__basis">
+                    <div className="turnstile-main__basis basis">
 
                         {/**
                          * Обертка компонента выбора 'Серии/Исполнения'
                          */}
-                        <div className="turnstile-main__basis-buttons">
+                        <div className="basis__buttons">
                             <ModuleButtons />
                         </div>
 
                         {/**
                          * Обертка компонента 'Селекторы'
                          */}
-                        <div className="turnstile-main__basis-selectors">
+                        <div className="basis__selectors">
                             <ModuleSelectors />
                         </div>
                     </div>
@@ -72,14 +72,14 @@ class Turnstile extends React.PureComponent {
                 {/**
                  * Обертка компонента 'Конфигурация'
                  */}
-                <div className="turnstile-configuration">
+                <div className="turnstile__configuration">
                     <ModuleConfiguration />
                 </div>
 
                 {/**
                  * Обертка компонента 'Комплектующие'
                  */}
-                <div className="turnstile-equipment">
+                <div className="turnstile__equipment">
                     <ModuleEquipment />
                 </div>
             </section>

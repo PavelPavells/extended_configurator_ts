@@ -6,64 +6,45 @@
 /**
     Стили компонента selectorGuest2D
 */
-.selectors {
+.selectors__module, .module {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
-    width: 100%;
+    align-items: center;
+    padding: 7px;
+    font-size: 14px;
 
-    &-text {
-        font-size: 12px;
-        line-height: 1.5;
-        color: $brandPantonDescription;
-    }
+    &:hover {
+        border-radius: 25px;
+        background-color: $brandPantonHover;
 
-    &-module {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 7px;
-        font-size: 14px;
+        .left__info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1px;
+            margin-left: 10px;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: $brandPantonBlue;
+            cursor: default;
 
-        &:hover {
-            border-radius: 25px;
-            background-color: $brandPantonHover;
-
-            .selectors-module__info {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-top: 1px;
-                margin-left: 10px;
-                font-size: 10px;
-                font-weight: 500;
-                letter-spacing: 0.5px;
-                color: $brandPantonBlue;
-                cursor: default;
-    
-                &:hover {
-                    .selectors-module__info-arrow {
-                        margin-left: 10px;
-                        width: 15px;
-                        height: 7px;
-                        background: url('../../../../../images/icon/arrow-more.svg') no-repeat center;
-                    }
+            &:hover {
+                .info__arrow {
+                    margin-left: 10px;
+                    width: 15px;
+                    height: 7px;
+                    background: url('../../../../../images/icon/arrow-more.svg') no-repeat center;
                 }
             }
         }
+    }
 
-        &__left {
-            display: flex;
-            align-items: center;
-            width: 75%;
-        }
-
-        &__right {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-        }
+    &__left, .left {
+        display: flex;
+        align-items: center;
+        width: 75%;
 
         &__icon {
             display: block;
@@ -72,21 +53,30 @@
             margin-right: 1%;
         }
 
+        &__text {
+            font-size: 14px;
+            line-height: 1.29;
+            color: $brandPantonText;
+        }
+
+        &__info {
+            display: none;
+        }
+    }
+
+    &__right, .right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
         &__price {
             margin-right: 10px;
             font-size: 10px;
             font-weight: 500;
             color: $brandPantonBlue;
         }
-        &__text {
-            font-size: 14px;
-            line-height: 1.29;
-            color: $brandPantonText;
-        }
-         &__info {
-            display: none;
-        }
     }
+
 }
 
 /**

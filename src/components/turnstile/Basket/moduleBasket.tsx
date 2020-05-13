@@ -51,23 +51,23 @@ class ModuleBasket extends React.PureComponent<ModuleBasketProps> {
                 {/**
                  *Описание
                  */}
-                <p className="basket-description">Конфигуратор</p>
+                <p className="basket__description">Конфигуратор</p>
 
                 {/**
                  *Информация о корзине
                  */}
-                <Link to='/turnstile/offer' className="basket-data">
-                    <div className="basket-data__wrapper">
-                        <div className="basket-data__wrapper-info">
-                            <div className="text">Товаров:</div>
-                            <div className="count">{turnstile.data.page_view.model_module_list.length}</div>
+                <Link to='/turnstile/offer' className="basket__data data">
+                    <div className="data__wrapper wrapper">
+                        <div className="wrapper__info info">
+                            <div className="info__text">Товаров:</div>
+                            <div className="info__count">{turnstile.data.page_view.model_module_list.length}</div>
                         </div>
-                        <div className="basket-data__wrapper-info">
-                            <div className="text">На сумму:</div>
-                            <div className="count">{turnstile.data.page_view.model_price}</div>
+                        <div className="wrapper__info info">
+                            <div className="info__text">На сумму:</div>
+                            <div className="info__count">{turnstile.data.page_view.model_price}</div>
                         </div>
                     </div>
-                    <div className="basket-more" />
+                    <div className="basket__more" />
                 </Link>
             </section>
         );
@@ -78,4 +78,9 @@ const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
 
-export default connect<{}, {}, ModuleBasketProps>(mapStateToProps, { fetchDataTurnstile })(ModuleBasket);
+export default connect<{}, {}, ModuleBasketProps>(
+    mapStateToProps,
+    {
+        fetchDataTurnstile
+    }
+)(ModuleBasket);
