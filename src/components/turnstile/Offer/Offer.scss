@@ -16,19 +16,19 @@
     /**
         Описание
     */
-    &-description {
+    &__description, .description {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
         background-color: $white;
         
-        .left {
+        &__left, .left {
             display: flex;
             justify-content: flex-start;
             align-items: center;
 
-            &-arrow {
+            &__arrow {
                 margin-left: 40px;
                 width: 40px;
                 height: 30px;
@@ -37,14 +37,14 @@
                 background: url('../../../images/icon/arrow_more_black.svg') no-repeat center;
             }
 
-            &-text {
+            &__text {
                 margin: 24px 20px;
                 font-size: 26px;
                 line-height: 1.27;
                 color: $brandPantonText;
             }
 
-            &-agreement {
+            &__agreement {
                 padding-top: 7px;
                 font-size: 12px;
                 line-height: 1.5;
@@ -52,19 +52,19 @@
             }
         }
 
-        .right {
+        &__right, .right {
             display: flex;
             justify-content: flex-end;
             align-items: center;
             margin-right: 25px;
 
-            &-wrapper {
+            &__wrapper, .wrapper {
                 display: flex;
                 flex-direction: column;
                 width: 10em;
                 text-decoration: none;
     
-                &__info {
+                &__info, .info {
                     display: flex;
                     align-items: center;
                     font-size: 15px;
@@ -72,13 +72,13 @@
                     line-height: 1;
                     color: black;
         
-                    .text {
+                    &__text {
                         display: flex;
                         flex-direction: column;
                         width: 100%;
                     }
         
-                    .count {
+                    &__count {
                         display: flex;
                         flex-direction: column;
                         width: 100%;
@@ -93,7 +93,7 @@
     /**
         Основной блок предложения
     */
-    &-goods {
+    &__goods, .goods {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -443,7 +443,7 @@
     /**
         Кнопка скачать предложение
     */
-    &-price {
+    &__price, .price {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -451,58 +451,84 @@
         margin-top: 20px;
         background-color: $white;
 
-        &__wrapper {
+        &__wrapper, .wrapper {
             display: flex;
+
+            &__image {
+                width: 90px;
+                height: 90px;
+                margin: 0 55px 10px 0;
+                background: url('../../../images/icon/sales.svg') no-repeat center;
+            }
+    
+            &__full, .full {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-right: 100px;
+
+                &__text {
+                    font-size: 12px;
+                    line-height: 1.5;
+                    color: $brandPantonDescription;
+                }
+        
+                &__price {
+                    font-size: 20px;
+                    line-height: 1.28;
+                    color: $brandPantonText;
+                }
+            }
         }
 
-        &__image {
-            width: 90px;
-            height: 90px;
-            margin: 0 55px 10px 0;
-            background: url('../../../images/icon/sales.svg') no-repeat center;
-        }
 
-        &__full {
+        &__sale, .sale {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            margin-right: 100px;
+
+            &__text, .text {
+                font-size: 12px;
+                line-height: 1.5;
+                color: $brandPantonDescription;
+    
+                &__sale {
+                    margin-left: 10px;
+                    font-size: 12px;
+                    line-height: 1.5;
+                    color: $green;
+                }
+            }
+    
+            &__price {
+                font-size: 20px;
+                line-height: 1.28;
+                color: $brandPantonText;
+            }
         }
 
-        &__sale {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        &__total {
+        &__total, .total {
             display: flex;
             flex-direction: column;
             justify-content: center;
             margin-right: 40px;
-        }
 
-        &__text {
-            font-size: 12px;
-            line-height: 1.5;
-            color: $brandPantonDescription;
-
-            &-sale {
-                margin-left: 10px;
+            &__text {
                 font-size: 12px;
                 line-height: 1.5;
-                color: $green;
+                color: $brandPantonDescription;
+            }
+    
+            &__price {
+                font-size: 20px;
+                line-height: 1.28;
+                color: $brandPantonText;
             }
         }
 
-        &__price {
-            font-size: 20px;
-            line-height: 1.28;
-            color: $brandPantonText;
-        }
     }
 
-    &-btn {
+    &__btn, .btn {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -541,7 +567,7 @@
         }
     }
 
-    &-confidence {
+    &__confidence, .confidence {
         margin: 20px 0 40px 0;
         font-size: 12px;
         line-height: 1.5;

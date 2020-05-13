@@ -94,32 +94,32 @@ class Offer extends React.PureComponent<OfferProps, OfferState> {
             <section className="offer">
 
                 {/**
-                    * Описание
+                 * Описание
                  */}
-                <div className="offer-description">
-                    <div className="left">
-                        <Link to="/turnstile" className="left-arrow" />
-                        <div className="left-text">КП для клиента</div>
-                        <div className="left-agreement">№123456-ABC от 01.04.2020</div>
+                <div className="offer__description description">
+                    <div className="description__left left">
+                        <Link to="/turnstile" className="left__arrow" />
+                        <div className="left__text">КП для клиента</div>
+                        <div className="left__agreement">№123456-ABC от 01.04.2020</div>
                     </div>
-                    <div className="right">
-                        <div className="right-wrapper">
-                            <div className="right-wrapper__info">
-                                <div className="text">Товаров:</div>
-                                <div className="count">{turnstile.data.page_view.model_module_list.length}</div>
+                    <div className="description__right right">
+                        <div className="right__wrapper wrapper">
+                            <div className="wrapper__info info">
+                                <div className="info__text">Товаров:</div>
+                                <div className="info__count">{turnstile.data.page_view.model_module_list.length}</div>
                             </div>
-                            <div className="right-wrapper__info">
-                                <div className="text">На сумму:</div>
-                                <div className="count">{turnstile.data.page_view.model_price}</div>
+                            <div className="wrapper__info info">
+                                <div className="info__text">На сумму:</div>
+                                <div className="info__count">{turnstile.data.page_view.model_price}</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 {/**
-                    * Блок Основное Предложение
+                 * Блок Основное Предложение
                  */}
-                <div className="offer-goods">
+                <div className="offer__goods goods">
                     <div className="offer-category">
                         <div className="category-wrapper">
                             <div className="category-wrapper__photo">Фото</div>
@@ -204,30 +204,30 @@ class Offer extends React.PureComponent<OfferProps, OfferState> {
                 {/**
                     * Блок Цена/Предложение
                  */}
-                <div className="offer-price">
-                    <div className="offer-price__wrapper">
-                        <div className="offer-price__image" />
-                        <div className="offer-price__full">
-                            <div className="offer-price__text">Стоимость без скидки</div>
-                            <div className="offer-price__price">{turnstile.data.page_view.model_price}</div>
+                <div className="offer__price price">
+                    <div className="price__wrapper wrapper">
+                        <div className="wrapper__image" />
+                        <div className="wrapper__full full">
+                            <div className="full__text">Стоимость без скидки</div>
+                            <div className="full__price">{turnstile.data.page_view.model_price}</div>
                         </div>
-                        <div className="offer-price__sale">
-                            <div className="offer-price__text">Скидка<span className="offer-price__text-sale">25%</span></div>
-                            <div className="offer-price__price">&mdash; {turnstile.data.page_view.model_price}</div>
+                        <div className="wrapper__sale sale">
+                            <div className="sale__text text">Скидка<span className="text__sale">25%</span></div>
+                            <div className="sale__price">&mdash; {turnstile.data.page_view.model_price}</div>
                         </div>
                     </div>
-                    <div className="offer-price__total">
-                        <div className="offer-price__text">Итого со скидкой</div>
-                        <div className="offer-price__price">{turnstile.data.page_view.model_price}</div>
+                    <div className="price__total total">
+                        <div className="total__text">Итого со скидкой</div>
+                        <div className="total__price">{turnstile.data.page_view.model_price}</div>
                     </div>
                 </div>
-                <div className="offer-btn">
-                    <div className="offer-btn__icon" />
-                    <div className="offer-btn__text">СКАЧАТЬ КОММЕРЧЕСКОЕ ПРЕДЛОЖЕНИЕ</div>
-                    <div className="offer-btn__line" />
-                    <div className="offer-btn__format">XLS, 800 KB</div>
+                <div className="offer__btn btn">
+                    <div className="btn__icon" />
+                    <div className="btn__text">СКАЧАТЬ КОММЕРЧЕСКОЕ ПРЕДЛОЖЕНИЕ</div>
+                    <div className="btn__line" />
+                    <div className="btn__format">XLS, 800 KB</div>
                 </div>
-                <div className="offer-confidence">
+                <div className="offer__confidence">
                     Данное коммерческое предложение будет анонимным.
                     В нем будут присутствовать реквизиты партнера и выбранные<br/>
                     товары, но не будет информации о клиенте.
