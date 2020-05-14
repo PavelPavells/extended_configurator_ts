@@ -100,7 +100,7 @@ class SelectorRDU extends React.PureComponent<SelectorRDUProps, SelectorRDUState
                 {/*{turnstile.data.page_view.module_selectors.slice(8, 9).map((index: { index: string | number | undefined; }) => (*/}
                     <div className="selectors__module module">
                         <div className="module__left left">
-                            <div className="left__icon bio" />
+                            <div className="left__icon rdu" />
                             <div className="left__text">Модуль радиопультов "RDU-04"</div>
                             <div className="left__info info">
                                 <div className="info__text">
