@@ -13,7 +13,7 @@
     border-radius: 0 0 10px 10px;
     background-color: $brandPantonBorderButton;
 
-    &-wrapper {
+    &__wrapper, .wrap {
         display: flex;
         position: relative;
         align-items: flex-start;
@@ -24,7 +24,7 @@
         /**
             Стили блоков компонента всплывающего окна
         */
-        .block {
+        &__block, .block {
             display: flex;
             flex-direction: column;
             width: 100%;
@@ -33,7 +33,7 @@
             border: 1px solid $brandPantonBorderButton;
             background-color: $white;
 
-            &-image {
+            &__image {
                 display: flex;
                 justify-content: center;
                 height: 160px;
@@ -46,7 +46,7 @@
                 }
             }
 
-            &-description {
+            &__description {
                 padding: 10px 20px;
                 font-size: 12px;
                 line-height: 1.5;
@@ -58,7 +58,7 @@
                 }
             }
 
-            &-amount {
+            &__amount {
                 padding: 10px 20px;    
                 font-size: 18px;
                 line-height: 1.28;
@@ -71,7 +71,7 @@
                 }
             }
 
-            &-add {
+            &__add {
                 max-height: 0px;
                 overflow: hidden;
                 //transition: all .3s ease;
@@ -79,20 +79,20 @@
             }
 
             &:hover {
-                .block-add {
+                .block-add, .add {
                     max-height: 150px;
                     z-index: 10000;
                     background-color: $white;
                     border-radius: 0 0 10px 10px;
 
-                    &__value {
+                    &__value, .value {
                         display: flex;
                         justify-content: space-between;
                         align-items: center;
                         border-radius: 5px;
                         padding: 20px 20px 0 20px;
 
-                        .quantity {
+                        &__quantity {
                             display: flex;
                             align-items: center;
                             font-size: 12px;
@@ -106,13 +106,13 @@
                             }
                         }
                         
-                        .more {
+                        &__more, .more {
                             display: flex;
                             align-items: center;
                             border-radius: 5px;
                             background-color: $brandPantonBorderButton;
 
-                            &-minus {
+                            &__minus {
                                 width: 30px;
                                 height: 30px;
                                 background: url('../../../../images/icon/minus.svg') no-repeat center;
@@ -124,7 +124,7 @@
                                 }
                             }
                 
-                            &-plus {
+                            &__plus {
                                 width: 30px;
                                 height: 30px;
                                 background: url('../../../../images/icon/plus.svg') no-repeat center;

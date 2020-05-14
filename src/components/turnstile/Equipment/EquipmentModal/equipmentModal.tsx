@@ -56,27 +56,27 @@ class EquipmentModal extends React.PureComponent<EquipmentModalProps> {
                 {/**
                  * Блоки описания для всплывающего окна
                  */}
-                <div className="modal-wrapper">
-                    <div className="block">
-                        <div className="block-image">
+                <div className="modal__wrapper wrap">
+                    <div className="wrap__block block">
+                        <div className="block__image">
                             <img src={turnstile.data.page_view.model_main_photo} alt="" />
                         </div>
-                        <div className="block-description">
+                        <div className="block__description">
                             {turnstile.data.page_view.caption}
                         </div>
-                        <div className="block-amount">
+                        <div className="block__amount">
                             {turnstile.data.page_view.model_price} / <span>{turnstile.data.page_view.model_module_list.length} шт.</span>
                         </div>
-                        <div className="block-add">
-                            <div className="block-add__value">
-                                <div className="quantity">Количество: <span>{turnstile.data.page_view.model_module_list.length}</span></div>
-                                <div className="more">
-                                    <div className="more-minus" />
-                                    <div className="more-plus" />
+                        <div className="block__add add">
+                            <div className="add__value value">
+                                <div className="value__quantity">Количество: <span>{turnstile.data.page_view.model_module_list.length}</span></div>
+                                <div className=" value__more more">
+                                    <div className="more__minus" />
+                                    <div className="more__plus" />
                                 </div>
                             </div>
-                            <div className="block-add__button">ДОБАВИТЬ</div>
-                            <div className="block-add__amount">РЕКОМЕНДУЕМОЕ КОЛ-ВО: {turnstile.data.page_view.model_module_list.length}</div>
+                            <div className="add__button">ДОБАВИТЬ</div>
+                            <div className="add__amount">РЕКОМЕНДУЕМОЕ КОЛ-ВО: {turnstile.data.page_view.model_module_list.length}</div>
                         </div>
                     </div>
                 </div>
@@ -84,27 +84,27 @@ class EquipmentModal extends React.PureComponent<EquipmentModalProps> {
                 {/**
                  * Блоки описания для всплывающего окна
                  */}
-                <div className="modal-wrapper">
-                    <div className="block">
-                        <div className="block-image">
+                <div className="modal__wrapper wrap">
+                    <div className="wrap__block block">
+                        <div className="block__image">
                             <img src={turnstile.data.page_view.model_main_photo} alt="" />
                         </div>
-                        <div className="block-description">
+                        <div className="block__description">
                             {turnstile.data.page_view.caption}
                         </div>
-                        <div className="block-amount">
+                        <div className="block__amount">
                             {turnstile.data.page_view.model_price} / <span>{turnstile.data.page_view.model_module_list.length} шт.</span>
                         </div>
-                        <div className="block-add">
-                            <div className="block-add__value">
-                                <div className="quantity">Количество: <span>{turnstile.data.page_view.model_module_list.length}</span></div>
-                                <div className="more">
-                                    <div className="more-minus" />
-                                    <div className="more-plus" />
+                        <div className="block__add add">
+                            <div className="add__value value">
+                                <div className="value__quantity">Количество: <span>{turnstile.data.page_view.model_module_list.length}</span></div>
+                                <div className=" value__more more">
+                                    <div className="more__minus" />
+                                    <div className="more__plus" />
                                 </div>
                             </div>
-                            <div className="block-add__button">ДОБАВИТЬ</div>
-                            <div className="block-add__amount">РЕКОМЕНДУЕМОЕ КОЛ-ВО: {turnstile.data.page_view.model_module_list.length}</div>
+                            <div className="add__button">ДОБАВИТЬ</div>
+                            <div className="add__amount">РЕКОМЕНДУЕМОЕ КОЛ-ВО: {turnstile.data.page_view.model_module_list.length}</div>
                         </div>
                     </div>
                 </div>
@@ -112,27 +112,27 @@ class EquipmentModal extends React.PureComponent<EquipmentModalProps> {
                 {/**
                  * Блоки описания для всплывающего окна
                  */}
-                <div className="modal-wrapper">
-                    <div className="block">
-                        <div className="block-image">
+                <div className="modal__wrapper wrap">
+                    <div className="wrap__block block">
+                        <div className="block__image">
                             <img src={turnstile.data.page_view.model_main_photo} alt="" />
                         </div>
-                        <div className="block-description">
+                        <div className="block__description">
                             {turnstile.data.page_view.caption}
                         </div>
-                        <div className="block-amount">
+                        <div className="block__amount">
                             {turnstile.data.page_view.model_price} / <span>{turnstile.data.page_view.model_module_list.length} шт.</span>
                         </div>
-                        <div className="block-add">
-                            <div className="block-add__value">
-                                <div className="quantity">Количество: <span>{turnstile.data.page_view.model_module_list.length}</span></div>
-                                <div className="more">
-                                    <div className="more-minus" />
-                                    <div className="more-plus" />
+                        <div className="block__add add">
+                            <div className="add__value value">
+                                <div className="value__quantity">Количество: <span>{turnstile.data.page_view.model_module_list.length}</span></div>
+                                <div className=" value__more more">
+                                    <div className="more__minus" />
+                                    <div className="more__plus" />
                                 </div>
                             </div>
-                            <div className="block-add__button">ДОБАВИТЬ</div>
-                            <div className="block-add__amount">РЕКОМЕНДУЕМОЕ КОЛ-ВО: {turnstile.data.page_view.model_module_list.length}</div>
+                            <div className="add__button">ДОБАВИТЬ</div>
+                            <div className="add__amount">РЕКОМЕНДУЕМОЕ КОЛ-ВО: {turnstile.data.page_view.model_module_list.length}</div>
                         </div>
                     </div>
                 </div>
@@ -140,27 +140,27 @@ class EquipmentModal extends React.PureComponent<EquipmentModalProps> {
                 {/**
                  * Блоки описания для всплывающего окна
                  */}
-                <div className="modal-wrapper">
-                    <div className="block">
-                        <div className="block-image">
+                <div className="modal__wrapper wrap">
+                    <div className="wrap__block block">
+                        <div className="block__image">
                             <img src={turnstile.data.page_view.model_main_photo} alt="" />
                         </div>
-                        <div className="block-description">
+                        <div className="block__description">
                             {turnstile.data.page_view.caption}
                         </div>
-                        <div className="block-amount">
+                        <div className="block__amount">
                             {turnstile.data.page_view.model_price} / <span>{turnstile.data.page_view.model_module_list.length} шт.</span>
                         </div>
-                        <div className="block-add">
-                            <div className="block-add__value">
-                                <div className="quantity">Количество: <span>{turnstile.data.page_view.model_module_list.length}</span></div>
-                                <div className="more">
-                                    <div className="more-minus" />
-                                    <div className="more-plus" />
+                        <div className="block__add add">
+                            <div className="add__value value">
+                                <div className="value__quantity">Количество: <span>{turnstile.data.page_view.model_module_list.length}</span></div>
+                                <div className=" value__more more">
+                                    <div className="more__minus" />
+                                    <div className="more__plus" />
                                 </div>
                             </div>
-                            <div className="block-add__button">ДОБАВИТЬ</div>
-                            <div className="block-add__amount">РЕКОМЕНДУЕМОЕ КОЛ-ВО: {turnstile.data.page_view.model_module_list.length}</div>
+                            <div className="add__button">ДОБАВИТЬ</div>
+                            <div className="add__amount">РЕКОМЕНДУЕМОЕ КОЛ-ВО: {turnstile.data.page_view.model_module_list.length}</div>
                         </div>
                     </div>
                 </div>
@@ -168,27 +168,27 @@ class EquipmentModal extends React.PureComponent<EquipmentModalProps> {
                 {/**
                  * Блоки описания для всплывающего окна
                  */}
-                <div className="modal-wrapper">
-                    <div className="block">
-                        <div className="block-image">
+                <div className="modal__wrapper wrap">
+                    <div className="wrap__block block">
+                        <div className="block__image">
                             <img src={turnstile.data.page_view.model_main_photo} alt="" />
                         </div>
-                        <div className="block-description">
+                        <div className="block__description">
                             {turnstile.data.page_view.caption}
                         </div>
-                        <div className="block-amount">
+                        <div className="block__amount">
                             {turnstile.data.page_view.model_price} / <span>{turnstile.data.page_view.model_module_list.length} шт.</span>
                         </div>
-                        <div className="block-add">
-                            <div className="block-add__value">
-                                <div className="quantity">Количество: <span>{turnstile.data.page_view.model_module_list.length}</span></div>
-                                <div className="more">
-                                    <div className="more-minus" />
-                                    <div className="more-plus" />
+                        <div className="block__add add">
+                            <div className="add__value value">
+                                <div className="value__quantity">Количество: <span>{turnstile.data.page_view.model_module_list.length}</span></div>
+                                <div className=" value__more more">
+                                    <div className="more__minus" />
+                                    <div className="more__plus" />
                                 </div>
                             </div>
-                            <div className="block-add__button">ДОБАВИТЬ</div>
-                            <div className="block-add__amount">РЕКОМЕНДУЕМОЕ КОЛ-ВО: {turnstile.data.page_view.model_module_list.length}</div>
+                            <div className="add__button">ДОБАВИТЬ</div>
+                            <div className="add__amount">РЕКОМЕНДУЕМОЕ КОЛ-ВО: {turnstile.data.page_view.model_module_list.length}</div>
                         </div>
                     </div>
                 </div>
@@ -196,27 +196,27 @@ class EquipmentModal extends React.PureComponent<EquipmentModalProps> {
                 {/**
                  * Блоки описания для всплывающего окна
                  */}
-                <div className="modal-wrapper">
-                    <div className="block">
-                        <div className="block-image">
+                <div className="modal__wrapper wrap">
+                    <div className="wrap__block block">
+                        <div className="block__image">
                             <img src={turnstile.data.page_view.model_main_photo} alt="" />
                         </div>
-                        <div className="block-description">
+                        <div className="block__description">
                             {turnstile.data.page_view.caption}
                         </div>
-                        <div className="block-amount">
+                        <div className="block__amount">
                             {turnstile.data.page_view.model_price} / <span>{turnstile.data.page_view.model_module_list.length} шт.</span>
                         </div>
-                        <div className="block-add">
-                            <div className="block-add__value">
-                                <div className="quantity">Количество: <span>{turnstile.data.page_view.model_module_list.length}</span></div>
-                                <div className="more">
-                                    <div className="more-minus" />
-                                    <div className="more-plus" />
+                        <div className="block__add add">
+                            <div className="add__value value">
+                                <div className="value__quantity">Количество: <span>{turnstile.data.page_view.model_module_list.length}</span></div>
+                                <div className=" value__more more">
+                                    <div className="more__minus" />
+                                    <div className="more__plus" />
                                 </div>
                             </div>
-                            <div className="block-add__button">ДОБАВИТЬ</div>
-                            <div className="block-add__amount">РЕКОМЕНДУЕМОЕ КОЛ-ВО: {turnstile.data.page_view.model_module_list.length}</div>
+                            <div className="add__button">ДОБАВИТЬ</div>
+                            <div className="add__amount">РЕКОМЕНДУЕМОЕ КОЛ-ВО: {turnstile.data.page_view.model_module_list.length}</div>
                         </div>
                     </div>
                 </div>

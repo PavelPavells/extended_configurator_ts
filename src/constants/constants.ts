@@ -38,67 +38,106 @@ export const TOGGLE_MODAL_TURNSTILE_MAIN_INFO = 'TOGGLE_MODAL_TURNSTILE_MAIN_INF
  * Открыть/Закрыть модальное окно Компонента Barrier
  */
 export const TOGGLE_MODAL_BARRIER = 'TOGGLE_MODAL_BARRIER';
+export const TOGGLE_MODAL_BARRIER_MAIN_INFO = 'TOGGLE_MODAL_BARRIER_MAIN_INFO';
 
 /**
  * *********************** Интерфейсы стейта Компонента Main ***********************
  */
 
- export interface MainState {
-    isFetching: boolean,
-    errorMessage: string,
-    data: any
- }
+export interface MainState {
+   isFetching: boolean,
+   errorMessage: string,
+   data: any
+}
 
- interface MainRequest {
-    type: typeof FETCHING_DATA_MAIN_REQUEST
- }
+interface MainRequest {
+   type: typeof FETCHING_DATA_MAIN_REQUEST
+}
 
- interface MainSuccess {
-    type: typeof FETCHING_DATA_MAIN_SUCCESS,
-    payload: MainState[]
- }
+interface MainSuccess {
+   type: typeof FETCHING_DATA_MAIN_SUCCESS,
+   payload: MainState[]
+}
 
- interface MainFailure {
-    type: typeof FETCHING_DATA_MAIN_FAILURE,
-    payload: any
- }
+interface MainFailure {
+   type: typeof FETCHING_DATA_MAIN_FAILURE,
+   payload: any
+}
 
- export type MainActions = MainRequest | MainSuccess | MainFailure;
- 
+export type MainActions = MainRequest | MainSuccess | MainFailure;
+
 /**
  * *********************** Интерфейсы стейта Компонента Турникеты ***********************
  */
 
- export interface TurnstileState {
-    isFetching: boolean,
-    errorMessage: string,
-    modal: boolean,
-    info: boolean
-    data: any,
-    trigger: number
- }
+export interface TurnstileState {
+   isFetching: boolean,
+   errorMessage: string,
+   modal: boolean,
+   info: boolean
+   data: any,
+   trigger: number
+}
 
- interface TurnstileRequest {
-    type: typeof FETCHING_DATA_TURNSTILE_REQUEST,
- }
+interface TurnstileRequest {
+   type: typeof FETCHING_DATA_TURNSTILE_REQUEST
+}
 
- interface TurnstileSuccess {
-    type: typeof FETCHING_DATA_TURNSTILE_SUCCESS,
-    trigger: number,
-    payload: TurnstileState[]
- }
+interface TurnstileSuccess {
+   type: typeof FETCHING_DATA_TURNSTILE_SUCCESS,
+   trigger: number,
+   payload: TurnstileState[]
+}
 
- interface TurnstileFailure {
-    type: typeof FETCHING_DATA_TURNSTILE_FAILURE,
-    payload: any
- }
+interface TurnstileFailure {
+   type: typeof FETCHING_DATA_TURNSTILE_FAILURE,
+   payload: any
+}
 
- interface TurnstileTogglePopupSelectors {
-    type: typeof TOGGLE_MODAL_TURNSTILE
- }
+interface TurnstileTogglePopupSelectors {
+   type: typeof TOGGLE_MODAL_TURNSTILE
+}
 
- interface TurnstileTogglePopupEquipment {
-    type: typeof TOGGLE_MODAL_TURNSTILE_MAIN_INFO
- }
+interface TurnstileTogglePopupEquipment {
+   type: typeof TOGGLE_MODAL_TURNSTILE_MAIN_INFO
+}
 
- export type TurnstileActions = TurnstileRequest | TurnstileSuccess | TurnstileFailure | TurnstileTogglePopupSelectors | TurnstileTogglePopupEquipment;
+export type TurnstileActions = TurnstileRequest | TurnstileSuccess | TurnstileFailure | TurnstileTogglePopupSelectors | TurnstileTogglePopupEquipment;
+
+ /**
+ * *********************** Интерфейсы стейта Компонента Шлагбаумы ***********************
+ */
+
+export interface BarrierState {
+   isFetching: boolean,
+   errorMessage: string,
+   modal: boolean,
+   info: boolean,
+   data: any,
+   trigger: number
+}
+
+interface BarrierRequest {
+   type: typeof FETCHING_DATA_BARRIER_REQUEST
+}
+
+interface BarrierSuccess {
+   type: typeof FETCHING_DATA_BARRIER_SUCCESS,
+   trigger: number,
+   payload: BarrierState[]
+}
+
+interface BarrierFailure {
+   type: typeof FETCHING_DATA_BARRIER_FAILURE,
+   payload: any
+}
+
+interface BarrierTogglePopupSelectors {
+   type: typeof TOGGLE_MODAL_BARRIER
+}
+
+interface BarrierTogglePopupEquipment {
+   type: typeof TOGGLE_MODAL_BARRIER_MAIN_INFO
+}
+
+export type BarrierActions = BarrierRequest | BarrierSuccess | BarrierFailure | BarrierTogglePopupSelectors | BarrierTogglePopupEquipment;

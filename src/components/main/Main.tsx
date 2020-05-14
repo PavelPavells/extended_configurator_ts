@@ -79,7 +79,7 @@ class Main extends React.PureComponent<MainProps> {
                     */}
                     {main.data.page_view.device_buttons.slice(0, 1).map((index: { index: string | number | undefined; caption: React.ReactNode; }) => {
                         return (
-                            <NavLink to="/main" key={index.index} className="main-block">
+                            <NavLink to="/barrier" key={index.index} className="main-block">
                                 <div className="main-block__image">
                                     <img
                                         // eslint-disable-next-line camelcase
@@ -103,7 +103,7 @@ class Main extends React.PureComponent<MainProps> {
                     {/**
                     * Турникеты
                     */}
-                    {main.data.page_view.device_buttons.slice(1, 2).map((index: { index: string | number | undefined; caption: React.ReactNode; }) => {
+                    {main.data.page_view.device_buttons.slice(1, 2).map((index: any) => {
                         return (
                             <NavLink to="/turnstile" key={index.index} className="main-block">
                                 <div className="main-block__image">
