@@ -15,7 +15,7 @@ import './Layouts.scss';
 import Main from '../components/main/Main';
 import Barrier from '../components/barrier/Barrier';
 import Turnstile from '../components/turnstile/Turnstile';
-import moduleOffer from '../components/turnstile/Offer/Offer';
+import moduleOffer from '../components/turnstile/Offer/moduleOffer';
 
 class Layout extends React.PureComponent {
     public render () {

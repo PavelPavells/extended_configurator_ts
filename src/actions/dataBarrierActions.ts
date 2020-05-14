@@ -9,43 +9,43 @@ import { Dispatch } from 'react';
  * Импорт основных констант для экшенов
  */
 import {
-    TurnstileActions,
-    FETCHING_DATA_TURNSTILE_REQUEST,
-    FETCHING_DATA_TURNSTILE_SUCCESS,
-    FETCHING_DATA_TURNSTILE_FAILURE,
-    TOGGLE_MODAL_TURNSTILE,
-    TOGGLE_MODAL_TURNSTILE_MAIN_INFO
+    BarrierActions,
+    FETCHING_DATA_BARRIER_REQUEST,
+    FETCHING_DATA_BARRIER_SUCCESS,
+    FETCHING_DATA_BARRIER_FAILURE,
+    TOGGLE_MODAL_BARRIER,
+    TOGGLE_MODAL_BARRIER_MAIN_INFO
 } from '../constants/constants';
 
 /**
  * Экшен для инациализации асинхронного запроса
  */
-export const fetchingDataTurnstileRequest = (): TurnstileActions => ({ 
-    type: FETCHING_DATA_TURNSTILE_REQUEST
-});
+export const fetchingDataBarrierRequest = (): BarrierActions => ({
+    type: FETCHING_DATA_BARRIER_REQUEST
+})
 
 /**
  *  Экшен для обработки и запись полученных данных в редьюсер
  */
-export const fetchingDataTurnstileSuccess = (data: any, trigger: number): TurnstileActions => ({
-    type: FETCHING_DATA_TURNSTILE_SUCCESS,
+export const fetchingDataBarrierSuccess = (data: any, trigger: number): BarrierActions => ({
+    type: FETCHING_DATA_BARRIER_SUCCESS,
     trigger: trigger,
     payload: data.data
-});
+})
 
 /**
  * Экшен для обработки запроса с ошибкой
  */
-export const fetchingDataTurnstileFailure = (error: any): TurnstileActions => ({
-    type: FETCHING_DATA_TURNSTILE_FAILURE,
+export const fetchingDataBarrierFailure = (error: any): BarrierActions => ({
+    type: FETCHING_DATA_BARRIER_FAILURE,
     payload: error
 });
 
 /**
  * Экшен для вызовов в Компонентах
  */
-export const fetchDataTurnstile = (data: any, trigger: number) => async (dispatch: Dispatch<TurnstileActions>) => {
-    dispatch(fetchingDataTurnstileRequest());
+export const fetchDataBarrier = (data: any, trigger: number) => async (dispatch: Dispatch<BarrierActions>) => {
+    dispatch(fetchingDataBarrierRequest());
     try {
         await axios.post(`${site}/turnstile`, {
             app_id: 'APP_ID',
@@ -99,25 +99,24 @@ export const fetchDataTurnstile = (data: any, trigger: number) => async (dispatc
             ]
         })
             .then(data => {
-                dispatch(fetchingDataTurnstileSuccess(data, trigger));
+                dispatch(fetchingDataBarrierSuccess(data, trigger));
             })
             .catch(error => { console.log(error); });
     } catch (error) {
-        dispatch(fetchingDataTurnstileFailure(error));
+        dispatch(fetchingDataBarrierFailure(error));
     }
-    
 };
 
 /**
  * Экшен для открытия/закрытия Попап-окна в Компоненте Selectors
  */
-export const togglePopupWindowTurnstile = (): TurnstileActions => ({ 
-    type: TOGGLE_MODAL_TURNSTILE 
+export const togglePopupWindowBarrier = (): BarrierActions => ({ 
+    type: TOGGLE_MODAL_BARRIER
 });
 
 /**
  * Экшен для открытия/закрытия Попап-окна в Компоненте Equipment
  */
-export const togglePopupWindowMainInfoTurnstile = (): TurnstileActions => ({ 
-    type: TOGGLE_MODAL_TURNSTILE_MAIN_INFO 
+export const togglePopupWindowMainInfoBarrier = (): BarrierActions => ({ 
+    type: TOGGLE_MODAL_BARRIER_MAIN_INFO 
 });

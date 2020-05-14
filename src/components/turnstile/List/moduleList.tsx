@@ -52,7 +52,7 @@ class ModuleList extends React.PureComponent<ModuleListProps> {
              */
             <section className="list">
                 <p className="list__description">Состав модели:</p>
-                {turnstile.data.page_view.model_module_list.map((index: { index: string | number | undefined; caption: React.ReactNode; }) => (
+                {turnstile.data.page_view.model_module_list.map((index: any) => (
                     <div className="list__options" key={index.index}>{index.caption}</div>
                 ))}
             </section>

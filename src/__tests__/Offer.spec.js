@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 import React from 'react';
-import moduleOffer from '../components/turnstile/Offer/Offer';
+import moduleOffer from '../components/turnstile/Offer/moduleOffer';
 
 describe('Компонент moduleOffer инициализирован', () => {
     const props = {
