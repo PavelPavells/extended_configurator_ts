@@ -11,7 +11,7 @@ import { ConfiguratorState } from '../../../store/store';
 /**
  * Импорт экшенов
  */
-import { fetchDataTurnstile } from '../../../actions/dataTurnstileActions';
+import { fetchDataBarrier } from '../../../actions/dataBarrierActions';
 
 /**
  * Импорт стилей
@@ -28,16 +28,16 @@ import Loader from '../../../__utils__/Loader/Loader';
  */
 interface ModuleButtonsProps {
     readonly data: any,
-    readonly fetchDataTurnstile: (data: any, trigger: number) => void
+    readonly fetchDataBarrier: (data: any, trigger: number) => void
 }
 
 class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
-    
+
     /**
     * Запрос данных
     */
-    public componentDidMount () {
-        const { page_view } = this.props.data.turnstile.data;
+    public componentDidMount() {
+        const { page_view } = this.props.data.barrier.data;
         let data = {
             app_id: 'id',
             trigger: this.props.data.turnstile.trigger,
@@ -54,39 +54,42 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
             selectSeven: page_view ? page_view.module_selectors[6].state : 0,
             selectEight: page_view ? page_view.module_selectors[7].state : 0
         };
-        this.props.fetchDataTurnstile(data, data.trigger);
+        this.props.fetchDataBarrier(data, data.trigger);
     }
 
     /**
     * Хэндлер для обработки запроса Серии STR
     */
-    private handleClickSeriaSTR = () => {
-        const { page_view } = this.props.data.turnstile.data;
-        let data = {
-            app_id: 'id',
-            trigger: 1,
-            trigger_state: 0,
-            seria: 0,
-            button_seria_state: 0,
-            button_corpse_state: page_view.btn_corpse,
-            selectOne: page_view ? page_view.module_selectors[0].state : 0,
-            selectTwo: page_view ? page_view.module_selectors[1].state : 0,
-            selectThree: page_view ? page_view.module_selectors[2].state : 0,
-            selectFour: page_view ? page_view.module_selectors[3].state : 0,
-            selectFive: page_view.module_selectors[4].state !== -1 ? page_view.module_selectors[4].state : 0,
-            selectSix: page_view.module_selectors[5].state !== -1 ? page_view.module_selectors[5].state : 0,
-            selectSeven: page_view.module_selectors[6].state !== -1 ? page_view.module_selectors[6].state : 0,
-            selectEight: page_view.module_selectors[7].state !== -1 ? page_view.module_selectors[7].state : 0
+    /**
+    * Хэндлер для обработки запроса Серии STR
+    */
+   private handleClickSeriaRBS = () => {
+    const { page_view } = this.props.data.barrier.data;
+    let data = {
+        app_id: 'id',
+        trigger: 1,
+        trigger_state: 0,
+        seria: 0,
+        button_seria_state: 0,
+        button_corpse_state: page_view.btn_corpse,
+        selectOne: page_view ? page_view.module_selectors[0].state : 0,
+        selectTwo: page_view ? page_view.module_selectors[1].state : 0,
+        selectThree: page_view ? page_view.module_selectors[2].state : 0,
+        selectFour: page_view ? page_view.module_selectors[3].state : 0,
+        selectFive: page_view.module_selectors[4].state !== -1 ? page_view.module_selectors[4].state : 0,
+        selectSix: page_view.module_selectors[5].state !== -1 ? page_view.module_selectors[5].state : 0,
+        selectSeven: page_view.module_selectors[6].state !== -1 ? page_view.module_selectors[6].state : 0,
+        selectEight: page_view.module_selectors[7].state !== -1 ? page_view.module_selectors[7].state : 0
 
-        };
-        this.props.fetchDataTurnstile(data, data.trigger);
-    }
+    };
+    this.props.fetchDataBarrier(data, data.trigger);
+}
 
     /**
     * Хэндлер для обработки запроса Серии STX
     */
-    private handleClickSeriaSTX = () => {
-        const { page_view } = this.props.data.turnstile.data;
+    private handleClickSeriaSBA = () => {
+        const { page_view } = this.props.data.barrier.data;
         let data = {
             app_id: 'id',
             trigger: 2,
@@ -103,55 +106,7 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
             selectSeven: page_view.module_selectors[6].state !== -1 ? page_view.module_selectors[6].state : 0,
             selectEight: page_view.module_selectors[7].state !== -1 ? page_view.module_selectors[7].state : 0
         };
-        this.props.fetchDataTurnstile(data, data.trigger);
-    }
-
-    /**
-    * Хэндлер для обработки запроса Исполнение STR
-    */
-    private handleClickExecutionCompact = () => {
-        const { page_view } = this.props.data.turnstile.data;
-        let data = {
-            app_id: 'id',
-            trigger: 3,
-            trigger_state: 0,
-            seria: 0,
-            button_seria_state: page_view.btn_seria,
-            button_corpse_state: 0,
-            selectOne: page_view ? page_view.module_selectors[0].state : 0,
-            selectTwo: page_view ? page_view.module_selectors[1].state : 0,
-            selectThree: page_view ? page_view.module_selectors[2].state : 0,
-            selectFour: page_view ? page_view.module_selectors[3].state : 0,
-            selectFive: page_view.module_selectors[4].state !== -1 ? page_view.module_selectors[4].state : 0,
-            selectSix: page_view.module_selectors[5].state !== -1 ? page_view.module_selectors[5].state : 0,
-            selectSeven: page_view.module_selectors[6].state !== -1 ? page_view.module_selectors[6].state : 0,
-            selectEight: page_view.module_selectors[7].state !== -1 ? page_view.module_selectors[7].state : 0
-        };
-        this.props.fetchDataTurnstile(data, data.trigger);
-    }
-
-    /**
-    * Хэндлер для обработки запроса Исполнение STR
-    */
-    private handleClickExecutionThumb = () => {
-        const { page_view } = this.props.data.turnstile.data;
-        let data = {
-            app_id: 'id',
-            trigger: 4,
-            trigger_state: 0,
-            seria: 0,
-            button_seria_state: page_view.btn_seria,
-            button_corpse_state: 1,
-            selectOne: page_view ? page_view.module_selectors[0].state : 0,
-            selectTwo: page_view ? page_view.module_selectors[1].state : 0,
-            selectThree: page_view ? page_view.module_selectors[2].state : 0,
-            selectFour: page_view ? page_view.module_selectors[3].state : 0,
-            selectFive: page_view.module_selectors[4].state !== -1 ? page_view.module_selectors[4].state : 0,
-            selectSix: page_view.module_selectors[5].state !== -1 ? page_view.module_selectors[5].state : 0,
-            selectSeven: page_view.module_selectors[6].state !== -1 ? page_view.module_selectors[6].state : 0,
-            selectEight: page_view.module_selectors[7].state !== -1 ? page_view.module_selectors[7].state : 0
-        };
-        this.props.fetchDataTurnstile(data, data.trigger);
+        this.props.fetchDataBarrier(data, data.trigger);
     }
 
     /**
@@ -173,19 +128,19 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
             selectSeven: 0,
             selectEight: 0
         };
-        this.props.fetchDataTurnstile(data, data.trigger);
+        this.props.fetchDataBarrier(data, data.trigger);
     }
+
     public render () {
         /**
         * Данные из Глобального Стора
         */
-        const { turnstile, isFetching } = this.props.data;
+        const { barrier, isFetching } = this.props.data;
         //console.log(this.props.data.turnstile.trigger)
-        if (turnstile.data.length === 0 && !isFetching) {
-            return <Loader />;
+        if (barrier.data.length === 0 && !isFetching) {
+           return <Loader />;
         }
         return (
-
             /**
              *  Модуль выбора Серии/Исполнения
              */
@@ -201,31 +156,31 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
                         <div className="captions__summ">Итоговая стоимость</div>
                     </div>
                     <div className="top__select select">
-                        <div className="select__model">{turnstile.data.page_view.model_name}</div>
+                        <div className="select__model">{barrier.data.page_view.model_name}</div>
 
                         {/**
                          * Серия STR/STX
                          */}
                         <div className="select__seria seria">
-                            {turnstile.data.page_view.btn_seria === 0 ?
+                            {barrier.data.page_view.btn_seria === 0 ?
                                 <Fragment>
-                                    <div onClick={this.handleClickSeriaSTR} className="seria__str open">STR</div>
+                                    <div onClick={this.handleClickSeriaRBS} className="seria__str open">STR</div>
                                 </Fragment> :
                                 <Fragment>
-                                    <div onClick={this.handleClickSeriaSTR} className="seria__str">STR</div>
+                                    <div onClick={this.handleClickSeriaRBS} className="seria__str">STR</div>
                                 </Fragment>
                             }
 
-                            {turnstile.data.page_view.btn_seria === 1 ?
+                            {barrier.data.page_view.btn_seria === 1 ?
                                 <Fragment>
-                                    <div onClick={this.handleClickSeriaSTX} className="seria__stx open">STX</div>
+                                    <div onClick={this.handleClickSeriaSBA} className="seria__stx open">STX</div>
                                 </Fragment> :
                                 <Fragment>
-                                    <div onClick={this.handleClickSeriaSTX} className="seria__stx">STX</div>
+                                    <div onClick={this.handleClickSeriaSBA} className="seria__stx">STX</div>
                                 </Fragment>
                             }
                         </div>
-                        <div className="select__price">{turnstile.data.page_view.model_price}</div>
+                        <div className="select__price">{barrier.data.page_view.model_price}</div>
                     </div>
 
                     {/**
@@ -233,7 +188,7 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
                      */}
                     <div className="top__info info">
                         <a
-                            href={turnstile.data.page_view.download_broshure_button_link}
+                            href={barrier.data.page_view.download_broshure_button_link}
                             className="info__docs"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -241,20 +196,20 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
                             ПОДРОБНЕЕ О МОДЕЛИ
                         </a>
                         <a
-                            href={turnstile.data.page_view.model_base_model}
+                            href={barrier.data.page_view.model_base_model}
                             className="info__base"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
 
-                            БАЗОВАЯ МОДЕЛЬ {turnstile.data.page_view.model_module_list.length - 1 >= 1 ? '(' + turnstile.data.page_view.model_module_list[0].price + ')' : null}
+                            БАЗОВАЯ МОДЕЛЬ {barrier.data.page_view.model_module_list.length - 1 >= 1 ? '(' + barrier.data.page_view.model_module_list[0].price + ')' : null}
                         </a>
                     </div>
                     <div className="top__options options">
                         <div className="options__value">
-                            {turnstile.data.page_view.model_module_list.length - 1 === 1 ? String('+') + (turnstile.data.page_view.model_module_list.length - 1) + ' ОПЦИЯ' : null}
-                            {turnstile.data.page_view.model_module_list.length - 1 > 1 ? String('+') + (turnstile.data.page_view.model_module_list.length - 1) + ' ОПЦИИ' : null}
-                            {turnstile.data.page_view.model_module_list.length - 1 >= 5 ? String('+') + (turnstile.data.page_view.model_module_list.length - 1) + ' ОПЦИЙ' : null}
+                            {barrier.data.page_view.model_module_list.length - 1 === 1 ? String('+') + (barrier.data.page_view.model_module_list.length - 1) + ' ОПЦИЯ' : null}
+                            {barrier.data.page_view.model_module_list.length - 1 > 1 ? String('+') + (barrier.data.page_view.model_module_list.length - 1) + ' ОПЦИИ' : null}
+                            {barrier.data.page_view.model_module_list.length - 1 >= 5 ? String('+') + (barrier.data.page_view.model_module_list.length - 1) + ' ОПЦИЙ' : null}
                         </div>
                         <div onClick={this.handleClickResetSelectors} className="options__reset">СБРОСИТЬ</div>
                     </div>
@@ -266,26 +221,26 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
                      * Исполнение Компактный/Тумбовый
                      */}
                     <div className="bottom__buttons buttons">
-                        {turnstile.data.page_view.btn_corpse === 0 ?
+                        {barrier.data.page_view.btn_corpse === 0 ?
                             <Fragment>
-                                <div onClick={this.handleClickExecutionCompact} className="buttons__compact open">Компактный</div>
+                                <div onClick={this.handleClickSeriaRBS} className="buttons__compact open">Компактный</div>
                             </Fragment> :
                             <Fragment>
-                                <div onClick={this.handleClickExecutionCompact} className="buttons__compact">Компактный</div>
+                                <div onClick={this.handleClickSeriaRBS} className="buttons__compact">Компактный</div>
                             </Fragment>
                         }
-                        {turnstile.data.page_view.btn_corpse === 1 ?
+                        {barrier.data.page_view.btn_corpse === 1 ?
                             <Fragment>
-                                <div onClick={this.handleClickExecutionThumb} className="buttons__thumb open">Тумбовый</div>
+                                <div onClick={this.handleClickSeriaSBA} className="buttons__thumb open">Тумбовый</div>
                             </Fragment> :
                             <Fragment>
-                                <div onClick={this.handleClickExecutionThumb} className="buttons__thumb">Тумбовый</div>
+                                <div onClick={this.handleClickSeriaSBA} className="buttons__thumb">Тумбовый</div>
                             </Fragment>
                         }
                     </div>
                 </div>
             </section>
-        );
+        )
     }
 }
 
@@ -296,6 +251,6 @@ const mapStateToProps = (state: ConfiguratorState) => ({
 export default connect<{}, {}, ModuleButtonsProps>(
     mapStateToProps,
     {
-        fetchDataTurnstile
+        fetchDataBarrier
     }
 )(ModuleButtons);

@@ -34,8 +34,8 @@ class Turnstile extends React.PureComponent {
                 <div className="turnstile__basket">
                     <ModuleBasket />
                 </div>
-                <div className="turnstile__main turnstile-main">  {/** Cтиль .main перетирается. Исправить! */}
-                    <div className="turnstile-main__slider slider">
+                <div className="turnstile__primary primary">
+                    <div className="primary__slider slider">
 
                         {/**
                          * Обертка компонента 'Изображение'
@@ -51,7 +51,7 @@ class Turnstile extends React.PureComponent {
                             <ModuleList />
                         </div>
                     </div>
-                    <div className="turnstile-main__basis basis">
+                    <div className="priamry__basis basis">
 
                         {/**
                          * Обертка компонента выбора 'Серии/Исполнения'
