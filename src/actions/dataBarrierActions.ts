@@ -73,27 +73,22 @@ export const fetchDataBarrier = (data: any, trigger: number) => async (dispatch:
                 },
                 {
                     module: 4,
-                    // @ts-ignore  /** Typescript не применяет "<", т.к. не работает с boolean как с number */
                     state: data.selectFive && data.selectFive < 0 ? 0 : data.selectFive
                 },
                 {
                     module: 5,
-                    // @ts-ignore  /** Typescript не применяет "<", т.к. не работает с boolean как с number */
                     state: data.selectSix && data.selectSix < 0 ? 0 : data.selectSix
                 },
                 {
                     module: 6,
-                    // @ts-ignore  /** Typescript не применяет "<", т.к. не работает с boolean как с number */
                     state: data.selectSeven && data.selectSeven < 0 ? 0 : data.selectSeven
                 },
                 {
                     module: 7,
-                    // @ts-ignore  /** Typescript не применяет "<", т.к. не работает с boolean как с number */
                     state: data.selectEight && data.selectEight < 0 ? 0 : data.selectEight
                 }
                 //{
                 //    module: 8,
-                    // @ts-ignore  /** Typescript не применяет "<", т.к. не работает с boolean как с number */
                 //    state: data.selectNine && data.selectNine < 0 ? 0 : data.selectNine
                 //}
             ]
