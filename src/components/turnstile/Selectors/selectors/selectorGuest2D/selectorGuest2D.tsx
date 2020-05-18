@@ -136,13 +136,34 @@ class SelectorGuest2D extends React.PureComponent<SelectorGuest2DProps, Selector
                                 </div>
                                 <div className="module__right right">
                                     <div className="right__price">
-                                        {turnstile.data.page_view.model_module_list[1] !== undefined && turnstile.data.page_view.model_module_list[1].name === 'qrvisitors' && '+ ' + turnstile.data.page_view.model_module_list[1].price}
-                                        {turnstile.data.page_view.model_module_list[2] !== undefined && turnstile.data.page_view.model_module_list[2].name === 'qrvisitors' && '+ ' + turnstile.data.page_view.model_module_list[2].price}
-                                        {turnstile.data.page_view.model_module_list[3] !== undefined && turnstile.data.page_view.model_module_list[3].name === 'qrvisitors' && '+ ' + turnstile.data.page_view.model_module_list[3].price}
-                                        {turnstile.data.page_view.model_module_list[4] !== undefined && turnstile.data.page_view.model_module_list[4].name === 'qrvisitors' && '+ ' + turnstile.data.page_view.model_module_list[4].price}
-                                        {turnstile.data.page_view.model_module_list[5] !== undefined && turnstile.data.page_view.model_module_list[5].name === 'qrvisitors' && '+ ' + turnstile.data.page_view.model_module_list[5].price}
-                                        {turnstile.data.page_view.model_module_list[6] !== undefined && turnstile.data.page_view.model_module_list[6].name === 'qrvisitors' && '+ ' + turnstile.data.page_view.model_module_list[6].price}
-                                        {turnstile.data.page_view.model_module_list[7] !== undefined && turnstile.data.page_view.model_module_list[7].name === 'qrvisitors' && '+ ' + turnstile.data.page_view.model_module_list[7].price}
+                                        {turnstile.data.page_view.model_module_list[1] !== undefined
+                                            && turnstile.data.page_view.model_module_list[1].name === 'qrvisitors'
+                                            && '+ ' + turnstile.data.page_view.model_module_list[1].price
+                                        }
+                                        {turnstile.data.page_view.model_module_list[2] !== undefined
+                                            && turnstile.data.page_view.model_module_list[2].name === 'qrvisitors'
+                                            && '+ ' + turnstile.data.page_view.model_module_list[2].price
+                                        }
+                                        {turnstile.data.page_view.model_module_list[3] !== undefined
+                                            && turnstile.data.page_view.model_module_list[3].name === 'qrvisitors'
+                                            && '+ ' + turnstile.data.page_view.model_module_list[3].price
+                                        }
+                                        {turnstile.data.page_view.model_module_list[4] !== undefined
+                                            && turnstile.data.page_view.model_module_list[4].name === 'qrvisitors'
+                                            && '+ ' + turnstile.data.page_view.model_module_list[4].price
+                                        }
+                                        {turnstile.data.page_view.model_module_list[5] !== undefined
+                                            && turnstile.data.page_view.model_module_list[5].name === 'qrvisitors'
+                                            && '+ ' + turnstile.data.page_view.model_module_list[5].price
+                                        }
+                                        {turnstile.data.page_view.model_module_list[6] !== undefined
+                                            && turnstile.data.page_view.model_module_list[6].name === 'qrvisitors'
+                                            && '+ ' + turnstile.data.page_view.model_module_list[6].price
+                                        }
+                                        {turnstile.data.page_view.model_module_list[7] !== undefined
+                                            && turnstile.data.page_view.model_module_list[7].name === 'qrvisitors'
+                                            && '+ ' + turnstile.data.page_view.model_module_list[7].price
+                                        }
                                     </div>
                                     <div className="onoffswitch7">
                                         <input

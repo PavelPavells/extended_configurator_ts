@@ -113,7 +113,10 @@ class SelectorEP extends React.PureComponent<SelectorEPProps, SelectorEPState> {
                         </div>
                         <div className="module__right right">
                             <div className="right__price">
-                                {turnstile.data.page_view.model_module_list[1] !== undefined && turnstile.data.page_view.model_module_list[1].name === 'ep2000' && '+ ' + turnstile.data.page_view.model_module_list[1].price}
+                                {turnstile.data.page_view.model_module_list[1] !== undefined
+                                    && turnstile.data.page_view.model_module_list[1].name === 'ep2000'
+                                    && '+ ' + turnstile.data.page_view.model_module_list[1].price
+                                }
                             </div>
                             <div className="onoffswitch">
                                 <input

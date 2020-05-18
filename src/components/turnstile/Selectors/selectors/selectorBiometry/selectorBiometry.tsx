@@ -113,10 +113,22 @@ class SelectorBiometry extends React.PureComponent<SelectorBiometryProps, Select
                         </div>
                         <div className="module__right right">
                             <div className="right__price">
-                                {turnstile.data.page_view.model_module_list[1] !== undefined && turnstile.data.page_view.model_module_list[1].name === 'fingerprint' && '+ ' + turnstile.data.page_view.model_module_list[1].price}
-                                {turnstile.data.page_view.model_module_list[2] !== undefined && turnstile.data.page_view.model_module_list[2].name === 'fingerprint' && '+ ' + turnstile.data.page_view.model_module_list[2].price}
-                                {turnstile.data.page_view.model_module_list[3] !== undefined && turnstile.data.page_view.model_module_list[3].name === 'fingerprint' && '+ ' + turnstile.data.page_view.model_module_list[3].price}
-                                {turnstile.data.page_view.model_module_list[4] !== undefined && turnstile.data.page_view.model_module_list[4].name === 'fingerprint' && '+ ' + turnstile.data.page_view.model_module_list[4].price}
+                                {turnstile.data.page_view.model_module_list[1] !== undefined
+                                    && turnstile.data.page_view.model_module_list[1].name === 'fingerprint'
+                                    && '+ ' + turnstile.data.page_view.model_module_list[1].price
+                                }
+                                {turnstile.data.page_view.model_module_list[2] !== undefined
+                                    && turnstile.data.page_view.model_module_list[2].name === 'fingerprint'
+                                    && '+ ' + turnstile.data.page_view.model_module_list[2].price
+                                }
+                                {turnstile.data.page_view.model_module_list[3] !== undefined
+                                    && turnstile.data.page_view.model_module_list[3].name === 'fingerprint'
+                                    && '+ ' + turnstile.data.page_view.model_module_list[3].price
+                                }
+                                {turnstile.data.page_view.model_module_list[4] !== undefined
+                                    && turnstile.data.page_view.model_module_list[4].name === 'fingerprint'
+                                    && '+ ' + turnstile.data.page_view.model_module_list[4].price
+                                }
                             </div>
                             <div className="onoffswitch4">
                                 <input
