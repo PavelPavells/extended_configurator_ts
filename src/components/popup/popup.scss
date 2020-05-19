@@ -5,9 +5,9 @@
 
 
 /**
-    Стили компонента Main
+    Стили компонента Popup
 */
-.popup {
+.popup-window, .window {
   display: flex;
   position: absolute;
   top: 0;
@@ -23,7 +23,7 @@
   background-color: #ffffff;
   z-index: 10000;
 
-  .left {
+  &__left {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -46,7 +46,7 @@
       }
     }
   }
-  .right {
+  &__right, .right {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -54,7 +54,7 @@
     height: 100%;
     margin-left: 40px;
 
-    &-header {
+    &__header, .right-header {
       display: flex;
       flex: 0 0 auto;
       justify-content: space-between;
@@ -66,20 +66,19 @@
         display: block;
         width: 30px;
         height: 30px;
-        background: url("../../images/icon/shape.svg") no-repeat center;
       }
 
-      &__description {
+      &__description, .description {
         display: flex;
         flex-direction: row;
         align-items: center;
         width: 80%;
-        font-weight: normal;
         font-size: 18px;
         line-height: 1.28;
         color: $brandPantonText;
 
-        &-toggle {
+        &__toggle {
+          width: 150px;
           margin-left: 10px;
           font-size: 10px;
           font-weight: 500;
@@ -104,23 +103,53 @@
       }
     }
 
-    &-main {
+    &__main, .right-main {
       display: flex;
       flex: 1 0 auto;
       width: 100%;
 
-      &__info {
+      &__info, .main-info {
         display: flex;
         flex-direction: column;
-        overflow: auto;
+        width: 100%;
+        max-height: 75vh;
+        overflow: scroll;
         margin-right: 40px;
         font-size: 14px;
         line-height: 1.7;
-        color: #8b9298;
+        color: $brandPantonDescription;
+
+        &__heading {
+          display: flex;
+          padding: 10px 0;
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 1.29;
+          color: $brandPantonText;
+
+          & > div {
+            margin-left: 10px;
+          }
+        }
+
+        &__block {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          padding: 15px 0;
+
+          & > div {
+            margin: 0 10px;
+          }
+
+          &:hover {
+            background-color: $brandPantonHover;
+          }
+        }
       }
     }
 
-    &-footer {
+    &__footer, .footer {
       display: flex;
       flex: 0 0 auto;
       justify-content: space-between;

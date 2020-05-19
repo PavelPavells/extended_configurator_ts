@@ -5,26 +5,26 @@
  */
 import React, { Fragment } from 'react';
 // @ts-ignore
-import { connect } from 'react-redux';
+import { connect } from '../selectorSignalLamp/node_modules/react-redux';
 import { ConfiguratorState } from '../../../../../store/store';
 
 /**
  * Импорт экшенов
  */
 import {
-    fetchDataTurnstile,
-    togglePopupWindowTurnstile
-} from '../../../../../actions/dataTurnstileActions';
+    fetchDataBarrier,
+    togglePopupWindowBarrier
+} from '../../../../../actions/dataBarrierActions';
 
 /**
  * Импорт стилей
  */
-import './selectorEP.scss';
+import './selectorControlBlock.scss';
 
 /**
- * Импорт Popup-окна
+ * Импорт прелоадера
  */
-import EPpopup from '../../../../popup/turnstile-popup/epPopup';
+//import ControlBlockPopUp from '../../../../popup/popup';
 
 /**
  * Импорт Лоадера
@@ -34,32 +34,32 @@ import Loader from '../../../../../__utils__/Loader/Loader';
 /**
  * Интерфейс компонента SelectorBiometry
  */
-interface SelectorEPProps {
+interface SelectorControlBlockProps {
     readonly data: any,
-    readonly fetchDataTurnstile: (data: any, trigger: number) => void,
-    readonly togglePopupWindowTurnstile: () => void
+    readonly fetchDataBarrier: (data: any, trigger: number) => void,
+    readonly togglePopupWindowBarrier: () => void
 }
 
-interface SelectorEPState {
+interface SelectorControlBlockState {
     readonly selectOne: number
 }
 
-class SelectorEP extends React.PureComponent<SelectorEPProps, SelectorEPState> {
+class SelectorControlBlock extends React.PureComponent<SelectorControlBlockProps, SelectorControlBlockState> {
 
-    state: SelectorEPState = { selectOne: 0 };
+    state: SelectorControlBlockState = { selectOne: 0 };
 
     /**
      * Открыть/Закрыть модальное окно
      */
     private handleToggleModal = () => {
-        this.props.togglePopupWindowTurnstile();
+        this.props.togglePopupWindowBarrier();
     }
 
     /**
-    * Хэндлер для обработки запроса селектора 'EP-2000'
+    * Хэндлер для обработки запроса селектора 'Блок управления 21PS-A'
     */
     private handleClickOneSelect = () => {
-        const { page_view } = this.props.data.turnstile.data;
+        const { page_view } = this.props.data.barrier.data;
         this.setState({
             selectOne: +!page_view.module_selectors[0].state
         }, () => {
@@ -76,10 +76,10 @@ class SelectorEP extends React.PureComponent<SelectorEPProps, SelectorEPState> {
                 selectFive: page_view.module_selectors[4].state,
                 selectSix: page_view.module_selectors[5].state,
                 selectSeven: page_view.module_selectors[6].state,
-                selectEight: page_view.module_selectors[7].state,
+                //selectEight: page_view.module_selectors[7].state,
                 //selectNine: page_view.module_selectors[8].state
             };
-            this.props.fetchDataTurnstile(data, data.trigger);
+            this.props.fetchDataBarrier(data, data.trigger);
         });
     }
 
@@ -87,35 +87,35 @@ class SelectorEP extends React.PureComponent<SelectorEPProps, SelectorEPState> {
         /**
          * Данные из глобального стора
          */
-        const { turnstile, isFetching } = this.props.data;
-        if (turnstile.data.length === 0 && !isFetching) {
+        const { barrier, isFetching } = this.props.data;
+        if (barrier.data.length === 0 && !isFetching) {
            return <Loader />;
         }
         
         return (
 
             /**
-             * Селектор 'EP-2000'
+             * Селектор 'Блок управления 21PS-A'
              */
             <Fragment>
-                {turnstile.data.page_view.module_selectors.slice(0, 1).map((index: { index: string | number | undefined; }) => (
+                {barrier.data.page_view.module_selectors.slice(0, 1).map((index: { index: string | number | undefined; }) => (
                     <div key={index.index} className="selectors__module module">
                         <div className="module__left left">
                             <div className="left__icon ep" />
-                            <div className="left__text">Универсальный сетевой контроллер расширения EP-2000</div>
+                            <div className="left__text">Блок управления 21PS-A</div>
                             <div className="left__info info">
                                 <div className="info__text">
                                     <div onClick={this.handleToggleModal}>ПОДРОБНЕЕ</div>
-                                    {turnstile.modal ? <EPpopup /> : null}
+                                    {/*{barrier.modal ? <ControlBlockPopUp /> : null}*/}
                                 </div>
                                 <div className="info__arrow" />
                             </div>
                         </div>
                         <div className="module__right right">
                             <div className="right__price">
-                                {turnstile.data.page_view.model_module_list[1] !== undefined
-                                    && turnstile.data.page_view.model_module_list[1].name === 'ep2000'
-                                    && '+ ' + turnstile.data.page_view.model_module_list[1].price
+                                {barrier.data.page_view.model_module_list[1] !== undefined
+                                    && barrier.data.page_view.model_module_list[1].name === 'control'
+                                    && '+ ' + barrier.data.page_view.model_module_list[1].price
                                 }
                             </div>
                             <div className="onoffswitch">
@@ -125,7 +125,7 @@ class SelectorEP extends React.PureComponent<SelectorEPProps, SelectorEPState> {
                                     className="onoffswitch-checkbox"
                                     id="header-checkbox"
                                     onChange={this.handleClickOneSelect}
-                                    checked={turnstile.data.page_view.module_selectors[0].state}
+                                    checked={barrier.data.page_view.module_selectors[0].state}
                                 />
                                 <label className="onoffswitch-label" htmlFor="header-checkbox">
                                     <span className="onoffswitch-inner" />
@@ -144,10 +144,10 @@ class SelectorEP extends React.PureComponent<SelectorEPProps, SelectorEPState> {
 const mapStateToPtops = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect<{}, {}, SelectorEPProps>(
+export default connect<{}, {}, SelectorControlBlockProps>(
     mapStateToPtops,
     {
-        fetchDataTurnstile,
-        togglePopupWindowTurnstile
+        fetchDataBarrier,
+        togglePopupWindowBarrier
     }
-)(SelectorEP);
+)(SelectorControlBlock);

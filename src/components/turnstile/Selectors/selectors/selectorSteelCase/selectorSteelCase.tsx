@@ -22,9 +22,9 @@ import {
 import './selectorSteelCase.scss';
 
 /**
- * Импорт прелоадера
+ * Импорт Popup-окна
  */
-import PopUp from '../../../../popup/popup';
+import SteelCasePopup from '../../../../popup/turnstile-popup/steelCasePopup';
 
 /**
  * Импорт Лоадера
@@ -129,7 +129,7 @@ class SelectorSteelCase extends React.PureComponent<SelectorSteelCaseProps, Sele
                                     <div className="left__info info">
                                         <div className="info__text">
                                             <div onClick={this.handleToggleModal}>ПОДРОБНЕЕ</div>
-                                            {turnstile.modal ? <PopUp /> : null}
+                                            {turnstile.modal ? <SteelCasePopup /> : null}
                                         </div>
                                         <div className="info__arrow" />
                                     </div>
