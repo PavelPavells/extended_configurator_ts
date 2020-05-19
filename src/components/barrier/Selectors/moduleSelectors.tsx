@@ -6,15 +6,13 @@ import React, { Fragment } from 'react';
 /**
  * Импорт модулей селекторов
  */
-//import SelectorEP from './selectors/selectorEP/selectorEP';
-//import SelectorEMMarin from './selectors/selectorEMMarin/selectorEMMarin';
-//import SelectorMifire from './selectors/selectorMifire/selectorMifire';
-//import SelectorBiometry from './selectors/selectorBiometry/selectorBiometry';
-//import SelectorInfoTime from './selectors/selectorInfoTime/selectorInfoTime';
-//import SelectorControl2D from './selectors/selectorControl2D/selectorControl2D';
-//import SelectorGuest2D from './selectors/selectorGuest2D/selectorGuest2D';
-//import SelectorSteelCase from './selectors/selectorSteelCase/selectorSteelCase';
-//import SelectorRDU from './selectors/selectorRDU/selectorRDU';
+// import SelectorColor from './selectors/selectorColor/selectorColor';
+// import SelectorControlBlock from './selectors/selectorControlBlock/selectorControlBlock';
+// import SelectorEmergencySiren from './selectors/selectorEmergencySiren/selectorEmergencySiren';
+// import SelectorHeatingModule from './selectors/selectorHeatingModule/selectorHeatingModule';
+// import SelectorInductanceLoop from './selectors/selectorInductanceLoop/selectorInductanceLoop';
+// import SelectorRadioRemote from './selectors/selectorRadioRemote/selectorRadioRemote';
+// import SelectorSignalLamp from './selectors/selectorSignalLamp/selectorSignalLamp';
 
 /**
  * Импорт стилей контейнера модулей селекторов
@@ -33,67 +31,54 @@ class ModuleSelectors extends React.PureComponent {
                 <div className="selectors__text">Дополнительные модули</div>
 
                 {/**
-                 * Селектор Универсальный сетевой контроллер расширения EP-2000
+                 * Селектор Блок управления 21PS-A
                  */}
                 <Fragment>
-                    {/*<SelectorEP />*/}
+                    {/*<SelectorControlBlock />*/}
                 </Fragment>
 
                 {/**
-                 * Селектор RFID идентификаторы EMMarine 125kHZ
+                 * Селектор Модуль обогрева MHP-B
                  */}
                 <Fragment>
-                    {/*<SelectorEMMarin />*/}
+                    {/*<SelectorHeatingModule />*/}
                 </Fragment>
 
                 {/**
-                 * Селектор RFID идентификаторы Mifire 13.56MHz
+                 * Селектор Цвет вместо 7035 желтый-G
                  */}
                 <Fragment>
-                    {/*<SelectorMifire />*/}
+                    {/*<SelectorColor />*/}
                 </Fragment>
 
                 {/**
-                 * Селектор Биометрическая идентификация по отпечаткам пальцев
+                 * Селектор Сигнальная лампа LS-01-L
                  */}
                 <Fragment>
-                    {/*<SelectorBiometry />*/}
+                    {/*<SelectorSignalLamp />*/}
                 </Fragment>
 
                 {/**
-                 * Селектор Информационный дисплей учета рабочего времени
+                 * Селектор Модуль радио пультов PRK 400-P
                  */}
                 <Fragment>
-                    {/*<SelectorInfoTime />*/}
+                    {/*<SelectorRadioRemote />*/}
                 </Fragment>
 
                 {/**
-                 * Селектор Контроль разовых посещений по 2D штрих-кодам
+                 * Селектор Аварийная сирена-S
                  */}
                 <Fragment>
-                    {/*<SelectorControl2D />*/}
+                    {/*<SelectorEmergencySiren />*/}
                 </Fragment>
 
                 {/**
-                 * Селектор Гостевой доступ по 2D штрих-кодам
+                 * Селектор Модуль подключения петли индуктивности VLD-10-V
                  */}
                 <Fragment>
-                    {/*<SelectorGuest2D />*/}
+                    {/*<SelectorInductanceLoop />*/}
                 </Fragment>
 
-                {/**
-                 * Селектор Корпус кожуха из нержавеющей стали
-                 */}
-                <Fragment>
-                    {/*<SelectorSteelCase />*/}
-                </Fragment>
-
-                {/**
-                 * Селектор RDU
-                 */}
-                <Fragment>
-                    {/*<SelectorRDU />*/}
-                </Fragment>
             </section>
         );
     }

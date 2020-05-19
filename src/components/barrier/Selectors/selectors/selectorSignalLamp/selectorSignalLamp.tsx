@@ -12,19 +12,19 @@ import { ConfiguratorState } from '../../../../../store/store';
  * Импорт экшенов
  */
 import {
-    fetchDataTurnstile,
-    togglePopupWindowTurnstile
-} from '../../../../../actions/dataTurnstileActions';
+    fetchDataBarrier,
+    togglePopupWindowBarrier
+} from '../../../../../actions/dataBarrierActions';
 
 /**
  * Импорт стилей
  */
-import './selectorBiometry.scss';
+import './selectorSignalLamp.scss';
 
 /**
- * Импорт Popup-окна
+ * Импорт прелоадера
  */
-import BiometryPopup from '../../../../popup/turnstile-popup/biometryPopup';
+//import SignalLampPopup from '../../../../popup/barrier-popup/biometryPopup';
 
 /**
  * Импорт Лоадера
@@ -32,34 +32,34 @@ import BiometryPopup from '../../../../popup/turnstile-popup/biometryPopup';
 import Loader from '../../../../../__utils__/Loader/Loader';
 
 /**
- * Интерфейс компонента SelectorBiometry
+ * Интерфейс компонента SelectorSignalLamp
  */
-interface SelectorBiometryProps {
+interface SelectorSignalLampProps {
     readonly data: any,
-    readonly fetchDataTurnstile: (data: any, trigger: number) => void,
-    readonly togglePopupWindowTurnstile: () => void
+    readonly fetchDataBarrier: (data: any, trigger: number) => void,
+    readonly togglePopupWindowBarrier: () => void
 }
 
-interface SelectorBiometryState {
+interface SelectorSignalLampState {
     readonly selectFour: number
 }
 
-class SelectorBiometry extends React.PureComponent<SelectorBiometryProps, SelectorBiometryState> {
+class SelectorSignalLamp extends React.PureComponent<SelectorSignalLampProps, SelectorSignalLampState> {
 
-    state: SelectorBiometryState = { selectFour: 0 };
+    state: SelectorSignalLampState = { selectFour: 0 };
 
     /**
      * Открыть/Закрыть модальное окно
      */
     private handleToggleModal = () => {
-        this.props.togglePopupWindowTurnstile();
+        this.props.togglePopupWindowBarrier();
     }
 
     /**
-    * Хэндлер для обработки запроса селектора 'Биометрия'
+    * Хэндлер для обработки запроса селектора 'Сигнальная лампа LS-01-L'
     */
     private handleClickFourSelect = () => {
-        const { page_view } = this.props.data.turnstile.data;
+        const { page_view } = this.props.data.barrier.data;
         this.setState({
             selectFour: +!page_view.module_selectors[3].state
         }, () => {
@@ -76,10 +76,10 @@ class SelectorBiometry extends React.PureComponent<SelectorBiometryProps, Select
                 selectFive: page_view.module_selectors[4].state,
                 selectSix: page_view.module_selectors[5].state,
                 selectSeven: page_view.module_selectors[6].state,
-                selectEight: page_view.module_selectors[7].state,
+                //selectEight: page_view.module_selectors[7].state,
                 //selectNine: page_view.module_selectors[8].state
             };
-            this.props.fetchDataTurnstile(data, data.trigger);
+            this.props.fetchDataBarrier(data, data.trigger);
         });
     }
 
@@ -87,47 +87,47 @@ class SelectorBiometry extends React.PureComponent<SelectorBiometryProps, Select
         /**
          * Данные из глобального стора
          */
-        const { turnstile, isFetching } = this.props.data;
-        if (turnstile.data.length === 0 && !isFetching) {
+        const { barrier, isFetching } = this.props.data;
+        if (barrier.data.length === 0 && !isFetching) {
            return <Loader />;
         }
 
         return (
 
             /**
-             * Селектор 'Биометрия'
+             * Селектор 'Сигнальная лампа LS-01-L'
              */
             <Fragment>
-                {turnstile.data.page_view.module_selectors.slice(3, 4).map((index: { index: string | number | undefined; }) => (
+                {barrier.data.page_view.module_selectors.slice(3, 4).map((index: { index: string | number | undefined; }) => (
                     <div key={index.index} className="selectors__module module">
                         <div className="module__left left">
                             <div className="left__icon bio" />
-                            <div className="left__text">Биометрическая идентификация по отпечаткам пальцев</div>
+                            <div className="left__text">Сигнальная лампа LS-01-L</div>
                             <div className="left__info info">
                                 <div className="info__text">
                                     <div onClick={this.handleToggleModal}>ПОДРОБНЕЕ</div>
-                                    {turnstile.modal ? <BiometryPopup /> : null}
+                                    {/*{barrier.modal ? <SignalLampPopup /> : null}*/}
                                 </div>
                                 <div className="info__arrow" />
                             </div>
                         </div>
                         <div className="module__right right">
                             <div className="right__price">
-                                {turnstile.data.page_view.model_module_list[1] !== undefined
-                                    && turnstile.data.page_view.model_module_list[1].name === 'fingerprint'
-                                    && '+ ' + turnstile.data.page_view.model_module_list[1].price
+                                {barrier.data.page_view.model_module_list[1] !== undefined 
+                                    && barrier.data.page_view.model_module_list[1].name === 'signallamp'
+                                    && '+ ' + barrier.data.page_view.model_module_list[1].price
                                 }
-                                {turnstile.data.page_view.model_module_list[2] !== undefined
-                                    && turnstile.data.page_view.model_module_list[2].name === 'fingerprint'
-                                    && '+ ' + turnstile.data.page_view.model_module_list[2].price
+                                {barrier.data.page_view.model_module_list[2] !== undefined
+                                    && barrier.data.page_view.model_module_list[2].name === 'signallamp'
+                                    && '+ ' + barrier.data.page_view.model_module_list[2].price
                                 }
-                                {turnstile.data.page_view.model_module_list[3] !== undefined
-                                    && turnstile.data.page_view.model_module_list[3].name === 'fingerprint'
-                                    && '+ ' + turnstile.data.page_view.model_module_list[3].price
+                                {barrier.data.page_view.model_module_list[3] !== undefined
+                                    && barrier.data.page_view.model_module_list[3].name === 'signallamp'
+                                    && '+ ' + barrier.data.page_view.model_module_list[3].price
                                 }
-                                {turnstile.data.page_view.model_module_list[4] !== undefined
-                                    && turnstile.data.page_view.model_module_list[4].name === 'fingerprint'
-                                    && '+ ' + turnstile.data.page_view.model_module_list[4].price
+                                {barrier.data.page_view.model_module_list[4] !== undefined
+                                    && barrier.data.page_view.model_module_list[4].name === 'signallamp'
+                                    && '+ ' + barrier.data.page_view.model_module_list[4].price
                                 }
                             </div>
                             <div className="onoffswitch4">
@@ -137,7 +137,7 @@ class SelectorBiometry extends React.PureComponent<SelectorBiometryProps, Select
                                     className="onoffswitch4-checkbox"
                                     id="header4-checkbox"
                                     onChange={this.handleClickFourSelect}
-                                    checked={turnstile.data.page_view.module_selectors[3].state}
+                                    checked={barrier.data.page_view.module_selectors[3].state}
                                 />
                                 <label className="onoffswitch4-label" htmlFor="header4-checkbox">
                                     <span className="onoffswitch4-inner" />
@@ -156,10 +156,10 @@ class SelectorBiometry extends React.PureComponent<SelectorBiometryProps, Select
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect<{}, {}, SelectorBiometryProps>(
+export default connect<{}, {}, SelectorSignalLampProps>(
     mapStateToProps,
     {
-        fetchDataTurnstile,
-        togglePopupWindowTurnstile
+        fetchDataBarrier,
+        togglePopupWindowBarrier
     }
-)(SelectorBiometry);
+)(SelectorSignalLamp);

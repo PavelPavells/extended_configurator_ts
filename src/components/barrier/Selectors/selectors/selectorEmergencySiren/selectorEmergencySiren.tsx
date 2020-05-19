@@ -5,26 +5,26 @@
  */
 import React, { Fragment } from 'react';
 // @ts-ignore
-import { connect } from 'react-redux';
+import { connect } from '../selectorSignalLamp/node_modules/react-redux';
 import { ConfiguratorState } from '../../../../../store/store';
 
 /**
  * Импорт экшенов
  */
 import {
-    fetchDataTurnstile,
-    togglePopupWindowTurnstile
-} from '../../../../../actions/dataTurnstileActions';
+    fetchDataBarrier,
+    togglePopupWindowBarrier
+} from '../../../../../actions/dataBarrierActions';
 
 /**
  * Импорт стилей
  */
-import './selectorControl2D.scss';
+import './selectorEmergencySiren.scss';
 
 /**
- * Импорт Popup-окна
+ * Импорт прелоадера
  */
-import Control2DPopup from '../../../../popup/turnstile-popup/control2DPopup';
+//import EmergencySirenPopUp from '../../../../popup/popup';
 
 /**
  * Импорт Лоадера
@@ -32,34 +32,34 @@ import Control2DPopup from '../../../../popup/turnstile-popup/control2DPopup';
 import Loader from '../../../../../__utils__/Loader/Loader';
 
 /**
- * Интерфейс компонента SelectorControl2D
+ * Интерфейс компонента SelectorEmergencySiren
  */
-interface SelectorControl2DProps {
+interface SelectorEmergencySirenProps {
     readonly data: any,
-    readonly fetchDataTurnstile: (data: any, trigger: number) => void,
-    readonly togglePopupWindowTurnstile: () => void
+    readonly fetchDataBarrier: (data: any, trigger: number) => void,
+    readonly togglePopupWindowBarrier: () => void
 }
 
-interface SelectorControl2DState {
+interface SelectorEmergencySirenState {
     readonly selectSix: number
 }
 
-class SelectorControl2D extends React.PureComponent<SelectorControl2DProps, SelectorControl2DState> {
+class SelectorEmergencySiren extends React.PureComponent<SelectorEmergencySirenProps, SelectorEmergencySirenState> {
 
-    state: SelectorControl2DState = { selectSix: 0 };
+    state: SelectorEmergencySirenState = { selectSix: 0 };
 
     /**
      * Открыть/Закрыть модальное окно
      */
     private handleToggleModal = () => {
-        this.props.togglePopupWindowTurnstile();
+        this.props.togglePopupWindowBarrier();
     }
 
     /**
-    * Хэндлер для обработки запроса селектора 'Контроля по 2D-штрихкодам'
+    * Хэндлер для обработки запроса селектора 'Аварийная сирена-S'
     */
     private handleClickSixSelect = () => {
-        const { page_view } = this.props.data.turnstile.data;
+        const { page_view } = this.props.data.barrier.data;
         this.setState({
             selectSix: +!page_view.module_selectors[5].state
         }, () => {
@@ -76,10 +76,10 @@ class SelectorControl2D extends React.PureComponent<SelectorControl2DProps, Sele
                 selectFive: page_view.module_selectors[4].state,
                 selectSix: page_view.module_selectors[5].state,
                 selectSeven: page_view.module_selectors[6].state,
-                selectEight: page_view.module_selectors[7].state,
+                //selectEight: page_view.module_selectors[7].state,
                 //selectNine: page_view.module_selectors[8].state
             };
-            this.props.fetchDataTurnstile(data, data.trigger);
+            this.props.fetchDataBarrier(data, data.trigger);
         });
     }
 
@@ -87,23 +87,23 @@ class SelectorControl2D extends React.PureComponent<SelectorControl2DProps, Sele
         /**
          * Данные из глобального стора
          */
-        const { turnstile, isFetching } = this.props.data;
-        if (turnstile.data.length === 0 && !isFetching) {
+        const { barrier, isFetching } = this.props.data;
+        if (barrier.data.length === 0 && !isFetching) {
            return <Loader />;
         }
 
         return (
             /**
-             * Селектор 'Контроль по 2D-штрихкодам'
+             * Селектор 'Аварийная сирена-S'
              */
             <Fragment>
-                {turnstile.data.page_view.module_selectors.slice(5, 6).map((index: { state: number; index: string | number | undefined; }) => {
+                {barrier.data.page_view.module_selectors.slice(5, 6).map((index: { state: number; index: string | number | undefined; }) => {
                     if (index.state === -1) {
                         return (
                             <div key={index.index} className="selectors__module module none">
                                 <div className="module__left left">
                                     <div className="left__icon one-visits" />
-                                    <div className="left__text">Контроль разовых посещений по 2D штрих-кодам</div>
+                                    <div className="left__text">Аварийная сирена-S</div>
                                 </div>
                                 <div className="module__right right">
                                     <div className="onoffswitch6">
@@ -125,40 +125,40 @@ class SelectorControl2D extends React.PureComponent<SelectorControl2DProps, Sele
                             <div key={index.index} className="selectors__module module">
                                 <div className="module__left left">
                                     <div className="left__icon one-visits" />
-                                    <div className="left__text">Контроль разовых посещений по 2D штрих-кодам</div>
+                                    <div className="left__text">Аварийная сирена-S</div>
                                     <div className="left__info info">
                                         <div className="info__text">
                                             <div onClick={this.handleToggleModal}>ПОДРОБНЕЕ</div>
-                                            {turnstile.modal ? <Control2DPopup /> : null}
+                                            {/*{barrier.modal ? <EmergencySirenPopUp /> : null}*/}
                                         </div>
                                         <div className="info__arrow" />
                                     </div>
                                 </div>
                                 <div className="module__right right">
                                     <div className="right__price">
-                                        {turnstile.data.page_view.model_module_list[1] !== undefined
-                                            && turnstile.data.page_view.model_module_list[1].name === 'qrguests'
-                                            && '+ ' + turnstile.data.page_view.model_module_list[1].price
+                                        {barrier.data.page_view.model_module_list[1] !== undefined
+                                            && barrier.data.page_view.model_module_list[1].name === 'emergency'
+                                            && '+ ' + barrier.data.page_view.model_module_list[1].price
                                         }
-                                        {turnstile.data.page_view.model_module_list[2] !== undefined
-                                            && turnstile.data.page_view.model_module_list[2].name === 'qrguests'
-                                            && '+ ' + turnstile.data.page_view.model_module_list[2].price
+                                        {barrier.data.page_view.model_module_list[2] !== undefined
+                                            && barrier.data.page_view.model_module_list[2].name === 'emergency'
+                                            && '+ ' + barrier.data.page_view.model_module_list[2].price
                                         }
-                                        {turnstile.data.page_view.model_module_list[3] !== undefined
-                                            && turnstile.data.page_view.model_module_list[3].name === 'qrguests'
-                                            && '+ ' + turnstile.data.page_view.model_module_list[3].price
+                                        {barrier.data.page_view.model_module_list[3] !== undefined
+                                            && barrier.data.page_view.model_module_list[3].name === 'emergency'
+                                            && '+ ' + barrier.data.page_view.model_module_list[3].price
                                         }
-                                        {turnstile.data.page_view.model_module_list[4] !== undefined
-                                            && turnstile.data.page_view.model_module_list[4].name === 'qrguests'
-                                            && '+ ' + turnstile.data.page_view.model_module_list[4].price
+                                        {barrier.data.page_view.model_module_list[4] !== undefined
+                                            && barrier.data.page_view.model_module_list[4].name === 'emergency'
+                                            && '+ ' + barrier.data.page_view.model_module_list[4].price
                                         }
-                                        {turnstile.data.page_view.model_module_list[5] !== undefined
-                                            && turnstile.data.page_view.model_module_list[5].name === 'qrguests'
-                                            && '+ ' + turnstile.data.page_view.model_module_list[5].price
+                                        {barrier.data.page_view.model_module_list[5] !== undefined
+                                            && barrier.data.page_view.model_module_list[5].name === 'emergency'
+                                            && '+ ' + barrier.data.page_view.model_module_list[5].price
                                         }
-                                        {turnstile.data.page_view.model_module_list[6] !== undefined
-                                            && turnstile.data.page_view.model_module_list[6].name === 'qrguests'
-                                            && '+ ' + turnstile.data.page_view.model_module_list[6].price
+                                        {barrier.data.page_view.model_module_list[6] !== undefined
+                                            && barrier.data.page_view.model_module_list[6].name === 'emergency'
+                                            && '+ ' + barrier.data.page_view.model_module_list[6].price
                                         }
                                     </div>
                                     <div className="onoffswitch6">
@@ -168,7 +168,7 @@ class SelectorControl2D extends React.PureComponent<SelectorControl2DProps, Sele
                                             className="onoffswitch6-checkbox"
                                             id="header6-checkbox"
                                             onChange={this.handleClickSixSelect}
-                                            checked={turnstile.data.page_view.module_selectors[5].state}
+                                            checked={barrier.data.page_view.module_selectors[5].state}
                                         />
                                         <label className="onoffswitch6-label" htmlFor="header6-checkbox">
                                             <span className="onoffswitch6-inner" />
@@ -189,10 +189,10 @@ class SelectorControl2D extends React.PureComponent<SelectorControl2DProps, Sele
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect<{}, {}, SelectorControl2DProps>(
+export default connect<{}, {}, SelectorEmergencySirenProps>(
     mapStateToProps,
     {
-        fetchDataTurnstile,
-        togglePopupWindowTurnstile
+        fetchDataBarrier,
+        togglePopupWindowBarrier
     }
-)(SelectorControl2D);
+)(SelectorEmergencySiren);

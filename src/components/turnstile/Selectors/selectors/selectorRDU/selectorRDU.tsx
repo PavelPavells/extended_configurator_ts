@@ -22,9 +22,9 @@ import {
 import './selectorRDU.scss';
 
 /**
- * Импорт прелоадера
+ * Импорт Popup-окна
  */
-import PopUp from '../../../../popup/popup';
+import RDUpopup from '../../../../popup/turnstile-popup/rduPopup';
 
 /**
  * Импорт Лоадера
@@ -101,11 +101,11 @@ class SelectorRDU extends React.PureComponent<SelectorRDUProps, SelectorRDUState
                     <div className="selectors__module module">
                         <div className="module__left left">
                             <div className="left__icon rdu" />
-                            <div className="left__text">Модуль радиопультов "RDU-04"</div>
+                            <div className="left__text">Модуль радиопультов RDU-04</div>
                             <div className="left__info info">
                                 <div className="info__text">
                                     <div onClick={this.handleToggleModal}>ПОДРОБНЕЕ</div>
-                                    {turnstile.modal ? <PopUp /> : null}
+                                    {turnstile.modal ? <RDUpopup /> : null}
                                 </div>
                                 <div className="info__arrow" />
                             </div>
