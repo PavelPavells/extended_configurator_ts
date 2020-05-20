@@ -13,7 +13,7 @@ import { ConfiguratorState } from '../../../../../store/store';
  */
 import {
     fetchDataTurnstile,
-    togglePopupWindowTurnstile
+    //togglePopupWindowTurnstile
 } from '../../../../../actions/dataTurnstileActions';
 
 /**
@@ -37,22 +37,24 @@ import Loader from '../../../../../__utils__/Loader/Loader';
 interface SelectorControl2DProps {
     readonly data: any,
     readonly fetchDataTurnstile: (data: any, trigger: number) => void,
-    readonly togglePopupWindowTurnstile: () => void
+    //readonly togglePopupWindowTurnstile: () => void
 }
 
 interface SelectorControl2DState {
-    readonly selectSix: number
+    readonly selectSix: number,
+    readonly toggleModal: boolean
 }
 
 class SelectorControl2D extends React.PureComponent<SelectorControl2DProps, SelectorControl2DState> {
 
-    state: SelectorControl2DState = { selectSix: 0 };
+    state: SelectorControl2DState = { selectSix: 0, toggleModal: false };
 
     /**
      * Открыть/Закрыть модальное окно
      */
     private handleToggleModal = () => {
-        this.props.togglePopupWindowTurnstile();
+        //this.props.togglePopupWindowTurnstile();
+        this.setState({ toggleModal: !this.state.toggleModal });
     }
 
     /**
@@ -88,6 +90,7 @@ class SelectorControl2D extends React.PureComponent<SelectorControl2DProps, Sele
          * Данные из глобального стора
          */
         const { turnstile, isFetching } = this.props.data;
+        const { toggleModal } = this.state;
         if (turnstile.data.length === 0 && !isFetching) {
            return <Loader />;
         }
@@ -129,10 +132,17 @@ class SelectorControl2D extends React.PureComponent<SelectorControl2DProps, Sele
                                     <div className="left__info info">
                                         <div className="info__text">
                                             <div onClick={this.handleToggleModal}>ПОДРОБНЕЕ</div>
-                                            {turnstile.modal ? <Control2DPopup /> : null}
                                         </div>
                                         <div className="info__arrow" />
                                     </div>
+                                    {toggleModal
+                                        ?
+                                            <Control2DPopup
+                                                handleToggleModal={this.handleToggleModal}
+                                                handleClickSixSelect={this.handleClickSixSelect}
+                                            />
+                                        : null
+                                    }
                                 </div>
                                 <div className="module__right right">
                                     <div className="right__price">
@@ -193,6 +203,6 @@ export default connect<{}, {}, SelectorControl2DProps>(
     mapStateToProps,
     {
         fetchDataTurnstile,
-        togglePopupWindowTurnstile
+        //togglePopupWindowTurnstile
     }
 )(SelectorControl2D);

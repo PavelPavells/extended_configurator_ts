@@ -46,6 +46,7 @@ export const fetchingDataTurnstileFailure = (error: any): TurnstileActions => ({
  */
 export const fetchDataTurnstile = (data: any, trigger: number) => async (dispatch: Dispatch<TurnstileActions>) => {
     dispatch(fetchingDataTurnstileRequest());
+    console.log(window.location)
     try {
         await axios.post(`${site}/turnstile`, {
             app_id: 'APP_ID',

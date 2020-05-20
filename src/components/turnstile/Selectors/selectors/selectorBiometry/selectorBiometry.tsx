@@ -13,7 +13,7 @@ import { ConfiguratorState } from '../../../../../store/store';
  */
 import {
     fetchDataTurnstile,
-    togglePopupWindowTurnstile
+    //togglePopupWindowTurnstile
 } from '../../../../../actions/dataTurnstileActions';
 
 /**
@@ -37,22 +37,24 @@ import Loader from '../../../../../__utils__/Loader/Loader';
 interface SelectorBiometryProps {
     readonly data: any,
     readonly fetchDataTurnstile: (data: any, trigger: number) => void,
-    readonly togglePopupWindowTurnstile: () => void
+    //readonly togglePopupWindowTurnstile: () => void
 }
 
 interface SelectorBiometryState {
-    readonly selectFour: number
+    readonly selectFour: number,
+    readonly toggleModal: boolean
 }
 
 class SelectorBiometry extends React.PureComponent<SelectorBiometryProps, SelectorBiometryState> {
 
-    state: SelectorBiometryState = { selectFour: 0 };
+    state: SelectorBiometryState = { selectFour: 0, toggleModal: false };
 
     /**
      * Открыть/Закрыть модальное окно
      */
     private handleToggleModal = () => {
-        this.props.togglePopupWindowTurnstile();
+        //this.props.togglePopupWindowTurnstile();
+        this.setState({ toggleModal: !this.state.toggleModal })
     }
 
     /**
@@ -88,6 +90,7 @@ class SelectorBiometry extends React.PureComponent<SelectorBiometryProps, Select
          * Данные из глобального стора
          */
         const { turnstile, isFetching } = this.props.data;
+        const { toggleModal } = this.state;
         if (turnstile.data.length === 0 && !isFetching) {
            return <Loader />;
         }
@@ -106,10 +109,17 @@ class SelectorBiometry extends React.PureComponent<SelectorBiometryProps, Select
                             <div className="left__info info">
                                 <div className="info__text">
                                     <div onClick={this.handleToggleModal}>ПОДРОБНЕЕ</div>
-                                    {turnstile.modal ? <BiometryPopup /> : null}
                                 </div>
                                 <div className="info__arrow" />
                             </div>
+                            {toggleModal
+                                ?
+                                    <BiometryPopup
+                                        handleToggleModal={this.handleToggleModal}
+                                        handleClickFourSelect={this.handleClickFourSelect}
+                                    />
+                                : null
+                            }
                         </div>
                         <div className="module__right right">
                             <div className="right__price">
@@ -160,6 +170,6 @@ export default connect<{}, {}, SelectorBiometryProps>(
     mapStateToProps,
     {
         fetchDataTurnstile,
-        togglePopupWindowTurnstile
+        //togglePopupWindowTurnstile
     }
 )(SelectorBiometry);

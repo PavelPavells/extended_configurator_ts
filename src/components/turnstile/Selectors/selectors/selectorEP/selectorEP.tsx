@@ -13,7 +13,7 @@ import { ConfiguratorState } from '../../../../../store/store';
  */
 import {
     fetchDataTurnstile,
-    togglePopupWindowTurnstile
+    //togglePopupWindowTurnstile
 } from '../../../../../actions/dataTurnstileActions';
 
 /**
@@ -37,22 +37,24 @@ import Loader from '../../../../../__utils__/Loader/Loader';
 interface SelectorEPProps {
     readonly data: any,
     readonly fetchDataTurnstile: (data: any, trigger: number) => void,
-    readonly togglePopupWindowTurnstile: () => void
+    //readonly togglePopupWindowTurnstile: () => void
 }
 
 interface SelectorEPState {
-    readonly selectOne: number
+    readonly selectOne: number,
+    readonly toggleModal: boolean
 }
 
 class SelectorEP extends React.PureComponent<SelectorEPProps, SelectorEPState> {
 
-    state: SelectorEPState = { selectOne: 0 };
+    state: SelectorEPState = { selectOne: 0, toggleModal: false };
 
     /**
      * Открыть/Закрыть модальное окно
      */
     private handleToggleModal = () => {
-        this.props.togglePopupWindowTurnstile();
+        //this.props.togglePopupWindowTurnstile();
+        this.setState({ toggleModal: !this.state.toggleModal });
     }
 
     /**
@@ -88,6 +90,11 @@ class SelectorEP extends React.PureComponent<SelectorEPProps, SelectorEPState> {
          * Данные из глобального стора
          */
         const { turnstile, isFetching } = this.props.data;
+
+        /**
+         * Данные из локального стейта
+         */
+        const { toggleModal } = this.state;
         if (turnstile.data.length === 0 && !isFetching) {
            return <Loader />;
         }
@@ -106,10 +113,17 @@ class SelectorEP extends React.PureComponent<SelectorEPProps, SelectorEPState> {
                             <div className="left__info info">
                                 <div className="info__text">
                                     <div onClick={this.handleToggleModal}>ПОДРОБНЕЕ</div>
-                                    {turnstile.modal ? <EPpopup /> : null}
                                 </div>
                                 <div className="info__arrow" />
                             </div>
+                            {toggleModal 
+                                ? 
+                                    <EPpopup 
+                                        handleToggleModal={this.handleToggleModal}
+                                        handleClickOneSelect={this.handleClickOneSelect}
+                                    /> 
+                                : null
+                            }
                         </div>
                         <div className="module__right right">
                             <div className="right__price">
@@ -148,6 +162,6 @@ export default connect<{}, {}, SelectorEPProps>(
     mapStateToPtops,
     {
         fetchDataTurnstile,
-        togglePopupWindowTurnstile
+        //togglePopupWindowTurnstile
     }
 )(SelectorEP);

@@ -10,6 +10,7 @@ import { ConfiguratorState } from '../../../store/store';
 /**
  * Импорт экшенов
  */
+import { fetchDataPopupTurnstile } from '../../../actions/dataPopupActions';
 import {
     togglePopupWindowTurnstile,
     togglePopupWindowMainInfoTurnstile
@@ -23,7 +24,7 @@ import {
 /**
  * Импорт фото
  */
-import photo from "../../../images/str-compact1.png";
+//import photo from "../../../images/str-compact1.png";
 import logo from '../../../images/icon/rdu.svg'
 
 /**
@@ -38,7 +39,10 @@ interface RDUPopupProps {
     readonly data: any,
     readonly handleCloseModal: () => void,
     readonly togglePopupWindowTurnstile: () => void,
-    readonly togglePopupWindowMainInfoTurnstile: () => void
+    readonly togglePopupWindowMainInfoTurnstile: () => void,
+    readonly handleToggleModal: () => void,
+    readonly fetchDataPopupTurnstile: (data: any, trigger: number) => void,
+    readonly handleClickNineSelect: () => void
 }
 
 class RDUpopup extends React.PureComponent<RDUPopupProps> {
@@ -46,22 +50,45 @@ class RDUpopup extends React.PureComponent<RDUPopupProps> {
     /**
      * Запрос данных
      */
-    //componentDidMount () {
-    //this.props.fetchDataTurnstile();
-    //}
+    componentDidMount () {
+        const { page_view } = this.props.data.turnstile.data;
+        let data = {
+            app_id: 'id',
+            trigger: 12, /** исправить триггер на 13 для RDU */
+            trigger_state: 0,
+            seria: 0,
+            button_seria_state: page_view ? page_view.btn_seria : 0,
+            button_corpse_state: page_view ? page_view.btn_corpse : 0,
+            selectOne: page_view ? page_view.module_selectors[0].state : 0,
+            selectTwo: page_view ? page_view.module_selectors[1].state : 0,
+            selectThree: page_view ? page_view.module_selectors[2].state : 0,
+            selectFour: page_view ? page_view.module_selectors[3].state : 0,
+            selectFive: page_view ? page_view.module_selectors[4].state : 0,
+            selectSix: page_view ? page_view.module_selectors[5].state : 0,
+            selectSeven: page_view ? page_view.module_selectors[6].state : 0,
+            selectEight: page_view ? page_view.module_selectors[7].state : 0
+        };
+        this.props.fetchDataPopupTurnstile(data, data.trigger);
+    }
 
     /**
      *  Обработчик экшена Открытия/Закрытия модального окна
      */
-
     private handleCloseModal = () => {
-        document.addEventListener('keydown', event => {
-            if (event.keyCode === 27) {
-                this.props.togglePopupWindowTurnstile();
-            }
-        });
-        this.props.togglePopupWindowTurnstile();
+
+        /**
+         *  Функция тогглинга всплывающего окна из компонента selectorEP
+         */
+        this.props.handleToggleModal();
     };
+
+    /**
+     * Обработчик клика выбора опции из всплывающего окна
+     */
+    private handleAddOption = () => {
+        //this.props.handleClickNineSelect(); /** Исправить при добавлении модуля RDU */
+        this.handleCloseModal();
+    }
 
     /**
      * Открыть/Закрыть Popup
@@ -74,12 +101,12 @@ class RDUpopup extends React.PureComponent<RDUPopupProps> {
         /**
          * Данные из Глобального Стора
          */
-        const { turnstile } = this.props.data;
+        const { turnstile, popup, isFetching } = this.props.data;
 
-        //if (turnstile.data.length === 0 && !isFetching) {
-        //    return <Loader />;
-        //}
-        //console.log(turnstile.data.page_view.model_price)
+        if (popup.data.length === 0 && !isFetching) {
+           return null;
+        }
+        
         return (
 
         /**
@@ -88,7 +115,7 @@ class RDUpopup extends React.PureComponent<RDUPopupProps> {
             <section className="popup-window window">
                 <div className="window__left">
                     <div className="left__image">
-                        <img className="image" src={photo} alt="" />
+                        <img className="image" src={popup.data.module_main_photo} alt="" />
                     </div>
                 </div>
                 <div className="window__right right">
@@ -96,7 +123,7 @@ class RDUpopup extends React.PureComponent<RDUPopupProps> {
                         <img src={logo} className="right-header__icon" alt='' />
                         <div className="right-header__description description">
                             <p className='description__text'>Модуль радиопультов "RDU-04"</p>
-                            {turnstile.info === false ?
+                            {turnstile.info === false ? /** Перенести в экшены Popup */
                                 <div onClick={this.handleToggleMainInfo} className="description__toggle">ХАРАКТЕРИСТИКИ</div> :
                                 <div onClick={this.handleToggleMainInfo} className="description__toggle">ПОКАЗАТЬ ОПИСАНИЕ</div>
                             }
@@ -135,8 +162,17 @@ class RDUpopup extends React.PureComponent<RDUPopupProps> {
                         }
                     </div>
                     <div className="right__footer footer">
-                        <div className="footer__price">{turnstile.data.page_view.model_price}</div>
-                        <div className="footer__btn">Закрыть</div>
+                        <div className="footer__price">{popup.data.module_price}</div>
+                        {turnstile.data.page_view.module_selectors[7].state === 1 /** Исправить на 8 */
+                            ? 
+                                <React.Fragment>
+                                    <div onClick={this.handleCloseModal} className="footer__btn">Закрыть</div>
+                                </React.Fragment>
+                            :   
+                                <React.Fragment>
+                                    <div onClick={this.handleAddOption} className="footer__btn">Добавить</div>
+                                </React.Fragment>
+                        }
                     </div>
                 </div>
             </section>
@@ -150,6 +186,7 @@ const mapStateToProps = (state: ConfiguratorState) => ({
 export default connect<{}, {}, RDUPopupProps>(
     mapStateToProps,
     {
+        fetchDataPopupTurnstile,
         togglePopupWindowTurnstile,
         togglePopupWindowMainInfoTurnstile
     }
