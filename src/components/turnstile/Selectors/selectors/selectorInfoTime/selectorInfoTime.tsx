@@ -13,7 +13,7 @@ import { ConfiguratorState } from '../../../../../store/store';
  */
 import {
     fetchDataTurnstile,
-    togglePopupWindowTurnstile
+    //togglePopupWindowTurnstile
 } from '../../../../../actions/dataTurnstileActions';
 
 /**
@@ -37,22 +37,24 @@ import Loader from '../../../../../__utils__/Loader/Loader';
 interface SelectorInfoTimeProps {
     readonly data: any,
     readonly fetchDataTurnstile: (data: any, trigger: number) => void,
-    readonly togglePopupWindowTurnstile: () => void
+  //readonly togglePopupWindowTurnstile: () => void
 }
 
 interface SelectorInfoTimeState {
-    readonly selectFive: number
+    readonly selectFive: number,
+    readonly toggleModal: boolean
 }
 
 class SelectorInfoTime extends React.PureComponent<SelectorInfoTimeProps, SelectorInfoTimeState> {
 
-    state: SelectorInfoTimeState = { selectFive: 0 };
+    state: SelectorInfoTimeState = { selectFive: 0, toggleModal: false };
 
     /**
      * Открыть/Закрыть модальное окно
      */
     private handleToggleModal = () => {
-        this.props.togglePopupWindowTurnstile();
+        //this.props.togglePopupWindowTurnstile();
+        this.setState({ toggleModal: !this.state.toggleModal });
     }
 
     /**
@@ -88,6 +90,7 @@ class SelectorInfoTime extends React.PureComponent<SelectorInfoTimeProps, Select
          * Данные из глобального стора
          */
         const { turnstile, isFetching } = this.props.data;
+        const { toggleModal } = this.state;
         if (turnstile.data.length === 0 && !isFetching) {
            return <Loader />;
         }
@@ -130,10 +133,17 @@ class SelectorInfoTime extends React.PureComponent<SelectorInfoTimeProps, Select
                                     <div className="left__info info">
                                         <div className="info__text">
                                             <div onClick={this.handleToggleModal}>ПОДРОБНЕЕ</div>
-                                            {turnstile.modal ? <InfoTimePopup /> : null}
                                         </div>
                                         <div className="info__arrow" />
                                     </div>
+                                    {toggleModal
+                                        ?
+                                            <InfoTimePopup
+                                                handleToggleModal={this.handleToggleModal}
+                                                handleClickFiveSelect={this.handleClickFiveSelect}
+                                            />
+                                        : null
+                                    }
                                 </div>
                                 <div className="module__right right">
                                     <div className="right__price">
@@ -189,6 +199,6 @@ const mapStateToProps = (state: ConfiguratorState) => ({
 export default connect<{}, {}, SelectorInfoTimeProps>(
     mapStateToProps,
     { fetchDataTurnstile,
-        togglePopupWindowTurnstile
+        //togglePopupWindowTurnstile
     }
 )(SelectorInfoTime);

@@ -13,7 +13,7 @@ import { ConfiguratorState } from '../../../../../store/store';
  */
 import {
     fetchDataTurnstile,
-    togglePopupWindowTurnstile
+    //togglePopupWindowTurnstile
 } from '../../../../../actions/dataTurnstileActions';
 
 /**
@@ -37,22 +37,24 @@ import Loader from '../../../../../__utils__/Loader/Loader';
 interface SelectorEMMarinProps {
     readonly data: any,
     readonly fetchDataTurnstile: (data: any, trigger: number) => void,
-    readonly togglePopupWindowTurnstile: () => void
+    //readonly togglePopupWindowTurnstile: () => void
 }
 
 interface SelectorEMMarinState {
-    readonly selectTwo: number
+    readonly selectTwo: number,
+    readonly toggleModal: boolean
 }
 
 class SelectorEMMarin extends React.PureComponent<SelectorEMMarinProps, SelectorEMMarinState> {
 
-    state: SelectorEMMarinState = { selectTwo: 0 };
+    state: SelectorEMMarinState = { selectTwo: 0, toggleModal: false };
 
     /**
      * Открыть/Закрыть модальное окно
      */
     private handleToggleModal = () => {
-        this.props.togglePopupWindowTurnstile();
+        //this.props.togglePopupWindowTurnstile();
+        this.setState({ toggleModal: !this.state.toggleModal })
     }
 
     /**
@@ -88,6 +90,7 @@ class SelectorEMMarin extends React.PureComponent<SelectorEMMarinProps, Selector
          * Данные из глобального стора
          */
         const { turnstile, isFetching } = this.props.data;
+        const { toggleModal } = this.state;
         if (turnstile.data.length === 0 && !isFetching) {
            return <Loader />;
         }
@@ -105,10 +108,17 @@ class SelectorEMMarin extends React.PureComponent<SelectorEMMarinProps, Selector
                             <div className="left__info info">
                                 <div className="info__text">
                                     <div onClick={this.handleToggleModal}>ПОДРОБНЕЕ</div>
-                                    {turnstile.modal ? <EMMarinPopup /> : null}
                                 </div>
                                 <div className="info__arrow" />
                             </div>
+                            {toggleModal
+                                ? 
+                                    <EMMarinPopup 
+                                        handleToggleModal={this.handleToggleModal}
+                                        handleClickTwoSelect={this.handleClickTwoSelect}
+                                   />
+                                : null
+                            }
                         </div>
                         <div className="module__right right">
                             <div className="right__price">
@@ -155,6 +165,6 @@ export default connect<SelectorEMMarinProps>(
     mapStateToProps,
     {
         fetchDataTurnstile,
-        togglePopupWindowTurnstile
+        //togglePopupWindowTurnstile
     }
 )(SelectorEMMarin);

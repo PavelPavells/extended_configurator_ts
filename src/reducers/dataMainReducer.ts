@@ -18,7 +18,6 @@ const initialState: MainState = {
 /**
  * Редьюсер Компонента Main
  */
-
 export default function (state = initialState, action: MainActions): MainState {
     switch (action.type) {
         case FETCHING_DATA_MAIN_REQUEST:

@@ -29,6 +29,13 @@ export const FETCHING_DATA_BARRIER_SUCCESS = 'FETCHING_DATA_BARRIER_SUCCESS';
 export const FETCHING_DATA_BARRIER_FAILURE = 'FETCHING_DATA_BARRIER_FAILURE';
 
 /**
+ * Глобальные переменные для запросов данных в Компоненте Popup (Турникеты)
+ */
+export const FETCHING_DATA_POPUP_TURNSTILE_REQUEST = 'FETCHING_DATA_POPUP_TURNSTILE_REQUEST';
+export const FETCHING_DATA_POPUP_TURNSTILE_SUCCESS = 'FETCHING_DATA_POPUP_TURNSTILE_SUCCESS';
+export const FETCHING_DATA_POPUP_TURNSTILE_FAILURE = 'FETCHING_DATA_POPUP_TURNSTILE_FAILURE';
+
+/**
  * Открыть/Закрыть модальное окно Компонента Turnstile
  */
 export const TOGGLE_MODAL_TURNSTILE = 'TOGGLE_MODAL_TURNSTILE';
@@ -141,3 +148,32 @@ interface BarrierTogglePopupEquipment {
 }
 
 export type BarrierActions = BarrierRequest | BarrierSuccess | BarrierFailure | BarrierTogglePopupSelectors | BarrierTogglePopupEquipment;
+
+/**
+ * *********************** Интерфейсы стейта Компонента popup(турникеты) ***********************
+ */
+
+export interface TurnstilePopupState {
+   isFetching: boolean,
+   errorMessage: string,
+   modal: boolean,
+   info: boolean,
+   data: any
+}
+
+interface TurnstilePopupRequest {
+   type: typeof FETCHING_DATA_POPUP_TURNSTILE_REQUEST
+}
+
+interface TurnstilePopupSuccess {
+   type: typeof FETCHING_DATA_POPUP_TURNSTILE_SUCCESS,
+   trigger: number,
+   payload: TurnstilePopupState[]
+}
+
+interface TurnstilePopupFailure {
+   type: typeof FETCHING_DATA_POPUP_TURNSTILE_FAILURE,
+   payload: any
+}
+
+export type TurnstilePopupActions = TurnstilePopupRequest | TurnstilePopupSuccess | TurnstilePopupFailure;

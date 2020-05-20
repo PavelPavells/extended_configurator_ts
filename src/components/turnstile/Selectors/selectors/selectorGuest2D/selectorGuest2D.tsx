@@ -13,7 +13,7 @@ import { ConfiguratorState } from '../../../../../store/store';
  */
 import {
     fetchDataTurnstile,
-    togglePopupWindowTurnstile
+   //togglePopupWindowTurnstile
 } from '../../../../../actions/dataTurnstileActions';
 
 /**
@@ -37,22 +37,24 @@ import Loader from '../../../../../__utils__/Loader/Loader';
 interface SelectorGuest2DProps {
     readonly data: any,
     readonly fetchDataTurnstile: (data: any, trigger: number) => void,
-    readonly togglePopupWindowTurnstile: () => void
+    //readonly togglePopupWindowTurnstile: () => void
 }
 
 interface SelectorGuest2DState {
-    readonly selectSeven: number
+    readonly selectSeven: number,
+    readonly toggleModal: boolean
 }
 
 class SelectorGuest2D extends React.PureComponent<SelectorGuest2DProps, SelectorGuest2DState> {
 
-    state: SelectorGuest2DState = { selectSeven: 0 };
+    state: SelectorGuest2DState = { selectSeven: 0, toggleModal: false };
 
     /**
      * Открыть/Закрыть модальное окно
      */
     private handleToggleModal = () => {
-        this.props.togglePopupWindowTurnstile();
+        //this.props.togglePopupWindowTurnstile();
+        this.setState({ toggleModal: !this.state.toggleModal });
     }
 
     /**
@@ -88,6 +90,7 @@ class SelectorGuest2D extends React.PureComponent<SelectorGuest2DProps, Selector
          * Данные из глобального стора
          */
         const { turnstile, isFetching } = this.props.data;
+        const { toggleModal } = this.state;
         if (turnstile.data.length === 0 && !isFetching) {
            return <Loader />;
         }
@@ -129,10 +132,17 @@ class SelectorGuest2D extends React.PureComponent<SelectorGuest2DProps, Selector
                                     <div className="left__info info">
                                         <div className="info__text">
                                             <div onClick={this.handleToggleModal}>ПОДРОБНЕЕ</div>
-                                            {turnstile.modal ? <Guest2DPopup /> : null}
                                         </div>
                                         <div className="info__arrow" />
                                     </div>
+                                    {toggleModal
+                                        ?
+                                            <Guest2DPopup
+                                                handleToggleModal={this.handleToggleModal}
+                                                handleClickSevenSelect={this.handleClickSevenSelect}
+                                            />
+                                        : null
+                                    }
                                 </div>
                                 <div className="module__right right">
                                     <div className="right__price">
@@ -197,6 +207,6 @@ export default connect<{}, {}, SelectorGuest2DProps>(
     mapStateToProps,
     {
         fetchDataTurnstile,
-        togglePopupWindowTurnstile
+        //togglePopupWindowTurnstile
     }
 )(SelectorGuest2D);

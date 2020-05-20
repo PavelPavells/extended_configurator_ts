@@ -13,7 +13,7 @@ import { ConfiguratorState } from '../../../../../store/store';
  */
 import {
     fetchDataTurnstile,
-    togglePopupWindowTurnstile
+    //togglePopupWindowTurnstile
 } from '../../../../../actions/dataTurnstileActions';
 
 /**
@@ -37,22 +37,24 @@ import Loader from '../../../../../__utils__/Loader/Loader';
 interface SelectorMifireProps {
     readonly data: any,
     readonly fetchDataTurnstile: (data: any, trigger: number) => void,
-    readonly togglePopupWindowTurnstile: () => void
+    //readonly togglePopupWindowTurnstile: () => void
 }
 
 interface SelectorMifireState {
-    readonly selectThree: number
+    readonly selectThree: number,
+    readonly toggleModal: boolean
 }
 
 class SelectorMifire extends React.PureComponent<SelectorMifireProps, SelectorMifireState> {
 
-    state: SelectorMifireState = { selectThree: 0 };
+    state: SelectorMifireState = { selectThree: 0, toggleModal: false };
 
     /**
      * Открыть/Закрыть модальное окно
      */
     private handleToggleModal = () => {
-        this.props.togglePopupWindowTurnstile();
+        //this.props.togglePopupWindowTurnstile();
+        this.setState({ toggleModal: !this.state.toggleModal });
     }
 
     /**
@@ -88,6 +90,7 @@ class SelectorMifire extends React.PureComponent<SelectorMifireProps, SelectorMi
          * Данные из глобального стора
          */
         const { turnstile, isFetching } = this.props.data;
+        const { toggleModal } = this.state;
         if (turnstile.data.length === 0 && !isFetching) {
            return <Loader />;
         }
@@ -105,10 +108,17 @@ class SelectorMifire extends React.PureComponent<SelectorMifireProps, SelectorMi
                             <div className="left__info info">
                                 <div className="info__text">
                                     <div onClick={this.handleToggleModal}>ПОДРОБНЕЕ</div>
-                                    {turnstile.modal ? <MifirePopup /> : null}
                                 </div>
                                 <div className="info__arrow" />
                             </div>
+                            {toggleModal 
+                                ? 
+                                    <MifirePopup
+                                        handleToggleModal={this.handleToggleModal}
+                                        handleClickThreeSelect={this.handleClickThreeSelect}
+                                    />
+                                : null
+                            }
                         </div>
                         <div className="module__right right">
                             <div className="right__price">
@@ -155,6 +165,6 @@ export default connect<{}, {}, SelectorMifireProps>(
     mapStateToProps,
     {
         fetchDataTurnstile,
-        togglePopupWindowTurnstile
+        //togglePopupWindowTurnstile
     }
 )(SelectorMifire);
