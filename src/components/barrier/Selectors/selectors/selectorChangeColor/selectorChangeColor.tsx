@@ -19,12 +19,12 @@ import {
 /**
  * Импорт стилей
  */
-import './selectorEmergencySiren.scss';
+import './selectorChangeColor.scss';
 
 /**
  * Импорт Popup-окна
  */
-import EmergencySirenPopup from '../../../../popup/barrier-popup/emergencySirenPopup';
+import ChangeColorPopUp from '../../../../popup/barrier-popup/changeColorPopup';
 
 /**
  * Импорт Лоадера
@@ -32,21 +32,21 @@ import EmergencySirenPopup from '../../../../popup/barrier-popup/emergencySirenP
 import Loader from '../../../../../__utils__/Loader/Loader';
 
 /**
- * Интерфейс компонента SelectorEmergencySiren
+ * Интерфейс компонента SelectorChangeColor
  */
-interface SelectorEmergencySirenProps {
+interface SelectorChangeColorProps {
     readonly data: any,
     readonly fetchDataBarrier: (data: any, trigger: number) => void,
     readonly togglePopupWindowBarrier: () => void
 }
 
-interface SelectorEmergencySirenState {
-    readonly selectFive: number
+interface SelectorChangeColorState {
+    readonly selectSeven: number
 }
 
-class SelectorEmergencySiren extends React.PureComponent<SelectorEmergencySirenProps, SelectorEmergencySirenState> {
+class SelectorChangeColor extends React.PureComponent<SelectorChangeColorProps, SelectorChangeColorState> {
 
-    state: SelectorEmergencySirenState = { selectFive: 0 };
+    state: SelectorChangeColorState = { selectSeven: 0 };
 
     /**
      * Открыть/Закрыть модальное окно
@@ -56,17 +56,17 @@ class SelectorEmergencySiren extends React.PureComponent<SelectorEmergencySirenP
     }
 
     /**
-     * Хэндлер для обработки запроса селектора 'Аварийная сирена'
-     */
-    private handleClickFiveSelect = () => {
+    * Хэндлер для обработки запроса селектора 'Замена цвета корпуса RAL7035 на RAL1016'
+    */
+    private handleClickSevenSelect = () => {
         const { page_view } = this.props.data.barrier.data;
         this.setState({
-            selectFive: +!page_view.module_selectors[4].state
+            selectSeven: +!page_view.module_selectors[6].state
         }, () => {
             let data = {
                 app_id: 'id',
-                trigger: 9,
-                trigger_state: this.state.selectFive,
+                trigger: 11,
+                trigger_state: this.state.selectSeven,
                 button_seria_state: page_view.btn_seria,
                 button_corpse_state: page_view.btn_corpse,
                 selectOne: page_view.module_selectors[0].state,
@@ -91,31 +91,30 @@ class SelectorEmergencySiren extends React.PureComponent<SelectorEmergencySirenP
         if (barrier.data.length === 0 && !isFetching) {
            return <Loader />;
         }
-
+        
         return (
-
             /**
-             * Селектор 'Аварийная сирена'
+             * Селектор 'Замена цвета корпуса RAL7035 на RAL1016'
              */
             <Fragment>
-                {barrier.data.page_view.module_selectors.slice(4, 5).map((index: { state: number; index: string | number | undefined; }) => {
+                {barrier.data.page_view.module_selectors.slice(6, 7).map((index: { state: number; index: string | number | undefined; }) => {
                     if (index.state === -1) {
                         return (
                             <div key={index.index} className="selectors__module module none">
                                 <div className="module__left left">
-                                    <div className="left__icon time" />
-                                    <div className="left__text">Аварийная сирена</div>
+                                    <div className="left__icon guest-access" />
+                                    <div className="left__text">Замена цвета корпуса RAL7035 на RAL1016</div>
                                 </div>
                                 <div className="module__right right">
-                                    <div className="onoffswitch5">
+                                    <div className="onoffswitch7">
                                         <input
                                             type="checkbox"
-                                            className="onoffswitch5-checkbox"
+                                            className="onoffswitch7-checkbox"
                                             defaultChecked={false}
                                         />
-                                        <label className="onoffswitch5-label" htmlFor="header5-checkbox">
-                                            <span className="onoffswitch5-inner" />
-                                            <span className="onoffswitch5-switch" />
+                                        <label className="onoffswitch7-label" htmlFor="header7-checkbox">
+                                            <span className="onoffswitch7-inner" />
+                                            <span className="onoffswitch7-switch" />
                                         </label>
                                     </div>
                                 </div>
@@ -125,51 +124,59 @@ class SelectorEmergencySiren extends React.PureComponent<SelectorEmergencySirenP
                         return (
                             <div key={index.index} className="selectors__module module">
                                 <div className="module__left left">
-                                    <div className="left__icon time" />
-                                    <div className="left__text">Аварийная сирена</div>
+                                    <div className="left__icon guest-access" />
+                                    <div className="left__text">Замена цвета корпуса RAL7035 на RAL1016</div>
                                     <div className="left__info info">
                                         <div className="info__text">
                                             <div onClick={this.handleToggleModal}>ПОДРОБНЕЕ</div>
                                         </div>
                                         <div className="info__arrow" />
                                     </div>
-                                    {barrier.modal ? <EmergencySirenPopup /> : null}
+                                    {barrier.modal ? <ChangeColorPopUp /> : null}
                                 </div>
                                 <div className="module__right right">
                                     <div className="right__price">
                                         {barrier.data.page_view.model_module_list[1] !== undefined
-                                            && barrier.data.page_view.model_module_list[1].name === 'emergency'
+                                            && barrier.data.page_view.model_module_list[1].name === 'inductance'
                                             && '+ ' + barrier.data.page_view.model_module_list[1].price
                                         }
                                         {barrier.data.page_view.model_module_list[2] !== undefined
-                                            && barrier.data.page_view.model_module_list[2].name === 'emergency'
+                                            && barrier.data.page_view.model_module_list[2].name === 'inductance'
                                             && '+ ' + barrier.data.page_view.model_module_list[2].price
                                         }
                                         {barrier.data.page_view.model_module_list[3] !== undefined
-                                            && barrier.data.page_view.model_module_list[3].name === 'emergency'
+                                            && barrier.data.page_view.model_module_list[3].name === 'inductance'
                                             && '+ ' + barrier.data.page_view.model_module_list[3].price
                                         }
                                         {barrier.data.page_view.model_module_list[4] !== undefined
-                                            && barrier.data.page_view.model_module_list[4].name === 'emergency'
+                                            && barrier.data.page_view.model_module_list[4].name === 'inductance'
                                             && '+ ' + barrier.data.page_view.model_module_list[4].price
                                         }
                                         {barrier.data.page_view.model_module_list[5] !== undefined
-                                            && barrier.data.page_view.model_module_list[5].name === 'emergency'
+                                            && barrier.data.page_view.model_module_list[5].name === 'inductance'
                                             && '+ ' + barrier.data.page_view.model_module_list[5].price
                                         }
+                                        {barrier.data.page_view.model_module_list[6] !== undefined
+                                            && barrier.data.page_view.model_module_list[6].name === 'inductance'
+                                            && '+ ' + barrier.data.page_view.model_module_list[6].price
+                                        }
+                                        {barrier.data.page_view.model_module_list[7] !== undefined
+                                            && barrier.data.page_view.model_module_list[7].name === 'inductance'
+                                            && '+ ' + barrier.data.page_view.model_module_list[7].price
+                                        }
                                     </div>
-                                    <div className="onoffswitch5">
+                                    <div className="onoffswitch7">
                                         <input
                                             type="checkbox"
-                                            name="onoffswitch5"
-                                            className="onoffswitch5-checkbox"
-                                            id="header5-checkbox"
-                                            onChange={this.handleClickFiveSelect}
-                                            checked={barrier.data.page_view.module_selectors[4].state}
+                                            name="onoffswitch7"
+                                            className="onoffswitch7-checkbox"
+                                            id="header7-checkbox"
+                                            onChange={this.handleClickSevenSelect}
+                                            checked={barrier.data.page_view.module_selectors[6].state}
                                         />
-                                        <label className="onoffswitch5-label" htmlFor="header5-checkbox">
-                                            <span className="onoffswitch5-inner" />
-                                            <span className="onoffswitch5-switch" />
+                                        <label className="onoffswitch7-label" htmlFor="header7-checkbox">
+                                            <span className="onoffswitch7-inner" />
+                                            <span className="onoffswitch7-switch" />
                                         </label>
                                     </div>
                                 </div>
@@ -186,10 +193,10 @@ class SelectorEmergencySiren extends React.PureComponent<SelectorEmergencySirenP
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect<{}, {}, SelectorEmergencySirenProps>(
+export default connect<{}, {}, SelectorChangeColorProps>(
     mapStateToProps,
     {
         fetchDataBarrier,
         togglePopupWindowBarrier
     }
-)(SelectorEmergencySiren);
+)(SelectorChangeColor);

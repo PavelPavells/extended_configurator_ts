@@ -82,14 +82,14 @@
 
 
 /**
-    Стили иконок компонента selectorBiometry
+    Стили иконок компонента selectorSignalLamp
 */
-.bio {
+.bio { /** изменить название класса + изменение в компоненте */
     display: block;
     min-width: 30px;
     height: 30px;
     margin-right: 1%;
-    background: url('../../../../../images/icon/biometric.svg') no-repeat center;
+    background: url('../../../../../images/icon/signal-lamp.svg') no-repeat center;
 }
 
 /**

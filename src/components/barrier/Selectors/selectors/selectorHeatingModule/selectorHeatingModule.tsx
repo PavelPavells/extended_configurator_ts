@@ -22,9 +22,9 @@ import {
 import './selectorHeatingModule.scss';
 
 /**
- * Импорт прелоадера
+ * Импорт Popup-окна
  */
-//import HeatingModulePopUp from '../../../../popup/popup';
+import HeatingModulePopUp from '../../../../popup/barrier-popup/heatingModulePopup';
 
 /**
  * Импорт Лоадера
@@ -56,7 +56,7 @@ class SelectorHeatingModule extends React.PureComponent<SelectorHeatingModulePro
     }
 
     /**
-    * Хэндлер для обработки запроса селектора 'Модуль обогрева MHP-B'
+    * Хэндлер для обработки запроса селектора 'Модуль обогрева MHP'
     */
     private handleClickTwoSelect = () => {
         const { page_view } = this.props.data.barrier.data;
@@ -101,14 +101,14 @@ class SelectorHeatingModule extends React.PureComponent<SelectorHeatingModulePro
                     <div key={index.index} className="selectors__module module">
                         <div className="module__left left">
                             <div className="left__icon emmarine" />
-                            <div className="left__text">Модуль обогрева MHP-B</div>
+                            <div className="left__text">Модуль обогрева MHP</div>
                             <div className="left__info info">
                                 <div className="info__text">
                                     <div onClick={this.handleToggleModal}>ПОДРОБНЕЕ</div>
-                                    {/*{barrier.modal ? <HeatingModulePopUp /> : null}*/}
                                 </div>
                                 <div className="info__arrow" />
                             </div>
+                            {barrier.modal ? <HeatingModulePopUp /> : null}
                         </div>
                         <div className="module__right right">
                             <div className="right__price">

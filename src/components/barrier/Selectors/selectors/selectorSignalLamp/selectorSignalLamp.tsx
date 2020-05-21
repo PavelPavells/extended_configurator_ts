@@ -22,9 +22,9 @@ import {
 import './selectorSignalLamp.scss';
 
 /**
- * Импорт прелоадера
+ * Импорт Popup-окна
  */
-//import SignalLampPopup from '../../../../popup/barrier-popup/biometryPopup';
+import SignalLampPopup from '../../../../popup/barrier-popup/signalLampPopup';
 
 /**
  * Импорт Лоадера
@@ -56,7 +56,7 @@ class SelectorSignalLamp extends React.PureComponent<SelectorSignalLampProps, Se
     }
 
     /**
-    * Хэндлер для обработки запроса селектора 'Сигнальная лампа LS-01-L'
+    * Хэндлер для обработки запроса селектора 'Сигнальная лампа LS-01'
     */
     private handleClickFourSelect = () => {
         const { page_view } = this.props.data.barrier.data;
@@ -95,21 +95,21 @@ class SelectorSignalLamp extends React.PureComponent<SelectorSignalLampProps, Se
         return (
 
             /**
-             * Селектор 'Сигнальная лампа LS-01-L'
+             * Селектор 'Сигнальная лампа LS-01'
              */
             <Fragment>
                 {barrier.data.page_view.module_selectors.slice(3, 4).map((index: { index: string | number | undefined; }) => (
                     <div key={index.index} className="selectors__module module">
                         <div className="module__left left">
                             <div className="left__icon bio" />
-                            <div className="left__text">Сигнальная лампа LS-01-L</div>
+                            <div className="left__text">Сигнальная лампа LS-01</div>
                             <div className="left__info info">
                                 <div className="info__text">
                                     <div onClick={this.handleToggleModal}>ПОДРОБНЕЕ</div>
-                                    {/*{barrier.modal ? <SignalLampPopup /> : null}*/}
                                 </div>
                                 <div className="info__arrow" />
                             </div>
+                            {barrier.modal ? <SignalLampPopup /> : null}
                         </div>
                         <div className="module__right right">
                             <div className="right__price">

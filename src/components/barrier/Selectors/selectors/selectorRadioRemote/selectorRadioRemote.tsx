@@ -22,9 +22,9 @@ import {
 import './selectorRadioRemote.scss';
 
 /**
- * Импорт прелоадера
+ * Импорт Popup-окна
  */
-//import RadioRemotePopUp from '../../../../popup/popup';
+import RadioRemotePopup from '../../../../popup/barrier-popup/radioRemotePopup';
 
 /**
  * Импорт Лоадера
@@ -32,7 +32,7 @@ import './selectorRadioRemote.scss';
 import Loader from '../../../../../__utils__/Loader/Loader';
 
 /**
- * Интерфейс компонента SelectorHeatingModule
+ * Интерфейс компонента SelectorRadioRemote
  */
 interface SelectorRadioRemoteProps {
     readonly data: any,
@@ -41,12 +41,12 @@ interface SelectorRadioRemoteProps {
 }
 
 interface SelectorRadioRemoteState {
-    readonly selectFive: number
+    readonly selectThree: number
 }
 
 class SelectorRadioRemote extends React.PureComponent<SelectorRadioRemoteProps, SelectorRadioRemoteState> {
 
-    state: SelectorRadioRemoteState = { selectFive: 0 };
+    state: SelectorRadioRemoteState = { selectThree: 0 };
 
     /**
      * Открыть/Закрыть модальное окно
@@ -56,17 +56,17 @@ class SelectorRadioRemote extends React.PureComponent<SelectorRadioRemoteProps, 
     }
 
     /**
-     * Хэндлер для обработки запроса селектора 'Модуль радио пультов PRK 400-P'
-     */
-    private handleClickFiveSelect = () => {
+    * Хэндлер для обработки запроса селектора 'Модуль радио пультов PRK 400'
+    */
+    private handleClickThreeSelect = () => {
         const { page_view } = this.props.data.barrier.data;
         this.setState({
-            selectFive: +!page_view.module_selectors[4].state
+            selectThree: +!page_view.module_selectors[2].state
         }, () => {
             let data = {
                 app_id: 'id',
-                trigger: 9,
-                trigger_state: this.state.selectFive,
+                trigger: 7,
+                trigger_state: this.state.selectThree,
                 button_seria_state: page_view.btn_seria,
                 button_corpse_state: page_view.btn_corpse,
                 selectOne: page_view.module_selectors[0].state,
@@ -93,91 +93,56 @@ class SelectorRadioRemote extends React.PureComponent<SelectorRadioRemoteProps, 
         }
 
         return (
-
             /**
-             * Селектор 'Модуль радио пультов PRK 400-P'
+             * Селектор 'Модуль радио пультов PRK 400'
              */
             <Fragment>
-                {barrier.data.page_view.module_selectors.slice(4, 5).map((index: { state: number; index: string | number | undefined; }) => {
-                    if (index.state === -1) {
-                        return (
-                            <div key={index.index} className="selectors__module module none">
-                                <div className="module__left left">
-                                    <div className="left__icon time" />
-                                    <div className="left__text">Модуль радио пультов PRK 400-P</div>
+                {barrier.data.page_view.module_selectors.slice(2, 3).map((index: { index: string | number | undefined; }) => (
+                    <div key={index.index} className="selectors__module module">
+                        <div className="module__left left">
+                            <div className="left__icon mifire" />
+                            <div className="left__text">Модуль радио пультов PRK 400</div>
+                            <div className="left__info info">
+                                <div className="info__text">
+                                    <div onClick={this.handleToggleModal}>ПОДРОБНЕЕ</div>
                                 </div>
-                                <div className="module__right right">
-                                    <div className="onoffswitch5">
-                                        <input
-                                            type="checkbox"
-                                            className="onoffswitch5-checkbox"
-                                            defaultChecked={false}
-                                        />
-                                        <label className="onoffswitch5-label" htmlFor="header5-checkbox">
-                                            <span className="onoffswitch5-inner" />
-                                            <span className="onoffswitch5-switch" />
-                                        </label>
-                                    </div>
-                                </div>
+                                <div className="info__arrow" />
                             </div>
-                        );
-                    } else {
-                        return (
-                            <div key={index.index} className="selectors__module module">
-                                <div className="module__left left">
-                                    <div className="left__icon time" />
-                                    <div className="left__text">Модуль радио пультов PRK 400-P</div>
-                                    <div className="left__info info">
-                                        <div className="info__text">
-                                            <div onClick={this.handleToggleModal}>ПОДРОБНЕЕ</div>
-                                            {/*{barrier.modal ? <RadioRemotePopUp /> : null}*/}
-                                        </div>
-                                        <div className="info__arrow" />
-                                    </div>
-                                </div>
-                                <div className="module__right right">
-                                    <div className="right__price">
-                                        {barrier.data.page_view.model_module_list[1] !== undefined
-                                            && barrier.data.page_view.model_module_list[1].name === 'radio'
-                                            && '+ ' + barrier.data.page_view.model_module_list[1].price
-                                        }
-                                        {barrier.data.page_view.model_module_list[2] !== undefined
-                                            && barrier.data.page_view.model_module_list[2].name === 'radio'
-                                            && '+ ' + barrier.data.page_view.model_module_list[2].price
-                                        }
-                                        {barrier.data.page_view.model_module_list[3] !== undefined
-                                            && barrier.data.page_view.model_module_list[3].name === 'radio'
-                                            && '+ ' + barrier.data.page_view.model_module_list[3].price
-                                        }
-                                        {barrier.data.page_view.model_module_list[4] !== undefined
-                                            && barrier.data.page_view.model_module_list[4].name === 'radio'
-                                            && '+ ' + barrier.data.page_view.model_module_list[4].price
-                                        }
-                                        {barrier.data.page_view.model_module_list[5] !== undefined
-                                            && barrier.data.page_view.model_module_list[5].name === 'radio'
-                                            && '+ ' + barrier.data.page_view.model_module_list[5].price
-                                        }
-                                    </div>
-                                    <div className="onoffswitch5">
-                                        <input
-                                            type="checkbox"
-                                            name="onoffswitch5"
-                                            className="onoffswitch5-checkbox"
-                                            id="header5-checkbox"
-                                            onChange={this.handleClickFiveSelect}
-                                            checked={barrier.data.page_view.module_selectors[4].state}
-                                        />
-                                        <label className="onoffswitch5-label" htmlFor="header5-checkbox">
-                                            <span className="onoffswitch5-inner" />
-                                            <span className="onoffswitch5-switch" />
-                                        </label>
-                                    </div>
-                                </div>
+                            {barrier.modal ? <RadioRemotePopup /> : null}
+                        </div>
+                        <div className="module__right right">
+                            <div className="right__price">
+                                {barrier.data.page_view.model_module_list[1] !== undefined
+                                    && barrier.data.page_view.model_module_list[1].name === 'remote'
+                                    && '+ ' + barrier.data.page_view.model_module_list[1].price
+                                }
+                                {barrier.data.page_view.model_module_list[2] !== undefined
+                                    && barrier.data.page_view.model_module_list[2].name === 'remote'
+                                    && '+ ' + barrier.data.page_view.model_module_list[2].price
+                                }
+                                {barrier.data.page_view.model_module_list[3] !== undefined
+                                    && barrier.data.page_view.model_module_list[3].name === 'remote'
+                                    && '+ ' + barrier.data.page_view.model_module_list[3].price
+                                }
                             </div>
-                        );
-                    }
-                })
-                }
+                            <div className="onoffswitch3">
+                                <input
+                                    type="checkbox"
+                                    name="onoffswitch3"
+                                    className="onoffswitch3-checkbox"
+                                    id="header3-checkbox"
+                                    onChange={this.handleClickThreeSelect}
+                                    checked={barrier.data.page_view.module_selectors[2].state}
+                                />
+                                <label className="onoffswitch3-label" htmlFor="header3-checkbox">
+                                    <span className="onoffswitch3-inner" />
+                                    <span className="onoffswitch3-switch" />
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                )
+                )}
             </Fragment>
         );
     }

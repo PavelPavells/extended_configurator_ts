@@ -5,7 +5,7 @@
  */
 import React, { Fragment } from 'react';
 // @ts-ignore
-import { connect } from '../selectorSignalLamp/node_modules/react-redux';
+import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../../../store/store';
 
 /**
@@ -22,9 +22,9 @@ import {
 import './selectorControlBlock.scss';
 
 /**
- * Импорт прелоадера
+ * Импорт Popup-окна
  */
-//import ControlBlockPopUp from '../../../../popup/popup';
+import ControlBlockPopup from '../../../../popup/barrier-popup/controlBlockPopup';
 
 /**
  * Импорт Лоадера
@@ -56,7 +56,7 @@ class SelectorControlBlock extends React.PureComponent<SelectorControlBlockProps
     }
 
     /**
-    * Хэндлер для обработки запроса селектора 'Блок управления 21PS-A'
+    * Хэндлер для обработки запроса селектора 'Блок управления 21PS'
     */
     private handleClickOneSelect = () => {
         const { page_view } = this.props.data.barrier.data;
@@ -95,21 +95,21 @@ class SelectorControlBlock extends React.PureComponent<SelectorControlBlockProps
         return (
 
             /**
-             * Селектор 'Блок управления 21PS-A'
+             * Селектор 'Блок управления 21PS'
              */
             <Fragment>
                 {barrier.data.page_view.module_selectors.slice(0, 1).map((index: { index: string | number | undefined; }) => (
                     <div key={index.index} className="selectors__module module">
                         <div className="module__left left">
                             <div className="left__icon ep" />
-                            <div className="left__text">Блок управления 21PS-A</div>
+                            <div className="left__text">Блок управления ABC-21PS</div>
                             <div className="left__info info">
                                 <div className="info__text">
                                     <div onClick={this.handleToggleModal}>ПОДРОБНЕЕ</div>
-                                    {/*{barrier.modal ? <ControlBlockPopUp /> : null}*/}
                                 </div>
                                 <div className="info__arrow" />
                             </div>
+                            {barrier.modal ? <ControlBlockPopup /> : null}
                         </div>
                         <div className="module__right right">
                             <div className="right__price">

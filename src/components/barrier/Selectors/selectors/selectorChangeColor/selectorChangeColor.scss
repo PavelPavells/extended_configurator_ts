@@ -4,7 +4,7 @@
 @import '../../../../../styles/styles.scss';
 
 /**
-    Стили компонента selectorInfoTime
+    Стили компонента selectorGuest2D
 */
 .selectors__module, .module {
     display: flex;
@@ -80,14 +80,14 @@
 }
 
 /**
-    Стили иконок компонента selectorEmergencySiren
+    Стили иконок компонента selectorChangeColor
 */
-.time { /** изменить название класса + изменение в компоненте */
+.guest-access { /** изменить название класса + изменение в компоненте */
     display: block;
     min-width: 30px;
     height: 30px;
     margin-right: 1%;
-    background: url('../../../../../images/icon/emergency-siren.svg') no-repeat center;
+    background: url('../../../../../images/icon/change-color.svg') no-repeat center;
 }
 
 /**
@@ -96,47 +96,47 @@
 .none {
     opacity: 0.5;
 }
-  
+
 /**
-    Стили переключателя selectorInfoTime
+    Стили переключателя selectorGuest2D
 */
-.onoffswitch5 {
+.onoffswitch7 {
     position: relative; min-width: 50px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
     }
-    .onoffswitch5-checkbox {
+    .onoffswitch7-checkbox {
     display: none;
     }
-    .onoffswitch5-label {
+    .onoffswitch7-label {
     display: block; overflow: hidden; cursor: pointer;
-    border-radius: 15.5px;
+    border-radius: 13px;
     }
-    .onoffswitch5-inner {
+    .onoffswitch7-inner {
     display: block; width: 200%; margin-left: -100%;
     -webkit-transition: margin 0.1s ease-in 0s;
     -o-transition: margin 0.1s ease-in 0s;
     transition: margin 0.1s ease-in 0s;
     }
-    .onoffswitch5-inner:before, .onoffswitch5-inner:after {
+    .onoffswitch7-inner:before, .onoffswitch7-inner:after {
     display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
     font-size: 10px; color: white; font-family: 'Gotham Pro'; font-weight: bold;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     }
-    .onoffswitch5-inner:before {
+    .onoffswitch7-inner:before {
     content: "";
     padding-left: 7px;
-    background-color: #1d68d9; 
+    background-color: #1d68d9;
     color: #FFFFFF;
     }
-    .onoffswitch5-inner:after {
+    .onoffswitch7-inner:after {
     content: "";
     padding-right: 7px;
     background-color: #ebeff3;  
     color: #666666;
     text-align: right;
     }
-.onoffswitch5-switch {
+.onoffswitch7-switch {
     display: block; 
     width: 25px; 
     margin: 2px;
@@ -151,12 +151,12 @@
     -o-transition: all 0.1s ease-in 0s;
     transition: all 0.1s ease-in 0s;
     &:hover {
-        border: 1px solid #1d68d9;
-    }  
+    border: 1px solid #1d68d9;
+    }   
 }
-.onoffswitch5-checkbox:checked + .onoffswitch5-label .onoffswitch5-inner {
+.onoffswitch7-checkbox:checked + .onoffswitch7-label .onoffswitch7-inner {
     margin-left: 0;
 }
-.onoffswitch5-checkbox:checked + .onoffswitch5-label .onoffswitch5-switch {
+.onoffswitch7-checkbox:checked + .onoffswitch7-label .onoffswitch7-switch {
     right: 0px; 
 }
