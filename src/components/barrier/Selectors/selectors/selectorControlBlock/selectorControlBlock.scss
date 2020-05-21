@@ -80,14 +80,14 @@
 }
 
 /**
-    Стили иконок компонента selectorEP
+    Стили иконок компонента controlBlock
 */
-.ep {
+.ep { /** изменить название класса + изменение в компоненте */
     display: block;
     min-width: 30px;
     height: 30px;
     margin-right: 1%;
-    background: url('../../../../../images/icon/shape.svg') no-repeat center;
+    background: url('../../../../../images/icon/block-control.svg') no-repeat center;
 }
 
 /**

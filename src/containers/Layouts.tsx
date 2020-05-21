@@ -29,7 +29,7 @@ class Layout extends React.PureComponent {
                         <Route path="/main" component={Main} />
                         <Route exact path="/turnstile" component={Turnstile} />
                         <Route path="/turnstile/offer" component={moduleOffer} />
-                        <Route path="/barrier" component={Barrier} />
+                        <Route exact path="/barrier" component={Barrier} />
                     </Switch>
                 </div>
             </Router>
