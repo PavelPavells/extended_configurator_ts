@@ -52,7 +52,9 @@ class SelectorControlBlock extends React.PureComponent<SelectorControlBlockProps
      * Открыть/Закрыть модальное окно
      */
     private handleToggleModal = () => {
-        this.props.togglePopupWindowBarrier();
+        setTimeout(() => {
+            this.props.togglePopupWindowBarrier();
+        }, 1000)
     }
 
     /**

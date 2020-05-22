@@ -34,49 +34,49 @@ class ModuleSelectors extends React.PureComponent {
                  * Селектор Блок управления ABC-21PS
                  */}
                 <Fragment>
-                    <SelectorControlBlock />
+                    {/*<SelectorControlBlock />*/}
                 </Fragment>
 
                 {/**
                  * Селектор Модуль обогрева MHP-B
                  */}
                 <Fragment>
-                    <SelectorHeatingModule />
+                    {/*<SelectorHeatingModule />*/}
                 </Fragment>
 
                 {/**
                  * Селектор Модуль радио пультов PRK 400-P
                  */}
                 <Fragment>
-                    <SelectorRadioRemote />
+                    {/*<SelectorRadioRemote />*/}
                 </Fragment>
 
                 {/**
                  * Селектор Сигнальная лампа LS-01
                  */}
                 <Fragment>
-                    <SelectorSignalLamp />
+                    {/*<SelectorSignalLamp />*/}
                 </Fragment>
 
                 {/**
                  * Селектор Аварийная сирена
                  */}
                 <Fragment>
-                    <SelectorEmergencySiren />
+                    {/*<SelectorEmergencySiren />*/}
                 </Fragment>
 
                 {/**
                  * Селектор Модуль подключения петли индуктивности VLD-10-V
                  */}
                 <Fragment>
-                    <SelectorInductanceLoop />
+                    {/*<SelectorInductanceLoop />*/}
                 </Fragment>
 
                 {/**
                  * Селектор Замена цвета корпуса RAL7035 на RAL1016
                  */}
                 <Fragment>
-                    <SelectorChangeColor />
+                    {/*<SelectorChangeColor />*/}
                 </Fragment>
 
             </section>

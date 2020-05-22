@@ -90,7 +90,6 @@ class SelectorEP extends React.PureComponent<SelectorEPProps, SelectorEPState> {
          * Данные из глобального стора
          */
         const { turnstile, isFetching } = this.props.data;
-
         /**
          * Данные из локального стейта
          */
@@ -100,7 +99,6 @@ class SelectorEP extends React.PureComponent<SelectorEPProps, SelectorEPState> {
         }
         
         return (
-
             /**
              * Селектор 'EP-2000'
              */
