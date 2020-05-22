@@ -35,7 +35,7 @@ class ModuleList extends React.PureComponent<ModuleListProps> {
     * Запрос данных
     */
     public componentDidMount () {
-        this.props.fetchDataTurnstile();
+        //this.props.fetchDataTurnstile();
     }
     public render () {
         /**

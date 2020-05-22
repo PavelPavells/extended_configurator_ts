@@ -35,7 +35,7 @@ class ModuleImage extends React.PureComponent<ModuleImageProps> {
     * Запрос данных
     */
     public componentDidMount () {
-        this.props.fetchDataTurnstile();
+        //this.props.fetchDataTurnstile();
     }
     public render () {
         /**
