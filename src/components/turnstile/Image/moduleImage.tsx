@@ -31,12 +31,6 @@ interface ModuleImageProps {
 
 class ModuleImage extends React.PureComponent<ModuleImageProps> {
 
-    /**
-    * Запрос данных
-    */
-    public componentDidMount () {
-        //this.props.fetchDataTurnstile();
-    }
     public render () {
         /**
         * Данные из Глобального Стора

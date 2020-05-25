@@ -31,12 +31,6 @@ interface ModuleListProps {
 
 class ModuleList extends React.PureComponent<ModuleListProps> {
     
-    /**
-    * Запрос данных
-    */
-    public componentDidMount () {
-        //this.props.fetchDataTurnstile();
-    }
     public render () {
         /**
         * Данные из Глобального Стора
