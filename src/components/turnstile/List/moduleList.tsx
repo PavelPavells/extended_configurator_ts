@@ -1,7 +1,7 @@
 /**
  * Импорт зависимостей из NPM
  */
-import React from 'react';
+import React, { FC } from 'react';
 // @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../store/store';
@@ -25,33 +25,31 @@ import Loader from '../../../__utils__/Loader/Loader';
  * Интерфейс компонента ModuleList
  */
 interface ModuleListProps {
-    readonly data: any,
-    readonly fetchDataTurnstile: () => void
+    readonly data: any
 }
 
-class ModuleList extends React.PureComponent<ModuleListProps> {
+const ModuleList:FC<ModuleListProps> = ({ data }) => {
     
-    public render () {
-        /**
-        * Данные из Глобального Стора
-        */
-        const { turnstile, isFetching } = this.props.data;
+    /**
+    * Данные из Глобального Стора
+    */
+    const { turnstile, isFetching } = data;
 
-        if (turnstile.data.length === 0 && !isFetching) {
-            return <Loader />;
-        }
-        return (
-            /**
-             *  Модуль Список
-             */
-            <section className="list">
-                <p className="list__description">Состав модели:</p>
-                {turnstile.data.page_view.model_module_list.map((index: any) => (
-                    <div className="list__options" key={index.index}>{index.caption}</div>
-                ))}
-            </section>
-        );
+    if (turnstile.data.length === 0 && !isFetching) {
+        return <Loader />;
     }
+    return (
+        /**
+         *  Модуль Список
+         */
+        <section className="list">
+            <p className="list__description">Состав модели:</p>
+            {turnstile.data.page_view.model_module_list.map((index: any) => (
+                <div className="list__options" key={index.index}>{index.caption}</div>
+            ))}
+        </section>
+    );
+    
 }
 
 const mapStateToProps = (state: ConfiguratorState) => ({

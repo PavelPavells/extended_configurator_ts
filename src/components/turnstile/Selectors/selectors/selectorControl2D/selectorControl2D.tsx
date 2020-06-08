@@ -3,7 +3,7 @@
 /**
  * Импорт зависимостей из NPM
  */
-import React, { Fragment } from 'react';
+import React from 'react';
 // @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../../../store/store';
@@ -99,7 +99,7 @@ class SelectorControl2D extends React.PureComponent<SelectorControl2DProps, Sele
             /**
              * Селектор 'Контроль по 2D-штрихкодам'
              */
-            <Fragment>
+            <div>
                 {turnstile.data.page_view.module_selectors.slice(5, 6).map((index: { state: number; index: string | number | undefined; }) => {
                     if (index.state === -1) {
                         return (
@@ -146,7 +146,7 @@ class SelectorControl2D extends React.PureComponent<SelectorControl2DProps, Sele
                                 </div>
                                 <div className="module__right right">
                                     <div className="right__price">
-                                        {turnstile.data.page_view.model_module_list[1] !== undefined
+                                        {/*{turnstile.data.page_view.model_module_list[1] !== undefined
                                             && turnstile.data.page_view.model_module_list[1].name === 'qrguests'
                                             && '+ ' + turnstile.data.page_view.model_module_list[1].price
                                         }
@@ -161,15 +161,15 @@ class SelectorControl2D extends React.PureComponent<SelectorControl2DProps, Sele
                                         {turnstile.data.page_view.model_module_list[4] !== undefined
                                             && turnstile.data.page_view.model_module_list[4].name === 'qrguests'
                                             && '+ ' + turnstile.data.page_view.model_module_list[4].price
-                                        }
+                                        }*/}
                                         {turnstile.data.page_view.model_module_list[5] !== undefined
                                             && turnstile.data.page_view.model_module_list[5].name === 'qrguests'
                                             && '+ ' + turnstile.data.page_view.model_module_list[5].price
                                         }
-                                        {turnstile.data.page_view.model_module_list[6] !== undefined
+                                        {/*{turnstile.data.page_view.model_module_list[6] !== undefined
                                             && turnstile.data.page_view.model_module_list[6].name === 'qrguests'
                                             && '+ ' + turnstile.data.page_view.model_module_list[6].price
-                                        }
+                                        }*/}
                                     </div>
                                     <div className="onoffswitch6">
                                         <input
@@ -191,7 +191,7 @@ class SelectorControl2D extends React.PureComponent<SelectorControl2DProps, Sele
                     }
                 })
                 }
-            </Fragment>
+            </div>
         );
     }
 }

@@ -3,7 +3,7 @@
 /**
  * Импорт зависимостей из NPM
  */
-import React, { Fragment } from 'react';
+import React from 'react';
 // @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../../../store/store';
@@ -99,7 +99,7 @@ class SelectorEMMarin extends React.PureComponent<SelectorEMMarinProps, Selector
             /**
              * Селектор 'EMMarin'
              */
-            <Fragment>
+            <div>
                 {turnstile.data.page_view.module_selectors.slice(1, 2).map((index: { index: string | number | undefined; }) => (
                     <div key={index.index} className="selectors__module module">
                         <div className="module__left left">
@@ -126,14 +126,14 @@ class SelectorEMMarin extends React.PureComponent<SelectorEMMarinProps, Selector
                                     && turnstile.data.page_view.model_module_list[1].name === 'emarine'
                                     && '+ ' + turnstile.data.page_view.model_module_list[1].price
                                 }
-                                {turnstile.data.page_view.model_module_list[2] !== undefined
+                                {/*{turnstile.data.page_view.model_module_list[2] !== undefined
                                     && turnstile.data.page_view.model_module_list[2].name === 'emarine'
                                     && '+ ' + turnstile.data.page_view.model_module_list[2].price
                                 }
                                 {turnstile.data.page_view.model_module_list[3] !== undefined
                                     && turnstile.data.page_view.model_module_list[3].name === 'emarine'
                                     && '+ ' + turnstile.data.page_view.model_module_list[3].price
-                                }
+                                }*/}
                             </div>
                             <div className="onoffswitch2">
                                 <input
@@ -153,7 +153,7 @@ class SelectorEMMarin extends React.PureComponent<SelectorEMMarinProps, Selector
                     </div>
                 )
                 )}
-            </Fragment>
+            </div>
         );
     }
 }

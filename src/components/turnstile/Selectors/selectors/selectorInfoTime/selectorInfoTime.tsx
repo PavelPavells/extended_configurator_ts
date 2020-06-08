@@ -3,7 +3,7 @@
 /**
  * Импорт зависимостей из NPM
  */
-import React, { Fragment } from 'react';
+import React from 'react';
 // @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../../../store/store';
@@ -100,7 +100,7 @@ class SelectorInfoTime extends React.PureComponent<SelectorInfoTimeProps, Select
             /**
              * Селектор 'Информационный дисплей учета рабочего времени'
              */
-            <Fragment>
+            <div>
                 {turnstile.data.page_view.module_selectors.slice(4, 5).map((index: { state: number; index: string | number | undefined; }) => {
                     if (index.state === -1) {
                         return (
@@ -147,7 +147,7 @@ class SelectorInfoTime extends React.PureComponent<SelectorInfoTimeProps, Select
                                 </div>
                                 <div className="module__right right">
                                     <div className="right__price">
-                                        {turnstile.data.page_view.model_module_list[1] !== undefined
+                                        {/*{turnstile.data.page_view.model_module_list[1] !== undefined
                                             && turnstile.data.page_view.model_module_list[1].name === 'display'
                                             && '+ ' + turnstile.data.page_view.model_module_list[1].price
                                         }
@@ -158,15 +158,15 @@ class SelectorInfoTime extends React.PureComponent<SelectorInfoTimeProps, Select
                                         {turnstile.data.page_view.model_module_list[3] !== undefined
                                             && turnstile.data.page_view.model_module_list[3].name === 'display'
                                             && '+ ' + turnstile.data.page_view.model_module_list[3].price
-                                        }
+                                        }*/}
                                         {turnstile.data.page_view.model_module_list[4] !== undefined
                                             && turnstile.data.page_view.model_module_list[4].name === 'display'
                                             && '+ ' + turnstile.data.page_view.model_module_list[4].price
                                         }
-                                        {turnstile.data.page_view.model_module_list[5] !== undefined
+                                        {/*{turnstile.data.page_view.model_module_list[5] !== undefined
                                             && turnstile.data.page_view.model_module_list[5].name === 'display'
                                             && '+ ' + turnstile.data.page_view.model_module_list[5].price
-                                        }
+                                        }*/}
                                     </div>
                                     <div className="onoffswitch5">
                                         <input
@@ -188,7 +188,7 @@ class SelectorInfoTime extends React.PureComponent<SelectorInfoTimeProps, Select
                     }
                 })
                 }
-            </Fragment>
+            </div>
         );
     }
 }

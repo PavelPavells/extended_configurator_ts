@@ -3,7 +3,7 @@
 /**
  * Импорт зависимостей из NPM
  */
-import React, { Fragment } from 'react';
+import React from 'react';
 // @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../../../store/store';
@@ -99,7 +99,7 @@ class SelectorGuest2D extends React.PureComponent<SelectorGuest2DProps, Selector
             /**
              * Селектор 'Гостевой доступ по 2D-штрих-кодам'
              */
-            <Fragment>
+            <div>
                 {turnstile.data.page_view.module_selectors.slice(6, 7).map((index: { state: number; index: string | number | undefined; }) => {
                     if (index.state === -1) {
                         return (
@@ -146,7 +146,7 @@ class SelectorGuest2D extends React.PureComponent<SelectorGuest2DProps, Selector
                                 </div>
                                 <div className="module__right right">
                                     <div className="right__price">
-                                        {turnstile.data.page_view.model_module_list[1] !== undefined
+                                        {/*{turnstile.data.page_view.model_module_list[1] !== undefined
                                             && turnstile.data.page_view.model_module_list[1].name === 'qrvisitors'
                                             && '+ ' + turnstile.data.page_view.model_module_list[1].price
                                         }
@@ -165,15 +165,15 @@ class SelectorGuest2D extends React.PureComponent<SelectorGuest2DProps, Selector
                                         {turnstile.data.page_view.model_module_list[5] !== undefined
                                             && turnstile.data.page_view.model_module_list[5].name === 'qrvisitors'
                                             && '+ ' + turnstile.data.page_view.model_module_list[5].price
-                                        }
+                                        }*/}
                                         {turnstile.data.page_view.model_module_list[6] !== undefined
                                             && turnstile.data.page_view.model_module_list[6].name === 'qrvisitors'
                                             && '+ ' + turnstile.data.page_view.model_module_list[6].price
                                         }
-                                        {turnstile.data.page_view.model_module_list[7] !== undefined
+                                        {/*{turnstile.data.page_view.model_module_list[7] !== undefined
                                             && turnstile.data.page_view.model_module_list[7].name === 'qrvisitors'
                                             && '+ ' + turnstile.data.page_view.model_module_list[7].price
-                                        }
+                                        }*/}
                                     </div>
                                     <div className="onoffswitch7">
                                         <input
@@ -195,7 +195,7 @@ class SelectorGuest2D extends React.PureComponent<SelectorGuest2DProps, Selector
                     }
                 })
                 }
-            </Fragment>
+            </div>
         );
     }
 }

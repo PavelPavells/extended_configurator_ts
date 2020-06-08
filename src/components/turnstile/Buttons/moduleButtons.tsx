@@ -3,7 +3,7 @@
 /**
  * Импорт зависимостей из NPM
  */
-import React, { Fragment } from 'react';
+import React from 'react';
 // @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../store/store';
@@ -208,21 +208,15 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
                          */}
                         <div className="select__seria seria">
                             {turnstile.data.page_view.btn_seria === 0 ?
-                                <Fragment>
-                                    <div onClick={this.handleClickSeriaSTR} className="seria__str open">STR</div>
-                                </Fragment> :
-                                <Fragment>
-                                    <div onClick={this.handleClickSeriaSTR} className="seria__str">STR</div>
-                                </Fragment>
+                                <div onClick={this.handleClickSeriaSTR} className="seria__str open">STR</div>
+                                :
+                                <div onClick={this.handleClickSeriaSTR} className="seria__str">STR</div> 
                             }
 
                             {turnstile.data.page_view.btn_seria === 1 ?
-                                <Fragment>
-                                    <div onClick={this.handleClickSeriaSTX} className="seria__stx open">STX</div>
-                                </Fragment> :
-                                <Fragment>
-                                    <div onClick={this.handleClickSeriaSTX} className="seria__stx">STX</div>
-                                </Fragment>
+                                <div onClick={this.handleClickSeriaSTX} className="seria__stx open">STX</div>
+                                :
+                                <div onClick={this.handleClickSeriaSTX} className="seria__stx">STX</div>
                             }
                         </div>
                         <div className="select__price">{turnstile.data.page_view.model_price}</div>
@@ -247,14 +241,15 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
                             rel="noopener noreferrer"
                         >
 
-                            БАЗОВАЯ МОДЕЛЬ {turnstile.data.page_view.model_module_list.length - 1 >= 1 ? '(' + turnstile.data.page_view.model_module_list[0].price + ')' : null}
+                            БАЗОВАЯ МОДЕЛЬ {/*{turnstile.data.page_view.model_module_list.length - 1 ? '(' + turnstile.data.page_view.model_module_list[0].price + ')' : null}*/}
                         </a>
                     </div>
                     <div className="top__options options">
                         <div className="options__value">
-                            {turnstile.data.page_view.model_module_list.length - 1 === 1 ? String('+') + (turnstile.data.page_view.model_module_list.length - 1) + ' ОПЦИЯ' : null}
+                            {/*{turnstile.data.page_view.model_module_list.length - 1 === 1 ? String('+') + (turnstile.data.page_view.model_module_list.length - 1) + ' ОПЦИЯ' : null}
                             {turnstile.data.page_view.model_module_list.length - 1 > 1 ? String('+') + (turnstile.data.page_view.model_module_list.length - 1) + ' ОПЦИИ' : null}
-                            {turnstile.data.page_view.model_module_list.length - 1 >= 5 ? String('+') + (turnstile.data.page_view.model_module_list.length - 1) + ' ОПЦИЙ' : null}
+                            {turnstile.data.page_view.model_module_list.length - 1 >= 5 ? String('+') + (turnstile.data.page_view.model_module_list.length - 1) + ' ОПЦИЙ' : null}*/}
+                            {turnstile.data.page_view.model_module_list.length - 1 ? String('+') + (turnstile.data.page_view.model_module_list.length - 1) + ' ОПЦИИ' : null}
                         </div>
                         <div onClick={this.handleClickResetSelectors} className="options__reset">СБРОСИТЬ</div>
                     </div>
@@ -267,20 +262,14 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
                      */}
                     <div className="bottom__buttons buttons">
                         {turnstile.data.page_view.btn_corpse === 0 ?
-                            <Fragment>
-                                <div onClick={this.handleClickExecutionCompact} className="buttons__compact open">Компактный</div>
-                            </Fragment> :
-                            <Fragment>
-                                <div onClick={this.handleClickExecutionCompact} className="buttons__compact">Компактный</div>
-                            </Fragment>
+                            <div onClick={this.handleClickExecutionCompact} className="buttons__compact open">Компактный</div>
+                            :
+                            <div onClick={this.handleClickExecutionCompact} className="buttons__compact">Компактный</div>
                         }
                         {turnstile.data.page_view.btn_corpse === 1 ?
-                            <Fragment>
-                                <div onClick={this.handleClickExecutionThumb} className="buttons__thumb open">Тумбовый</div>
-                            </Fragment> :
-                            <Fragment>
-                                <div onClick={this.handleClickExecutionThumb} className="buttons__thumb">Тумбовый</div>
-                            </Fragment>
+                            <div onClick={this.handleClickExecutionThumb} className="buttons__thumb open">Тумбовый</div>
+                            :
+                            <div onClick={this.handleClickExecutionThumb} className="buttons__thumb">Тумбовый</div>
                         }
                     </div>
                 </div>

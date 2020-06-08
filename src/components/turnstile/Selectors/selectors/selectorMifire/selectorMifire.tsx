@@ -3,7 +3,7 @@
 /**
  * Импорт зависимостей из NPM
  */
-import React, { Fragment } from 'react';
+import React from 'react';
 // @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../../../store/store';
@@ -99,7 +99,7 @@ class SelectorMifire extends React.PureComponent<SelectorMifireProps, SelectorMi
             /**
              * Селектор 'Mifire'
              */
-            <Fragment>
+            <div>
                 {turnstile.data.page_view.module_selectors.slice(2, 3).map((index: { index: string | number | undefined; }) => (
                     <div key={index.index} className="selectors__module module">
                         <div className="module__left left">
@@ -122,18 +122,19 @@ class SelectorMifire extends React.PureComponent<SelectorMifireProps, SelectorMi
                         </div>
                         <div className="module__right right">
                             <div className="right__price">
-                                {turnstile.data.page_view.model_module_list[1] !== undefined
+                                {/*{turnstile.data.page_view.model_module_list[1] !== undefined
                                     && turnstile.data.page_view.model_module_list[1].name === 'mifare'
                                     && '+ ' + turnstile.data.page_view.model_module_list[1].price
-                                }
+                                }*/}
                                 {turnstile.data.page_view.model_module_list[2] !== undefined
                                     && turnstile.data.page_view.model_module_list[2].name === 'mifare'
                                     && '+ ' + turnstile.data.page_view.model_module_list[2].price
                                 }
+                                {/*
                                 {turnstile.data.page_view.model_module_list[3] !== undefined
                                     && turnstile.data.page_view.model_module_list[3].name === 'mifare'
                                     && '+ ' + turnstile.data.page_view.model_module_list[3].price
-                                }
+                                }*/}
                             </div>
                             <div className="onoffswitch3">
                                 <input
@@ -153,7 +154,7 @@ class SelectorMifire extends React.PureComponent<SelectorMifireProps, SelectorMi
                     </div>
                 )
                 )}
-            </Fragment>
+            </div>
         );
     }
 }
