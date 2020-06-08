@@ -3,7 +3,7 @@
 /**
  * Импорт зависимостей из NPM
  */
-import React, { Fragment } from 'react';
+import React from 'react';
 // @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../../../store/store';
@@ -99,7 +99,7 @@ class SelectorRDU extends React.PureComponent<SelectorRDUProps, SelectorRDUState
             /**
              * Селектор 'RDU'
              */
-            <Fragment>
+            <div>
                 {/*{turnstile.data.page_view.module_selectors.slice(8, 9).map((index: { index: string | number | undefined; }) => (*/}
                     <div className="selectors__module module">
                         <div className="module__left left">
@@ -177,7 +177,7 @@ class SelectorRDU extends React.PureComponent<SelectorRDUProps, SelectorRDUState
                     </div>
                 {/*})
                 )}*/}
-            </Fragment>
+            </div>
         )
     }
 }

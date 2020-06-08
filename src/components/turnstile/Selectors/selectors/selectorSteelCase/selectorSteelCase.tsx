@@ -3,7 +3,7 @@
 /**
  * Импорт зависимостей из NPM
  */
-import React, { Fragment } from 'react';
+import React from 'react';
 // @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../../../store/store';
@@ -99,7 +99,7 @@ class SelectorSteelCase extends React.PureComponent<SelectorSteelCaseProps, Sele
             /**
              * Селектор 'Корпус'
              */
-            <Fragment>
+            <div>
                 {turnstile.data.page_view.module_selectors.slice(7, 8).map((index: { state: number; index: string | number | undefined; }) => {
                     if (index.state === -1) {
                         return (
@@ -146,7 +146,7 @@ class SelectorSteelCase extends React.PureComponent<SelectorSteelCaseProps, Sele
                                 </div>
                                 <div className="module__right right">
                                     <div className="right__price">
-                                        {turnstile.data.page_view.model_module_list[1] !== undefined
+                                        {/*{turnstile.data.page_view.model_module_list[1] !== undefined
                                             && turnstile.data.page_view.model_module_list[1].name === 'stainless'
                                             && '+ ' + turnstile.data.page_view.model_module_list[1].price
                                         }
@@ -169,15 +169,15 @@ class SelectorSteelCase extends React.PureComponent<SelectorSteelCaseProps, Sele
                                         {turnstile.data.page_view.model_module_list[6] !== undefined
                                             && turnstile.data.page_view.model_module_list[6].name === 'stainless'
                                             && '+ ' + turnstile.data.page_view.model_module_list[6].price
-                                        }
+                                        }*/}
                                         {turnstile.data.page_view.model_module_list[7] !== undefined
                                             && turnstile.data.page_view.model_module_list[7].name === 'stainless'
                                             && '+ ' + turnstile.data.page_view.model_module_list[7].price
                                         }
-                                        {turnstile.data.page_view.model_module_list[8] !== undefined
+                                        {/*{turnstile.data.page_view.model_module_list[8] !== undefined
                                             && turnstile.data.page_view.model_module_list[8].name === 'stainless'
                                             && '+ ' + turnstile.data.page_view.model_module_list[8].price
-                                        }
+                                        }*/}
                                     </div>
                                     <div className="onoffswitch8">
                                         <input
@@ -199,7 +199,7 @@ class SelectorSteelCase extends React.PureComponent<SelectorSteelCaseProps, Sele
                     }
                 })
                 }
-            </Fragment>
+            </div>
         );
     }
 }

@@ -3,7 +3,7 @@
 /**
  * Импорт зависимостей из NPM
  */
-import React, { Fragment } from 'react';
+import React from 'react';
 // @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../../../store/store';
@@ -102,7 +102,7 @@ class SelectorEP extends React.PureComponent<SelectorEPProps, SelectorEPState> {
             /**
              * Селектор 'EP-2000'
              */
-            <Fragment>
+            <div>
                 {turnstile.data.page_view.module_selectors.slice(0, 1).map((index: { index: string | number | undefined; }) => (
                     <div key={index.index} className="selectors__module module">
                         <div className="module__left left">
@@ -148,7 +148,7 @@ class SelectorEP extends React.PureComponent<SelectorEPProps, SelectorEPState> {
                     </div>
                 )
                 )}
-            </Fragment>
+            </div>
         );
     }
 }

@@ -1,7 +1,7 @@
 /**
  * Импорт зависимостей из NPM
  */
-import React, { Fragment } from 'react';
+import React from 'react';
 
 /**
  * Импорт модулей селекторов
@@ -35,65 +35,48 @@ class ModuleSelectors extends React.PureComponent {
                 {/**
                  * Селектор Универсальный сетевой контроллер расширения EP-2000
                  */}
-                <Fragment>
                     <SelectorEP />
-                </Fragment>
-
+                
                 {/**
                  * Селектор RFID идентификаторы EMMarine 125kHZ
                  */}
-                <Fragment>
                     <SelectorEMMarin />
-                </Fragment>
 
                 {/**
                  * Селектор RFID идентификаторы Mifire 13.56MHz
                  */}
-                <Fragment>
                     <SelectorMifire />
-                </Fragment>
 
                 {/**
                  * Селектор Биометрическая идентификация по отпечаткам пальцев
                  */}
-                <Fragment>
                     <SelectorBiometry />
-                </Fragment>
 
                 {/**
                  * Селектор Информационный дисплей учета рабочего времени
                  */}
-                <Fragment>
                     <SelectorInfoTime />
-                </Fragment>
 
                 {/**
                  * Селектор Контроль разовых посещений по 2D штрих-кодам
                  */}
-                <Fragment>
                     <SelectorControl2D />
-                </Fragment>
 
                 {/**
                  * Селектор Гостевой доступ по 2D штрих-кодам
                  */}
-                <Fragment>
                     <SelectorGuest2D />
-                </Fragment>
 
                 {/**
                  * Селектор Корпус кожуха из нержавеющей стали
                  */}
-                <Fragment>
                     <SelectorSteelCase />
-                </Fragment>
 
                 {/**
                  * Селектор RDU
                  */}
-                <Fragment>
                     <SelectorRDU />
-                </Fragment>
+
             </section>
         );
     }
