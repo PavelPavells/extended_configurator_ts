@@ -16,6 +16,7 @@
         padding: 30px 0 30px 40px;
         font-size: 26px;
         line-height: 1.27;
+        font-family: $font-regular;
         color: $brandPantonText;
     }
 
@@ -48,6 +49,7 @@
                         margin-right: 30px;
                         font-size: 18px;
                         line-height: 1.28;
+                        font-family: $font-regular;
                         color: $brandPantonText;
                     }
     
@@ -55,7 +57,8 @@
                         margin-right: 5px;
                         font-size: 12px;
                         line-height: 1.5;
-                        color: $brandPantonDescription;
+                        font-family: $font-light;
+                        color: $brandPantonText;
                     }
                 }
 

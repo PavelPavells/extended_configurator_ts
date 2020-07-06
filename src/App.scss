@@ -1,7 +1,7 @@
 /**
     Импорт глобальных переменных
 */
-@import './styles/styles.scss';
+//@import './styles/styles.scss';
 
 html {
 	height: 100%;
@@ -19,6 +19,6 @@ body, #root {
 	height: 0;
 }
 .wrapper {
-  font-family: $code;
+  //font-family: $font-regular;// $code;
   height: 100%;
 }

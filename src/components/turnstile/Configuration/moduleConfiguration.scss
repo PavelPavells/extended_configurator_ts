@@ -34,13 +34,15 @@
                 margin-right: 10px;
                 font-size: 12px;
                 line-height: 1.5;
-                color: $brandPantonDescription;
+                font-family: $font-light;
+                color: $brandPantonText;
             }
 
             &__value {
                 font-size: 14px;
                 font-weight: 600;
                 line-height: 1;
+                font-family: $font-regular;
                 color: $brandPantonText;
             }
         }
@@ -87,13 +89,15 @@
                 margin-right: 10px;
                 font-size: 12px;
                 line-height: 1.5;
-                color: $brandPantonDescription;
+                font-family: $font-light;
+                color: $brandPantonText;
             }
 
             &__value {
                 font-size: 14px;
                 font-weight: 600;
                 line-height: 1;
+                font-family: $font-regular;
                 color: $brandPantonText;
             }
         }
@@ -110,6 +114,7 @@
         padding: 15px 0;
         border-radius: 30px;
         background-color: $brandPantonBlue;
+        font-family: $font-regular;
 
         &__icon {
             width: 40px;
