@@ -167,9 +167,11 @@ class ModuleEquipment extends React.PureComponent<ModuleEquipmentProps, ModuleEq
                             </div>
                             <div className="info__arrow arrow-remote" />
                         </div>
-                        {this.state.listEquipmentOne ?
-                            <div><EquipmentModal /></div> :
-                            null
+                        {this.state.listEquipmentOne
+                            ?
+                                <div className="block__modal"><EquipmentModal /></div>
+                            :   
+                                null
                         }
                     </div>
 
@@ -186,9 +188,11 @@ class ModuleEquipment extends React.PureComponent<ModuleEquipmentProps, ModuleEq
                             </div>
                             <div className="info__arrow arrow-slats" />
                         </div>
-                        {this.state.listEquipmentTwo ?
-                            <div><EquipmentModal /></div> :
-                            null
+                        {this.state.listEquipmentTwo
+                            ?
+                                <div className="block__modal"><EquipmentModal /></div>
+                            :
+                                null
                         }
                     </div>
 
@@ -205,9 +209,11 @@ class ModuleEquipment extends React.PureComponent<ModuleEquipmentProps, ModuleEq
                             </div>
                             <div className="info__arrow arrow-suply" />
                         </div>
-                        {this.state.listEquipmentThree ?
-                            <div><EquipmentModal /></div> :
-                            null
+                        {this.state.listEquipmentThree
+                            ?
+                                <div className="block__modal"><EquipmentModal /></div>
+                            :
+                                null
                         }
                     </div>
 
@@ -224,9 +230,11 @@ class ModuleEquipment extends React.PureComponent<ModuleEquipmentProps, ModuleEq
                             </div>
                             <div className="info__arrow arrow-awarding" />
                         </div>
-                        {this.state.listEquipmentFour ?
-                            <div><EquipmentModal /></div> :
-                            null
+                        {this.state.listEquipmentFour
+                            ?
+                                <div className="block__modal"><EquipmentModal /></div>
+                            :
+                                null
                         }
                     </div>
 

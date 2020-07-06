@@ -24,13 +24,14 @@
             flex-direction: row;
             justify-content: space-between;
             width: 100%;
+            font-family: $font-light;
             margin-bottom: 7px;
             
             &__model {
                 font-size: 12px;
                 line-height: 1.5;
                 letter-spacing: normal;
-                color: $brandPantonDescription;
+                color: $brandPantonText;
             }
     
             &__seria {
@@ -38,14 +39,14 @@
                 font-size: 12px;
                 line-height: 1.5;
                 letter-spacing: normal;
-                color: $brandPantonDescription;
+                color: $brandPantonText;
             }
     
             &__summ {
                 font-size: 12px;
                 line-height: 1.5;
                 letter-spacing: normal;
-                color: $brandPantonDescription;
+                color: $brandPantonText;
             }
         }
     
@@ -61,6 +62,7 @@
                 width: 180px;
                 font-size: 26px;
                 line-height: 1.5;
+                font-family: $font-regular;
                 color: $brandPantonText;
             }
     
@@ -72,12 +74,14 @@
                 flex-direction: row;
                 border-radius: 20px;
                 margin-left: 60px;
-                border: 1px solid $brandPantonBorderButton;
+                font-family: $font-regular;
+                border: 1px solid $brandPantonHover;
     
                 &__str {
                     padding: 5px 20px;
                     border-radius: 20px;
-                    border: solid 2px transparent;
+                    border: 2px solid transparent;
+                    color: $brandPantonText;
     
                     &:hover {
                         color: $brandPantonBlue;
@@ -88,6 +92,7 @@
                     padding: 5px 20px;
                     border-radius: 20px;
                     border: 2px solid transparent;
+                    color: $brandPantonText;
     
                     &:hover {
                         color: $brandPantonBlue;
@@ -108,8 +113,9 @@
                 font-size: 26px;
                 line-height: 1.5;
                 letter-spacing: normal;
+                font-family: $font-regular;
                 text-align: right;
-                color: #293440;
+                color: $brandPantonText;
             }
         }
 
@@ -117,6 +123,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            font-family: $font-regular;
             margin-bottom: 6px;
     
             &__docs {
@@ -143,9 +150,9 @@
         &__options, .options {
             display: flex;
             justify-content: flex-end;
-            border-bottom: 1px solid $brandPantonBorderButton;
             padding-bottom: 19px;
             margin-bottom: 16px;
+            border-bottom: 1px solid $brandPantonHover;
     
             &__value {
                 font-size: 10px;
@@ -153,6 +160,7 @@
                 line-height: 1;
                 letter-spacing: 0.5px;
                 text-align: right;
+                font-family: $font-light;
                 color: $brandPantonDescription;
             }
             &__reset {
@@ -161,7 +169,8 @@
                 font-weight: 500;
                 line-height: 1;
                 letter-spacing: 0.5px;
-                border-bottom: 1px solid $brandPantonDescription;
+                border-bottom: 1px solid $brandPantonHover;
+                font-family: $font-regular;
                 text-align: right;
                 color: $brandPantonDescription;
     
@@ -178,6 +187,7 @@
         display: flex;
         flex-direction: column;
         width: 100%;
+        font-family: $font-light;
     
         /**
             Исполнение
@@ -185,7 +195,7 @@
         &__execution {
             font-size: 12px;
             line-height: 1.5;
-            color: $brandPantonDescription;
+            color: $brandPantonText;
             margin-bottom: 10px;
         }
     
@@ -197,7 +207,8 @@
             width: 100%;
             border-radius: 20px;
             margin-bottom: 20px;
-            border: 1px solid $brandPantonBorderButton;
+            font-family: $font-regular;
+            border: 1px solid $brandPantonHover;
     
             &__compact {
                 text-align: center;
@@ -205,7 +216,7 @@
                 width: 50%;
                 border-radius: 20px;
                 font-size: 14px;
-                color: $brandPantonBlack;
+                color: $brandPantonText;
                 border: 2px solid transparent;
     
                 &:hover {
@@ -218,7 +229,7 @@
                 width: 50%;
                 border-radius: 20px;
                 font-size: 14px;
-                color: $brandPantonBlack;
+                color: $brandPantonText;
                 border: 2px solid transparent;
     
                 &:hover {

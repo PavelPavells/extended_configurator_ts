@@ -30,7 +30,7 @@
     align-items: center;
     width: 35%;
     height: 100%;
-    background-color: #f1f1f1;
+    background-color: $brandPantonHover;
 
     &__image {
       display: flex;
@@ -117,7 +117,8 @@
         margin-right: 40px;
         font-size: 14px;
         line-height: 1.7;
-        color: $brandPantonDescription;
+        font-family: $font-light;
+        color: $brandPantonText;
 
         &__heading {
           display: flex;
@@ -137,6 +138,7 @@
           justify-content: space-between;
           width: 100%;
           padding: 15px 0;
+          font-family: $font-light;
 
           & > div {
             margin: 0 10px;
