@@ -1,0 +1,46 @@
+@import "../../styles/base.scss";
+
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 80%;
+  margin: 0 auto;
+  font-family: $code;
+  text-align: center;
+
+  &__image {
+    display: block;
+    width: 216px;
+    height: 97px;
+    margin-bottom: 40px;;
+    background: url('../../images/noaccessible.svg') no-repeat center;
+  }
+
+  &__header {
+    margin-bottom: 10px;
+    font-size: 26px;
+    line-height: 1.27;
+    color: $brandPantonGrey;
+  }
+
+  &__description {
+    font-size: 12px;
+    line-height: 1.5;
+    color: $brandPantonSubText;
+  }
+
+  &__link {
+    font-size: 12px;
+    line-height: 1.5;
+    color: $brandPantonSubText;
+
+    & > a {
+      color: $brandPantonBlue;
+      text-decoration: underline;
+    }
+  }
+
+}

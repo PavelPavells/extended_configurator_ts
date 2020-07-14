@@ -1,0 +1,294 @@
+@import "../../styles/base.scss";
+
+/**
+ * ********** Стили компонента Авторизация **********
+ */
+.wrapper {
+ display: flex;
+ flex-direction: column;
+ font-family: $code;
+}
+
+.scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 7px;
+}
+.scroll::-webkit-scrollbar:horizontal {
+  height: 7px;
+}
+/* Track */
+.scroll::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px transparent; 
+  width: 1px;
+  border-radius: 15px;
+}
+/* Handle */
+.scroll::-webkit-scrollbar-thumb {
+  background: $brandPantonFonts; 
+  border-radius: 10px;
+}
+/* Handle on hover */
+.scroll::-webkit-scrollbar-thumb:hover {
+  background: $brandPantonSubText; 
+}
+
+.auth {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100%;
+    font-weight: $light;
+    font-family: $code;
+
+    &__left {
+      display: flex;
+      flex-direction: column;
+
+      width: 50%;
+      background-color: $white;
+      z-index: 1000;
+    }
+
+    &__heading {
+      margin: 124px 0 10px 120px;
+      font-weight: $regular;
+      font-size: 26px;
+      line-height: 1.27;
+      color: $brandPantonText;
+    }
+
+    &__necessary {
+      margin: 0 0 40px 120px;
+      font-size: 12px;
+      line-height: 1.5;
+      color: $brandPantonSubText;
+    }
+
+    &__forms {
+      height: 70vh;  // сделать правильно! Разница в высоте форм влияет на положение нижнего блока с текстом
+      margin-right: 4px;
+      display: flex;
+      flex-direction: column;
+      overflow-y: scroll;
+      font-family: $code;
+      margin-left: 120px;
+
+      &__header {
+        height: 3vh;
+      }
+
+    }
+    
+    &__field, .field {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    &__label {
+      position: absolute;
+      pointer-events: none;
+      left: 0px;
+      top: 0;
+      transition: .3s;
+      line-height: 1.5;
+      margin-top: 1rem;
+      margin-bottom: 0.75rem;
+      font-size: 16px;
+      color: $brandPantonSubText;
+      font-family: $code;
+    }
+
+    &__input {
+      position: relative;
+      width: 90%;
+      margin-bottom: 15px;
+      height: 50px;
+      border: 0;
+      outline: 0;
+      color: $brandPantonGrey;
+      border-bottom: 1px solid #efefef;
+      transition: all 0.25s ease 0s;
+      padding: 0.7rem 0;
+      font-size: 14px;
+      font-family: $code;
+    }
+
+    .auth__input:focus~.auth__label,
+    .auth__input:not(:focus):valid~.auth__label {
+      top: -18px;
+      font-size: 13px;
+    }
+
+    &__options {
+      width: 90%;
+    }
+
+    &__error {
+      display: block;
+      height: 15px;
+      margin-top: 20px;
+      font-family: $code;
+      font-size: 12px;
+      line-height: 1.5;
+      color: $brandPantonRed;
+    }
+
+    &__password-ask, .ask {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      margin: 40px 0;
+      font-family: $code;
+      
+      span {
+        margin-left: 20px;
+        font-size: 12px;
+        line-height: 1.5;
+
+        a {
+          color: $brandPantonBlue;
+          text-decoration: underline;
+        }
+      }
+      &__password {
+        font-size: 12px;
+        text-decoration: underline;
+        line-height: 1.5;
+        color: $brandPantonBlue;
+        padding: 5px 0;
+        font-family: $code;
+      }
+    }
+    
+    &__button {
+      padding: 5px 75px;
+      margin-top: 1rem;
+      color: $white;
+      background-color: $brandPantonBlue;
+      border-radius: 15px;
+      border-color: transparent;
+      font-size: 15px;
+      font-family: $code;
+      outline: transparent;
+    }
+
+    &__back, .back {
+      display: flex;
+      align-items: center;
+      margin: 145px 0 50px 120px;
+      font-size: 12px;
+      line-height: 1.5;
+      color: $brandPantonBlue;
+      text-decoration: underline;
+
+      &__arrow {
+        display: block;
+        margin-right: 5px;
+        height: 15px;
+        width: 15px;
+        transform: rotate(180deg);
+        background: url('../../images/arrow-more.svg') no-repeat center;
+      }
+    }
+
+    &__registration, .registration {
+      margin: 145px 0 50px 120px;
+
+      &__no-login {
+        font-size: 12px;
+        line-height: 1.5;
+        color: $brandPantonSubText;
+      }
+      &__link {
+        font-size: 12px;
+        line-height: 1.5;
+        color: $brandPantonSubText;
+
+        & > a {
+          color: $brandPantonBlue;
+        }
+
+      }
+
+    }
+    
+    &__right, .right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        height: 100%;
+        background: url('../../images/main__photo.jpg') no-repeat center;
+        background-size: cover;
+        //opacity: .9;
+
+        &__logo {
+          display: block;
+          width: 243px;
+          height: 45px;
+          margin: 124px 0 10px 0;
+
+          .image {
+            display: block;
+            background: url('../../images/carddex_logo.svg') no-repeat center;
+            background-size: contain;
+          }
+        }
+
+        &__text {
+          font-size: 18px;
+          font-weight: 500;
+          line-height: 1.5;
+          color: #000;
+        }
+
+        &__image, .image {
+          display: block;
+          width: 100%;
+          height: 100%;
+
+          &__photo {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-size: contain;
+          }
+        }
+    }
+}
+
+/**
+ * ********** Стили для выбранной формы Логин/Регистрация, стили доступности кнопки **********
+ */
+.warning {
+  border-bottom: 1px solid $brandPantonRed;
+}
+
+.inaccess {
+  display: block;
+  position: absolute;
+  right: 80px;
+  width: 20px;
+  height: 20px;
+  background: url('../../images/eye-inaccess.svg') no-repeat center;
+}
+
+.access {
+  display: block;
+  position: absolute;
+  right: 80px;
+  width: 20px;
+  height: 20px;
+  background: url('../../images/eye-access.svg') no-repeat center;
+}
+
+.inaccessible {
+  background-color: $brandPantonFonts;
+  color: $brandPantonSubText;
+}
+
+/**
+ * ********** Стили для адаптива компонента Авторизация **********
+ */
