@@ -1,0 +1,86 @@
+/**
+    Импорт глобальных переменных
+*/
+@import '../../../styles/styles.scss';
+
+/**
+    Стили компонента moduleBasket
+*/
+.basket {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid $brandPantonHover;
+
+    /**
+        Описание модуля Корзина
+    */
+    &__description {
+        margin: 0;
+        font-size: 26px;
+        line-height: 1.27;
+        color: $brandPantonText;
+        font-family: $font-regular;
+        padding: 23px 0 24px 40px;
+    }
+
+    /**
+        Корзина
+    */
+    &__data, .data {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding: 21px 0 21px 30px;
+        border-radius: 10px;
+        text-decoration: none;
+
+        &__wrapper, .wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 10em;
+            margin-right: 20px;
+            text-decoration: none;
+
+            &__info, .info {
+                display: flex;
+                align-items: center;
+                font-size: 15px;
+                padding: 2px 0;
+                line-height: 1;
+                color: $brandPantonText;
+    
+                &__text {
+                    display: flex;
+                    flex-direction: column;
+                    font-family: $font-light;
+                    width: 100%;
+                }
+    
+                &__count {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    font-size: 15px;
+                    font-family: $font-regular;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        &:hover {
+            color: $white;
+            background-color: $brandPantonBlue;
+            transition: all 0.2s ease-in;
+
+            .wrapper__info {
+                color: $white;
+            }
+            
+            .basket__more {
+                width: 50px;
+                background: url('../../../images/icon/arrow_more_white.svg') no-repeat center;
+            } 
+        }
+    }
+}

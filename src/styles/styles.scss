@@ -1,0 +1,75 @@
+/** ********** MAIN COLORS ********** */
+$white: #fff;
+//$brandSideColor: #404040;
+$brandPantonBlack: #000000;
+$brandPantonRed:   #DC2222;
+$brandPantonGrey: #f1f1f1;
+$brandPantonBlue: #1D68D9;
+$brandPantonDescription: #8B9298;
+$brandPantonText: #191E22;
+$brandPantonBorderButton: #efefef;
+$brandPantonHover: #EBEFF3;
+$green: #28b463;
+
+// $blue: #1D68D9;
+// $grey: #EBEFF3;
+// $black: #191E22;
+// $text: #8B9298;
+// $white: #FFFFFF;
+// $red: #d03839;
+// $disabled: #C7C7C7;
+
+/** ********** FONT WEIGHTS ********** */
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semibold: 600;
+$bold: 700;
+$heavy: 800;
+
+/** ********** FONT ********** */
+$code: 'Roboto', sans-serif;
+$font-regular: 'Gotham Pro Regular';
+$font-light: 'Gotham Pro Light';
+
+/** GOTHAM PRO FONTS */
+@font-face {
+	font-family: 'Gotham Pro Light';
+	src: url('../fonts/GothamProLight/GothamProLight.eot');
+	src: local('Gotham Pro Light'), local('GothamProLight'),
+		url('../fonts/GothamProLight/GothamProLight.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/GothamProLight/GothamProLight.woff') format('woff'),
+		url('../fonts/GothamProLight/GothamProLight.ttf') format('truetype');
+	font-weight: 100;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Gotham Pro Regular';
+	src: url('../fonts/GothamProRegular/GothamProRegular.eot');
+	src: local('GothamProRegular'), local('GothamProRegular'),
+		url('../fonts/GothamProRegular/GothamProRegular.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/GothamProRegular/GothamProRegular.woff') format('woff'),
+		url('../fonts/GothamProRegular/GothamProRegular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: 500;
+}
+
+/** ROBOTO FONTS */
+
+// @font-face {
+// 	font-family: 'Roboto Light';
+// 	font-style: normal;
+// 	font-weight: 100;
+// 	src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fCRc4EsA.woff2) format('woff2');
+// 	unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+// }
+
+/* cyrillic-ext */
+// @font-face {
+// 	font-family: 'Roboto Regular';
+// 	font-style: normal;
+// 	font-weight: 5	00;
+// 	src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu72xKOzY.woff2) format('woff2');
+// 	unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+// }
