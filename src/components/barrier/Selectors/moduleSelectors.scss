@@ -1,0 +1,20 @@
+/**
+    Импорт глобальных переменных
+*/
+@import '../../../styles/styles.scss';
+
+/**
+    Стили компонента Selectors
+*/
+.selectors {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+
+    &__text {
+        font-size: 12px;
+        line-height: 1.5;
+        color: $brandPantonDescription;
+    }
+}

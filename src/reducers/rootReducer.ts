@@ -1,31 +1,14 @@
-import { combineReducers } from "redux";
-import errorReducer from "./errorReducer";
-import authReducer from "./authReducer";
-import accountReducer from './accountReducer';
-import controlReducer from './controlReducer';
-import mainReducer from './mainReducer';
-//import newsReducer from './newsReducer';
-import paymentReducer from './paymentReducer';
-import priceListReducer from './priceListReducer';
-import salePartnersReducer from './salePartnersReducer';
-import shipmentReducer from './shipmentReducer';
-import sideNavReducer from './sideNavReducer';
-import topNavReducer from './topNavReducer';
-import webAppReducer from './webAppReducer';
+import { combineReducers } from 'redux';
+import dataMainReducer from './dataMainReducer';
+import dataTurnstileReducer from './dataTurnstileReducer';
+import dataBarrierReducer from './dataTurnstileReducer';
+import dataTurnstilePopupReducer from './dataPopupReducer'
 
 const rootReducer = combineReducers({
-  auth: authReducer,
-  account: accountReducer,
-  control: controlReducer,
-  main: mainReducer,
-  payment: paymentReducer,
-  pricelist: priceListReducer,
-  salepartners: salePartnersReducer,
-  shipment: shipmentReducer,
-  sidenav: sideNavReducer,
-  topnav: topNavReducer,
-  app: webAppReducer,
-  errors: errorReducer,
-});
+    main: dataMainReducer,
+    turnstile: dataTurnstileReducer,
+    barrier: dataBarrierReducer,
+    popup: dataTurnstilePopupReducer
+})
 
 export default rootReducer;
