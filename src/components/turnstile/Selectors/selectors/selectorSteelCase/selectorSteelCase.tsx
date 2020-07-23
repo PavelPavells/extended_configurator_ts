@@ -207,6 +207,7 @@ class SelectorSteelCase extends React.PureComponent<SelectorSteelCaseProps, Sele
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
+
 export default connect<{}, {}, SelectorSteelCaseProps>(
     mapStateToProps,
     {

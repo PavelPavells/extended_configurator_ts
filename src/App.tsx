@@ -21,20 +21,18 @@ import store from './store/store';
  */
 import './App.scss';
 
-class App extends React.PureComponent {
-    public render () {
-        return (
-            <Provider store={store}>
-                <BrowserRouter>
-                    {/**
-                      * Обертка Приложения
-                    */}
-                    <div className="wrapper">
-                        <Layouts />
-                    </div>
-                </BrowserRouter>
-            </Provider>
-        );
-    }
+const App = () => {
+    return (
+        <Provider store={store}>
+            <BrowserRouter>
+                {/**
+                    * Обертка Приложения
+                */}
+                <div className="wrapper">
+                    <Layouts />
+                </div>
+            </BrowserRouter>
+        </Provider>
+    );
 }
 export default App;
