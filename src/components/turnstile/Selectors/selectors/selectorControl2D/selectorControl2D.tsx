@@ -14,7 +14,7 @@ import { ConfiguratorState } from '../../../../../store/store';
 import {
     fetchDataTurnstile,
     //togglePopupWindowTurnstile
-} from '../../../../../actions/dataTurnstileActions';
+} from '../../../../../actions/TurnstileActions/TurnstileActions';
 
 /**
  * Импорт стилей
@@ -199,7 +199,7 @@ class SelectorControl2D extends React.PureComponent<SelectorControl2DProps, Sele
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect<{}, {}, SelectorControl2DProps>(
+export default connect(
     mapStateToProps,
     {
         fetchDataTurnstile,

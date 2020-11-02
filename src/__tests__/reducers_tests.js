@@ -1,6 +1,6 @@
 import React from 'react';
-import dataMainReducer from '../reducers/dataMainReducer';
-import dataTurnstileReducer from '../reducers/dataTurnstileReducer';
+import dataMainReducer from '../reducers/MainReducers/MainReducer';
+import dataTurnstileReducer from '../reducers/TurnstileReducers/TurnstileReducer';
 
 describe('dataMainReducer', () => {
 

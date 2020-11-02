@@ -10,11 +10,11 @@ import { ConfiguratorState } from '../../../store/store';
 /**
  * Импорт экшенов
  */
-import { fetchDataPopupTurnstile } from '../../../actions/dataPopupActions';
+import { fetchDataPopupTurnstile } from '../../../actions/PopupActions/TurnstilePopup/PopupActions';
 import {
     togglePopupWindowTurnstile,
     togglePopupWindowMainInfoTurnstile
-} from '../../../actions/dataTurnstileActions';
+} from '../../../actions/TurnstileActions/TurnstileActions';
 
 /**
  * Импорт прелоадера
@@ -45,7 +45,7 @@ interface Control2DPopupProps {
     readonly handleClickSixSelect: () => void
 }
 
-class Control2DPopup extends React.PureComponent<Control2DPopupProps> {
+class Control2DPopup extends React.PureComponent<any> {
 
     /**
      * Запрос данных
@@ -198,7 +198,7 @@ class Control2DPopup extends React.PureComponent<Control2DPopupProps> {
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect<{}, {}, Control2DPopupProps>(
+export default connect(
     mapStateToProps,
     {
         fetchDataPopupTurnstile,

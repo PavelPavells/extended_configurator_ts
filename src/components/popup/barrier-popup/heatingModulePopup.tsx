@@ -14,7 +14,7 @@ import { ConfiguratorState } from '../../../store/store';
 import {
     togglePopupWindowBarrier,
     togglePopupWindowMainInfoBarrier
-} from '../../../actions/dataBarrierActions';
+} from '../../../actions/BarrierActions/BarrierActions';
 
 /**
  * Импорт прелоадера
@@ -42,7 +42,7 @@ interface HeatingModulePopupProps {
     readonly togglePopupWindowMainInfoBarrier: () => void
 }
 
-class HeatingModulePopup extends React.PureComponent<HeatingModulePopupProps> {
+class HeatingModulePopup extends React.PureComponent<any> {
 
     /**
      * Запрос данных
@@ -153,7 +153,7 @@ class HeatingModulePopup extends React.PureComponent<HeatingModulePopupProps> {
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect<{}, {}, HeatingModulePopupProps>(
+export default connect(
     mapStateToProps,
     {
         togglePopupWindowBarrier,

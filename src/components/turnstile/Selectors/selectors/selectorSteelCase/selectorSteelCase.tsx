@@ -14,7 +14,7 @@ import { ConfiguratorState } from '../../../../../store/store';
 import {
     fetchDataTurnstile,
     //togglePopupWindowTurnstile
-} from '../../../../../actions/dataTurnstileActions';
+} from '../../../../../actions/TurnstileActions/TurnstileActions';
 
 /**
  * Импорт стилей
@@ -208,7 +208,7 @@ const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
 
-export default connect<{}, {}, SelectorSteelCaseProps>(
+export default connect(
     mapStateToProps,
     {
         fetchDataTurnstile,

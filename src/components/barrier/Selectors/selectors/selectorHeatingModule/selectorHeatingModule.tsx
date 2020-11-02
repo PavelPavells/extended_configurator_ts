@@ -14,7 +14,7 @@ import { ConfiguratorState } from '../../../../../store/store';
 import {
     fetchDataBarrier,
     togglePopupWindowBarrier
-} from '../../../../../actions/dataBarrierActions';
+} from '../../../../../actions/BarrierActions/BarrierActions';
 
 /**
  * Импорт стилей
@@ -151,7 +151,7 @@ class SelectorHeatingModule extends React.PureComponent<SelectorHeatingModulePro
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect<SelectorHeatingModuleProps>(
+export default connect(
     mapStateToProps,
     {
         fetchDataBarrier,

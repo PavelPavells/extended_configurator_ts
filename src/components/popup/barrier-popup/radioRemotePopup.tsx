@@ -14,7 +14,7 @@ import { ConfiguratorState } from '../../../store/store';
 import {
     togglePopupWindowBarrier,
     togglePopupWindowMainInfoBarrier
-} from '../../../actions/dataBarrierActions';
+} from '../../../actions/BarrierActions/BarrierActions';
 
 /**
  * Импорт прелоадера
@@ -42,7 +42,7 @@ interface RadioRemotePopupProps {
     readonly togglePopupWindowMainInfoBarrier: () => void
 }
 
-class RadioRemotePopup extends React.PureComponent<RadioRemotePopupProps> {
+class RadioRemotePopup extends React.PureComponent<any> {
 
     /**
      * Запрос данных
@@ -153,7 +153,7 @@ class RadioRemotePopup extends React.PureComponent<RadioRemotePopupProps> {
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect<{}, {}, RadioRemotePopupProps>(
+export default connect(
     mapStateToProps,
     {
         togglePopupWindowBarrier,

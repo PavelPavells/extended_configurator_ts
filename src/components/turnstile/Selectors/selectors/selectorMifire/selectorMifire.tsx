@@ -14,7 +14,7 @@ import { ConfiguratorState } from '../../../../../store/store';
 import {
     fetchDataTurnstile,
     //togglePopupWindowTurnstile
-} from '../../../../../actions/dataTurnstileActions';
+} from '../../../../../actions/TurnstileActions/TurnstileActions';
 
 /**
  * Импорт стилей
@@ -162,7 +162,7 @@ class SelectorMifire extends React.PureComponent<SelectorMifireProps, SelectorMi
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect<{}, {}, SelectorMifireProps>(
+export default connect(
     mapStateToProps,
     {
         fetchDataTurnstile,
