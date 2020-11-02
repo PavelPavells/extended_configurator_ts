@@ -10,11 +10,11 @@ import { ConfiguratorState } from '../../../store/store';
 /**
  * Импорт экшенов
  */
-import { fetchDataPopupTurnstile } from '../../../actions/dataPopupActions';
+import { fetchDataPopupTurnstile } from '../../../actions/PopupActions/TurnstilePopup/PopupActions';
 import {
     togglePopupWindowTurnstile,
     togglePopupWindowMainInfoTurnstile
-} from '../../../actions/dataTurnstileActions';
+} from '../../../actions/TurnstileActions/TurnstileActions';
 
 /**
  * Импорт прелоадера
@@ -45,7 +45,7 @@ interface RDUPopupProps {
     readonly handleClickNineSelect: () => void
 }
 
-class RDUpopup extends React.PureComponent<RDUPopupProps> {
+class RDUpopup extends React.PureComponent<any> {
 
     /**
      * Запрос данных
@@ -183,7 +183,7 @@ class RDUpopup extends React.PureComponent<RDUPopupProps> {
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect<{}, {}, RDUPopupProps>(
+export default connect(
     mapStateToProps,
     {
         fetchDataPopupTurnstile,

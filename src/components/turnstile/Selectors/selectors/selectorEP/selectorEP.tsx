@@ -14,7 +14,7 @@ import { ConfiguratorState } from '../../../../../store/store';
 import {
     fetchDataTurnstile,
     //togglePopupWindowTurnstile
-} from '../../../../../actions/dataTurnstileActions';
+} from '../../../../../actions/TurnstileActions/TurnstileActions';
 
 /**
  * Импорт стилей
@@ -156,7 +156,7 @@ class SelectorEP extends React.PureComponent<SelectorEPProps, SelectorEPState> {
 const mapStateToPtops = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect<{}, {}, SelectorEPProps>(
+export default connect(
     mapStateToPtops,
     {
         fetchDataTurnstile,

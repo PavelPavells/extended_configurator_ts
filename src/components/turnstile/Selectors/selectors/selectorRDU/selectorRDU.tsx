@@ -14,7 +14,7 @@ import { ConfiguratorState } from '../../../../../store/store';
 import {
     fetchDataTurnstile,
     //togglePopupWindowTurnstile
-} from '../../../../../actions/dataTurnstileActions';
+} from '../../../../../actions/TurnstileActions/TurnstileActions';
 
 /**
  * Импорт стилей
@@ -185,7 +185,7 @@ class SelectorRDU extends React.PureComponent<SelectorRDUProps, SelectorRDUState
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect<{}, {}, SelectorRDUProps>(
+export default connect(
     mapStateToProps,
     {
         fetchDataTurnstile,

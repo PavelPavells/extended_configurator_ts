@@ -10,7 +10,7 @@ import { ConfiguratorState } from '../../../store/store';
 /**
  * Импорт экшенов
  */
-import { fetchDataBarrier } from '../../../actions/dataBarrierActions';
+import { fetchDataBarrier } from '../../../actions/BarrierActions/BarrierActions';
 
 /**
  * Импорт модулей
@@ -240,9 +240,10 @@ const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
 
-export default connect<{}, {}, ModuleEquipmentProps>(
+export default connect(
     mapStateToProps,
     {
         fetchDataBarrier
     }
+    // @ts-ignore
 )(ModuleEquipment);

@@ -14,7 +14,7 @@ import { ConfiguratorState } from '../../../store/store';
 import {
     togglePopupWindowBarrier,
     togglePopupWindowMainInfoBarrier
-} from '../../../actions/dataBarrierActions';
+} from '../../../actions/BarrierActions/BarrierActions';
 
 /**
  * Импорт прелоадера
@@ -42,7 +42,7 @@ interface SignalLampPopupProps {
     readonly togglePopupWindowMainInfoBarrier: () => void
 }
 
-class SignalLampPopup extends React.PureComponent<SignalLampPopupProps> {
+class SignalLampPopup extends React.PureComponent<any> {
 
     /**
      * Запрос данных
@@ -198,7 +198,7 @@ class SignalLampPopup extends React.PureComponent<SignalLampPopupProps> {
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect<{}, {}, SignalLampPopupProps>(
+export default connect(
     mapStateToProps,
     {
         togglePopupWindowBarrier,

@@ -10,7 +10,7 @@ import { ConfiguratorState } from '../../../../store/store';
 /**
  * Импорт экшенов
  */
-import { fetchDataBarrier } from '../../../../actions/dataBarrierActions';
+import { fetchDataBarrier } from '../../../../actions/BarrierActions/BarrierActions';
 
 /**
  * Импорт стилей
@@ -30,7 +30,7 @@ interface EquipmentModalProps {
     readonly fetchDataBarrier: () => void
 }
 
-class EquipmentModal extends React.PureComponent<EquipmentModalProps> {
+class EquipmentModal extends React.PureComponent<any> {
     /**
     * Запрос данных
     */
@@ -397,7 +397,7 @@ const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
 
-export default connect<{}, {}, EquipmentModalProps>(
+export default connect(
     mapStateToProps,
     {
         fetchDataBarrier

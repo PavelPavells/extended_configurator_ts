@@ -9,7 +9,7 @@ import { ConfiguratorState } from '../../../store/store';
 /**
  * Импорт экшенов
  */
-import { fetchDataBarrier } from '../../../actions/dataBarrierActions';
+import { fetchDataBarrier } from '../../../actions/BarrierActions/BarrierActions';
 
 /**
  * Импорт стилей
@@ -64,9 +64,10 @@ const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
 
-export default connect<{}, {}, ModuleListProps>(
+export default connect(
     mapStateToProps,
     {
         fetchDataBarrier
     }
+    // @ts-ignore
 )(ModuleList);

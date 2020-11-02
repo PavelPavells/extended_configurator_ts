@@ -14,7 +14,7 @@ import { ConfiguratorState } from '../../../../../store/store';
 import {
     fetchDataBarrier,
     togglePopupWindowBarrier
-} from '../../../../../actions/dataBarrierActions';
+} from '../../../../../actions/BarrierActions/BarrierActions';
 
 /**
  * Импорт стилей
@@ -156,7 +156,7 @@ class SelectorSignalLamp extends React.PureComponent<SelectorSignalLampProps, Se
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect<{}, {}, SelectorSignalLampProps>(
+export default connect(
     mapStateToProps,
     {
         fetchDataBarrier,

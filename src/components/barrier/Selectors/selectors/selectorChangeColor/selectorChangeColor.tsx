@@ -14,7 +14,7 @@ import { ConfiguratorState } from '../../../../../store/store';
 import {
     fetchDataBarrier,
     togglePopupWindowBarrier
-} from '../../../../../actions/dataBarrierActions';
+} from '../../../../../actions/BarrierActions/BarrierActions';
 
 /**
  * Импорт стилей
@@ -193,7 +193,7 @@ class SelectorChangeColor extends React.PureComponent<SelectorChangeColorProps, 
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect<{}, {}, SelectorChangeColorProps>(
+export default connect(
     mapStateToProps,
     {
         fetchDataBarrier,

@@ -1,6 +1,6 @@
 import React from 'react';
-import dataMainActions from '../actions/dataMainActions';
-import dataTurnstileActions from '../actions/dataTurnstileActions';
+import dataMainActions from '../actions/MainActions/MainActions';
+import dataTurnstileActions from '../actions/TurnstileActions/TurnstileActions';
 
 describe('DataMainActions', () => {
 

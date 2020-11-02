@@ -14,7 +14,7 @@ import { ConfiguratorState } from '../../../../../store/store';
 import {
     fetchDataBarrier,
     togglePopupWindowBarrier
-} from '../../../../../actions/dataBarrierActions';
+} from '../../../../../actions/BarrierActions/BarrierActions';
 
 /**
  * Импорт стилей
@@ -189,7 +189,7 @@ class SelectorInductanceLoop extends React.PureComponent<SelectorInductanceLoopP
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect<{}, {}, SelectorInductanceLoopProps>(
+export default connect(
     mapStateToProps,
     {
         fetchDataBarrier,

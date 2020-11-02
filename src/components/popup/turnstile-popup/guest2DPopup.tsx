@@ -10,11 +10,11 @@ import { ConfiguratorState } from '../../../store/store';
 /**
  * Импорт экшенов
  */
-import { fetchDataPopupTurnstile } from '../../../actions/dataPopupActions';
+import { fetchDataPopupTurnstile } from '../../../actions/PopupActions/TurnstilePopup/PopupActions';
 import {
     togglePopupWindowTurnstile,
     togglePopupWindowMainInfoTurnstile
-} from '../../../actions/dataTurnstileActions';
+} from '../../../actions/TurnstileActions/TurnstileActions';
 
 /**
  * Импорт прелоадера
@@ -45,7 +45,7 @@ interface Guest2DPopupProps {
     readonly handleClickSevenSelect: () => void
 }
 
-class Guest2DPopup extends React.PureComponent<Guest2DPopupProps> {
+class Guest2DPopup extends React.PureComponent<any> {
 
     /**
      * Запрос данных
@@ -245,7 +245,7 @@ class Guest2DPopup extends React.PureComponent<Guest2DPopupProps> {
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect<{}, {}, Guest2DPopupProps>(
+export default connect(
     mapStateToProps,
     {
         fetchDataPopupTurnstile,
