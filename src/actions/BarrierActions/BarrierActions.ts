@@ -1,13 +1,6 @@
-/**
- * Импорт зависимостей из NPM
-*/
 import axios from 'axios';
 import site from '../../constants/Global/GlobalSetup';
 import { Dispatch } from 'react';
-
-/**
- * Импорт основных констант для экшенов
- */
 import {
     FETCHING_DATA_BARRIER_REQUEST,
     FETCHING_DATA_BARRIER_SUCCESS,
@@ -16,33 +9,30 @@ import {
     TOGGLE_MODAL_BARRIER_MAIN_INFO
 } from '../../constants/Barrier/BarrierVariables';
 import { BarrierActions } from '../../constants/Barrier/BarrierConstants';
-/**
- * Экшен для инациализации асинхронного запроса
- */
+
 export const fetchingDataBarrierRequest = (): BarrierActions => ({
     type: FETCHING_DATA_BARRIER_REQUEST
 })
 
-/**
- *  Экшен для обработки и запись полученных данных в редьюсер
- */
 export const fetchingDataBarrierSuccess = (data: any, trigger: number): BarrierActions => ({
     type: FETCHING_DATA_BARRIER_SUCCESS,
     trigger: trigger,
     payload: data.data
 })
 
-/**
- * Экшен для обработки запроса с ошибкой
- */
 export const fetchingDataBarrierFailure = (error: any): BarrierActions => ({
     type: FETCHING_DATA_BARRIER_FAILURE,
     payload: error
 });
 
-/**
- * Экшен для вызовов в Компонентах
- */
+export const togglePopupWindowBarrier = (): BarrierActions => ({ 
+    type: TOGGLE_MODAL_BARRIER
+});
+
+export const togglePopupWindowMainInfoBarrier = (): BarrierActions => ({ 
+    type: TOGGLE_MODAL_BARRIER_MAIN_INFO 
+});
+
 export const fetchDataBarrier = (data: any, trigger: number) => async (dispatch: Dispatch<BarrierActions>) => {
     dispatch(fetchingDataBarrierRequest());
     try {
@@ -85,11 +75,11 @@ export const fetchDataBarrier = (data: any, trigger: number) => async (dispatch:
                 {
                     module: 7,
                     state: data.selectEight && data.selectEight < 0 ? 0 : data.selectEight
+                },
+                {
+                   module: 8,
+                   state: data.selectNine && data.selectNine < 0 ? 0 : data.selectNine
                 }
-                //{
-                //    module: 8,
-                //    state: data.selectNine && data.selectNine < 0 ? 0 : data.selectNine
-                //}
             ]
         })
             .then(data => {
@@ -100,17 +90,3 @@ export const fetchDataBarrier = (data: any, trigger: number) => async (dispatch:
         dispatch(fetchingDataBarrierFailure(error));
     }
 };
-
-/**
- * Экшен для открытия/закрытия Попап-окна в Компоненте Selectors
- */
-export const togglePopupWindowBarrier = (): BarrierActions => ({ 
-    type: TOGGLE_MODAL_BARRIER
-});
-
-/**
- * Экшен для открытия/закрытия Попап-окна в Компоненте Equipment
- */
-export const togglePopupWindowMainInfoBarrier = (): BarrierActions => ({ 
-    type: TOGGLE_MODAL_BARRIER_MAIN_INFO 
-});

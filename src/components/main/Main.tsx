@@ -1,30 +1,12 @@
-/**
- * Импорт зависимостей из NPM
- */
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { ConfiguratorState } from '../../store/store';
-
-/**
- * Импорт экшенов
- */
 import { fetchDataMain } from '../../actions/MainActions/MainActions';
-
-/**
- * Импорт GlobalSetup
- */
 import GlobalSetup from '../../constants/Global/GlobalSetup';
-
-/**
- * Импорт стилей
- */
-import './Main.scss';
-
-/**
- * Импорт прелоадера
- */
 import Loader from '../../__utils__/Loader/Loader';
+
+import './Main.scss';
 
 const Main = () => {
     const { isFetching, data } = useSelector((state: ConfiguratorState) => state.main, shallowEqual);

@@ -1,61 +1,30 @@
 /* eslint-disable max-len */
-/**
- * Импорт зависимостей из NPM
- */
 import React from 'react';
-// @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../../store/store';
-
-/**
- * Импорт экшенов
- */
 import { fetchDataTurnstile } from '../../../../actions/TurnstileActions/TurnstileActions';
-
-/**
- * Импорт стилей
- */
-import './equipmentModal.scss';
-
-/**
- * Импорт прелоадера
- */
 import Loader from '../../../../__utils__/Loader/Loader';
 
-/**
- * Интерфейс компонента ModuleEquipmentModal
- */
+import './equipmentModal.scss';
+
 interface EquipmentModalProps {
     readonly data: any,
     readonly fetchDataTurnstile: () => void
 }
 
 class EquipmentModal extends React.PureComponent<EquipmentModalProps> {
-    /**
-    * Запрос данных
-    */
     public componentDidMount () {
         this.props.fetchDataTurnstile();
     }
     public render () {
-        /**
-        * Данные из Глобального Стора
-        */
+
         const { turnstile, isFetching } = this.props.data;
         
         if (turnstile.data.length === 0 && !isFetching) {
             return <Loader />;
         }
         return (
-
-            /**
-             * Всплывающее меню компонента Equipment
-             */
             <section className="modal">
-
-                {/**
-                 * Блоки описания для всплывающего окна
-                 */}
                 <div className="modal__wrapper wrap">
                     <div className="wrap__block block">
                         <div className="block__image">
@@ -80,10 +49,6 @@ class EquipmentModal extends React.PureComponent<EquipmentModalProps> {
                         </div>
                     </div>
                 </div>
-
-                {/**
-                 * Блоки описания для всплывающего окна
-                 */}
                 <div className="modal__wrapper wrap">
                     <div className="wrap__block block">
                         <div className="block__image">
@@ -108,10 +73,6 @@ class EquipmentModal extends React.PureComponent<EquipmentModalProps> {
                         </div>
                     </div>
                 </div>
-
-                {/**
-                 * Блоки описания для всплывающего окна
-                 */}
                 <div className="modal__wrapper wrap">
                     <div className="wrap__block block">
                         <div className="block__image">
@@ -136,10 +97,6 @@ class EquipmentModal extends React.PureComponent<EquipmentModalProps> {
                         </div>
                     </div>
                 </div>
-
-                {/**
-                 * Блоки описания для всплывающего окна
-                 */}
                 <div className="modal__wrapper wrap">
                     <div className="wrap__block block">
                         <div className="block__image">
@@ -164,10 +121,6 @@ class EquipmentModal extends React.PureComponent<EquipmentModalProps> {
                         </div>
                     </div>
                 </div>
-
-                {/**
-                 * Блоки описания для всплывающего окна
-                 */}
                 <div className="modal__wrapper wrap">
                     <div className="wrap__block block">
                         <div className="block__image">
@@ -192,10 +145,6 @@ class EquipmentModal extends React.PureComponent<EquipmentModalProps> {
                         </div>
                     </div>
                 </div>
-
-                {/**
-                 * Блоки описания для всплывающего окна
-                 */}
                 <div className="modal__wrapper wrap">
                     <div className="wrap__block block">
                         <div className="block__image">
@@ -220,10 +169,6 @@ class EquipmentModal extends React.PureComponent<EquipmentModalProps> {
                         </div>
                     </div>
                 </div>
-
-                 {/**
-                 * Блоки описания для всплывающего окна
-                 */}
                 <div className="modal__wrapper wrap">
                     <div className="wrap__block block">
                         <div className="block__image">
@@ -248,11 +193,6 @@ class EquipmentModal extends React.PureComponent<EquipmentModalProps> {
                         </div>
                     </div>
                 </div>
-                
-                
-                 {/**
-                 * Блоки описания для всплывающего окна
-                 */}
                 <div className="modal__wrapper wrap">
                     <div className="wrap__block block">
                         <div className="block__image">
@@ -277,11 +217,6 @@ class EquipmentModal extends React.PureComponent<EquipmentModalProps> {
                         </div>
                     </div>
                 </div>
-             
-                
-                 {/**
-                 * Блоки описания для всплывающего окна
-                 */}
                 <div className="modal__wrapper wrap">
                     <div className="wrap__block block">
                         <div className="block__image">
@@ -306,11 +241,6 @@ class EquipmentModal extends React.PureComponent<EquipmentModalProps> {
                         </div>
                     </div>
                 </div>
-
-                
-                 {/**
-                 * Блоки описания для всплывающего окна
-                 */}
                 <div className="modal__wrapper wrap">
                     <div className="wrap__block block">
                         <div className="block__image">
@@ -335,11 +265,6 @@ class EquipmentModal extends React.PureComponent<EquipmentModalProps> {
                         </div>
                     </div>
                 </div>
-             
-             
-                 {/**
-                 * Блоки описания для всплывающего окна
-                 */}
                 <div className="modal__wrapper wrap">
                     <div className="wrap__block block">
                         <div className="block__image">
@@ -364,11 +289,6 @@ class EquipmentModal extends React.PureComponent<EquipmentModalProps> {
                         </div>
                     </div>
                 </div>
-             
-             
-                 {/**
-                 * Блоки описания для всплывающего окна
-                 */}
                 <div className="modal__wrapper wrap">
                     <div className="wrap__block block">
                         <div className="block__image">

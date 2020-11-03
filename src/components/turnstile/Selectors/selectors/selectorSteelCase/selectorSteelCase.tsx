@@ -1,39 +1,17 @@
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
-/**
- * Импорт зависимостей из NPM
- */
 import React from 'react';
-// @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../../../store/store';
-
-/**
- * Импорт экшенов
- */
 import {
     fetchDataTurnstile,
     //togglePopupWindowTurnstile
 } from '../../../../../actions/TurnstileActions/TurnstileActions';
 
-/**
- * Импорт стилей
- */
+import SteelCasePopup from '../../../../popup/turnstile-popup/steelCasePopup';
+import Loader from '../../../../../__utils__/Loader/Loader';
 import './selectorSteelCase.scss';
 
-/**
- * Импорт Popup-окна
- */
-import SteelCasePopup from '../../../../popup/turnstile-popup/steelCasePopup';
-
-/**
- * Импорт Лоадера
- */
-import Loader from '../../../../../__utils__/Loader/Loader';
-
-/**
- * Интерфейс компонента SelectorBiometry
- */
 interface SelectorSteelCaseProps {
     readonly data: any,
     readonly fetchDataTurnstile: (data: any, trigger: number) => void,
@@ -46,20 +24,13 @@ interface SelectorSteelCaseState {
 }
 
 class SelectorSteelCase extends React.PureComponent<SelectorSteelCaseProps, SelectorSteelCaseState> {
-
     state: SelectorSteelCaseState = { selectEight: 0, toggleModal: false };
 
-    /**
-     * Открыть/Закрыть модальное окно
-     */
     private handleToggleModal = () => {
         //this.props.togglePopupWindowTurnstile();
         this.setState({ toggleModal: !this.state.toggleModal });
     }
 
-    /**
-    * Хэндлер для обработки запроса селектора 'Корпус'
-    */
     private handleClickEightSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({
@@ -79,27 +50,22 @@ class SelectorSteelCase extends React.PureComponent<SelectorSteelCaseProps, Sele
                 selectSix: page_view.module_selectors[5].state,
                 selectSeven: page_view.module_selectors[6].state,
                 selectEight: page_view.module_selectors[7].state,
-                //selectNine: page_view.module_selectors[8].state
+                selectNine: page_view.module_selectors[8].state
             };
             this.props.fetchDataTurnstile(data, data.trigger);
         });
     }
 
     public render () {
-        /**
-         * Данные из глобального стора
-         */
+
         const { turnstile, isFetching } = this.props.data;
         const { toggleModal } = this.state;
+
         if (turnstile.data.length === 0 && !isFetching) {
            return <Loader />;
         }
         return (
-
-            /**
-             * Селектор 'Корпус'
-             */
-            <div>
+            <section>
                 {turnstile.data.page_view.module_selectors.slice(7, 8).map((index: { state: number; index: string | number | undefined; }) => {
                     if (index.state === -1) {
                         return (
@@ -199,7 +165,7 @@ class SelectorSteelCase extends React.PureComponent<SelectorSteelCaseProps, Sele
                     }
                 })
                 }
-            </div>
+            </section>
         );
     }
 }

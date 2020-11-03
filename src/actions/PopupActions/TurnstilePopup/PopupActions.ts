@@ -1,13 +1,6 @@
-/**
- * Импорт зависимостей из NPM
-*/
 import axios from 'axios';
 import site from '../../../constants/Global/GlobalSetup';
 import { Dispatch } from 'react';
-
-/**
- * Импорт основных констант для экшенов
- */
 import {
     FETCHING_DATA_POPUP_TURNSTILE_REQUEST,
     FETCHING_DATA_POPUP_TURNSTILE_SUCCESS,
@@ -16,33 +9,21 @@ import {
 
 import { TurnstilePopupActions } from '../../../constants/Popup/popup-turnstile/PopupConstants';
 
-/**
- * Экшен для инациализации асинхронного запроса
- */
 export const fetchingDataPopupTurnstileRequest = (): TurnstilePopupActions => ({
     type: FETCHING_DATA_POPUP_TURNSTILE_REQUEST
 })
 
-/**
- *  Экшен для обработки и запись полученных данных в редьюсер
- */
 export const fetchingDataPopupTurnstileSuccess = (data: any, trigger: number): TurnstilePopupActions => ({
     type: FETCHING_DATA_POPUP_TURNSTILE_SUCCESS,
     trigger: trigger,
     payload: data.data
 })
 
-/**
- * Экшен для обработки запроса с ошибкой
- */
 export const fetchingDataPopupTurnstileFailure = (error: any): TurnstilePopupActions => ({
     type: FETCHING_DATA_POPUP_TURNSTILE_FAILURE,
     payload: error
 });
 
-/**
- * Экшен для вызовов в Компонентах
- */
 export const fetchDataPopupTurnstile = (data: any, trigger: number) => async (dispatch: Dispatch<TurnstilePopupActions>) => {
     dispatch(fetchingDataPopupTurnstileRequest());
     try {
@@ -83,11 +64,11 @@ export const fetchDataPopupTurnstile = (data: any, trigger: number) => async (di
                 {
                     module: 7,
                     state: data.selectEight && data.selectEight < 0 ? 0 : data.selectEight
+                },
+                {
+                   module: 8,
+                   state: data.selectNine && data.selectNine < 0 ? 0 : data.selectNine
                 }
-                //{
-                //    module: 8,
-                //    state: data.selectNine && data.selectNine < 0 ? 0 : data.selectNine
-                //}
             ]
         })
             .then(data => {

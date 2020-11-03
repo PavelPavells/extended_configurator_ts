@@ -1,12 +1,8 @@
 import { FETCHING_DATA_POPUP_TURNSTILE_REQUEST, FETCHING_DATA_POPUP_TURNSTILE_SUCCESS, FETCHING_DATA_POPUP_TURNSTILE_FAILURE } from './PopupVariables';
 
-/**
- * *********************** Интерфейсы Компонента popup(турникеты) ***********************
- */
- 
- interface TurnstilePopupRequest {
-    type: typeof FETCHING_DATA_POPUP_TURNSTILE_REQUEST;
- }
+interface TurnstilePopupRequest {
+   type: typeof FETCHING_DATA_POPUP_TURNSTILE_REQUEST;
+}
  
  interface TurnstilePopupSuccess {
     type: typeof FETCHING_DATA_POPUP_TURNSTILE_SUCCESS;

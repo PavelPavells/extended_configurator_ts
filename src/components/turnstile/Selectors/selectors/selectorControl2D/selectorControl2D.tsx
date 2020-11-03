@@ -1,39 +1,16 @@
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
-/**
- * Импорт зависимостей из NPM
- */
 import React from 'react';
-// @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../../../store/store';
-
-/**
- * Импорт экшенов
- */
 import {
     fetchDataTurnstile,
     //togglePopupWindowTurnstile
 } from '../../../../../actions/TurnstileActions/TurnstileActions';
-
-/**
- * Импорт стилей
- */
+import Control2DPopup from '../../../../popup/turnstile-popup/control2DPopup';
+import Loader from '../../../../../__utils__/Loader/Loader';
 import './selectorControl2D.scss';
 
-/**
- * Импорт Popup-окна
- */
-import Control2DPopup from '../../../../popup/turnstile-popup/control2DPopup';
-
-/**
- * Импорт Лоадера
- */
-import Loader from '../../../../../__utils__/Loader/Loader';
-
-/**
- * Интерфейс компонента SelectorControl2D
- */
 interface SelectorControl2DProps {
     readonly data: any,
     readonly fetchDataTurnstile: (data: any, trigger: number) => void,
@@ -49,17 +26,11 @@ class SelectorControl2D extends React.PureComponent<SelectorControl2DProps, Sele
 
     state: SelectorControl2DState = { selectSix: 0, toggleModal: false };
 
-    /**
-     * Открыть/Закрыть модальное окно
-     */
     private handleToggleModal = () => {
         //this.props.togglePopupWindowTurnstile();
         this.setState({ toggleModal: !this.state.toggleModal });
     }
 
-    /**
-    * Хэндлер для обработки запроса селектора 'Контроля по 2D-штрихкодам'
-    */
     private handleClickSixSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({
@@ -79,27 +50,23 @@ class SelectorControl2D extends React.PureComponent<SelectorControl2DProps, Sele
                 selectSix: page_view.module_selectors[5].state,
                 selectSeven: page_view.module_selectors[6].state,
                 selectEight: page_view.module_selectors[7].state,
-                //selectNine: page_view.module_selectors[8].state
+                selectNine: page_view.module_selectors[8].state
             };
             this.props.fetchDataTurnstile(data, data.trigger);
         });
     }
 
     public render () {
-        /**
-         * Данные из глобального стора
-         */
+
         const { turnstile, isFetching } = this.props.data;
         const { toggleModal } = this.state;
+
         if (turnstile.data.length === 0 && !isFetching) {
            return <Loader />;
         }
 
         return (
-            /**
-             * Селектор 'Контроль по 2D-штрихкодам'
-             */
-            <div>
+            <section>
                 {turnstile.data.page_view.module_selectors.slice(5, 6).map((index: { state: number; index: string | number | undefined; }) => {
                     if (index.state === -1) {
                         return (
@@ -191,7 +158,7 @@ class SelectorControl2D extends React.PureComponent<SelectorControl2DProps, Sele
                     }
                 })
                 }
-            </div>
+            </section>
         );
     }
 }
@@ -199,6 +166,7 @@ class SelectorControl2D extends React.PureComponent<SelectorControl2DProps, Sele
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
+
 export default connect(
     mapStateToProps,
     {

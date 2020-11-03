@@ -6,29 +6,13 @@
  */
 import React from 'react';
 import { Link } from 'react-router-dom';
-// @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../store/store';
-
-/**
- * Импорт экшенов
- */
 import { fetchDataTurnstile } from '../../../actions/TurnstileActions/TurnstileActions';
-
-/**
- * Импорт стилей
- */
-import './moduleOffer.scss';
-
-
-/**
- * Импорт прелоадера
- */
 import Loader from '../../../__utils__/Loader/Loader';
 
-/**
- * Интерфейс компонента Offer
- */
+import './moduleOffer.scss';
+
 interface OfferProps {
     readonly data: any,
     readonly fetchDataTurnstile: (data: any) => void,
@@ -78,24 +62,14 @@ class Offer extends React.PureComponent<OfferProps, OfferState> {
     }
 
     public render () {
-        /**
-        * Данные из Глобального Стора
-        */
+
         const { turnstile, isFetching } = this.props.data;
 
         if (turnstile.data.length === 0 && !isFetching) {
             return <Loader />;
         }
         return (
-
-            /**
-             *  Модуль Предложение
-             */
             <section className="offer">
-
-                {/**
-                 * Описание
-                 */}
                 <div className="offer__description description">
                     <div className="description__left left">
                         <Link to="/turnstile" className="left__arrow" />
@@ -115,10 +89,6 @@ class Offer extends React.PureComponent<OfferProps, OfferState> {
                         </div>
                     </div>
                 </div>
-
-                {/**
-                 * Блок Основное Предложение
-                 */}
                 <div className="offer__goods goods">
                     <div className="goods__category category">
                         <div className="category__wrapper wrapper">
@@ -158,10 +128,6 @@ class Offer extends React.PureComponent<OfferProps, OfferState> {
                                     <div className="info__delete" />
                                 </div>
                             </div>
-
-                            {/**
-                             * Блок Popup
-                             */}
                             <div className="offer-popup"> {/** Перетираются стили, изменить наименование классов, поправить вложенность в CSS */}
                                 {this.state.modal && key === 0 ?
                                     <div className="offer-info">
@@ -200,10 +166,6 @@ class Offer extends React.PureComponent<OfferProps, OfferState> {
                         </div>
                     ))}
                 </div>
-
-                {/**
-                    * Блок Цена/Предложение
-                 */}
                 <div className="offer__price price">
                     <div className="price__wrapper wrapper">
                         <div className="wrapper__image" />
@@ -240,6 +202,7 @@ class Offer extends React.PureComponent<OfferProps, OfferState> {
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
+
 export default connect(
     mapStateToProps,
     {

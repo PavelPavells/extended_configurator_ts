@@ -1,35 +1,13 @@
 /* eslint-disable max-len */
-/**
- * Импорт зависимостей из NPM
- */
 import React from 'react';
-// @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../store/store';
-
-/**
- * Импорт экшенов
- */
 import { fetchDataTurnstile } from '../../../actions/TurnstileActions/TurnstileActions';
-
-/**
- * Импорт модулей
- */
+import Loader from '../../../__utils__/Loader/Loader';
 import EquipmentModal from './EquipmentModal/equipmentModal';
 
-/**
- * Импорт стилей
- */
 import './moduleEquipment.scss';
 
-/**
- * Импорт прелоадера
- */
-import Loader from '../../../__utils__/Loader/Loader';
-
-/**
- * Интерфейс компонента ModuleEquipment
- */
 interface ModuleEquipmentProps {
     readonly data: any,
     readonly fetchDataTurnstile: () => void,
@@ -51,34 +29,22 @@ class ModuleEquipment extends React.PureComponent<ModuleEquipmentProps, ModuleEq
         listEquipmentFour: false
     }
 
-    /**
-    * Запрос данных
-    */
     //componentDidMount() {
     //    this.props.fetchDataTurnstile();
     //}
 
-    /**
-    * Хэндлер удаления количетсва товара
-    */
     private handleMinusOptions = () => {
         //const { page_view } = this.props.data.turnstile.data;
         //console.log(page_view);
         // some code
     }
 
-    /**
-    * Хэндлер добавления количества товара
-    */
     private handlePlusOptions = () => {
         //const { page_view } = this.props.data.turnstile.data;
         //console.log(page_view);
         // some code
     }
 
-    /**
-    * Хэндлер обработки запросов для блока 'Пульты Управления'
-    */
     private handleChangeModalWindowOne = () => {
         this.setState({ listEquipmentOne: !this.state.listEquipmentOne });
         let text = document.getElementsByClassName('text-remote')[0];
@@ -91,9 +57,6 @@ class ModuleEquipment extends React.PureComponent<ModuleEquipmentProps, ModuleEq
         arrow.classList.toggle('wrap__arrow-hover');
     }
 
-    /**
-    * Хэндлер обработки запросов для блока 'Пульты Управления'
-    */
     private handleChangeModalWindowTwo = () => {
         this.setState({ listEquipmentTwo: !this.state.listEquipmentTwo });
         let text = document.getElementsByClassName('text-slats')[0];
@@ -106,9 +69,6 @@ class ModuleEquipment extends React.PureComponent<ModuleEquipmentProps, ModuleEq
         arrow.classList.toggle('wrap__arrow-hover');
     }
 
-    /**
-    * Хэндлер обработки запросов для блока 'Преграждающие планки'
-    */
     private handleChangeModalWindowThree = () => {
         this.setState({ listEquipmentThree: !this.state.listEquipmentThree });
         let text = document.getElementsByClassName('text-suply')[0];
@@ -121,9 +81,6 @@ class ModuleEquipment extends React.PureComponent<ModuleEquipmentProps, ModuleEq
         arrow.classList.toggle('wrap__arrow-hover');
     }
 
-    /**
-    * Хэндлер обработки запросов для блока 'Ограждения прохода и секции "Антипаника"'
-    */
     private handleChangeModalWindowFour = () => {
         this.setState({ listEquipmentFour: !this.state.listEquipmentFour });
         let text = document.getElementsByClassName('text-awarding')[0];
@@ -137,26 +94,16 @@ class ModuleEquipment extends React.PureComponent<ModuleEquipmentProps, ModuleEq
     }
 
     public render () {
-        /**
-        * Данные из Глобального Стора
-        */
+
         const { turnstile, isFetching } = this.props.data;
 
         if (turnstile.data.length === 0 && !isFetching) {
             return <Loader />;
         }
         return (
-
-            /**
-             *  Модуль Комплектующие
-             */
             <section className="equipment">
                 <p className="equipment__description">Дополнительное оборудование</p>
                 <div className="equipment__list checklist">
-
-                    {/**
-                        * Блок 'Пульты Управления'
-                     */}
                     <div className="checklist__block block">
                         <div onClick={this.handleChangeModalWindowOne} className="block__info info">
                             <div className="info__wrap wrap">
@@ -174,10 +121,6 @@ class ModuleEquipment extends React.PureComponent<ModuleEquipmentProps, ModuleEq
                                 null
                         }
                     </div>
-
-                    {/**
-                        * Блок 'Преграждающие планки'
-                     */}
                     <div className="checklist__block block">
                         <div onClick={this.handleChangeModalWindowTwo} className="block__info info">
                             <div className="info__wrap wrap">
@@ -195,10 +138,6 @@ class ModuleEquipment extends React.PureComponent<ModuleEquipmentProps, ModuleEq
                                 null
                         }
                     </div>
-
-                    {/**
-                        * Блок 'Блоки питания'
-                     */}
                     <div className="checklist__block block">
                         <div onClick={this.handleChangeModalWindowThree} className="block__info info">
                             <div className="info__wrap wrap">
@@ -216,10 +155,6 @@ class ModuleEquipment extends React.PureComponent<ModuleEquipmentProps, ModuleEq
                                 null
                         }
                     </div>
-
-                    {/**
-                        * Блок 'Ограждения прохода и секции "Антипаника"'
-                     */}
                     <div className="checklist__block block">
                         <div onClick={this.handleChangeModalWindowFour} className="block__info info">
                             <div className="info__wrap wrap">
@@ -237,7 +172,6 @@ class ModuleEquipment extends React.PureComponent<ModuleEquipmentProps, ModuleEq
                                 null
                         }
                     </div>
-
                 </div>
             </section>
         );

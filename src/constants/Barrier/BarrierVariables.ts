@@ -1,6 +1,3 @@
-/**
- * Глобальные переменные для запросов данных в Компоненте Barrier
- */
 export const FETCHING_DATA_BARRIER_REQUEST = 'FETCHING_DATA_BARRIER_REQUEST';
 export const FETCHING_DATA_BARRIER_SUCCESS = 'FETCHING_DATA_BARRIER_SUCCESS';
 export const FETCHING_DATA_BARRIER_FAILURE = 'FETCHING_DATA_BARRIER_FAILURE';

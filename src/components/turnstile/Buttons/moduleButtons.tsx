@@ -1,31 +1,14 @@
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
-/**
- * Импорт зависимостей из NPM
- */
 import React from 'react';
-// @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../store/store';
-
-/**
- * Импорт экшенов
- */
 import { fetchDataTurnstile } from '../../../actions/TurnstileActions/TurnstileActions';
 
-/**
- * Импорт стилей
- */
 import './moduleButtons.scss';
 
-/**
- * Импорт прелоадера
- */
 import Loader from '../../../__utils__/Loader/Loader';
 
-/**
- * Интерфейс компонента ModuleButtons
- */
 interface ModuleButtonsProps {
     readonly data: any,
     readonly fetchDataTurnstile: (data: any, trigger: number) => void
@@ -33,9 +16,6 @@ interface ModuleButtonsProps {
 
 class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
     
-    /**
-    * Запрос данных
-    */
     public componentDidMount () {
         const { page_view } = this.props.data.turnstile.data;
         let data = {
@@ -52,14 +32,12 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
             selectFive: page_view ? page_view.module_selectors[4].state : 0,
             selectSix: page_view ? page_view.module_selectors[5].state : 0,
             selectSeven: page_view ? page_view.module_selectors[6].state : 0,
-            selectEight: page_view ? page_view.module_selectors[7].state : 0
+            selectEight: page_view ? page_view.module_selectors[7].state : 0,
+            selectNine: page_view ? page_view.module_selectors[8].state : 0
         };
         this.props.fetchDataTurnstile(data, data.trigger);
     }
 
-    /**
-    * Хэндлер для обработки запроса Серии STR
-    */
     private handleClickSeriaSTR = () => {
         const { page_view } = this.props.data.turnstile.data;
         let data = {
@@ -76,15 +54,12 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
             selectFive: page_view.module_selectors[4].state !== -1 ? page_view.module_selectors[4].state : 0,
             selectSix: page_view.module_selectors[5].state !== -1 ? page_view.module_selectors[5].state : 0,
             selectSeven: page_view.module_selectors[6].state !== -1 ? page_view.module_selectors[6].state : 0,
-            selectEight: page_view.module_selectors[7].state !== -1 ? page_view.module_selectors[7].state : 0
-
+            selectEight: page_view.module_selectors[7].state !== -1 ? page_view.module_selectors[7].state : 0,
+            selectNine: page_view.module_selectors[8].state !== -1 ? page_view.module_selectors[8].state : 0
         };
         this.props.fetchDataTurnstile(data, data.trigger);
     }
 
-    /**
-    * Хэндлер для обработки запроса Серии STX
-    */
     private handleClickSeriaSTX = () => {
         const { page_view } = this.props.data.turnstile.data;
         let data = {
@@ -101,14 +76,12 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
             selectFive: page_view.module_selectors[4].state !== -1 ? page_view.module_selectors[4].state : 0,
             selectSix: page_view.module_selectors[5].state !== -1 ? page_view.module_selectors[5].state : 0,
             selectSeven: page_view.module_selectors[6].state !== -1 ? page_view.module_selectors[6].state : 0,
-            selectEight: page_view.module_selectors[7].state !== -1 ? page_view.module_selectors[7].state : 0
+            selectEight: page_view.module_selectors[7].state !== -1 ? page_view.module_selectors[7].state : 0,
+            selectNine: page_view.module_selectors[8].state !== -1 ? page_view.module_selectors[8].state : 0
         };
         this.props.fetchDataTurnstile(data, data.trigger);
     }
 
-    /**
-    * Хэндлер для обработки запроса Исполнение STR
-    */
     private handleClickExecutionCompact = () => {
         const { page_view } = this.props.data.turnstile.data;
         let data = {
@@ -125,14 +98,12 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
             selectFive: page_view.module_selectors[4].state !== -1 ? page_view.module_selectors[4].state : 0,
             selectSix: page_view.module_selectors[5].state !== -1 ? page_view.module_selectors[5].state : 0,
             selectSeven: page_view.module_selectors[6].state !== -1 ? page_view.module_selectors[6].state : 0,
-            selectEight: page_view.module_selectors[7].state !== -1 ? page_view.module_selectors[7].state : 0
+            selectEight: page_view.module_selectors[7].state !== -1 ? page_view.module_selectors[7].state : 0,
+            selectNine: page_view.module_selectors[8].state !== -1 ? page_view.module_selectors[8].state : 0
         };
         this.props.fetchDataTurnstile(data, data.trigger);
     }
 
-    /**
-    * Хэндлер для обработки запроса Исполнение STR
-    */
     private handleClickExecutionThumb = () => {
         const { page_view } = this.props.data.turnstile.data;
         let data = {
@@ -149,14 +120,12 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
             selectFive: page_view.module_selectors[4].state !== -1 ? page_view.module_selectors[4].state : 0,
             selectSix: page_view.module_selectors[5].state !== -1 ? page_view.module_selectors[5].state : 0,
             selectSeven: page_view.module_selectors[6].state !== -1 ? page_view.module_selectors[6].state : 0,
-            selectEight: page_view.module_selectors[7].state !== -1 ? page_view.module_selectors[7].state : 0
+            selectEight: page_view.module_selectors[7].state !== -1 ? page_view.module_selectors[7].state : 0,
+            selectNine: page_view.module_selectors[8].state !== -1 ? page_view.module_selectors[8].state : 0
         };
         this.props.fetchDataTurnstile(data, data.trigger);
     }
 
-    /**
-    * Хэндлер для обработки запроса сброса выбранных селекторов
-    */
     private handleClickResetSelectors = () => {
         const { page_view } = this.props.data.turnstile.data;
         let data = {
@@ -171,30 +140,21 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
             selectFive: 0,
             selectSix: 0,
             selectSeven: 0,
-            selectEight: 0
+            selectEight: 0,
+            selectNine: 0
         };
         this.props.fetchDataTurnstile(data, data.trigger);
     }
     public render () {
-        /**
-        * Данные из Глобального Стора
-        */
-        const { turnstile, isFetching } = this.props.data;
-        //console.log(this.props.data.turnstile.trigger)
-        if (turnstile.data.length === 0 && !isFetching) {
+
+        const { turnstile } = this.props.data;
+
+        if (turnstile.data.length === 0) {
             return <Loader />;
         }
         return (
-
-            /**
-             *  Модуль выбора Серии/Исполнения
-             */
             <section className="buttons">
                 <div className="buttons__top top">
-
-                    {/**
-                     * Описание
-                     */}
                     <div className="top__captions captions">
                         <div className="captions__model">Модель</div>
                         <div className="captions__seria">Серия</div>
@@ -202,10 +162,6 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
                     </div>
                     <div className="top__select select">
                         <div className="select__model">{turnstile.data.page_view.model_name}</div>
-
-                        {/**
-                         * Серия STR/STX
-                         */}
                         <div className="select__seria seria">
                             {turnstile.data.page_view.btn_seria === 0 ?
                                 <div onClick={this.handleClickSeriaSTR} className="seria__str open">STR</div>
@@ -221,10 +177,6 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
                         </div>
                         <div className="select__price">{turnstile.data.page_view.model_price}</div>
                     </div>
-
-                    {/**
-                     * Серия STR/STX
-                     */}
                     <div className="top__info info">
                         <a
                             href={turnstile.data.page_view.download_broshure_button_link}
@@ -256,10 +208,6 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
                 </div>
                 <div className="buttons__bottom bottom">
                     <div className="bottom__execution">Исполнение</div>
-
-                    {/**
-                     * Исполнение Компактный/Тумбовый
-                     */}
                     <div className="bottom__buttons buttons">
                         {turnstile.data.page_view.btn_corpse === 0 ?
                             <div onClick={this.handleClickExecutionCompact} className="buttons__compact open">Компактный</div>
