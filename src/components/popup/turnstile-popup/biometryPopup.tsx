@@ -10,11 +10,11 @@ import { ConfiguratorState } from '../../../store/store';
 /**
  * Импорт экшенов
  */
-import { fetchDataPopupTurnstile } from '../../../actions/dataPopupActions';
+import { fetchDataPopupTurnstile } from '../../../actions/PopupActions/TurnstilePopup/PopupActions';
 import {
     togglePopupWindowTurnstile,
     togglePopupWindowMainInfoTurnstile
-} from '../../../actions/dataTurnstileActions';
+} from '../../../actions/TurnstileActions/TurnstileActions';
 
 /**
  * Импорт прелоадера
@@ -45,7 +45,7 @@ interface BiometryPopupProps {
     readonly handleClickFourSelect: () => void
 }
 
-class BiometryPopup extends React.PureComponent<BiometryPopupProps> {
+class BiometryPopup extends React.PureComponent<any> {
 
     /**
      * Запрос данных
@@ -232,7 +232,7 @@ class BiometryPopup extends React.PureComponent<BiometryPopupProps> {
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect<{}, {}, BiometryPopupProps>(
+export default connect(
     mapStateToProps,
     {
         fetchDataPopupTurnstile,

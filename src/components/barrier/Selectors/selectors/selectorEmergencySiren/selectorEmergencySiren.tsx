@@ -14,7 +14,7 @@ import { ConfiguratorState } from '../../../../../store/store';
 import {
     fetchDataBarrier,
     togglePopupWindowBarrier
-} from '../../../../../actions/dataBarrierActions';
+} from '../../../../../actions/BarrierActions/BarrierActions';
 
 /**
  * Импорт стилей
@@ -186,7 +186,7 @@ class SelectorEmergencySiren extends React.PureComponent<SelectorEmergencySirenP
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect<{}, {}, SelectorEmergencySirenProps>(
+export default connect(
     mapStateToProps,
     {
         fetchDataBarrier,

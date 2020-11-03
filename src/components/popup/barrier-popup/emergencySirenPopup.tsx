@@ -14,7 +14,7 @@ import { ConfiguratorState } from '../../../store/store';
 import {
     togglePopupWindowBarrier,
     togglePopupWindowMainInfoBarrier
-} from '../../../actions/dataBarrierActions';
+} from '../../../actions/BarrierActions/BarrierActions';
 
 /**
  * Импорт прелоадера
@@ -42,7 +42,7 @@ interface EmergencySirenPopupProps {
     readonly togglePopupWindowMainInfoBarrier: () => void
 }
 
-class EmergencySirenPopup extends React.PureComponent<EmergencySirenPopupProps> {
+class EmergencySirenPopup extends React.PureComponent<any> {
 
     /**
      * Запрос данных
@@ -202,7 +202,7 @@ class EmergencySirenPopup extends React.PureComponent<EmergencySirenPopupProps> 
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect<{}, {}, EmergencySirenPopupProps>(
+export default connect(
     mapStateToProps,
     {
         togglePopupWindowBarrier,

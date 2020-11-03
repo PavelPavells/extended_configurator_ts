@@ -14,7 +14,7 @@ import { ConfiguratorState } from '../../../../../store/store';
 import {
     fetchDataTurnstile,
     //togglePopupWindowTurnstile
-} from '../../../../../actions/dataTurnstileActions';
+} from '../../../../../actions/TurnstileActions/TurnstileActions';
 
 /**
  * Импорт стилей
@@ -196,7 +196,7 @@ class SelectorInfoTime extends React.PureComponent<SelectorInfoTimeProps, Select
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect<{}, {}, SelectorInfoTimeProps>(
+export default connect(
     mapStateToProps,
     { fetchDataTurnstile,
         //togglePopupWindowTurnstile

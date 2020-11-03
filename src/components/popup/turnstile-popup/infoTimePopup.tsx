@@ -10,11 +10,11 @@ import { ConfiguratorState } from '../../../store/store';
 /**
  * Импорт экшенов
  */
-import { fetchDataPopupTurnstile } from '../../../actions/dataPopupActions';
+import { fetchDataPopupTurnstile } from '../../../actions/PopupActions/TurnstilePopup/PopupActions';
 import {
     togglePopupWindowTurnstile,
     togglePopupWindowMainInfoTurnstile
-} from '../../../actions/dataTurnstileActions';
+} from '../../../actions/TurnstileActions/TurnstileActions';
 
 /**
  * Импорт прелоадера
@@ -45,7 +45,7 @@ interface InfoTimePopupProps {
     readonly handleClickFiveSelect: () => void
 }
 
-class InfoTimePopup extends React.PureComponent<InfoTimePopupProps> {
+class InfoTimePopup extends React.PureComponent<any> {
 
     /**
      * Запрос данных
@@ -237,7 +237,7 @@ class InfoTimePopup extends React.PureComponent<InfoTimePopupProps> {
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect<{}, {}, InfoTimePopupProps>(
+export default connect(
     mapStateToProps,
     {
         fetchDataPopupTurnstile,

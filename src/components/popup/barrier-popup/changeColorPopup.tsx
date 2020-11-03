@@ -14,7 +14,7 @@ import { ConfiguratorState } from '../../../store/store';
 import {
     togglePopupWindowBarrier,
     togglePopupWindowMainInfoBarrier
-} from '../../../actions/dataBarrierActions';
+} from '../../../actions/BarrierActions/BarrierActions';
 
 /**
  * Импорт прелоадера
@@ -42,7 +42,7 @@ interface ChangeColorPopupProps {
     readonly togglePopupWindowMainInfoBarrier: () => void
 }
 
-class ChangeColorPopup extends React.PureComponent<ChangeColorPopupProps> {
+class ChangeColorPopup extends React.PureComponent<any> {
 
     /**
      * Запрос данных
@@ -212,7 +212,7 @@ class ChangeColorPopup extends React.PureComponent<ChangeColorPopupProps> {
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect<{}, {}, ChangeColorPopupProps>(
+export default connect(
     mapStateToProps,
     {
         togglePopupWindowBarrier,

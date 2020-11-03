@@ -14,7 +14,7 @@ import { ConfiguratorState } from '../../../store/store';
 import {
     togglePopupWindowBarrier,
     togglePopupWindowMainInfoBarrier
-} from '../../../actions/dataBarrierActions';
+} from '../../../actions/BarrierActions/BarrierActions';
 
 /**
  * Импорт прелоадера
@@ -42,7 +42,7 @@ interface InductanceLoopPopupProps {
     readonly togglePopupWindowMainInfoBarrier: () => void
 }
 
-class InductanceLoopPopup extends React.PureComponent<InductanceLoopPopupProps> {
+class InductanceLoopPopup extends React.PureComponent<any> {
 
     /**
      * Запрос данных
@@ -162,7 +162,7 @@ class InductanceLoopPopup extends React.PureComponent<InductanceLoopPopupProps> 
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect<{}, {}, InductanceLoopPopupProps>(
+export default connect(
     mapStateToProps,
     {
         togglePopupWindowBarrier,

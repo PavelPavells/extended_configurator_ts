@@ -14,7 +14,7 @@ import { ConfiguratorState } from '../../../../../store/store';
 import {
     fetchDataBarrier,
     togglePopupWindowBarrier
-} from '../../../../../actions/dataBarrierActions';
+} from '../../../../../actions/BarrierActions/BarrierActions';
 
 /**
  * Импорт стилей
@@ -146,7 +146,7 @@ class SelectorControlBlock extends React.PureComponent<SelectorControlBlockProps
 const mapStateToPtops = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect<{}, {}, SelectorControlBlockProps>(
+export default connect(
     mapStateToPtops,
     {
         fetchDataBarrier,

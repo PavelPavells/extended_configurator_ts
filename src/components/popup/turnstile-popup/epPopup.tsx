@@ -10,11 +10,11 @@ import { ConfiguratorState } from '../../../store/store';
 /**
  * Импорт экшенов
  */
-import { fetchDataPopupTurnstile } from '../../../actions/dataPopupActions';
+import { fetchDataPopupTurnstile } from '../../../actions/PopupActions/TurnstilePopup/PopupActions';
 import {
     togglePopupWindowTurnstile,
     togglePopupWindowMainInfoTurnstile
-} from '../../../actions/dataTurnstileActions';
+} from '../../../actions/TurnstileActions/TurnstileActions';
 
 /**
  * Импорт фото
@@ -40,7 +40,7 @@ interface EPpopupProps {
     readonly handleClickOneSelect: () => void
 }
 
-class EPpopup extends React.PureComponent<EPpopupProps> {
+class EPpopup extends React.PureComponent<any> {
 
     /**
      * Запрос данных
@@ -243,7 +243,7 @@ class EPpopup extends React.PureComponent<EPpopupProps> {
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect<{}, {}, EPpopupProps>(
+export default connect(
     mapStateToProps,
     {
         fetchDataPopupTurnstile,

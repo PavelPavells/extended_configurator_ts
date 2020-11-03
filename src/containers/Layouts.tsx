@@ -17,24 +17,22 @@ import Barrier from '../components/barrier/Barrier';
 import Turnstile from '../components/turnstile/Turnstile';
 import moduleOffer from '../components/turnstile/Offer/moduleOffer';
 
-class Layout extends React.PureComponent {
-    public render () {
-        return (
-            <Router>
-                {/**
-                    * Обертка для Компонентов
-                    */}
-                <div className="components">
-                    <Switch>
-                        <Route path="/main" component={Main} />
-                        <Route exact path="/turnstile" component={Turnstile} />
-                        <Route path="/turnstile/offer" component={moduleOffer} />
-                        <Route exact path="/barrier" component={Barrier} />
-                    </Switch>
-                </div>
-            </Router>
-        );
-    }
+const Layout = () => {
+    return (
+        <Router>
+            {/**
+                * Обертка для Компонентов
+                */}
+            <div className="components">
+                <Switch>
+                    <Route path="/main" component={Main} />
+                    <Route exact path="/turnstile" component={Turnstile} />
+                    <Route path="/turnstile/offer" component={moduleOffer} />
+                    <Route exact path="/barrier" component={Barrier} />
+                </Switch>
+            </div>
+        </Router>
+    );
 }
 
 export default Layout;

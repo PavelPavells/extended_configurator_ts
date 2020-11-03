@@ -14,7 +14,7 @@ import { ConfiguratorState } from '../../../../../store/store';
 import {
     fetchDataTurnstile,
     //togglePopupWindowTurnstile
-} from '../../../../../actions/dataTurnstileActions';
+} from '../../../../../actions/TurnstileActions/TurnstileActions';
 
 /**
  * Импорт стилей
@@ -161,7 +161,7 @@ class SelectorEMMarin extends React.PureComponent<SelectorEMMarinProps, Selector
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect<SelectorEMMarinProps>(
+export default connect(
     mapStateToProps,
     {
         fetchDataTurnstile,

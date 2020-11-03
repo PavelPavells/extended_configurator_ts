@@ -10,11 +10,11 @@ import { ConfiguratorState } from '../../../store/store';
 /**
  * Импорт экшенов
  */
-import { fetchDataPopupTurnstile } from '../../../actions/dataPopupActions';
+import { fetchDataPopupTurnstile } from '../../../actions/PopupActions/TurnstilePopup/PopupActions';
 import {
     togglePopupWindowTurnstile,
     togglePopupWindowMainInfoTurnstile
-} from '../../../actions/dataTurnstileActions';
+} from '../../../actions/TurnstileActions/TurnstileActions';
 
 /**
  * Импорт прелоадера
@@ -45,7 +45,7 @@ interface MifirePopupProps {
     readonly handleClickThreeSelect: () => void
 }
 
-class MifirePopup extends React.PureComponent<MifirePopupProps> {
+class MifirePopup extends React.PureComponent<any> {
 
     /**
      * Запрос данных
@@ -188,7 +188,7 @@ class MifirePopup extends React.PureComponent<MifirePopupProps> {
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect<{}, {}, MifirePopupProps>(
+export default connect(
     mapStateToProps,
     {
         fetchDataPopupTurnstile,

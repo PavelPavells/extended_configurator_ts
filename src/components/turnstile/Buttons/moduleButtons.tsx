@@ -11,7 +11,7 @@ import { ConfiguratorState } from '../../../store/store';
 /**
  * Импорт экшенов
  */
-import { fetchDataTurnstile } from '../../../actions/dataTurnstileActions';
+import { fetchDataTurnstile } from '../../../actions/TurnstileActions/TurnstileActions';
 
 /**
  * Импорт стилей
@@ -282,7 +282,7 @@ const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
 
-export default connect<{}, {}, ModuleButtonsProps>(
+export default connect(
     mapStateToProps,
     {
         fetchDataTurnstile

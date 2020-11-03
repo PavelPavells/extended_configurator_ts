@@ -14,7 +14,7 @@ import { ConfiguratorState } from '../../../store/store';
 import {
     togglePopupWindowBarrier,
     togglePopupWindowMainInfoBarrier
-} from '../../../actions/dataBarrierActions';
+} from '../../../actions/BarrierActions/BarrierActions';
 
 /**
  * Импорт прелоадера
@@ -42,7 +42,7 @@ interface ControlBlockPopupProps {
     readonly togglePopupWindowMainBarrier: () => void
 }
 
-class ControlBlockPopup extends React.PureComponent<ControlBlockPopupProps> {
+class ControlBlockPopup extends React.PureComponent<any> {
 
     /**
      * Запрос данных
@@ -213,7 +213,7 @@ class ControlBlockPopup extends React.PureComponent<ControlBlockPopupProps> {
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
-export default connect<{}, {}, ControlBlockPopupProps>(
+export default connect(
     mapStateToProps,
     {
         togglePopupWindowBarrier,
