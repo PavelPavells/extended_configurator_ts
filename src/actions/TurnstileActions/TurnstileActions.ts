@@ -1,13 +1,6 @@
-/**
- * Импорт зависимостей из NPM
-*/
 import axios from 'axios';
 import site from '../../constants/Global/GlobalSetup';
 import { Dispatch } from 'react';
-
-/**
- * Импорт основных констант для экшенов
- */
 import {
     FETCHING_DATA_TURNSTILE_REQUEST,
     FETCHING_DATA_TURNSTILE_SUCCESS,
@@ -15,38 +8,33 @@ import {
     TOGGLE_MODAL_TURNSTILE,
     TOGGLE_MODAL_TURNSTILE_MAIN_INFO
 } from '../../constants/Turnstile/TurnstileVariables';
-
 import { TurnstileActions } from '../../constants/Turnstile/TurnstileConstants';
 
-/**
- * Экшен для инациализации асинхронного запроса
- */
 export const fetchingDataTurnstileRequest = (): TurnstileActions => ({ 
     type: FETCHING_DATA_TURNSTILE_REQUEST
 });
 
-/**
- *  Экшен для обработки и запись полученных данных в редьюсер
- */
 export const fetchingDataTurnstileSuccess = (data: any, trigger: number): TurnstileActions => ({
     type: FETCHING_DATA_TURNSTILE_SUCCESS,
     trigger: trigger,
     payload: data.data
 });
 
-/**
- * Экшен для обработки запроса с ошибкой
- */
 export const fetchingDataTurnstileFailure = (error: any): TurnstileActions => ({
     type: FETCHING_DATA_TURNSTILE_FAILURE,
     payload: error
 });
 
-/**
- * Экшен для вызовов в Компонентах
- */
+export const togglePopupWindowTurnstile = (): TurnstileActions => ({ 
+    type: TOGGLE_MODAL_TURNSTILE 
+});
+
+export const togglePopupWindowMainInfoTurnstile = (): TurnstileActions => ({ 
+    type: TOGGLE_MODAL_TURNSTILE_MAIN_INFO 
+});
+
 export const fetchDataTurnstile = (data: any, trigger: number) => async (dispatch: Dispatch<TurnstileActions>) => {
-    dispatch(fetchingDataTurnstileRequest());
+    // dispatch(fetchingDataTurnstileRequest());
     try {
         await axios.post(`${site}/turnstile`, {
             app_id: 'APP_ID',
@@ -91,12 +79,12 @@ export const fetchDataTurnstile = (data: any, trigger: number) => async (dispatc
                     module: 7,
                     // @ts-ignore  /** Typescript не применяет "<", т.к. не работает с boolean как с number */
                     state: data.selectEight && data.selectEight < 0 ? 0 : data.selectEight
-                }
-                //{
-                //    module: 8,
+                },
+                {
+                   module: 8,
                     // @ts-ignore  /** Typescript не применяет "<", т.к. не работает с boolean как с number */
-                //    state: data.selectNine && data.selectNine < 0 ? 0 : data.selectNine
-                //}
+                   state: data.selectNine && data.selectNine < 0 ? 0 : data.selectNine
+                }
             ]
         })
             .then(data => {
@@ -108,17 +96,3 @@ export const fetchDataTurnstile = (data: any, trigger: number) => async (dispatc
     }
     
 };
-
-/**
- * Экшен для открытия/закрытия Попап-окна в Компоненте Selectors
- */
-export const togglePopupWindowTurnstile = (): TurnstileActions => ({ 
-    type: TOGGLE_MODAL_TURNSTILE 
-});
-
-/**
- * Экшен для открытия/закрытия Попап-окна в Компоненте Equipment
- */
-export const togglePopupWindowMainInfoTurnstile = (): TurnstileActions => ({ 
-    type: TOGGLE_MODAL_TURNSTILE_MAIN_INFO 
-});

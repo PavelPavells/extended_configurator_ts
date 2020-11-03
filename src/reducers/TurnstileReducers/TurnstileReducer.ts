@@ -1,6 +1,3 @@
-/**
- * Импорт глобальных переменных
- */
 import {
     FETCHING_DATA_TURNSTILE_REQUEST,
     FETCHING_DATA_TURNSTILE_SUCCESS,
@@ -8,10 +5,6 @@ import {
     TOGGLE_MODAL_TURNSTILE,
     TOGGLE_MODAL_TURNSTILE_MAIN_INFO,
 } from '../../constants/Turnstile/TurnstileVariables';
-
-/**
- * Импорт интерфейсов
- */
 import { TurnstileState } from '../../constants/Turnstile/TurnstileReducer';
 import { TurnstileActions } from '../../constants/Turnstile/TurnstileConstants';
 
@@ -24,9 +17,6 @@ const initialState: TurnstileState = {
     trigger: 0
 };
 
-/**
- * Редьюсер Компонента Турникеты
- */
 export default function TurnstileReducer(state = initialState, action: TurnstileActions): TurnstileState {
     switch (action.type) {
         case FETCHING_DATA_TURNSTILE_REQUEST:

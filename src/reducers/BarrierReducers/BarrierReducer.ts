@@ -1,6 +1,3 @@
-/**
- * Импорт глобальных переменных
- */
 import {
     FETCHING_DATA_BARRIER_REQUEST,
     FETCHING_DATA_BARRIER_SUCCESS,
@@ -8,10 +5,6 @@ import {
     TOGGLE_MODAL_BARRIER,
     TOGGLE_MODAL_BARRIER_MAIN_INFO
 } from '../../constants/Barrier/BarrierVariables';
-
-/**
- * Импорт интерфейсов
- */
 import { BarrierState } from '../../constants/Barrier/BarrierReducer';
 import { BarrierActions } from '../../constants/Barrier/BarrierConstants';
 
@@ -24,9 +17,6 @@ const initialState: BarrierState = {
     trigger: 0
 };
 
-/**
- * Редьюсер Компонента Турникеты
- */
 export default function BarrierReducer(state = initialState, action: BarrierActions): BarrierState {
     switch(action.type) {
         case FETCHING_DATA_BARRIER_REQUEST:

@@ -1,15 +1,7 @@
 /* eslint-disable max-len */
-/**
- * Импорт зависимостей из NPM
- */
 import React, { Fragment } from 'react';
-// @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../store/store';
-
-/**
- * Импорт экшенов
- */
 //import { fetchDataPopupBarrier } from '../../../actions/dataPopupActions' /** добавить экшены в стор */
 import {
     togglePopupWindowBarrier,
@@ -32,9 +24,6 @@ import changeColorLogo from '../../../images/icon/change-color.svg'
  */
 import '../popup.scss';
 
-/**
- * Интерфейс компонента ChangeColorPopup
- */
 interface ChangeColorPopupProps {
     readonly data: any,
     readonly handleCloseModal: () => void,
@@ -44,16 +33,9 @@ interface ChangeColorPopupProps {
 
 class ChangeColorPopup extends React.PureComponent<any> {
 
-    /**
-     * Запрос данных
-     */
     //componentDidMount () {
     //this.props.fetchDataTurnstile();
     //}
-
-    /**
-     *  Обработчик экшена Открытия/Закрытия модального окна
-     */
 
     private handleCloseModal = () => {
         document.addEventListener('keydown', event => {
@@ -64,17 +46,12 @@ class ChangeColorPopup extends React.PureComponent<any> {
         this.props.togglePopupWindowBarrier();
     };
 
-    /**
-     * Открыть/Закрыть Popup
-     */
     private handleToggleMainInfo = () => {
         this.props.togglePopupWindowMainInfoBarrier();
     };
 
     public render () {
-        /**
-         * Данные из Глобального Стора
-         */
+
         const { turnstile, barrier, isFetching } = this.props.data;
 
         //if (turnstile.data.length === 0 && !isFetching) {
@@ -82,10 +59,6 @@ class ChangeColorPopup extends React.PureComponent<any> {
         //}
         //console.log(turnstile.data.page_view.model_price)
         return (
-
-        /**
-         * Компонент ChangeColorPopup
-         */
             <section className="popup-window window">
                 <div className="window__left">
                     <div className="left__image">

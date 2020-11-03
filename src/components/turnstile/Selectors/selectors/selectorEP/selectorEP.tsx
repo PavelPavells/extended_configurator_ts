@@ -1,39 +1,16 @@
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
-/**
- * Импорт зависимостей из NPM
- */
 import React from 'react';
-// @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../../../store/store';
-
-/**
- * Импорт экшенов
- */
 import {
     fetchDataTurnstile,
     //togglePopupWindowTurnstile
 } from '../../../../../actions/TurnstileActions/TurnstileActions';
-
-/**
- * Импорт стилей
- */
+import EPpopup from '../../../../popup/turnstile-popup/epPopup';
+import Loader from '../../../../../__utils__/Loader/Loader';
 import './selectorEP.scss';
 
-/**
- * Импорт Popup-окна
- */
-import EPpopup from '../../../../popup/turnstile-popup/epPopup';
-
-/**
- * Импорт Лоадера
- */
-import Loader from '../../../../../__utils__/Loader/Loader';
-
-/**
- * Интерфейс компонента SelectorBiometry
- */
 interface SelectorEPProps {
     readonly data: any,
     readonly fetchDataTurnstile: (data: any, trigger: number) => void,
@@ -46,20 +23,13 @@ interface SelectorEPState {
 }
 
 class SelectorEP extends React.PureComponent<SelectorEPProps, SelectorEPState> {
-
     state: SelectorEPState = { selectOne: 0, toggleModal: false };
-
-    /**
-     * Открыть/Закрыть модальное окно
-     */
+    
     private handleToggleModal = () => {
         //this.props.togglePopupWindowTurnstile();
         this.setState({ toggleModal: !this.state.toggleModal });
     }
 
-    /**
-    * Хэндлер для обработки запроса селектора 'EP-2000'
-    */
     private handleClickOneSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({
@@ -79,30 +49,23 @@ class SelectorEP extends React.PureComponent<SelectorEPProps, SelectorEPState> {
                 selectSix: page_view.module_selectors[5].state,
                 selectSeven: page_view.module_selectors[6].state,
                 selectEight: page_view.module_selectors[7].state,
-                //selectNine: page_view.module_selectors[8].state
+                selectNine: page_view.module_selectors[8].state
             };
             this.props.fetchDataTurnstile(data, data.trigger);
         });
     }
 
     public render () {
-        /**
-         * Данные из глобального стора
-         */
+
         const { turnstile, isFetching } = this.props.data;
-        /**
-         * Данные из локального стейта
-         */
         const { toggleModal } = this.state;
+
         if (turnstile.data.length === 0 && !isFetching) {
            return <Loader />;
         }
         
         return (
-            /**
-             * Селектор 'EP-2000'
-             */
-            <div>
+            <section>
                 {turnstile.data.page_view.module_selectors.slice(0, 1).map((index: { index: string | number | undefined; }) => (
                     <div key={index.index} className="selectors__module module">
                         <div className="module__left left">
@@ -148,7 +111,7 @@ class SelectorEP extends React.PureComponent<SelectorEPProps, SelectorEPState> {
                     </div>
                 )
                 )}
-            </div>
+            </section>
         );
     }
 }
@@ -156,6 +119,7 @@ class SelectorEP extends React.PureComponent<SelectorEPProps, SelectorEPState> {
 const mapStateToPtops = (state: ConfiguratorState) => ({
     data: state
 });
+
 export default connect(
     mapStateToPtops,
     {

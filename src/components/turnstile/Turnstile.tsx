@@ -1,25 +1,16 @@
-/**
- * Импорт зависимостей из NPM
- */
 import React, { Suspense, lazy } from 'react';
 
-/**
- * Импорт стилей
- */
 import './Turnstile.scss';
 
-/**
- * Импорт основных подмодулей
- */
-import ModuleImage from './Image/moduleImage';
-import ModuleList from './List/moduleList';
-import ModuleButtons from './Buttons/moduleButtons';
-import ModuleSelectors from './Selectors/moduleSelectors';
-// import ModuleBasket from './Basket/moduleBasket';
-import ModuleConfiguration from './Configuration/moduleConfiguration';
-import ModuleEquipment from './Equipment/moduleEquipment';
 import Loader from '../../__utils__/Loader/Loader';
-const ModuleBasket = lazy(() => import('./Basket/moduleBasket'))
+
+const ModuleBasket = lazy(() => import('./Basket/moduleBasket'));
+const ModuleImage = lazy(() => import('./Image/moduleImage'));
+const ModuleList = lazy(() => import('./List/moduleList'));
+const ModuleButtons = lazy(() => import('./Buttons/moduleButtons'));
+const ModuleSelectors = lazy(() => import('./Selectors/moduleSelectors'));
+const ModuleConfiguration = lazy(() => import('./Configuration/moduleConfiguration'));
+const ModuleEquipment = lazy(() => import('./Equipment/moduleEquipment'));
 
 const Turnstile = () => {
     return (

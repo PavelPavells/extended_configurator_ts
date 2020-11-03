@@ -1,0 +1,48 @@
+{
+	"root": true,
+	"parser": "@typescript-eslint/parser",
+	"plugins": ["@typescript-eslint"],
+	"extends": [
+		"plugin:prettier/recommended",
+		"airbnb-typescript",
+		"prettier",
+		"prettier/@typescript-eslint",
+		"prettier/react"
+	],
+	"env": {
+		"jest": true
+	},
+	"rules": {
+		// Make prettier code formatting suggestions more verbose.
+		"prettier/prettier": ["warn"],
+		// Disable <Fragment> => <> replacement. Feel free to change
+		"react/jsx-fragments": "off",
+		// Prop-types
+		"react/prop-types": "off",
+		// A11y
+		"jsx-a11y/click-events-have-key-events": "off",
+		"jsx-a11y/no-noninteractive-element-interactions": "off",
+		"jsx-a11y/no-static-element-interactions": "off",
+		"jsx-a11y/label-has-associated-control": "off",
+		"jsx-a11y/no-autofocus": "off",
+		// Props spreading
+		"react/jsx-props-no-spreading": "off",
+		// Object
+		"react/destructuring-assignment": "off",
+		// console
+		"no-console": "off",
+		// default export
+		"import/prefer-default-export": "off",
+		// ++
+		"no-plusplus": "off",
+		// param reassign
+		"no-param-reassign": "off"
+	},
+	"settings": {
+		"import/resolver": {
+			"node": {
+				"paths": ["src"]
+			}
+		}
+	}
+}

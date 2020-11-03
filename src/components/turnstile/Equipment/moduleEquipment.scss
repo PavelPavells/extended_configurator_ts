@@ -1,11 +1,5 @@
-/**
-    Импорт глобальных переменных
-*/
 @import '../../../styles/styles.scss';
 
-/**
-    Стили компонента moduleEquipment
-*/
 .equipment {
     display: flex;
     flex-direction: column;
@@ -25,9 +19,6 @@
         flex-direction: column;
         margin: 0 40px;
 
-        /**
-            Стили блоков с выбранными комплектующими
-        */
         &__block, .block {
             display: flex;
             flex-direction: column;
@@ -71,9 +62,6 @@
                     background: url('../../../images/icon/arrow-equipment.svg') no-repeat center;
                 }
 
-                /**
-                    Стили иконок при наведении/открытии/закрытии
-                */
                 &:hover {
                     .wrap__text {
                         color: $brandPantonBlue;

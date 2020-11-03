@@ -1,15 +1,9 @@
-/**
- * Импорт глобальных переменных
- */
 import {
     FETCHING_DATA_MAIN_REQUEST,
     FETCHING_DATA_MAIN_SUCCESS,
     FETCHING_DATA_MAIN_FAILURE
 } from '../../constants/Main/MainVariables';
 
-/**
- * Импорт интерфейсов
- */
 import { MainState } from '../../constants/Main/MainReducer';
 import { MainActions } from '../../constants/Main/MainConstants';
 
@@ -19,9 +13,6 @@ const initialState: MainState = {
     data: []
 };
 
-/**
- * Редьюсер Компонента Main
- */
 export default function MainReducer(state = initialState, action: MainActions): MainState {
     switch (action.type) {
         case FETCHING_DATA_MAIN_REQUEST:

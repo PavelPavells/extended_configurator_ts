@@ -1,39 +1,16 @@
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
-/**
- * Импорт зависимостей из NPM
- */
 import React from 'react';
-// @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../../../store/store';
-
-/**
- * Импорт экшенов
- */
 import {
     fetchDataTurnstile,
     //togglePopupWindowTurnstile
 } from '../../../../../actions/TurnstileActions/TurnstileActions';
-
-/**
- * Импорт стилей
- */
+import EMMarinPopup from '../../../../popup/turnstile-popup/emmarinPopup';
+import Loader from '../../../../../__utils__/Loader/Loader';
 import './selectorEMMarin.scss';
 
-/**
- * Импорт Popup-окна
- */
-import EMMarinPopup from '../../../../popup/turnstile-popup/emmarinPopup';
-
-/**
- * Импорт Лоадера
- */
-import Loader from '../../../../../__utils__/Loader/Loader';
-
-/**
- * Интерфейс компонента SelectorEMMarin
- */
 interface SelectorEMMarinProps {
     readonly data: any,
     readonly fetchDataTurnstile: (data: any, trigger: number) => void,
@@ -46,20 +23,13 @@ interface SelectorEMMarinState {
 }
 
 class SelectorEMMarin extends React.PureComponent<SelectorEMMarinProps, SelectorEMMarinState> {
-
     state: SelectorEMMarinState = { selectTwo: 0, toggleModal: false };
 
-    /**
-     * Открыть/Закрыть модальное окно
-     */
     private handleToggleModal = () => {
         //this.props.togglePopupWindowTurnstile();
         this.setState({ toggleModal: !this.state.toggleModal })
     }
 
-    /**
-    * Хэндлер для обработки запроса селектора 'EMMarin'
-    */
     private handleClickTwoSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({
@@ -79,27 +49,23 @@ class SelectorEMMarin extends React.PureComponent<SelectorEMMarinProps, Selector
                 selectSix: page_view.module_selectors[5].state,
                 selectSeven: page_view.module_selectors[6].state,
                 selectEight: page_view.module_selectors[7].state,
-                //selectNine: page_view.module_selectors[8].state
+                selectNine: page_view.module_selectors[8].state
             };
             this.props.fetchDataTurnstile(data, data.trigger);
         });
     }
 
     public render () {
-        /**
-         * Данные из глобального стора
-         */
+
         const { turnstile, isFetching } = this.props.data;
         const { toggleModal } = this.state;
+
         if (turnstile.data.length === 0 && !isFetching) {
            return <Loader />;
         }
 
         return (
-            /**
-             * Селектор 'EMMarin'
-             */
-            <div>
+            <section>
                 {turnstile.data.page_view.module_selectors.slice(1, 2).map((index: { index: string | number | undefined; }) => (
                     <div key={index.index} className="selectors__module module">
                         <div className="module__left left">
@@ -153,7 +119,7 @@ class SelectorEMMarin extends React.PureComponent<SelectorEMMarinProps, Selector
                     </div>
                 )
                 )}
-            </div>
+            </section>
         );
     }
 }
@@ -161,6 +127,7 @@ class SelectorEMMarin extends React.PureComponent<SelectorEMMarinProps, Selector
 const mapStateToProps = (state: ConfiguratorState) => ({
     data: state
 });
+
 export default connect(
     mapStateToProps,
     {

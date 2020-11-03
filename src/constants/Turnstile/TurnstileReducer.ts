@@ -1,6 +1,3 @@
-/**
- * *********************** Интерфейсы стейта Компонента Турникеты ***********************
- */
 export interface TurnstileState {
     isFetching: boolean,
     errorMessage: string,
@@ -8,4 +5,4 @@ export interface TurnstileState {
     info: boolean
     data: any,
     trigger: number
- }
+}

@@ -1,9 +1,6 @@
 import { FETCHING_DATA_MAIN_REQUEST, FETCHING_DATA_MAIN_SUCCESS, FETCHING_DATA_MAIN_FAILURE } from './MainVariables';
 
-/**
- * *********************** Интерфейсы Компонента Main ***********************
- */
- interface MainRequest {
+interface MainRequest {
     type: typeof FETCHING_DATA_MAIN_REQUEST
  }
  

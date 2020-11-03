@@ -1,26 +1,11 @@
-/**
- * Импорт зависимостей из NPM
- */
 import React from 'react';
 import { Link } from 'react-router-dom';
-// @ts-ignore
 import { useSelector, shallowEqual } from 'react-redux';
 import { ConfiguratorState } from '../../../store/store';
-
-/**
- * Импорт экшенов
- */
 // import { fetchDataTurnstile } from '../../../actions/dataTurnstileActions';
-
-/**
- * Импорт стилей
- */
-import './moduleBasket.scss';
-
-/**
- * Импорт прелоадера
- */
 import Loader from '../../../__utils__/Loader/Loader';
+
+import './moduleBasket.scss';
 
 const ModuleBasket = () => {
 

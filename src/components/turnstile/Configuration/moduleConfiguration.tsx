@@ -1,49 +1,24 @@
 /* eslint-disable max-len */
-/**
- * Импорт зависимостей из NPM
- */
 import React from 'react';
-// @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../store/store';
-
-/**
- * Импорт экшенов
- */
 import { fetchDataTurnstile } from '../../../actions/TurnstileActions/TurnstileActions';
-
-/**
- * Импорт стилей
- */
-import './moduleConfiguration.scss';
-
-/**
- * Импорт прелоадера
- */
 import Loader from '../../../__utils__/Loader/Loader';
 
-/**
- * Интерфейс компонента ModuleConfiguration
- */
+import './moduleConfiguration.scss';
+
 interface ModuleConfigurationProps {
     readonly data: any,
     readonly fetchDataTurnstile: () => void,
 }
 
 class ModuleConfiguration extends React.PureComponent<ModuleConfigurationProps> {
-
-    /**
-     *
-     */
     private handleMinusOptions = () => {
         //const { page_view } = this.props.data.turnstile.data;
         //console.log(page_view);
         // some code
     }
 
-    /**
-     *
-     */
     private handlePlusOptions = () => {
         //const { page_view } = this.props.data.turnstile.data;
         //console.log(page_view);
@@ -51,33 +26,19 @@ class ModuleConfiguration extends React.PureComponent<ModuleConfigurationProps> 
     }
 
     public render () {
-        /**
-        * Данные из Глобального Стора
-        */
+
         const { turnstile, isFetching } = this.props.data;
 
         if (turnstile.data.length === 0 && !isFetching) {
             return <Loader />;
         }
         return (
-
-            /**
-             *  Модуль Конфигурация
-             */
             <section className="configuration">
                 <div className="configuration__options options">
-
-                    {/**
-                        * Количество
-                     */}
                     <div className="options__amount amount">
                         <p className="amount__text">Количество:</p>
                         <span className="amount__value">{turnstile.data.page_view.model_module_list.length}</span>
                     </div>
-
-                    {/**
-                        * Добавить/Удалить Количетсво
-                     */}
                     <div className="options__more more">
                         <div onClick={this.handleMinusOptions} className="more__minus" />
                         <div onClick={this.handlePlusOptions} className="more__plus" />
@@ -87,10 +48,6 @@ class ModuleConfiguration extends React.PureComponent<ModuleConfigurationProps> 
                         <span className="summ__value">{turnstile.data.page_view.model_price}</span>
                     </div>
                 </div>
-
-                {/**
-                    * Кнопка добавления конфигурации
-                */}
                 <div className="configuration__button button">
                     <div className="button__icon" />
                     <div className="button__text">ДОБАВИТЬ ЭТУ КОНФИГУРАЦИЮ</div>

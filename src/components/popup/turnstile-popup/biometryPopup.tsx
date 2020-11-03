@@ -1,40 +1,18 @@
 /* eslint-disable max-len */
-/**
- * Импорт зависимостей из NPM
- */
 import React from 'react';
-// @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../store/store';
-
-/**
- * Импорт экшенов
- */
 import { fetchDataPopupTurnstile } from '../../../actions/PopupActions/TurnstilePopup/PopupActions';
 import {
     togglePopupWindowTurnstile,
     togglePopupWindowMainInfoTurnstile
 } from '../../../actions/TurnstileActions/TurnstileActions';
-
-/**
- * Импорт прелоадера
- */
 //import Loader from "../../__utils__/Loader/Loader";
-
-/**
- * Импорт фото
- */
 //import photo from "../../../images/str-compact1.png";
 import logo from '../../../images/icon/biometric.svg'
 
-/**
- * Импорт стилей
- */
 import '../popup.scss';
 
-/**
- * Интерфейс компонента BiometryPopup
- */
 interface BiometryPopupProps {
     readonly data: any,
     readonly handleCloseModal: () => void,
@@ -46,10 +24,6 @@ interface BiometryPopupProps {
 }
 
 class BiometryPopup extends React.PureComponent<any> {
-
-    /**
-     * Запрос данных
-     */
     componentDidMount () {
         const { page_view } = this.props.data.turnstile.data;
         let data = {
@@ -70,36 +44,21 @@ class BiometryPopup extends React.PureComponent<any> {
         };
         this.props.fetchDataPopupTurnstile(data, data.trigger);
     }
-
-    /**
-     *  Обработчик экшена Открытия/Закрытия модального окна
-     */
     private handleCloseModal = () => {
-
-        /**
-         *  Функция тогглинга всплывающего окна из компонента selectorEP
-         */
         this.props.handleToggleModal();
     };
 
-    /**
-     * Обработчик клика выбора опции из всплывающего окна
-     */
     private handleAddOption = () => {
         this.props.handleClickFourSelect();
         this.handleCloseModal();
-    }
-    /**
-     * Открыть/Закрыть Popup
-     */
+    };
+
     private handleToggleMainInfo = () => {
         this.props.togglePopupWindowMainInfoTurnstile();
     };
 
     public render () {
-        /**
-         * Данные из Глобального Стора
-         */
+
         const { turnstile, popup, isFetching } = this.props.data;
 
         if (popup.data.length === 0 && !isFetching) {
@@ -107,10 +66,6 @@ class BiometryPopup extends React.PureComponent<any> {
         }
 
         return (
-
-        /**
-         * Компонент Popup
-         */
             <section className="popup-window window">
                 <div className="window__left">
                     <div className="left__image">
