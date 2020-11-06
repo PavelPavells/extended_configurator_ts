@@ -1,16 +1,28 @@
-/**
-    Импорт глобальных переменных
-*/
 @import '../../../styles/styles.scss';
 
-/**
-    Стили компонента moduleList
-*/
 .list {
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-top: 40px;
+
+    &__helper {
+        margin: 20px 0;
+        font-size: 14px;
+        color: $brandPantonBlue;
+        font-family: $font-light;
+
+        .quest {
+            padding: 3px 7px;
+            margin-right: 5px;
+            border-radius: 20px;
+            background-color: $brandPantonBlue;
+            color: $white;    
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
 
     &__description {
         font-size: 12px;
