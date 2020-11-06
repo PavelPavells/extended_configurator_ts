@@ -1,0 +1,46 @@
+@import '../../../styles/styles.scss';
+
+.helper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: absolute;
+    overflow: scroll;
+    margin: auto;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 900px;
+    max-height: 540px;
+    background-color: $white;
+    z-index: 10000;
+    box-shadow: 0 2px 30px 0 rgba(0,0,0,.3);
+    border-radius: 5px;
+
+    .helper__tab {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        width: 100%;
+        padding: 10px 0;
+        background-color: $white;
+        border-bottom: 1px solid $brandPantonHover;
+        font-family: $font-light;                    /** FONT FACE FOR NEW SITE */
+        z-index: 10000;
+
+        .tab {
+            margin-left: 30px;
+            font-size: 16px;
+            color: $brandPantonBlack;
+            border-bottom: 2px solid transparent;
+        }
+
+    }
+}
+
+.open__tab {
+    border-bottom: 2px solid $brandPantonBlue!important;
+}
