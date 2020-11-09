@@ -22,8 +22,8 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        position: sticky;
-        top: 0;
+        // position: sticky;
+        // top: 0;
         width: 100%;
         padding: 10px 0;
         background-color: $white;
@@ -36,8 +36,135 @@
             font-size: 16px;
             color: $brandPantonBlack;
             border-bottom: 2px solid transparent;
+
+            &:hover {
+                cursor: pointer;
+            }
         }
 
+        .tab__close {
+            width: 10px;
+            height: 10px;
+            padding: 10px;
+            margin-right: 15px;
+            border: 1px solid $brandPantonBlue;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+    }
+
+    .helper__info {
+        font-size: 14px;
+        font-family: $font-light;
+        color: $brandPantonBlack;
+
+        .text {
+            display: block;
+            overflow: scroll;
+            padding: 0 15px;
+            height: 430px;
+
+            .text__strong {
+                display: flex;
+                justify-content: center;
+                padding-top: 10px;
+            }
+
+            li {
+                margin-bottom: 10px;
+            }
+        }
+
+        .video {
+            display: flex;
+            width: 100%;
+
+            video {
+                width: 900px;
+                height: 430px;
+                outline: none;
+            }
+        }
+    }
+
+    .helper__footer {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex: 1;
+        width: 100%;
+        border-top: 1px solid $brandPantonGrey;
+
+        .onoffswitch10 {
+            position: relative; min-width: 36px;
+            -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+        .onoffswitch10-checkbox {
+            display: none;
+        }
+        .onoffswitch10-label {
+            display: block; overflow: hidden; cursor: pointer;
+            border-radius: 15.5px;
+        }
+        .onoffswitch10-inner {
+            display: block; width: 200%; margin-left: -100%;
+            -webkit-transition: margin 0.1s ease-in 0s;
+            -o-transition: margin 0.1s ease-in 0s;
+            transition: margin 0.1s ease-in 0s;
+        }
+        .onoffswitch10-inner:before, .onoffswitch10-inner:after {
+            display: block; float: left; width: 50%; height: 20px; padding: 0; line-height: 30px;
+            font-size: 10px; color: $white; font-family: 'Gotham Pro'; font-weight: bold;
+            -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+        }
+        .onoffswitch10-inner:before {
+        content: "";
+            padding-left: 7px;
+            background-color: $brandPantonBlue; 
+            color: $white;
+        }
+        .onoffswitch10-inner:after {
+        content: "";
+            padding-right: 7px;
+            background-color: $brandPantonGrey; 
+            color: $white;
+            text-align: right;
+        }
+        .onoffswitch10-switch {
+            display: block; 
+            width: 16px; 
+            margin: 2px;
+            background: $white;
+            position: absolute; 
+            top: 0; 
+            bottom: 0;
+            right: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.1); 
+            border-radius: 13px;
+            -webkit-transition: all 0.1s ease-in 0s;
+            -o-transition: all 0.1s ease-in 0s;
+            transition: all 0.1s ease-in 0s;
+        &:hover {
+            border: 1px solid $brandPantonBlue;
+        } 
+        }
+        .onoffswitch10-checkbox:checked + .onoffswitch10-label .onoffswitch10-inner {
+            margin-left: 0;
+        }
+        .onoffswitch10-checkbox:checked + .onoffswitch10-label .onoffswitch10-switch {
+            right: 0px; 
+        }
+        .footer__text {
+            font-size: 12px;
+            font-family: $font-light;
+            color: $brandPantonBlack;
+        }
     }
 }
 

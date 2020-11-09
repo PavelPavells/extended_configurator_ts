@@ -1,11 +1,5 @@
-/**
-    Импорт глобальных переменных
-*/
 @import '../../../styles/styles.scss';
 
-/**
-    Стили компонента moduleConfiguration
-*/
 .configuration {
     display: flex;
     justify-content: space-between;
@@ -22,9 +16,6 @@
         width: 45%;
         min-width: 450px;
 
-        /**
-            Количество
-        */
         &__amount, .amount {
             display: flex;
             align-items: center;
@@ -47,9 +38,6 @@
             }
         }
 
-        /**
-            Удалить/Добавить количество
-        */
         &__more, .more {
             display: flex;
             align-items: center;
@@ -103,9 +91,6 @@
         }
     }
 
-    /**
-        Кнопка добавить конфигурацию
-    */
     &__button, .button {
         display: flex;
         justify-content: center;

@@ -1,11 +1,5 @@
-/**
-    Импорт глобальных переменных
-*/
 @import '../../../styles/styles.scss';
 
-/**
-    Стили копонента moduleBasket
-*/
 .buttons {
     display: flex;
     flex-direction: column;
@@ -15,10 +9,7 @@
         display: flex;
         flex-direction: column;
         width: 100%;
-    
-        /**
-            Описание
-        */
+
         &__captions, .captions {
             display: flex;
             flex-direction: row;
@@ -65,10 +56,7 @@
                 font-family: $font-regular;
                 color: $brandPantonText;
             }
-    
-            /**
-                Серия
-            */
+
             &__seria, .seria {
                 display: flex;
                 flex-direction: row;
@@ -99,9 +87,6 @@
                     }
                 }
 
-                /**
-                 * Стили для динамической отрисовки выбранных кнопок
-                 */
                 .open {
                     border: 2px solid $brandPantonBlue;
                     color: $brandPantonBlue;
@@ -143,10 +128,7 @@
                 color: $brandPantonBlue;
             }
         }
-    
-        /**
-            Опции
-        */
+
         &__options, .options {
             display: flex;
             justify-content: flex-end;
@@ -188,10 +170,7 @@
         flex-direction: column;
         width: 100%;
         font-family: $font-light;
-    
-        /**
-            Исполнение
-        */
+
         &__execution {
             font-size: 12px;
             line-height: 1.5;
@@ -238,9 +217,6 @@
             }
         }
 
-        /**
-         * Стили для динамической отрисовки выбранных кнопок
-         */
         .open {
             border: 2px solid $brandPantonBlue;
             color: $brandPantonBlue;

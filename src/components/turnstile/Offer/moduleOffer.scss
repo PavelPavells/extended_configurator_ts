@@ -1,11 +1,5 @@
-/**
-    Импорт глобальных переменных
-*/
 @import '../../../styles/styles.scss';
 
-/**
-    Стили компонента Offer
-*/
 .offer {
     display: flex;
     flex-direction: column;
@@ -14,9 +8,6 @@
     background-color: #fafafa;
     font-family: $font-regular;                /* Удалить и применить шрифты к каждому текстам и блокам */
 
-    /**
-        Описание
-    */
     &__description, .description {
         display: flex;
         justify-content: space-between;
@@ -91,9 +82,6 @@
         }
     }
 
-    /**
-        Основной блок предложения
-    */
     &__goods, .goods {
         display: flex;
         flex-direction: column;
@@ -328,9 +316,6 @@
 
         }
 
-        /**
-            Стили всплывающего окна
-        */
         .offer-popup {
             width: 100%;
         }
@@ -442,9 +427,6 @@
         }
     }
 
-    /**
-        Кнопка скачать предложение
-    */
     &__price, .price {
         display: flex;
         justify-content: space-between;
