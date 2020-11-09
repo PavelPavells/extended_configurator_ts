@@ -1,11 +1,5 @@
-/**
-    Импорт глобальных переменных
-*/
 @import '../../../../../styles/styles.scss';
 
-/**
-    Стили компонента selectorInfoTime
-*/
 .selectors__module, .module {
     display: flex;
     flex-direction: row;
@@ -80,9 +74,6 @@
 
 }
 
-/**
-    Стили иконок компонента selectorInfoTime
-*/
 .time {
     display: block;
     min-width: 30px;
@@ -97,10 +88,7 @@
 .none {
     opacity: 0.5;
 }
-  
-/**
-    Стили переключателя selectorInfoTime
-*/
+
 .onoffswitch5 {
     position: relative; min-width: 50px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;

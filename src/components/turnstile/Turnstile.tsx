@@ -16,9 +16,11 @@ const Turnstile = () => {
     return (
         <Suspense fallback={<Loader />}>
             <section className="turnstile">
+                {/* 
                 <div className="turnstile__basket">
                     <ModuleBasket />
                 </div>
+                */}
                 <div className="turnstile__primary primary">
                     <div className="primary__slider slider">
                         <div className="slider__image">
@@ -37,12 +39,14 @@ const Turnstile = () => {
                         </div>
                     </div>
                 </div>
+                {/*
                 <div className="turnstile__configuration">
                     <ModuleConfiguration />
                 </div>
                 <div className="turnstile__equipment">
                     <ModuleEquipment />
                 </div>
+                */}
             </section>
         </Suspense>
 

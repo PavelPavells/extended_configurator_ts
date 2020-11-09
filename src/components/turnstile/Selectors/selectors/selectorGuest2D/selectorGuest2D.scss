@@ -1,11 +1,5 @@
-/**
-    Импорт глобальных переменных
-*/
 @import '../../../../../styles/styles.scss';
 
-/**
-    Стили компонента selectorGuest2D
-*/
 .selectors__module, .module {
     display: flex;
     flex-direction: row;
@@ -80,9 +74,6 @@
 
 }
 
-/**
-    Стили иконок компонента selectorGuest2D
-*/
 .guest-access {
     display: block;
     min-width: 30px;
@@ -98,9 +89,6 @@
     opacity: 0.5;
 }
 
-/**
-    Стили переключателя selectorGuest2D
-*/
 .onoffswitch7 {
     position: relative; min-width: 50px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
