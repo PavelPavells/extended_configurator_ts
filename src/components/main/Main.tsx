@@ -20,29 +20,29 @@ const Main = () => {
     if (!isFetching && data.length !== 0) {
         return (
             <section className="main">
-                <p className="main-header">
+                <p className="main__header">
                     {data.page_view.caption}
                 </p>
-                <p className="main-description">
+                <p className="main__description">
                     Выберите необходимую категорию оборудования
                 </p>
 
-                <div className="main-blocks">
+                <div className="main__blocks">
                     {data.page_view.device_buttons.map((index: any) => {
                         return (
-                            <NavLink key={index.index} to={index.index === 0 ? '/barrier' : '/turnstile'} className="main-block">
-                                <div className="main-block__image">
+                            <NavLink key={index.index} to={index.index === 0 ? '/barrier' : '/turnstile'} className="block">
+                                <div className="block__image">
                                     <img
                                         // eslint-disable-next-line camelcase
                                         src={`${GlobalSetup}${index.image_source}`}
                                         alt=""
                                     />
                                 </div>
-                                <div className="main-block__text">
-                                    <p className="main-block__text-header">
+                                <div className="block__text">
+                                    <p className="text__header">
                                         {index.caption}
                                     </p>
-                                    <p className="main-block__text-description">
+                                    <p className="text__description">
                                         Шлагбаумы и оборудование контроля проезда CARDDEX позволяют сформировать гибкие системы допуска,
                                         учета и контроля проезда автотранспортных средств с развитой инфраструктурой
                                     </p>

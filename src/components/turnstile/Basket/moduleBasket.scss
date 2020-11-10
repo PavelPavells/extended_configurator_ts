@@ -6,7 +6,7 @@
     width: 100%;
     border-bottom: 1px solid $brandPantonHover;
 
-    &__description {
+    .basket__description {
         margin: 0;
         font-size: 26px;
         line-height: 1.27;
@@ -15,7 +15,7 @@
         padding: 23px 0 24px 40px;
     }
 
-    &__data, .data {
+    .basket__data {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
@@ -23,14 +23,14 @@
         border-radius: 10px;
         text-decoration: none;
 
-        &__wrapper, .wrapper {
+        .data__wrapper {
             display: flex;
             flex-direction: column;
             width: 10em;
             margin-right: 20px;
             text-decoration: none;
 
-            &__info, .info {
+            .wrapper__info {
                 display: flex;
                 align-items: center;
                 font-size: 15px;
@@ -38,14 +38,14 @@
                 line-height: 1;
                 color: $brandPantonText;
     
-                &__text {
+                .info__text {
                     display: flex;
                     flex-direction: column;
                     font-family: $font-light;
                     width: 100%;
                 }
     
-                &__count {
+                .info__count {
                     display: flex;
                     flex-direction: column;
                     width: 100%;

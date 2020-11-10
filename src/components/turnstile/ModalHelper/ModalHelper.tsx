@@ -29,15 +29,16 @@ const ModalHelper: React.FC<ModalHelper> = ({ handleCloseModalInfo, handleSetVal
     return (
         <section className="helper">
             <div className="helper__tab">
-                <div onClick={handleOpenModalInfo} className={openModalInfo ? "tab open__tab" : "tab"}>Справка</div>
-                <div onClick={handleOpenModalVideo} className={openModalVideo ? "tab open__tab" : "tab" }>Видеоинструкция</div>
+                <div className="tab__togglers">
+                    <div onClick={handleOpenModalInfo} className={openModalInfo ? "tab open__tab" : "tab"}>Справка</div>
+                    <div onClick={handleOpenModalVideo} className={openModalVideo ? "tab open__tab" : "tab" }>Видеоинструкция</div>
+                </div>
                 <div onClick={handleCloseModalInfo} className="tab__close"></div>
             </div>
             <div className="helper__info">
                 {openModalInfo ?
                     (
-                        <div className="text">  
-                            <strong className="text__strong">Инструкция для Конфигуратора</strong><br/>
+                        <div className="text">
                             <p>Выбор между сериями оборудования, типом корпуса и модулями осуществляется с помощью переключателей-тумблеров.</p>
                             <li>Определите нужный для себя функционал турникета и выберите серию - бюджетный STR c возможностью реализации механической «Антипаники» или эстетичный STX c автоматической «Антипаникой».</li>
                             <li>Вариант исполнения корпуса. Выберите компактный или тумбовый.</li>

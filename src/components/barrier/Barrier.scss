@@ -1,40 +1,28 @@
-/**
-    Импорт глобальных переменных
-*/
 @import '../../styles/styles.scss';
 
-/**
-    Стили компонента Barrier
-*/
 .barrier {
     display: flex;
     flex-direction: column;
-    border: 1px solid $brandPantonRed;
 
-    /**
-        Обертка компонента Basket
-    */
-    &__basket {
-       width: 100%;
-    }
+    // .barrier__basket {
+    //    width: 100%;
+    // }
 
-    &__primary, .primary {
+    .barrier__primary {
         display: flex;
         width: 100%;
+        height: 95.5vh;
         padding-top: 40px;
         background-color: #fafafa;
     
-        &__slider, .slider {
+        .primary__slider {
             display: flex;
             flex-direction: column;
             height: 100%;
             width: 45%;
             margin: 0 40px;
 
-            /**
-                Обертка компонента Image
-            */
-            &__image {
+            .slider__image {
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -43,58 +31,43 @@
                 background-color: $brandPantonGrey;
             }
 
-            /**
-                Обертка компонента List
-            */
-            &__list {
+            .slider__list {
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
             }
         }
 
-        &__basis, .basis {
+        .primary__basis {
             display: flex;
             flex-direction: column;
             width: 100%;
             margin-right: 40px;
 
-            /**
-                Обертка компонента Buttons
-            */
-            &__buttons {
+            .basis__buttons {
                 display: flex;
                 justify-content: center;
                 align-items: center;
             }
 
-            /**
-                обертка компонента Selectors
-            */
-            &__selectors {
+            .basis__selectors {
                 display: flex;
                 height: 50vh;
             }
         }
     }
 
-    /**
-        Обертка компонента Configuration
-    */
-    &__configuration {
-        display: flex;
-        padding-top: 40px;
-        padding-bottom: 40px;
-        background-color:#fafafa;
-    }
+    // &__configuration {
+    //     display: flex;
+    //     padding-top: 40px;
+    //     padding-bottom: 40px;
+    //     background-color:#fafafa;
+    // }
 
-    /**
-        Обертка компонента Equipment
-    */
-    &__equipment {
-        display: flex;
-        width: 100%;
-        padding-bottom: 40px;
-        background-color: $white;
-    }
+    // &__equipment {
+    //     display: flex;
+    //     width: 100%;
+    //     padding-bottom: 40px;
+    //     background-color: $white;
+    // }
 }
