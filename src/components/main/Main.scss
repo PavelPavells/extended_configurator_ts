@@ -1,11 +1,5 @@
-/**
-    Импорт глобальных переменных
-*/
 @import '../../styles/styles.scss';
 
-/**
-    Стили компонента Main
-*/
 .main {
     display: flex;
     flex-direction: column;
@@ -15,72 +9,69 @@
     height: 100%;
     font-family: $font-light;
 
-    &-header {
+    .main__header {
         width: 100%;
         font-size: 36px;
         color: $brandPantonText;
     }
 
-    &-description {
+    .main__description {
         width: 100%;
         font-size: 24px;
         margin-top: 6vh;
         color: $brandPantonText;
     }
 
-    &-blocks {
+    .main__blocks {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         width: 100%;
-    }
-
-    /**
-        Стили основных блоков Турникеты и Шлагбаумы компонента Main
-    */
-    &-block {
-        display: flex;
-        justify-content: space-between;
-        height: 45vh;
-        width: 49%;
-        box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.09);
-        border-radius: 0px 14px;
-
-        &__image {
+    
+        .block {
             display: flex;
-            justify-content: center;
-            align-items: center;
-
-            & > img {
-                max-width: 100%;
-                max-height: 100%;
-                background-size: contain;
-            }
-        }
-
-        &__text {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            width: 50%;
-            padding: 0 29px;
-            font-size: 14px;
-            border-radius: 0 14px 0 0;
+            justify-content: space-between;
+            height: 45vh;
+            width: 49%;
             box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.09);
-            background-color: $brandPantonGrey;
-
-            &-header {
-                font-size: 24px;
-                line-height: 120%;
+            border-radius: 0px 14px;
+    
+            .block__image {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+    
+                & > img {
+                    max-width: 100%;
+                    max-height: 100%;
+                    background-size: contain;
+                }
             }
-            &-description {
-                line-height: 130%;
-            }
-            &:hover {
-                color: #FFFFFF;
-                background-color: $brandPantonText;
-                transition: all .2s ease-in-out;
+    
+            .block__text {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                width: 50%;
+                padding: 0 29px;
+                font-size: 14px;
+                border-radius: 0 14px 0 0;
+                box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.09);
+                background-color: $brandPantonGrey;
+    
+                .text__header {
+                    font-size: 24px;
+                    line-height: 120%;
+                }
+                .text__description {
+                    line-height: 130%;
+                }
+                &:hover {
+                    color: #FFFFFF;
+                    background-color: $brandPantonText;
+                    transition: all .2s ease-in-out;
+                }
             }
         }
     }

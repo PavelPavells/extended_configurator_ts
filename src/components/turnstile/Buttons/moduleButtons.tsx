@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-/* eslint-disable camelcase */
 import React from 'react';
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../store/store';
@@ -154,33 +152,33 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
         }
         return (
             <section className="buttons">
-                <div className="buttons__top top">
-                    <div className="top__captions captions">
-                        <div className="captions__model">Модель</div>
-                        <div className="captions__seria">Серия</div>
-                        <div className="captions__summ">Итоговая стоимость</div>
+                <div className="buttons__top">
+                    <div className="top__captions">
+                        <div className="captions">Модель</div>
+                        <div className="captions">Серия</div>
+                        <div className="captions">Итоговая стоимость</div>
                     </div>
-                    <div className="top__select select">
+                    <div className="top__select">
                         <div className="select__model">{turnstile.data.page_view.model_name}</div>
-                        <div className="select__seria seria">
+                        <div className="select__seria">
                             {turnstile.data.page_view.btn_seria === 0 ?
-                                <div onClick={this.handleClickSeriaSTR} className="seria__str open">STR</div>
+                                <div onClick={this.handleClickSeriaSTR} className="seria open">STR</div>
                                 :
-                                <div onClick={this.handleClickSeriaSTR} className="seria__str">STR</div> 
+                                <div onClick={this.handleClickSeriaSTR} className="seria">STR</div> 
                             }
 
                             {turnstile.data.page_view.btn_seria === 1 ?
-                                <div onClick={this.handleClickSeriaSTX} className="seria__stx open">STX</div>
+                                <div onClick={this.handleClickSeriaSTX} className="seria open">STX</div>
                                 :
-                                <div onClick={this.handleClickSeriaSTX} className="seria__stx">STX</div>
+                                <div onClick={this.handleClickSeriaSTX} className="seria">STX</div>
                             }
                         </div>
                         <div className="select__price">{turnstile.data.page_view.model_price}</div>
                     </div>
-                    <div className="top__info info">
+                    <div className="top__info">
                         <a
                             href={turnstile.data.page_view.download_broshure_button_link}
-                            className="info__docs"
+                            className="link"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -188,7 +186,7 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
                         </a>
                         <a
                             href={turnstile.data.page_view.model_base_model}
-                            className="info__base"
+                            className="link"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -196,7 +194,7 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
                             БАЗОВАЯ МОДЕЛЬ {/*{turnstile.data.page_view.model_module_list.length - 1 ? '(' + turnstile.data.page_view.model_module_list[0].price + ')' : null}*/}
                         </a>
                     </div>
-                    <div className="top__options options">
+                    <div className="top__options">
                         <div className="options__value">
                             {/*{turnstile.data.page_view.model_module_list.length - 1 === 1 ? String('+') + (turnstile.data.page_view.model_module_list.length - 1) + ' ОПЦИЯ' : null}
                             {turnstile.data.page_view.model_module_list.length - 1 > 1 ? String('+') + (turnstile.data.page_view.model_module_list.length - 1) + ' ОПЦИИ' : null}
@@ -206,18 +204,18 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
                         <div onClick={this.handleClickResetSelectors} className="options__reset">СБРОСИТЬ</div>
                     </div>
                 </div>
-                <div className="buttons__bottom bottom">
-                    <div className="bottom__execution">Исполнение</div>
-                    <div className="bottom__buttons buttons">
+                <div className="buttons__bottom">
+                    <div className="captions">Исполнение</div>
+                    <div className="bottom__buttons">
                         {turnstile.data.page_view.btn_corpse === 0 ?
-                            <div onClick={this.handleClickExecutionCompact} className="buttons__compact open">Компактный</div>
+                            <div onClick={this.handleClickExecutionCompact} className="execution open">Компактный</div>
                             :
-                            <div onClick={this.handleClickExecutionCompact} className="buttons__compact">Компактный</div>
+                            <div onClick={this.handleClickExecutionCompact} className="execution">Компактный</div>
                         }
                         {turnstile.data.page_view.btn_corpse === 1 ?
-                            <div onClick={this.handleClickExecutionThumb} className="buttons__thumb open">Тумбовый</div>
+                            <div onClick={this.handleClickExecutionThumb} className="execution open">Тумбовый</div>
                             :
-                            <div onClick={this.handleClickExecutionThumb} className="buttons__thumb">Тумбовый</div>
+                            <div onClick={this.handleClickExecutionThumb} className="execution">Тумбовый</div>
                         }
                     </div>
                 </div>

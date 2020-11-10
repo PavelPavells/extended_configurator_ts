@@ -4,25 +4,25 @@
     display: flex;
     flex-direction: column;
 
-    &__basket {
-       width: 100%;
-    }
+    // &__basket {
+    //    width: 100%;
+    // }
 
-    &__primary, .primary {
+    .turnstile__primary {
         display: flex;
         width: 100%;
-        height: 100vh;
+        height: 95.5vh;
         padding-top: 40px;
         background-color: #fafafa;
     
-        &__slider, .slider {
+        .primary__slider {
             display: flex;
             flex-direction: column;
             height: 100%;
             width: 45%;
             margin: 0 40px;
 
-            &__image {
+            .slider__image {
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -31,43 +31,44 @@
                 background-color: $brandPantonHover;
             }
 
-            &__list {
+            .slider__list {
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
             }
         }
 
-        &__basis, .basis {
+        .primary__basis {
             display: flex;
             flex-direction: column;
             width: 100%;
             margin-right: 40px;
 
-            &__buttons {
+            .basis__buttons {
                 display: flex;
                 justify-content: center;
                 align-items: center;
             }
 
-            &__selectors {
+            .basis__selectors {
                 display: flex;
                 height: 50vh;
+                overflow: scroll;
             }
         }
     }
 
-    &__configuration {
-        display: flex;
-        padding-top: 40px;
-        padding-bottom: 40px;
-        background-color:#fafafa;
-    }
+    // &__configuration {
+    //     display: flex;
+    //     padding-top: 40px;
+    //     padding-bottom: 40px;
+    //     background-color:#fafafa;
+    // }
 
-    &__equipment {
-        display: flex;
-        width: 100%;
-        padding-bottom: 40px;
-        background-color: $white;
-    }
+    // &__equipment {
+    //     display: flex;
+    //     width: 100%;
+    //     padding-bottom: 40px;
+    //     background-color: $white;
+    // }
 }

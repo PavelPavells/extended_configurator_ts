@@ -15,13 +15,13 @@ const ModuleBasket = () => {
         return (
             <section className="basket">
                 <p className="basket__description">Конфигуратор</p>
-                <Link to='/turnstile/offer' className="basket__data data">
-                    <div className="data__wrapper wrapper">
-                        <div className="wrapper__info info">
+                <Link to='/turnstile/offer' className="basket__data">
+                    <div className="data__wrapper">
+                        <div className="wrapper__info">
                             <div className="info__text">Товаров:</div>
                             <div className="info__count">0</div>
                         </div>
-                        <div className="wrapper__info info">
+                        <div className="wrapper__info">
                             <div className="info__text">На сумму:</div>
                             <div className="info__count">0</div>
                         </div>

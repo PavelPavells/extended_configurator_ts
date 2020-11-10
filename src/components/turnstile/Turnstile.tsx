@@ -4,13 +4,13 @@ import './Turnstile.scss';
 
 import Loader from '../../__utils__/Loader/Loader';
 
-const ModuleBasket = lazy(() => import('./Basket/moduleBasket'));
+// const ModuleBasket = lazy(() => import('./Basket/moduleBasket'));
 const ModuleImage = lazy(() => import('./Image/moduleImage'));
 const ModuleList = lazy(() => import('./List/moduleList'));
 const ModuleButtons = lazy(() => import('./Buttons/moduleButtons'));
 const ModuleSelectors = lazy(() => import('./Selectors/moduleSelectors'));
-const ModuleConfiguration = lazy(() => import('./Configuration/moduleConfiguration'));
-const ModuleEquipment = lazy(() => import('./Equipment/moduleEquipment'));
+// const ModuleConfiguration = lazy(() => import('./Configuration/moduleConfiguration'));
+// const ModuleEquipment = lazy(() => import('./Equipment/moduleEquipment'));
 
 const Turnstile = () => {
     return (
@@ -21,8 +21,8 @@ const Turnstile = () => {
                     <ModuleBasket />
                 </div>
                 */}
-                <div className="turnstile__primary primary">
-                    <div className="primary__slider slider">
+                <div className="turnstile__primary">
+                    <div className="primary__slider">
                         <div className="slider__image">
                             <ModuleImage />
                         </div>
@@ -30,7 +30,7 @@ const Turnstile = () => {
                             <ModuleList />
                         </div>
                     </div>
-                    <div className="priamry__basis basis">
+                    <div className="primary__basis">
                         <div className="basis__buttons">
                             <ModuleButtons />
                         </div>
