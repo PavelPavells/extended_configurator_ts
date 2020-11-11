@@ -1,15 +1,11 @@
 @import '../../../styles/styles.scss';
 
 .image {
-    display: flex;
     width: 350px;
     height: 500px;
     padding: 25px;
 
-    &__turnstile {
+    .image__turnstile {
         display: flex;
-        width: 100%;
-        height: 100%;
-        background-size: contain;
     }
 }

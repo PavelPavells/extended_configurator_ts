@@ -129,3 +129,19 @@
 	font-weight: 500;
 	font-style: italic;
 }
+
+@font-face {
+	font-family: 'Roboto Light';
+	src: url('Roboto-Light.ttf');
+	src: local('Roboto-Light'), local('Roboto-Light'),
+		url('Roboto-Light.ttf') format('truetype');
+	font-weight: 100;
+}
+
+@font-face {
+	font-family: 'Roboto Regular';
+	src: url('Roboto-Regular.ttf');
+	src: local('Roboto-Regular'), local('Roboto-Regular'),
+		url('Roboto-Regular.ttf') format('truetype');
+	font-weight: 100;
+}

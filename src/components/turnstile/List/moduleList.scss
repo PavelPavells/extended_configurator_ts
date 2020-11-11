@@ -5,7 +5,7 @@
     flex-direction: column;
     width: 100%;
 
-    &__helper {
+    .list__helper {
         margin: 20px 0;
         font-size: 14px;
         color: $brandPantonBlue;
@@ -24,17 +24,16 @@
         }
     }
 
-    &__description {
+    .list__description {
         font-size: 12px;
         color: $brandPantonText;
         font-family: $font-light;
         line-height: 1.5;
     }
-    &__options {
+    .list__options {
         font-size: 14px;
         line-height: 1.29;
         font-family: $font-regular;
         color: $brandPantonText;
-        letter-spacing: normal;  
     }
 }
