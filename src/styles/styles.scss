@@ -19,9 +19,11 @@ $bold: 700;
 $heavy: 800;
 
 /** ********** FONT ********** */
-$code: 'Roboto', sans-serif;
-$font-regular: 'Gotham Pro Regular';
+// $font-light: 'Roboto Light';
+// $font-regular: 'Roboto Regular';
+
 $font-light: 'Gotham Pro Light';
+$font-regular: 'Gotham Pro Regular';
 
 /** GOTHAM PRO FONTS */
 @font-face {
@@ -48,19 +50,18 @@ $font-light: 'Gotham Pro Light';
 
 /** ROBOTO FONTS */
 
-// @font-face {
-// 	font-family: 'Roboto Light';
-// 	font-style: normal;
-// 	font-weight: 100;
-// 	src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fCRc4EsA.woff2) format('woff2');
-// 	unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-// }
+@font-face {
+	font-family: 'Roboto Light';
+	src: url('../fonts/Roboto-Light.ttf');
+	src: local('Roboto-Light'), local('Roboto-Light'),
+		url('../fonts/Roboto-Light.ttf') format('truetype');
+	font-weight: 100;
+}
 
-/* cyrillic-ext */
-// @font-face {
-// 	font-family: 'Roboto Regular';
-// 	font-style: normal;
-// 	font-weight: 5	00;
-// 	src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu72xKOzY.woff2) format('woff2');
-// 	unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-// }
+@font-face {
+	font-family: 'Roboto Regular';
+	src: url('../fonts/Roboto-Regular.ttf');
+	src: local('Roboto-Regular'), local('Roboto-Regular'),
+		url('../fonts/Roboto-Regular.ttf') format('truetype');
+	font-weight: 100;
+}
