@@ -24,6 +24,12 @@
             letter-spacing: 0.5px;
             color: $brandPantonBlue;
             cursor: default;
+            
+            .info__text {
+                &:hover {
+                    cursor: pointer;
+                }
+            }
 
             &:hover {
                 .info__arrow {

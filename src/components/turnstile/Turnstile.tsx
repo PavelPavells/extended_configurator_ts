@@ -1,5 +1,4 @@
 import React, { Suspense, lazy } from 'react';
-
 import './Turnstile.scss';
 
 import Loader from '../../__utils__/Loader/Loader';
