@@ -1,39 +1,57 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../store/store';
-import { fetchDataTurnstile } from '../../../actions/TurnstileActions/TurnstileActions';
+import { fetchDataTurnstile, fetchDataTurnstileGet } from '../../../actions/TurnstileActions/TurnstileActions';
 
 import './moduleButtons.scss';
 
 import Loader from '../../../__utils__/Loader/Loader';
 
 interface ModuleButtonsProps {
-    readonly data: any,
-    readonly fetchDataTurnstile: (data: any, trigger: number) => void
+    readonly data: any;
+    readonly fetchDataTurnstile: (data: any, trigger: number) => void;
+    readonly fetchDataTurnstileGet: (trigger: number) => void
 }
 
 class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
+
+    state = {
+        frame: null
+    }
     
     public componentDidMount () {
         const { page_view } = this.props.data.turnstile.data;
-        let data = {
-            app_id: 'id',
-            trigger: this.props.data.turnstile.trigger,
-            trigger_state: 0,
-            seria: 0,
-            button_seria_state: page_view ? page_view.btn_seria : 0,
-            button_corpse_state: page_view ? page_view.btn_corpse : 0,
-            selectOne: page_view ? page_view.module_selectors[0].state : 0,
-            selectTwo: page_view ? page_view.module_selectors[1].state : 0,
-            selectThree: page_view ? page_view.module_selectors[2].state : 0,
-            selectFour: page_view ? page_view.module_selectors[3].state : 0,
-            selectFive: page_view ? page_view.module_selectors[4].state : 0,
-            selectSix: page_view ? page_view.module_selectors[5].state : 0,
-            selectSeven: page_view ? page_view.module_selectors[6].state : 0,
-            selectEight: page_view ? page_view.module_selectors[7].state : 0,
-            selectNine: page_view ? page_view.module_selectors[8].state : 0
-        };
-        this.props.fetchDataTurnstile(data, data.trigger);
+        const params = new URLSearchParams(window.location.search);
+
+        const model = params.get('model');
+        const frame = params.get('frame');
+
+        this.setState({
+            frame
+        })
+
+        if (model) {
+            this.props.fetchDataTurnstileGet(this.props.data.turnstile.trigger);
+        } else {
+            let data = {
+                app_id: 'id',
+                trigger: this.props.data.turnstile.trigger,
+                trigger_state: 0,
+                seria: 0,
+                button_seria_state: page_view ? page_view.btn_seria : 0,
+                button_corpse_state: page_view ? page_view.btn_corpse : 0,
+                selectOne: page_view ? page_view.module_selectors[0].state : 0,
+                selectTwo: page_view ? page_view.module_selectors[1].state : 0,
+                selectThree: page_view ? page_view.module_selectors[2].state : 0,
+                selectFour: page_view ? page_view.module_selectors[3].state : 0,
+                selectFive: page_view ? page_view.module_selectors[4].state : 0,
+                selectSix: page_view ? page_view.module_selectors[5].state : 0,
+                selectSeven: page_view ? page_view.module_selectors[6].state : 0,
+                selectEight: page_view ? page_view.module_selectors[7].state : 0,
+                selectNine: page_view ? page_view.module_selectors[8].state : 0
+            };
+            this.props.fetchDataTurnstile(data, data.trigger);
+        }
     }
 
     private handleClickSeriaSTR = () => {
@@ -144,12 +162,17 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
         this.props.fetchDataTurnstile(data, data.trigger);
     }
     public render () {
-
+        console.log(this.state.frame);
         const { turnstile } = this.props.data;
 
         if (turnstile.data.length === 0) {
             return <Loader />;
         }
+
+        // if(turnstile.data.result.code === -1) {
+        //     return (<div style={{fontSize: '30px'}}>МОДЕЛЬ НЕ НАЙДЕНА</div>)
+        // }
+
         return (
             <section className="buttons">
                 <div className="buttons__top">
@@ -231,6 +254,7 @@ const mapStateToProps = (state: ConfiguratorState) => ({
 export default connect(
     mapStateToProps,
     {
-        fetchDataTurnstile
+        fetchDataTurnstile,
+        fetchDataTurnstileGet
     }
 )(ModuleButtons);
