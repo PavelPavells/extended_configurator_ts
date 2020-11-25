@@ -20,7 +20,7 @@ class ModuleImage extends React.PureComponent<ModuleImageProps> {
             return <Loader />;
         }
         return (
-            <section className="image">
+            <section className="image--turnstile">
                 <img
                     src={turnstile.data.page_view.model_main_photo}
                     className="image__turnstile"

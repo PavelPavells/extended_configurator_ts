@@ -1,0 +1,41 @@
+@import '../../../styles/styles.scss';
+
+@import '../../../styles/styles.scss';
+
+.list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .list__helper {
+        margin: 20px 0;
+        font-size: 14px;
+        color: $brandPantonBlue;
+        font-family: $font-light;
+
+        .quest {
+            padding: 3px 7px;
+            margin-right: 5px;
+            border-radius: 20px;
+            background-color: $brandPantonBlue;
+            color: $white;    
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .list__description {
+        font-size: 12px;
+        color: $brandPantonText;
+        font-family: $font-light;
+        line-height: 1.5;
+    }
+    .list__options {
+        font-size: 14px;
+        line-height: 1.29;
+        font-family: $font-regular;
+        color: $brandPantonText;
+    }
+}

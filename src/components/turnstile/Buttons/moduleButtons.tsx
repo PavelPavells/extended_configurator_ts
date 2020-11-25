@@ -174,7 +174,7 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
         // }
 
         return (
-            <section className="buttons">
+            <section className="buttons--turnstile">
                 <div className="buttons__top">
                     <div className="top__captions">
                         <div className="captions">Модель</div>
