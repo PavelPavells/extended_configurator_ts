@@ -41,18 +41,18 @@ class ModuleImage extends React.PureComponent<ModuleImageProps> {
         /**
         * Данные из Глобального Стора
         */
-        const { barrier, isFetching } = this.props.data;
-        if (barrier.data.length === 0 && !isFetching) {
-            return <Loader />;
-        }
+        // const { barrier, isFetching } = this.props.data;
+        // if (barrier.data.length === 0 && !isFetching) {
+        //     return <Loader />;
+        // }
         return (
             /**
              *  Модуль Изображение
              */
-            <section className="image">
+            <section className="image--barrier">
                 <img
-                    src={barrier.data.page_view.model_main_photo}
-                    className="image__turnstile"
+                    // src={barrier.data.page_view.model_main_photo}
+                    className="image__barrier"
                     alt=""
                 />
             </section>

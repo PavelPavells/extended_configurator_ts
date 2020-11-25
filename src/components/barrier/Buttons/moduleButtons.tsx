@@ -36,26 +36,26 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
     /**
     * Запрос данных
     */
-    public componentDidMount() {
-        const { page_view } = this.props.data.barrier.data;
-        let data = {
-            app_id: 'id',
-            trigger: this.props.data.turnstile.trigger,
-            trigger_state: 0,
-            seria: 0,
-            button_seria_state: page_view ? page_view.btn_seria : 0,
-            button_corpse_state: page_view ? page_view.btn_corpse : 0,
-            selectOne: page_view ? page_view.module_selectors[0].state : 0,
-            selectTwo: page_view ? page_view.module_selectors[1].state : 0,
-            selectThree: page_view ? page_view.module_selectors[2].state : 0,
-            selectFour: page_view ? page_view.module_selectors[3].state : 0,
-            selectFive: page_view ? page_view.module_selectors[4].state : 0,
-            selectSix: page_view ? page_view.module_selectors[5].state : 0,
-            selectSeven: page_view ? page_view.module_selectors[6].state : 0,
-            selectEight: page_view ? page_view.module_selectors[7].state : 0
-        };
-        this.props.fetchDataBarrier(data, data.trigger);
-    }
+    // public componentDidMount() {
+    //     const { page_view } = this.props.data.barrier.data;
+    //     let data = {
+    //         app_id: 'id',
+    //         trigger: this.props.data.turnstile.trigger,
+    //         trigger_state: 0,
+    //         seria: 0,
+    //         button_seria_state: page_view ? page_view.btn_seria : 0,
+    //         button_corpse_state: page_view ? page_view.btn_corpse : 0,
+    //         selectOne: page_view ? page_view.module_selectors[0].state : 0,
+    //         selectTwo: page_view ? page_view.module_selectors[1].state : 0,
+    //         selectThree: page_view ? page_view.module_selectors[2].state : 0,
+    //         selectFour: page_view ? page_view.module_selectors[3].state : 0,
+    //         selectFive: page_view ? page_view.module_selectors[4].state : 0,
+    //         selectSix: page_view ? page_view.module_selectors[5].state : 0,
+    //         selectSeven: page_view ? page_view.module_selectors[6].state : 0,
+    //         selectEight: page_view ? page_view.module_selectors[7].state : 0
+    //     };
+    //     this.props.fetchDataBarrier(data, data.trigger);
+    // }
 
     /**
     * Хэндлер для обработки запроса Серии STR
@@ -137,104 +137,120 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
         */
         const { barrier, isFetching } = this.props.data;
         //console.log(this.props.data.turnstile.trigger)
-        if (barrier.data.length === 0 && !isFetching) {
-           return <Loader />;
-        }
+        // if (barrier.data.length === 0 && !isFetching) {
+        //    return <Loader />;
+        // }
         return (
             /**
              *  Модуль выбора Серии/Исполнения
              */
-            <section className="buttons">
-                <div className="buttons__top top">
+            <section className="buttons--barrier">
+                <div className="buttons__top">
 
                     {/**
                      * Описание
                      */}
-                    <div className="top__captions captions">
-                        <div className="captions__model">Модель</div>
-                        <div className="captions__seria">Серия</div>
-                        <div className="captions__summ">Итоговая стоимость</div>
+                    <div className="top__captions">
+                        <div className="captions">Модель</div>
+                        {/* <div className="captions__seria">Серия</div> */}
+                        <div className="captions">Итоговая стоимость</div>
                     </div>
-                    <div className="top__select select">
-                        <div className="select__model">{barrier.data.page_view.model_name}</div>
+                    <div className="top__select">
+                        <div className="model">RBS 00-00.0001{/* {barrier.data.page_view.model_name} */}</div>
 
                         {/**
                          * Серия STR/STX
                          */}
-                        <div className="select__seria seria">
-                            {barrier.data.page_view.btn_seria === 0 ?
+                        <div className="select__seria">
+                            {/* {true ?//barrier.data.page_view.btn_seria === 0 ?
                                 <Fragment>
-                                    <div onClick={this.handleClickSeriaRBS} className="seria__str open">STR</div>
+                                    <div onClick={this.handleClickSeriaRBS} className="seria open">STR</div>
                                 </Fragment> :
                                 <Fragment>
-                                    <div onClick={this.handleClickSeriaRBS} className="seria__str">STR</div>
+                                    <div onClick={this.handleClickSeriaRBS} className="seria">STR</div>
                                 </Fragment>
                             }
 
-                            {barrier.data.page_view.btn_seria === 1 ?
+                            {false ? //barrier.data.page_view.btn_seria === 1 ?
                                 <Fragment>
-                                    <div onClick={this.handleClickSeriaSBA} className="seria__stx open">STX</div>
+                                    <div onClick={this.handleClickSeriaSBA} className="seria open">STX</div>
                                 </Fragment> :
                                 <Fragment>
-                                    <div onClick={this.handleClickSeriaSBA} className="seria__stx">STX</div>
+                                    <div onClick={this.handleClickSeriaSBA} className="seria">STX</div>
                                 </Fragment>
-                            }
+                            } */}
                         </div>
-                        <div className="select__price">{barrier.data.page_view.model_price}</div>
+                        <div className="price">44 444P{/* {barrier.data.page_view.model_price} */}</div>
                     </div>
 
                     {/**
                      * Серия STR/STX
                      */}
-                    <div className="top__info info">
+                    <div className="top__info">
                         <a
-                            href={barrier.data.page_view.download_broshure_button_link}
-                            className="info__docs"
+                            // href={barrier.data.page_view.download_broshure_button_link}
+                            className="info"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
                             ПОДРОБНЕЕ О МОДЕЛИ
                         </a>
                         <a
-                            href={barrier.data.page_view.model_base_model}
-                            className="info__base"
+                            // href={barrier.data.page_view.model_base_model}
+                            className="info"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
 
-                            БАЗОВАЯ МОДЕЛЬ {barrier.data.page_view.model_module_list.length - 1 >= 1 ? '(' + barrier.data.page_view.model_module_list[0].price + ')' : null}
+                            БАЗОВАЯ МОДЕЛЬ 44 444P{/* {barrier.data.page_view.model_module_list.length - 1 >= 1 ? '(' + barrier.data.page_view.model_module_list[0].price + ')' : null} */}
                         </a>
                     </div>
-                    <div className="top__options options">
+                    <div className="top__options">
                         <div className="options__value">
-                            {barrier.data.page_view.model_module_list.length - 1 === 1 ? String('+') + (barrier.data.page_view.model_module_list.length - 1) + ' ОПЦИЯ' : null}
+                            {/* {barrier.data.page_view.model_module_list.length - 1 === 1 ? String('+') + (barrier.data.page_view.model_module_list.length - 1) + ' ОПЦИЯ' : null}
                             {barrier.data.page_view.model_module_list.length - 1 > 1 ? String('+') + (barrier.data.page_view.model_module_list.length - 1) + ' ОПЦИИ' : null}
-                            {barrier.data.page_view.model_module_list.length - 1 >= 5 ? String('+') + (barrier.data.page_view.model_module_list.length - 1) + ' ОПЦИЙ' : null}
+                            {barrier.data.page_view.model_module_list.length - 1 >= 5 ? String('+') + (barrier.data.page_view.model_module_list.length - 1) + ' ОПЦИЙ' : null} */}
                         </div>
                         <div onClick={this.handleClickResetSelectors} className="options__reset">СБРОСИТЬ</div>
                     </div>
                 </div>
-                <div className="buttons__bottom bottom">
-                    <div className="bottom__execution">Исполнение</div>
+                <div className="buttons__bottom">
+                    <div className="captions">Серия</div>
 
                     {/**
                      * Исполнение Компактный/Тумбовый
                      */}
-                    <div className="bottom__buttons buttons">
-                        {barrier.data.page_view.btn_corpse === 0 ?
+                    <div className="bottom__buttons">
+                        {true ? //barrier.data.page_view.btn_corpse === 0 ?
                             <Fragment>
-                                <div onClick={this.handleClickSeriaRBS} className="buttons__compact open">Компактный</div>
+                                <div onClick={this.handleClickSeriaRBS} className="buttons open">RBS</div>
                             </Fragment> :
                             <Fragment>
-                                <div onClick={this.handleClickSeriaRBS} className="buttons__compact">Компактный</div>
+                                <div onClick={this.handleClickSeriaRBS} className="buttons">RBS</div>
                             </Fragment>
                         }
-                        {barrier.data.page_view.btn_corpse === 1 ?
+                        {false ? //{barrier.data.page_view.btn_corpse === 1 ?
                             <Fragment>
-                                <div onClick={this.handleClickSeriaSBA} className="buttons__thumb open">Тумбовый</div>
+                                <div onClick={this.handleClickSeriaSBA} className="buttons open">RBN</div>
                             </Fragment> :
                             <Fragment>
-                                <div onClick={this.handleClickSeriaSBA} className="buttons__thumb">Тумбовый</div>
+                                <div onClick={this.handleClickSeriaSBA} className="buttons">RBN</div>
+                            </Fragment>
+                        }
+                        {false ? //{barrier.data.page_view.btn_corpse === 1 ?
+                            <Fragment>
+                                <div onClick={this.handleClickSeriaSBA} className="buttons open">SBN</div>
+                            </Fragment> :
+                            <Fragment>
+                                <div onClick={this.handleClickSeriaSBA} className="buttons">SBN</div>
+                            </Fragment>
+                        }
+                        {false ? //{barrier.data.page_view.btn_corpse === 1 ?
+                            <Fragment>
+                                <div onClick={this.handleClickSeriaSBA} className="buttons open">SBV</div>
+                            </Fragment> :
+                            <Fragment>
+                                <div onClick={this.handleClickSeriaSBA} className="buttons">SBV</div>
                             </Fragment>
                         }
                     </div>

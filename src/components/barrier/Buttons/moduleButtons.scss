@@ -1,133 +1,53 @@
-/**
-    Импорт глобальных переменных
-*/
 @import '../../../styles/styles.scss';
 
-/**
-    Стили копонента moduleBasket
-*/
-.buttons {
+.buttons--barrier {
     display: flex;
     flex-direction: column;
     width: 100%;
 
-    &__top, .top {
+    .captions {
+        font-size: 12px;
+        line-height: 1.5;
+        letter-spacing: normal;
+        font-family: $font-regular;
+        color: $brandPantonDescription;
+    }
+
+    .buttons__top {
         display: flex;
         flex-direction: column;
-        width: 100%;
     
-        /**
-            Описание
-        */
-        &__captions, .captions {
+        .top__captions {
             display: flex;
-            flex-direction: row;
             justify-content: space-between;
-            width: 100%;
+            font-family: $font-light;
             margin-bottom: 7px;
-            
-            &__model {
-                font-size: 12px;
-                line-height: 1.5;
-                letter-spacing: normal;
-                color: $brandPantonDescription;
-            }
-    
-            &__seria {
-                margin-left: 60px;
-                font-size: 12px;
-                line-height: 1.5;
-                letter-spacing: normal;
-                color: $brandPantonDescription;
-            }
-    
-            &__summ {
-                font-size: 12px;
-                line-height: 1.5;
-                letter-spacing: normal;
-                color: $brandPantonDescription;
-            }
         }
     
-        &__select, .select {
+        .top__select {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
             width: 100%;
             margin-bottom: 11px;
-    
-            &__model {
-                width: 180px;
+
+            .model, .price {
                 font-size: 26px;
                 line-height: 1.5;
-                color: $brandPantonText;
-            }
-    
-            /**
-                Серия
-            */
-            &__seria, .seria {
-                display: flex;
-                flex-direction: row;
-                border-radius: 20px;
-                margin-left: 60px;
-                border: 1px solid $brandPantonBorderButton;
-    
-                &__str {
-                    padding: 5px 20px;
-                    border-radius: 20px;
-                    border: solid 2px transparent;
-    
-                    &:hover {
-                        color: $brandPantonBlue;
-                    }
-                }
-
-                &__stx {
-                    padding: 5px 20px;
-                    border-radius: 20px;
-                    border: 2px solid transparent;
-    
-                    &:hover {
-                        color: $brandPantonBlue;
-                    }
-                }
-
-                /**
-                 * Стили для динамической отрисовки выбранных кнопок
-                 */
-                .open {
-                    border: 2px solid $brandPantonBlue;
-                    color: $brandPantonBlue;
-                    transition: all 0.1s ease-in;
-                }
-            }
-            &__price {
-                width: 250px;
-                font-size: 26px;
-                line-height: 1.5;
+                font-family: $font-regular;
                 letter-spacing: normal;
-                text-align: right;
                 color: #293440;
             }
         }
 
-        &__info, .info {
+        .top__info {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            font-family: $font-regular;
             margin-bottom: 6px;
     
-            &__docs {
-                font-size: 10px;
-                font-weight: 500;
-                line-height: 1;
-                letter-spacing: 0.5px;
-                text-decoration: none;
-                color: $brandPantonBlue;
-            }
-            &__base {
+            .info {
                 font-size: 10px;
                 font-weight: 500;
                 line-height: 1;
@@ -136,33 +56,29 @@
                 color: $brandPantonBlue;
             }
         }
-    
-        /**
-            Опции
-        */
-        &__options, .options {
+
+        .top__options {
             display: flex;
             justify-content: flex-end;
             border-bottom: 1px solid $brandPantonBorderButton;
             padding-bottom: 19px;
             margin-bottom: 16px;
     
-            &__value {
+            .options__value {
                 font-size: 10px;
                 font-weight: 500;
                 line-height: 1;
                 letter-spacing: 0.5px;
                 text-align: right;
+                font-family: $font-light;
                 color: $brandPantonDescription;
             }
-            &__reset {
+            .options__reset {
                 margin-left: 10px;
                 font-size: 10px;
-                font-weight: 500;
-                line-height: 1;
                 letter-spacing: 0.5px;
                 border-bottom: 1px solid $brandPantonDescription;
-                text-align: right;
+                font-family: $font-regular;
                 color: $brandPantonDescription;
     
                 &:hover {
@@ -174,32 +90,20 @@
         }
     }
 
-    &__bottom, .bottom {
+    .buttons__bottom {
         display: flex;
         flex-direction: column;
-        width: 100%;
+        font-family: $font-light;
     
-        /**
-            Исполнение
-        */
-        &__execution {
-            font-size: 12px;
-            line-height: 1.5;
-            color: $brandPantonDescription;
-            margin-bottom: 10px;
-        }
-    
-        &__buttons, .buttons {
+        .bottom__buttons {
             display: flex;
-            flex-direction: row;
             justify-content: space-between;
-            align-items: center;
-            width: 100%;
             border-radius: 20px;
-            margin-bottom: 20px;
+            margin: 20px 0;
+            font-family: $font-regular;
             border: 1px solid $brandPantonBorderButton;
     
-            &__compact {
+            .buttons {
                 text-align: center;
                 padding: 11px 0;
                 width: 50%;
@@ -209,32 +113,15 @@
                 border: 2px solid transparent;
     
                 &:hover {
+                    cursor: pointer;
                     color: $brandPantonBlue;
                 }
             }
-            &__thumb {
-                text-align: center;
-                padding: 11px 0;
-                width: 50%;
-                border-radius: 20px;
-                font-size: 14px;
-                color: $brandPantonBlack;
-                border: 2px solid transparent;
-    
-                &:hover {
-                    color: $brandPantonBlue;
-                }
+            .open {
+                border: 2px solid $brandPantonBlue;
+                color: $brandPantonBlue;
+                transition: all 0.1s ease-in;
             }
-        }
-
-        /**
-         * Стили для динамической отрисовки выбранных кнопок
-         */
-        .open {
-            border: 2px solid $brandPantonBlue;
-            color: $brandPantonBlue;
-            transition: all 0.1s ease-in;
         }
     }
-
 }

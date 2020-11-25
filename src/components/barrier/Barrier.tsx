@@ -28,7 +28,7 @@ class Barrier extends React.PureComponent {
                     </div>
                     <div className="primary__basis basis">
                         <div className="basis__buttons">
-                            {/* <ModuleButtons /> */}
+                            <ModuleButtons />
                         </div>
                         <div className="basis__selectors">
                             <ModuleSelectors />
