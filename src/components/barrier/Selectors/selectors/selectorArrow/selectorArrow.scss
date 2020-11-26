@@ -2,11 +2,11 @@
 
 .selectors__module--barrier {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 7px;
     font-size: 14px;
+    font-family: $font-regular;
 
     .module__left {
         display: flex;
@@ -43,7 +43,6 @@
             color: $brandPantonBlue;
         }
     }
-
     &:hover {
         border-radius: 25px;
         background-color: $brandPantonHover;
@@ -72,55 +71,56 @@
     }
 }
 
-.loop--barrier {
+.arrow--barrier {
     display: block;
     min-width: 30px;
     height: 30px;
     margin-right: 1%;
-    background: url('../../../../../images/icon/induction-loop.svg') no-repeat center;
+    background: url('../../../../../images/icon/barrier-arrow.svg') no-repeat center;
+    background-size: contain;
 }
 
 .none {
     opacity: 0.5;
 }
 
-.onoffswitch3 {
+.onoffswitch4 {
     position: relative; min-width: 50px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
     }
-    .onoffswitch3-checkbox {
+    .onoffswitch4-checkbox {
     display: none;
     }
-    .onoffswitch3-label {
+    .onoffswitch4-label {
     display: block; overflow: hidden; cursor: pointer;
     border-radius: 13px;
     }
-    .onoffswitch3-inner {
+    .onoffswitch4-inner {
     display: block; width: 200%; margin-left: -100%;
     -webkit-transition: margin 0.1s ease-in 0s;
     -o-transition: margin 0.1s ease-in 0s;
     transition: margin 0.1s ease-in 0s;
     }
-    .onoffswitch3-inner:before, .onoffswitch3-inner:after {
+    .onoffswitch4-inner:before, .onoffswitch4-inner:after {
     display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
     font-size: 10px; color: white; font-family: 'Gotham Pro'; font-weight: bold;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     }
-    .onoffswitch3-inner:before {
+    .onoffswitch4-inner:before {
     content: "";
     padding-left: 7px;
-    background-color: #1d68d9; 
+    background-color: #1d68d9;
     color: #FFFFFF;
     }
-    .onoffswitch3-inner:after {
+    .onoffswitch4-inner:after {
     content: "";
     padding-right: 7px;
-    background-color: #ebeff3;
+    background-color: #ebeff3;  
     color: #666666;
     text-align: right;
     }
-.onoffswitch3-switch {
+.onoffswitch4-switch {
     display: block; 
     width: 25px; 
     margin: 2px;
@@ -133,14 +133,14 @@
     border-radius: 13px;
     -webkit-transition: all 0.1s ease-in 0s;
     -o-transition: all 0.1s ease-in 0s;
-    transition: all 0.1s ease-in 0s; 
+    transition: all 0.1s ease-in 0s;
     &:hover {
     border: 1px solid #1d68d9;
-    } 
+    }   
 }
-.onoffswitch3-checkbox:checked + .onoffswitch3-label .onoffswitch3-inner {
+.onoffswitch4-checkbox:checked + .onoffswitch4-label .onoffswitch4-inner {
     margin-left: 0;
 }
-.onoffswitch3-checkbox:checked + .onoffswitch3-label .onoffswitch3-switch {
+.onoffswitch4-checkbox:checked + .onoffswitch4-label .onoffswitch4-switch {
     right: 0px; 
 }

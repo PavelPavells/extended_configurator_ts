@@ -1,87 +1,41 @@
-/**
- * Импорт зависимостей из NPM
- */
-import React, { Fragment } from 'react';
+import React, { Suspense, lazy } from 'react';
+import Loader from '../../../__utils__/Loader/Loader';
 
-/**
- * Импорт модулей селекторов
- */
-import SelectorChangeColor from './selectors/selectorChangeColor/selectorChangeColor';
-import SelectorControlBlock from './selectors/selectorControlBlock/selectorControlBlock';
-import SelectorEmergencySiren from './selectors/selectorEmergencySiren/selectorEmergencySiren';
-import SelectorHeatingModule from './selectors/selectorHeatingModule/selectorHeatingModule';
-import SelectorInductanceLoop from './selectors/selectorInductanceLoop/selectorInductanceLoop';
-import SelectorRadioRemote from './selectors/selectorRadioRemote/selectorRadioRemote';
-import SelectorSignalLamp from './selectors/selectorSignalLamp/selectorSignalLamp';
-
-/**
- * Импорт стилей контейнера модулей селекторов
- */
 import './moduleSelectors.scss';
 
-class ModuleSelectors extends React.PureComponent {
-    
-    public render () {
-        return (
+// const SelectorChangeColor = lazy(() => import('./selectors/selectorChangeColor/selectorChangeColor'));
+// const SelectorControlBlock = lazy(() => import('./selectors/selectorControlBlock/selectorControlBlock'));
+const SelectorEmergencySiren = lazy(() => import('./selectors/selectorEmergencySiren/selectorEmergencySiren'));
+const SelectorHeatingModule = lazy(() => import('./selectors/selectorHeatingModule/selectorHeatingModule'));
+const SelectorInductanceLoop = lazy(() => import('./selectors/selectorInductanceLoop/selectorInductanceLoop'));
+const SelectorRadioRemote = lazy(() => import('./selectors/selectorRadioRemote/selectorRadioRemote'));
+const SelectorSignalLamp = lazy(() => import('./selectors/selectorSignalLamp/selectorSignalLamp'));
+const SelectorArrow = lazy(() => import('./selectors/selectorArrow/selectorArrow'));
+const SelectorBackLightRGB = lazy(() => import('./selectors/SelectorBackLightRGB/selectorBackLightRGB'));
+const SelectorPhotoCellsPR01 = lazy(() => import('./selectors/selectorPhotoCellsPR01/selectorPhotoCells01'));
+const SelectorPhotoCellsPR02 = lazy(() => import('./selectors/selectorPhotoCellsPR02/selectorPhotoCellsPR02'));
+const SelectorExpansion = lazy(() => import('./selectors/selectorExpansion/selectorExpansion'));
 
-            /**
-             * Модуль Селекторы
-             */
+const ModuleSelectors = () => {
+    return (
+        <Suspense fallback={<Loader />}>
             <section className="selectors">
                 <div className="selectors__text">Дополнительные модули</div>
-
-                {/**
-                 * Селектор Блок управления ABC-21PS
-                 */}
-                <Fragment>
-                    {/*<SelectorControlBlock />*/}
-                </Fragment>
-
-                {/**
-                 * Селектор Модуль обогрева MHP-B
-                 */}
-                <Fragment>
-                    {/*<SelectorHeatingModule />*/}
-                </Fragment>
-
-                {/**
-                 * Селектор Модуль радио пультов PRK 400-P
-                 */}
-                <Fragment>
-                    {/*<SelectorRadioRemote />*/}
-                </Fragment>
-
-                {/**
-                 * Селектор Сигнальная лампа LS-01
-                 */}
-                <Fragment>
-                    {/*<SelectorSignalLamp />*/}
-                </Fragment>
-
-                {/**
-                 * Селектор Аварийная сирена
-                 */}
-                <Fragment>
-                    {/*<SelectorEmergencySiren />*/}
-                </Fragment>
-
-                {/**
-                 * Селектор Модуль подключения петли индуктивности VLD-10-V
-                 */}
-                <Fragment>
-                    {/*<SelectorInductanceLoop />*/}
-                </Fragment>
-
-                {/**
-                 * Селектор Замена цвета корпуса RAL7035 на RAL1016
-                 */}
-                <Fragment>
-                    {/*<SelectorChangeColor />*/}
-                </Fragment>
-
+                <SelectorRadioRemote />
+                <SelectorHeatingModule />
+                <SelectorInductanceLoop />
+                <SelectorArrow />
+                <SelectorBackLightRGB />
+                <SelectorPhotoCellsPR01 />
+                <SelectorPhotoCellsPR02 />
+                <SelectorSignalLamp />
+                <SelectorEmergencySiren />
+                <SelectorExpansion />
+                {/* <SelectorControlBlock />
+                <SelectorChangeColor /> */}
             </section>
-        );
-    }
+        </Suspense>
+    );
 }
 
 export default ModuleSelectors;
