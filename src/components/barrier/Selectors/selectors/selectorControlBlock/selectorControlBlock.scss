@@ -1,45 +1,12 @@
-/**
-    Импорт глобальных переменных
-*/
 @import '../../../../../styles/styles.scss';
 
-/**
-    Стили компонента selectorEP
-*/
-.selectors__module, .module {
+.selectors__module--barrier {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 7px;
     font-size: 14px;
-
-    &:hover {
-        border-radius: 25px;
-        background-color: $brandPantonHover;
-
-        .left__info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 1px;
-            margin-left: 10px;
-            font-size: 10px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            color: $brandPantonBlue;
-            cursor: default;
-
-            &:hover {
-                .info__arrow {
-                    margin-left: 10px;
-                    width: 15px;
-                    height: 7px;
-                    background: url('../../../../../images/icon/arrow-more.svg') no-repeat center;
-                }
-            }
-        }
-    }
 
     &__left, .left {
         display: flex;
@@ -77,12 +44,35 @@
         }
     }
 
+    &:hover {
+        border-radius: 25px;
+        background-color: $brandPantonHover;
+
+        .left__info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1px;
+            margin-left: 10px;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: $brandPantonBlue;
+            cursor: default;
+
+            &:hover {
+                .info__arrow {
+                    margin-left: 10px;
+                    width: 15px;
+                    height: 7px;
+                    background: url('../../../../../images/icon/arrow-more.svg') no-repeat center;
+                }
+            }
+        }
+    }
 }
 
-/**
-    Стили иконок компонента controlBlock
-*/
-.ep { /** изменить название класса + изменение в компоненте */
+.ep {
     display: block;
     min-width: 30px;
     height: 30px;
@@ -90,16 +80,10 @@
     background: url('../../../../../images/icon/block-control.svg') no-repeat center;
 }
 
-/**
-    Стили для недоступных селекторов
-*/
 .none {
     opacity: 0.5;
 }
 
-/**
-    Стили переключателя selectorEP
-*/
 .onoffswitch {
     position: relative; min-width: 50px;
         -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;

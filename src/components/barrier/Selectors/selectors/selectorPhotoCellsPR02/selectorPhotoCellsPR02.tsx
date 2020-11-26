@@ -10,21 +10,21 @@ import {
 import ChangeColorPopUp from '../../../../popup/barrier-popup/changeColorPopup';
 import Loader from '../../../../../__utils__/Loader/Loader';
 
-import './selectorChangeColor.scss';
+import './selectorPhotoCellsPR02.scss';
 
-interface SelectorChangeColorProps {
+interface SelectorPhotoCellsPR02Props {
     readonly data: any,
     readonly fetchDataBarrier: (data: any, trigger: number) => void,
     readonly togglePopupWindowBarrier: () => void
 }
 
-interface SelectorChangeColorState {
+interface SelectorPhotoCellsPR02State {
     readonly selectSeven: number
 }
 
-class SelectorChangeColor extends React.PureComponent<SelectorChangeColorProps, SelectorChangeColorState> {
+class SelectorPhotoCellsPR02 extends React.PureComponent<SelectorPhotoCellsPR02Props, SelectorPhotoCellsPR02State> {
 
-    state: SelectorChangeColorState = { selectSeven: 0 };
+    state: SelectorPhotoCellsPR02State = { selectSeven: 0 };
 
     private handleToggleModal = () => {
         this.props.togglePopupWindowBarrier();
@@ -69,7 +69,7 @@ class SelectorChangeColor extends React.PureComponent<SelectorChangeColorProps, 
                             <div key={index.index} className="selectors__module--barrier none">
                                 <div className="module__left">
                                     <div className="left__icon guest-access" />
-                                    <div className="left__text">Замена цвета корпуса RAL7035 на RAL1016</div>
+                                    <div className="left__text">Комплект беспроводных фотоэлементов «PR-02»</div>
                                 </div>
                                 <div className="module__right">
                                     <div className="onoffswitch7">
@@ -90,8 +90,8 @@ class SelectorChangeColor extends React.PureComponent<SelectorChangeColorProps, 
                         return (*/}
                             <div className="selectors__module--barrier">
                                 <div className="module__left">
-                                    <div className="left__icon guest-access" />
-                                    <div className="left__text">Замена цвета корпуса RAL7035 на RAL1016</div>
+                                    <div className="left__icon light02--barrier" />
+                                    <div className="left__text">Комплект беспроводных фотоэлементов «PR-02»</div>
                                     <div className="left__info">
                                         <div className="info__text">
                                             <div onClick={this.handleToggleModal}>ПОДРОБНЕЕ</div>
@@ -165,4 +165,4 @@ export default connect(
         fetchDataBarrier,
         togglePopupWindowBarrier
     }
-)(SelectorChangeColor);
+)(SelectorPhotoCellsPR02);

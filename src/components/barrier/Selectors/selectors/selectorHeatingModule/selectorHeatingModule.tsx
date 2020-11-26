@@ -1,39 +1,18 @@
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
-/**
- * Импорт зависимостей из NPM
- */
 import React, { Fragment } from 'react';
-// @ts-ignore
-import { connect } from '../selectorSignalLamp/node_modules/react-redux';
+import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../../../store/store';
 
-/**
- * Импорт экшенов
- */
 import {
     fetchDataBarrier,
     togglePopupWindowBarrier
 } from '../../../../../actions/BarrierActions/BarrierActions';
 
-/**
- * Импорт стилей
- */
 import './selectorHeatingModule.scss';
-
-/**
- * Импорт Popup-окна
- */
 import HeatingModulePopUp from '../../../../popup/barrier-popup/heatingModulePopup';
-
-/**
- * Импорт Лоадера
- */
 import Loader from '../../../../../__utils__/Loader/Loader';
 
-/**
- * Интерфейс компонента SelectorHeatingModule
- */
 interface SelectorHeatingModuleProps {
     readonly data: any,
     readonly fetchDataBarrier: (data: any, trigger: number) => void,
@@ -48,16 +27,10 @@ class SelectorHeatingModule extends React.PureComponent<SelectorHeatingModulePro
 
     state: SelectorHeatingModuleState = { selectTwo: 0 };
 
-    /**
-     * Открыть/Закрыть модальное окно
-     */
     private handleToggleModal = () => {
         this.props.togglePopupWindowBarrier();
     }
 
-    /**
-    * Хэндлер для обработки запроса селектора 'Модуль обогрева MHP'
-    */
     private handleClickTwoSelect = () => {
         const { page_view } = this.props.data.barrier.data;
         this.setState({
@@ -84,35 +57,32 @@ class SelectorHeatingModule extends React.PureComponent<SelectorHeatingModulePro
     }
 
     public render () {
-        /**
-         * Данные из глобального стора
-         */
-        const { barrier, isFetching } = this.props.data;
-        if (barrier.data.length === 0 && !isFetching) {
-           return <Loader />;
-        }
+        // const { barrier, isFetching } = this.props.data;
+        // if (barrier.data.length === 0 && !isFetching) {
+        //    return <Loader />;
+        // }
 
         return (
             /**
              * Селектор 'Модуль обогрева MHP-B'
              */
             <Fragment>
-                {barrier.data.page_view.module_selectors.slice(1, 2).map((index: { index: string | number | undefined; }) => (
-                    <div key={index.index} className="selectors__module module">
-                        <div className="module__left left">
+                {/* {barrier.data.page_view.module_selectors.slice(1, 2).map((index: { index: string | number | undefined; }) => ( */}
+                    <div className="selectors__module--barrier">
+                        <div className="module__left">
                             <div className="left__icon emmarine" />
                             <div className="left__text">Модуль обогрева MHP</div>
-                            <div className="left__info info">
+                            <div className="left__info">
                                 <div className="info__text">
                                     <div onClick={this.handleToggleModal}>ПОДРОБНЕЕ</div>
                                 </div>
                                 <div className="info__arrow" />
                             </div>
-                            {barrier.modal ? <HeatingModulePopUp /> : null}
+                            {/* {barrier.modal ? <HeatingModulePopUp /> : null} */}
                         </div>
-                        <div className="module__right right">
+                        <div className="module__right">
                             <div className="right__price">
-                                {barrier.data.page_view.model_module_list[1] !== undefined
+                                {/* {barrier.data.page_view.model_module_list[1] !== undefined
                                     && barrier.data.page_view.model_module_list[1].name === 'heating'
                                     && '+ ' + barrier.data.page_view.model_module_list[1].price
                                 }
@@ -123,7 +93,7 @@ class SelectorHeatingModule extends React.PureComponent<SelectorHeatingModulePro
                                 {barrier.data.page_view.model_module_list[3] !== undefined
                                     && barrier.data.page_view.model_module_list[3].name === 'heating'
                                     && '+ ' + barrier.data.page_view.model_module_list[3].price
-                                }
+                                } */}
                             </div>
                             <div className="onoffswitch2">
                                 <input
@@ -131,8 +101,8 @@ class SelectorHeatingModule extends React.PureComponent<SelectorHeatingModulePro
                                     name="onoffswitch2"
                                     className="onoffswitch2-checkbox"
                                     id="header2-checkbox"
-                                    onChange={this.handleClickTwoSelect}
-                                    checked={barrier.data.page_view.module_selectors[1].state}
+                                    // onChange={this.handleClickTwoSelect}
+                                    // checked={barrier.data.page_view.module_selectors[1].state}
                                 />
                                 <label className="onoffswitch2-label" htmlFor="header2-checkbox">
                                     <span className="onoffswitch2-inner" />
@@ -141,8 +111,8 @@ class SelectorHeatingModule extends React.PureComponent<SelectorHeatingModulePro
                             </div>
                         </div>
                     </div>
-                )
-                )}
+                {/*})
+                )}*/}
             </Fragment>
         );
     }

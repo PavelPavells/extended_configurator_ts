@@ -10,21 +10,21 @@ import {
 import ChangeColorPopUp from '../../../../popup/barrier-popup/changeColorPopup';
 import Loader from '../../../../../__utils__/Loader/Loader';
 
-import './selectorChangeColor.scss';
+import './selectorExpansion.scss';
 
-interface SelectorChangeColorProps {
+interface SelectorExpansionProps {
     readonly data: any,
     readonly fetchDataBarrier: (data: any, trigger: number) => void,
     readonly togglePopupWindowBarrier: () => void
 }
 
-interface SelectorChangeColorState {
+interface SelectorExpansionState {
     readonly selectSeven: number
 }
 
-class SelectorChangeColor extends React.PureComponent<SelectorChangeColorProps, SelectorChangeColorState> {
+class SelectorExpansion extends React.PureComponent<SelectorExpansionProps, SelectorExpansionState> {
 
-    state: SelectorChangeColorState = { selectSeven: 0 };
+    state: SelectorExpansionState = { selectSeven: 0 };
 
     private handleToggleModal = () => {
         this.props.togglePopupWindowBarrier();
@@ -69,7 +69,7 @@ class SelectorChangeColor extends React.PureComponent<SelectorChangeColorProps, 
                             <div key={index.index} className="selectors__module--barrier none">
                                 <div className="module__left">
                                     <div className="left__icon guest-access" />
-                                    <div className="left__text">Замена цвета корпуса RAL7035 на RAL1016</div>
+                                    <div className="left__text">Модуль расширения «MS-03»</div>
                                 </div>
                                 <div className="module__right">
                                     <div className="onoffswitch7">
@@ -90,8 +90,8 @@ class SelectorChangeColor extends React.PureComponent<SelectorChangeColorProps, 
                         return (*/}
                             <div className="selectors__module--barrier">
                                 <div className="module__left">
-                                    <div className="left__icon guest-access" />
-                                    <div className="left__text">Замена цвета корпуса RAL7035 на RAL1016</div>
+                                    <div className="left__icon expansion--barrier" />
+                                    <div className="left__text">Модуль расширения «MS-03»</div>
                                     <div className="left__info">
                                         <div className="info__text">
                                             <div onClick={this.handleToggleModal}>ПОДРОБНЕЕ</div>
@@ -131,18 +131,18 @@ class SelectorChangeColor extends React.PureComponent<SelectorChangeColorProps, 
                                             && '+ ' + barrier.data.page_view.model_module_list[7].price
                                         } */}
                                     </div>
-                                    <div className="onoffswitch7">
+                                    <div className="onoffswitch10">
                                         <input
                                             type="checkbox"
-                                            name="onoffswitch7"
-                                            className="onoffswitch7-checkbox"
-                                            id="header7-checkbox"
+                                            name="onoffswitch10"
+                                            className="onoffswitch10-checkbox"
+                                            id="header10-checkbox"
                                             // onChange={this.handleClickSevenSelect}
                                             // checked={barrier.data.page_view.module_selectors[6].state}
                                         />
-                                        <label className="onoffswitch7-label" htmlFor="header7-checkbox">
-                                            <span className="onoffswitch7-inner" />
-                                            <span className="onoffswitch7-switch" />
+                                        <label className="onoffswitch10-label" htmlFor="header10-checkbox">
+                                            <span className="onoffswitch10-inner" />
+                                            <span className="onoffswitch10-switch" />
                                         </label>
                                     </div>
                                 </div>
@@ -165,4 +165,4 @@ export default connect(
         fetchDataBarrier,
         togglePopupWindowBarrier
     }
-)(SelectorChangeColor);
+)(SelectorExpansion);

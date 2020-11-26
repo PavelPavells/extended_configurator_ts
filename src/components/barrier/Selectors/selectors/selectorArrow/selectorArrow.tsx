@@ -10,21 +10,21 @@ import {
 import ChangeColorPopUp from '../../../../popup/barrier-popup/changeColorPopup';
 import Loader from '../../../../../__utils__/Loader/Loader';
 
-import './selectorChangeColor.scss';
+import './selectorArrow.scss';
 
-interface SelectorChangeColorProps {
+interface SelectorArrowProps {
     readonly data: any,
     readonly fetchDataBarrier: (data: any, trigger: number) => void,
     readonly togglePopupWindowBarrier: () => void
 }
 
-interface SelectorChangeColorState {
+interface SelectorArrowState {
     readonly selectSeven: number
 }
 
-class SelectorChangeColor extends React.PureComponent<SelectorChangeColorProps, SelectorChangeColorState> {
+class SelectorArrow extends React.PureComponent<SelectorArrowProps, SelectorArrowState> {
 
-    state: SelectorChangeColorState = { selectSeven: 0 };
+    state: SelectorArrowState = { selectSeven: 0 };
 
     private handleToggleModal = () => {
         this.props.togglePopupWindowBarrier();
@@ -56,7 +56,7 @@ class SelectorChangeColor extends React.PureComponent<SelectorChangeColorProps, 
     }
 
     public render () {
-        // const { barrier, isFetching } = this.props.data;
+        const { barrier, isFetching } = this.props.data;
         // if (barrier.data.length === 0 && !isFetching) {
         //    return <Loader />;
         // }
@@ -69,7 +69,7 @@ class SelectorChangeColor extends React.PureComponent<SelectorChangeColorProps, 
                             <div key={index.index} className="selectors__module--barrier none">
                                 <div className="module__left">
                                     <div className="left__icon guest-access" />
-                                    <div className="left__text">Замена цвета корпуса RAL7035 на RAL1016</div>
+                                    <div className="left__text">Стрела для шлагбаума "SN-06С"</div>
                                 </div>
                                 <div className="module__right">
                                     <div className="onoffswitch7">
@@ -90,15 +90,15 @@ class SelectorChangeColor extends React.PureComponent<SelectorChangeColorProps, 
                         return (*/}
                             <div className="selectors__module--barrier">
                                 <div className="module__left">
-                                    <div className="left__icon guest-access" />
-                                    <div className="left__text">Замена цвета корпуса RAL7035 на RAL1016</div>
+                                    <div className="left__icon arrow--barrier" />
+                                    <div className="left__text">Стрела для шлагбаума "SN-06С"</div>
                                     <div className="left__info">
                                         <div className="info__text">
                                             <div onClick={this.handleToggleModal}>ПОДРОБНЕЕ</div>
                                         </div>
                                         <div className="info__arrow" />
                                     </div>
-                                    {/* {barrier.modal ? <ChangeColorPopUp /> : null} */}
+                                    {barrier.modal ? <ChangeColorPopUp /> : null}
                                 </div>
                                 <div className="module__right">
                                     <div className="right__price">
@@ -131,18 +131,18 @@ class SelectorChangeColor extends React.PureComponent<SelectorChangeColorProps, 
                                             && '+ ' + barrier.data.page_view.model_module_list[7].price
                                         } */}
                                     </div>
-                                    <div className="onoffswitch7">
+                                    <div className="onoffswitch4">
                                         <input
                                             type="checkbox"
-                                            name="onoffswitch7"
-                                            className="onoffswitch7-checkbox"
-                                            id="header7-checkbox"
+                                            name="onoffswitch4"
+                                            className="onoffswitch4-checkbox"
+                                            id="header4-checkbox"
                                             // onChange={this.handleClickSevenSelect}
                                             // checked={barrier.data.page_view.module_selectors[6].state}
                                         />
-                                        <label className="onoffswitch7-label" htmlFor="header7-checkbox">
-                                            <span className="onoffswitch7-inner" />
-                                            <span className="onoffswitch7-switch" />
+                                        <label className="onoffswitch4-label" htmlFor="header4-checkbox">
+                                            <span className="onoffswitch4-inner" />
+                                            <span className="onoffswitch4-switch" />
                                         </label>
                                     </div>
                                 </div>
@@ -165,4 +165,4 @@ export default connect(
         fetchDataBarrier,
         togglePopupWindowBarrier
     }
-)(SelectorChangeColor);
+)(SelectorArrow);

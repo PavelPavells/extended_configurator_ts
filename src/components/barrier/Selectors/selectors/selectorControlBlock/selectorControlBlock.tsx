@@ -1,39 +1,16 @@
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
-/**
- * Импорт зависимостей из NPM
- */
 import React, { Fragment } from 'react';
-// @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../../../store/store';
-
-/**
- * Импорт экшенов
- */
 import {
     fetchDataBarrier,
     togglePopupWindowBarrier
 } from '../../../../../actions/BarrierActions/BarrierActions';
-
-/**
- * Импорт стилей
- */
+import ControlBlockPopup from '../../../../popup/barrier-popup/controlBlockPopup';
+import Loader from '../../../../../__utils__/Loader/Loader';
 import './selectorControlBlock.scss';
 
-/**
- * Импорт Popup-окна
- */
-import ControlBlockPopup from '../../../../popup/barrier-popup/controlBlockPopup';
-
-/**
- * Импорт Лоадера
- */
-import Loader from '../../../../../__utils__/Loader/Loader';
-
-/**
- * Интерфейс компонента SelectorBiometry
- */
 interface SelectorControlBlockProps {
     readonly data: any,
     readonly fetchDataBarrier: (data: any, trigger: number) => void,
@@ -48,18 +25,12 @@ class SelectorControlBlock extends React.PureComponent<SelectorControlBlockProps
 
     state: SelectorControlBlockState = { selectOne: 0 };
 
-    /**
-     * Открыть/Закрыть модальное окно
-     */
     private handleToggleModal = () => {
         setTimeout(() => {
             this.props.togglePopupWindowBarrier();
         }, 1000)
     }
 
-    /**
-    * Хэндлер для обработки запроса селектора 'Блок управления 21PS'
-    */
     private handleClickOneSelect = () => {
         const { page_view } = this.props.data.barrier.data;
         this.setState({
@@ -86,39 +57,32 @@ class SelectorControlBlock extends React.PureComponent<SelectorControlBlockProps
     }
 
     public render () {
-        /**
-         * Данные из глобального стора
-         */
-        const { barrier, isFetching } = this.props.data;
-        if (barrier.data.length === 0 && !isFetching) {
-           return <Loader />;
-        }
+        // const { barrier, isFetching } = this.props.data;
+        // if (barrier.data.length === 0 && !isFetching) {
+        //    return <Loader />;
+        // }
         
         return (
-
-            /**
-             * Селектор 'Блок управления 21PS'
-             */
             <Fragment>
-                {barrier.data.page_view.module_selectors.slice(0, 1).map((index: { index: string | number | undefined; }) => (
-                    <div key={index.index} className="selectors__module module">
-                        <div className="module__left left">
+               {/* {barrier.data.page_view.module_selectors.slice(0, 1).map((index: { index: string | number | undefined; }) => ( */}
+                    <div className="selectors__module--barrier">
+                        <div className="module__left">
                             <div className="left__icon ep" />
                             <div className="left__text">Блок управления ABC-21PS</div>
-                            <div className="left__info info">
+                            <div className="left__info">
                                 <div className="info__text">
                                     <div onClick={this.handleToggleModal}>ПОДРОБНЕЕ</div>
                                 </div>
                                 <div className="info__arrow" />
                             </div>
-                            {barrier.modal ? <ControlBlockPopup /> : null}
+                            {/* {barrier.modal ? <ControlBlockPopup /> : null} */}
                         </div>
-                        <div className="module__right right">
+                        <div className="module__right">
                             <div className="right__price">
-                                {barrier.data.page_view.model_module_list[1] !== undefined
+                                {/* {barrier.data.page_view.model_module_list[1] !== undefined
                                     && barrier.data.page_view.model_module_list[1].name === 'control'
                                     && '+ ' + barrier.data.page_view.model_module_list[1].price
-                                }
+                                } */}
                             </div>
                             <div className="onoffswitch">
                                 <input
@@ -126,8 +90,8 @@ class SelectorControlBlock extends React.PureComponent<SelectorControlBlockProps
                                     name="onoffswitch"
                                     className="onoffswitch-checkbox"
                                     id="header-checkbox"
-                                    onChange={this.handleClickOneSelect}
-                                    checked={barrier.data.page_view.module_selectors[0].state}
+                                    // onChange={this.handleClickOneSelect}
+                                    // checked={barrier.data.page_view.module_selectors[0].state}
                                 />
                                 <label className="onoffswitch-label" htmlFor="header-checkbox">
                                     <span className="onoffswitch-inner" />
@@ -136,8 +100,8 @@ class SelectorControlBlock extends React.PureComponent<SelectorControlBlockProps
                             </div>
                         </div>
                     </div>
-                )
-                )}
+                {/* })
+                )} */}
             </Fragment>
         );
     }

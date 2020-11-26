@@ -64,6 +64,7 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
     * Хэндлер для обработки запроса Серии STR
     */
    private handleClickSeriaRBS = () => {
+    return;
     const { page_view } = this.props.data.barrier.data;
     let data = {
         app_id: 'id',
@@ -82,13 +83,14 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
         selectEight: page_view.module_selectors[7].state !== -1 ? page_view.module_selectors[7].state : 0
 
     };
-    this.props.fetchDataBarrier(data, data.trigger);
+    // this.props.fetchDataBarrier(data, data.trigger);
 }
 
     /**
     * Хэндлер для обработки запроса Серии STX
     */
     private handleClickSeriaSBA = () => {
+        return;
         const { page_view } = this.props.data.barrier.data;
         let data = {
             app_id: 'id',
@@ -106,13 +108,14 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
             selectSeven: page_view.module_selectors[6].state !== -1 ? page_view.module_selectors[6].state : 0,
             selectEight: page_view.module_selectors[7].state !== -1 ? page_view.module_selectors[7].state : 0
         };
-        this.props.fetchDataBarrier(data, data.trigger);
+        // this.props.fetchDataBarrier(data, data.trigger);
     }
 
     /**
     * Хэндлер для обработки запроса сброса выбранных селекторов
     */
     private handleClickResetSelectors = () => {
+        return;
         const { page_view } = this.props.data.turnstile.data;
         let data = {
             trigger: this.props.data.turnstile.trigger,
