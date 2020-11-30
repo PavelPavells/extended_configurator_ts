@@ -7,7 +7,7 @@ import {
     fetchDataBarrier,
     togglePopupWindowBarrier
 } from '../../../../../actions/BarrierActions/BarrierActions';
-import ChangeColorPopUp from '../../../../popup/barrier-popup/changeColorPopup';
+// import ChangeColorPopUp from '../../../../popup/barrier-popup/radioRemote';
 import Loader from '../../../../../__utils__/Loader/Loader';
 
 import './selectorChangeColor.scss';

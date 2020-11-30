@@ -7,7 +7,7 @@ import {
     fetchDataBarrier,
     togglePopupWindowBarrier
 } from '../../../../../actions/BarrierActions/BarrierActions';
-import ChangeColorPopUp from '../../../../popup/barrier-popup/changeColorPopup';
+import BackLightRGBPopup from '../../../../popup/barrier-popup/backLightRGBPopup';
 import Loader from '../../../../../__utils__/Loader/Loader';
 
 import './selectorBackLightRGB.scss';
@@ -56,7 +56,7 @@ class SelectorBackLightRGB extends React.PureComponent<SelectorBackLightRGBProps
     }
 
     public render () {
-        // const { barrier, isFetching } = this.props.data;
+        const { barrier, isFetching } = this.props.data;
         // if (barrier.data.length === 0 && !isFetching) {
         //    return <Loader />;
         // }
@@ -98,7 +98,7 @@ class SelectorBackLightRGB extends React.PureComponent<SelectorBackLightRGBProps
                                         </div>
                                         <div className="info__arrow" />
                                     </div>
-                                    {/* {barrier.modal ? <ChangeColorPopUp /> : null} */}
+                                    {barrier.modal ? <BackLightRGBPopup /> : null}
                                 </div>
                                 <div className="module__right">
                                     <div className="right__price">

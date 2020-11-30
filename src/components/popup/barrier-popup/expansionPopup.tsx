@@ -35,14 +35,14 @@ import '../popup.scss';
 /**
  * Интерфейс компонента EmergencySirenPopup
  */
-interface EmergencySirenPopupProps {
+interface ExpansionPopupProps {
     readonly data: any,
     readonly handleCloseModal: () => void,
     readonly togglePopupWindowBarrier: () => void,
     readonly togglePopupWindowMainInfoBarrier: () => void
 }
 
-class EmergencySirenPopup extends React.PureComponent<any> {
+class ExpansionPopup extends React.PureComponent<any> {
 
     /**
      * Запрос данных
@@ -96,7 +96,7 @@ class EmergencySirenPopup extends React.PureComponent<any> {
                     <div className="right__header right-header">
                         <img src={emergencySirenLogo} className="right-header__icon" alt='' />
                         <div className="right-header__description description">
-                            <p className='description__text'>Аварийная сирена «DS-01»</p>
+                            <p className='description__text'>Модуль расширения «MS-03»</p>
                             {barrier.info === false ?
                                 <div onClick={this.handleToggleMainInfo} className="description__toggle">ХАРАКТЕРИСТИКИ</div> :
                                 <div onClick={this.handleToggleMainInfo} className="description__toggle">ПОКАЗАТЬ ОПИСАНИЕ</div>
@@ -108,7 +108,20 @@ class EmergencySirenPopup extends React.PureComponent<any> {
                         {barrier.info === false ? 
                             <Fragment>
                                 <div className="right-main__info main-info">
-                                    <p>Предназначена для подачи звукового сигнала при попытке несанкционированного, принудительного подъёма стрелы шлагбаума</p>
+                                    <p>Модуль расширения функционала блока управления шлагбаумом ABC-31M.  Предназначен для подключения исполнительных устройств, датчиков и дополнительных модулей:</p>
+                                    <ul>
+                                        <li>Модуль автоблокировки стрелы в опоре</li>
+                                        <li>Датчики температуры двигателя и температуры воздуха в корпусе шлагбаума</li>
+                                        <li>RGB подсветка стрелы</li>
+                                    </ul>
+                                    <p>Дополнительные функции программного обеспечения:</p>
+                                    <ul>
+                                        <li>Получение данных о температуре двигателя и о температуре воздуха в корпусе шлагбаума с отображением показаний на дисплее блока управления и передачи данных по RS-485</li>
+                                        <li>Поддержка функции отключения двигателя при превышении максимальной рабочей температуры</li>
+                                        <li>Счетчик количества въезжающих и выезжающих транспортных средств</li>
+                                        <li>Включение звуковой и световой сигнализации при попытке несанкционированного подъема стрелы (при отсутствии модуля автоблокировки)</li>
+                                    </ul>
+                                    <p>Имеет вход и выход сигнала «тревога» для подключения к системе охранно-пожарной сигнализации, а также выход сигнала о факте проезда транспортного средства</p>
                                 </div>
                             </Fragment>
                             :
@@ -152,4 +165,4 @@ export default connect(
         togglePopupWindowBarrier,
         togglePopupWindowMainInfoBarrier
     }
-)(EmergencySirenPopup);
+)(ExpansionPopup);
