@@ -7,7 +7,7 @@ import {
     fetchDataBarrier,
     togglePopupWindowBarrier
 } from '../../../../../actions/BarrierActions/BarrierActions';
-import ChangeColorPopUp from '../../../../popup/barrier-popup/changeColorPopup';
+import PhotoCells02Popup from '../../../../popup/barrier-popup/photoCells02Popup';
 import Loader from '../../../../../__utils__/Loader/Loader';
 
 import './selectorPhotoCellsPR02.scss';
@@ -56,7 +56,7 @@ class SelectorPhotoCellsPR02 extends React.PureComponent<SelectorPhotoCellsPR02P
     }
 
     public render () {
-        // const { barrier, isFetching } = this.props.data;
+        const { barrier, isFetching } = this.props.data;
         // if (barrier.data.length === 0 && !isFetching) {
         //    return <Loader />;
         // }
@@ -98,7 +98,7 @@ class SelectorPhotoCellsPR02 extends React.PureComponent<SelectorPhotoCellsPR02P
                                         </div>
                                         <div className="info__arrow" />
                                     </div>
-                                    {/* {barrier.modal ? <ChangeColorPopUp /> : null} */}
+                                    {barrier.modal ? <PhotoCells02Popup /> : null}
                                 </div>
                                 <div className="module__right">
                                     <div className="right__price">

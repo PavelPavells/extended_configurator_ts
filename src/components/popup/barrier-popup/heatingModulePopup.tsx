@@ -1,40 +1,20 @@
 /* eslint-disable max-len */
-/**
- * Импорт зависимостей из NPM
- */
 import React, { Fragment } from 'react';
-// @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../store/store';
-
-/**
- * Импорт экшенов
- */
 //import { fetchDataPopupBarrier } from '../../../actions/dataPopupActions' /** добавить экшены в стор */
 import {
     togglePopupWindowBarrier,
     togglePopupWindowMainInfoBarrier
 } from '../../../actions/BarrierActions/BarrierActions';
 
-/**
- * Импорт прелоадера
- */
 //import Loader from "../../__utils__/Loader/Loader";
 
-/**
- * Импорт фото
- */
 import photo from "../../../images/str-compact1.png";
 import heatingModuleLogo from '../../../images/icon/heating-module.svg'
 
-/**
- * Импорт стилей
- */
 import '../popup.scss';
 
-/**
- * Интерфейс компонента HeatimgModulePopup
- */
 interface HeatingModulePopupProps {
     readonly data: any,
     readonly handleCloseModal: () => void,
@@ -44,16 +24,9 @@ interface HeatingModulePopupProps {
 
 class HeatingModulePopup extends React.PureComponent<any> {
 
-    /**
-     * Запрос данных
-     */
     //componentDidMount () {
     //this.props.fetchDataTurnstile();
     //}
-
-    /**
-     *  Обработчик экшена Открытия/Закрытия модального окна
-     */
 
     private handleCloseModal = () => {
         document.addEventListener('keydown', event => {
@@ -64,17 +37,11 @@ class HeatingModulePopup extends React.PureComponent<any> {
         this.props.togglePopupWindowBarrier();
     };
 
-    /**
-     * Открыть/Закрыть Popup
-     */
     private handleToggleMainInfo = () => {
         //this.props.togglePopupWindowMainInfoBarrier();
     };
 
     public render () {
-        /**
-         * Данные из Глобального Стора
-         */
         const { turnstile, barrier, isFetching } = this.props.data;
 
         //if (turnstile.data.length === 0 && !isFetching) {
@@ -82,10 +49,6 @@ class HeatingModulePopup extends React.PureComponent<any> {
         //}
         //console.log(barrier.data.page_view.model_price)
         return (
-
-        /**
-         * Компонент HeatimgModulePopup
-         */
             <section className="popup-window window">
                 <div className="window__left">
                     <div className="left__image">
@@ -108,40 +71,21 @@ class HeatingModulePopup extends React.PureComponent<any> {
                         {barrier.info === false ? 
                             <Fragment>
                                 <div className="right-main__info main-info">
-                                    <div>
-                                        Встраиваемый модуль RFID считывателей
-                                        “RE-02” предназначен для
-                                        обеспечения доступа авторизованным
-                                        пользователям, посредством
-                                        бесконтактных идентификаторов
-                                        стандарта EMMarin
-                                    </div>
+                                    <p>
+                                        Предназначен для дополнительного обогрева линейного привода и электроники шлагбаума. Благодаря данному модулю, шлагбаумы могут использоваться в районах с холодными климатическими условиями.
+                                    </p>
                                 </div>
                             </Fragment>
                             :
                             <Fragment>
                                 <div className="right-main__info main-info">
-                                    <div className="main-info__heading">
-                                        <div>Считыватель EMMarine:</div>
-                                    </div>
-                                    <div className="main-info__block">
-                                        <div>cтандарт считывания:</div>
-                                        <div>EM4100</div>
-                                    </div>
-                                    <div className="main-info__block">
-                                        <div>рабочее напряжение:</div>
-                                        <div>5 В</div>
-                                    </div>
-                                    <div className="main-info__block">
-                                        <div>потребляемый ток:</div>
-                                        <div>50 мА</div>
-                                    </div>
+                                    
                                 </div>
                             </Fragment>
                         }
                     </div>
                     <div className="right__footer footer">
-                        <div className="footer__price">{barrier.data.page_view.model_price}</div>
+                        <div className="footer__price">2500 P {/* {barrier.data.page_view.model_price} */}</div>
                         <div className="footer__btn">Закрыть</div>
                     </div>
                 </div>

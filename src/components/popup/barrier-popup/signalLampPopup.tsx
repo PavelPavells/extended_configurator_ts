@@ -96,7 +96,7 @@ class SignalLampPopup extends React.PureComponent<any> {
                     <div className="right__header right-header">
                         <img src={signalLampLogo} className="right-header__icon" alt='' />
                         <div className="right-header__description description">
-                            <p className='description__text'>Сигнальная лампа LS-01</p>
+                            <p className='description__text'>Сигнальная лампа «LS-01» </p>
                             {barrier.info === false ?
                                 <div onClick={this.handleToggleMainInfo} className="description__toggle">ХАРАКТЕРИСТИКИ</div> :
                                 <div onClick={this.handleToggleMainInfo} className="description__toggle">ПОКАЗАТЬ ОПИСАНИЕ</div>
@@ -108,85 +108,47 @@ class SignalLampPopup extends React.PureComponent<any> {
                         {barrier.info === false ? 
                             <Fragment>
                                 <div className="right-main__info main-info">
-                                <p>
-                                    Встраиваемые модули биометрической идентификации “FRE-02” и “FRM-02” предназначены для обеспечения доступа авторизованным пользователям посредством сканирования отпечатка пальца. 
-                                    В данный модуль встроены RFID считыватели стандартов EMMarin или Mifare.
-                                </p>
+                                    <p>
+                                        Предназначена для оповещения окружающих о том, что стрела шлагбаума приведена в движение. Имеет в своем составе встроенную звуковую и световую индикацию.
+                                    </p>
+                                    <p>
+                                        Особенности сигнальной лампы:
+                                    </p>
+                                    <ul>
+                                        <li>Настраиваемые режимы работы;</li>
+                                        <li>Встроенная антенна для модуля радиопультов «PRK-400»;</li>
+                                        <li>Влаго- и пылезащищенность</li>
+                                    </ul>
                                 </div>
                             </Fragment>
                             :
                             <Fragment>
                                 <div className="right-main__info main-info">
                                     <div className="main-info__heading">
-                                        <div>Технические характеристики биосканеров:</div>
+                                        <div>Сигнальная лампа «LS-01»:</div>
                                     </div>
                                     <div className="main-info__block">
-                                        <div>Тип датчика:</div>
-                                        <div>oптический</div>
+                                        <div>Напряжение питания, В:</div>
+                                        <div>24</div>
                                     </div>
                                     <div className="main-info__block">
-                                        <div>Разрешение, размер изображения:</div>
-                                        <div>450 dpi, 258×202 px</div>
+                                        <div>режимы работыб кол-во:</div>
+                                        <div>3</div>
                                     </div>
                                     <div className="main-info__block">
-                                        <div>Значение коэффициента ложного распознавания:</div>
-                                        <div>{"<0.001%"}</div>
+                                        <div>Диапазон рабочих температур, °С:</div>
+                                        <div>-30... +55</div>
                                     </div>
                                     <div className="main-info__block">
-                                        <div>Напряжение питания:</div>
-                                        <div>3,6B</div>
-                                    </div>
-                                    <div className="main-info__block">
-                                        <div>Потребляемый ток:</div>
-                                        <div>{"<130мА"}</div>
-                                    </div>
-                                    <div className="main-info__heading">
-                                        <div>Технические характеристики считывателей:</div>
-                                    </div>
-                                    <div className="main-info__heading">
-                                        <div>Считыватель EMMarin:</div>
-                                    </div>
-                                    <div className="main-info__block">
-                                        <div>стандарт считывания:</div>
-                                        <div>EM4100</div>
-                                    </div>
-                                    <div className="main-info__block">
-                                        <div>рабочая частота:</div>
-                                        <div>125КГц</div>
-                                    </div>
-                                    <div className="main-info__block">
-                                        <div>рабочее напряжение</div>
-                                        <div>5В</div>
-                                    </div>
-                                    <div className="main-info__block">
-                                        <div>потребляемый ток:</div>
-                                        <div>50мА</div>
-                                    </div>
-                                    <div className="main-info__heading">
-                                        <div>Считыватель Mifire:</div>
-                                    </div>
-                                    <div className="main-info__block">
-                                        <div>стандарт считывания:</div>
-                                        <div>Mifare 1K, Mifare 4K, Mifare Ultralight.</div>
-                                    </div>
-                                    <div className="main-info__block">
-                                        <div>рабочая частота:</div>
-                                        <div>13,56 МГц.</div>
-                                    </div>
-                                    <div className="main-info__block">
-                                        <div>рабочее напряжение</div>
-                                        <div>5В</div>
-                                    </div>
-                                    <div className="main-info__block">
-                                        <div>потребляемый ток:</div>
-                                        <div>{'<100мА'}</div>
+                                        <div>Класс защиты IP:</div>
+                                        <div>54</div>
                                     </div>
                                 </div>
                             </Fragment>
                         }
                     </div>
                     <div className="right__footer footer">
-                        <div className="footer__price">{barrier.data.page_view.model_price}</div>
+                        <div className="footer__price">2030 P{/* {barrier.data.page_view.model_price} */}</div>
                         <div className="footer__btn">Закрыть</div>
                     </div>
                 </div>

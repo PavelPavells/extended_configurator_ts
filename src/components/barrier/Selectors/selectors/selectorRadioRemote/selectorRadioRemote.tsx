@@ -57,7 +57,7 @@ class SelectorRadioRemote extends React.PureComponent<SelectorRadioRemoteProps, 
     }
 
     public render () {
-        // const { barrier, isFetching } = this.props.data;
+        const { barrier, isFetching } = this.props.data;
         // if (barrier.data.length === 0 && !isFetching) {
         //    return <Loader />;
         // }
@@ -75,7 +75,7 @@ class SelectorRadioRemote extends React.PureComponent<SelectorRadioRemoteProps, 
                                 </div>
                                 <div className="info__arrow" />
                             </div>
-                            {/* {barrier.modal ? <RadioRemotePopup /> : null} */}
+                            {barrier.modal ? <RadioRemotePopup /> : null}
                         </div>
                         <div className="module__right">
                             <div className="right__price">

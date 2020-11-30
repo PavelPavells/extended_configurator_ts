@@ -57,7 +57,7 @@ class SelectorHeatingModule extends React.PureComponent<SelectorHeatingModulePro
     }
 
     public render () {
-        // const { barrier, isFetching } = this.props.data;
+        const { barrier, isFetching } = this.props.data;
         // if (barrier.data.length === 0 && !isFetching) {
         //    return <Loader />;
         // }
@@ -78,7 +78,7 @@ class SelectorHeatingModule extends React.PureComponent<SelectorHeatingModulePro
                                 </div>
                                 <div className="info__arrow" />
                             </div>
-                            {/* {barrier.modal ? <HeatingModulePopUp /> : null} */}
+                            {barrier.modal ? <HeatingModulePopUp /> : null}
                         </div>
                         <div className="module__right">
                             <div className="right__price">

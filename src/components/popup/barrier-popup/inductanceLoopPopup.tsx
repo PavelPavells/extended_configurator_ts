@@ -109,48 +109,47 @@ class InductanceLoopPopup extends React.PureComponent<any> {
                             <Fragment>
                                 <div className="right-main__info main-info">
                                     <p>
-                                        Модуль билетного доступа по QR-кодам “QS-03” используется в турникетах для контроля доступа в кинотеатры, музеи,выставочные центры, спортивные мероприятия и т.д. 
-                                        В качестве устройства идентификации используется 2D сканер. 
-                                        Данное решение предназначено для разового прохода посетителей по приглашению, пропуску или билету, смартфону, содержащему QR-код.
+                                        Предназначен для определения наличия транспортного средства в рабочей зоне стрелы и автоматического закрытия шлагбаума после проезда автомобиля.
                                     </p>
+                                    <ul>
+                                        <li>Один канал для подключения индукционной петли</li>
+                                        <li>Регулировка чувствительности</li>
+                                        <li>Подключение на стандартный разъём расширения блока управления серии «ABC»</li>
+                                    </ul>
                                 </div>
                             </Fragment>
                             :
                             <Fragment>
                                 <div className="right-main__info main-info">
                                     <div className="main-info__heading">
-                                        <div>Технические характеристики 2D сканера:</div>
+                                        <div>Модуль петли индуктивности «VLD-10»:</div>
                                     </div>
                                     <div className="main-info__block">
-                                        <div>Поддерживаемые стандарты:</div>
-                                        <div>EAN-8, EAN-13, UPC-A, UPC-E, Code 39, Code 93, Code 128, EAN128, Codabar, Industrial 2 of 5, Interleave 2 of 5, Standard 25, Matrix 2 of 5, MSI, GS1, PDF417, MicroQR, DataMatrix, QR, HanXin, Aztec</div>
+                                        <div>Напряжение питания, В:</div>
+                                        <div>24</div>
                                     </div>
                                     <div className="main-info__block">
-                                        <div>Скорость сканирования:</div>
-                                        <div>1300 раз в секунду</div>
+                                        <div>Диапазон частот, кГц:</div>
+                                        <div>от 20 до 170</div>
                                     </div>
                                     <div className="main-info__block">
-                                        <div>Минимальный процент контрастности распознаваемого текста:</div>
-                                        <div>20%</div>
+                                        <div>Время реакции:</div>
+                                        <div>10мс</div>
                                     </div>
                                     <div className="main-info__block">
-                                        <div>Допустимая освещенность окружающей поверхности:</div>
-                                        <div>0-120000 лк.</div>
+                                        <div>Диапазон рабочих температур, °С:</div>
+                                        <div>-30... +55</div>
                                     </div>
                                     <div className="main-info__block">
-                                        <div>Напряжение питания:</div>
-                                        <div>5В</div>
-                                    </div>
-                                    <div className="main-info__block">
-                                        <div>Потребляемый ток:</div>
-                                        <div>{'<200мА'}</div>
+                                        <div>Класс защиты IP:</div>
+                                        <div>65</div>
                                     </div>
                                 </div>
                             </Fragment>
                         }
                     </div>
                     <div className="right__footer footer">
-                        <div className="footer__price">{barrier.data.page_view.model_price}</div>
+                        <div className="footer__price">3500 P {/* {barrier.data.page_view.model_price} */}</div>
                         <div className="footer__btn">Закрыть</div>
                     </div>
                 </div>

@@ -57,7 +57,7 @@ class SelectorSignalLamp extends React.PureComponent<SelectorSignalLampProps, Se
     }
 
     public render () {
-        // const { barrier, isFetching } = this.props.data;
+        const { barrier, isFetching } = this.props.data;
         // if (barrier.data.length === 0 && !isFetching) {
         //    return <Loader />;
         // }
@@ -75,7 +75,7 @@ class SelectorSignalLamp extends React.PureComponent<SelectorSignalLampProps, Se
                                 </div>
                                 <div className="info__arrow" />
                             </div>
-                            {/* {barrier.modal ? <SignalLampPopup /> : null} */}
+                            {barrier.modal ? <SignalLampPopup /> : null}
                         </div>
                         <div className="module__right">
                             <div className="right__price">

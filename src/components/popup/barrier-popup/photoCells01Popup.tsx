@@ -1,59 +1,33 @@
 /* eslint-disable max-len */
-/**
- * Импорт зависимостей из NPM
- */
 import React, { Fragment } from 'react';
-// @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../store/store';
 
-/**
- * Импорт экшенов
- */
 //import { fetchDataPopupBarrier } from '../../../actions/dataPopupActions' /** добавить экшены в стор */
 import {
     togglePopupWindowBarrier,
     togglePopupWindowMainInfoBarrier
 } from '../../../actions/BarrierActions/BarrierActions';
 
-/**
- * Импорт прелоадера
- */
 //import Loader from "../../__utils__/Loader/Loader";
 
-/**
- * Импорт фото
- */
 import photo from "../../../images/str-compact1.png";
-import emergencySirenLogo from '../../../images/icon/emergency-siren.svg'
+import inductanceLoopLogo from '../../../images/icon/induction-loop.svg'
 
-/**
- * Импорт стилей
- */
 import '../popup.scss';
 
-/**
- * Интерфейс компонента EmergencySirenPopup
- */
-interface EmergencySirenPopupProps {
+interface PhotoCells01Props {
     readonly data: any,
     readonly handleCloseModal: () => void,
     readonly togglePopupWindowBarrier: () => void,
     readonly togglePopupWindowMainInfoBarrier: () => void
 }
 
-class EmergencySirenPopup extends React.PureComponent<any> {
+class PhotoCells01Popup extends React.PureComponent<any> {
 
-    /**
-     * Запрос данных
-     */
     //componentDidMount () {
     //this.props.fetchDataTurnstile();
     //}
-
-    /**
-     *  Обработчик экшена Открытия/Закрытия модального окна
-     */
 
     private handleCloseModal = () => {
         document.addEventListener('keydown', event => {
@@ -64,17 +38,11 @@ class EmergencySirenPopup extends React.PureComponent<any> {
         this.props.togglePopupWindowBarrier();
     };
 
-    /**
-     * Открыть/Закрыть Popup
-     */
     private handleToggleMainInfo = () => {
         this.props.togglePopupWindowMainInfoBarrier();
     };
 
     public render () {
-        /**
-         * Данные из Глобального Стора
-         */
         const { turnstile, barrier, isFetching } = this.props.data;
 
         //if (turnstile.data.length === 0 && !isFetching) {
@@ -82,10 +50,6 @@ class EmergencySirenPopup extends React.PureComponent<any> {
         //}
         //console.log(turnstile.data.page_view.model_price)
         return (
-
-        /**
-         * Компонент Popup
-         */
             <section className="popup-window window">
                 <div className="window__left">
                     <div className="left__image">
@@ -94,9 +58,9 @@ class EmergencySirenPopup extends React.PureComponent<any> {
                 </div>
                 <div className="window__right right">
                     <div className="right__header right-header">
-                        <img src={emergencySirenLogo} className="right-header__icon" alt='' />
+                        <img src={inductanceLoopLogo} className="right-header__icon" alt='' />
                         <div className="right-header__description description">
-                            <p className='description__text'>Аварийная сирена «DS-01»</p>
+                            <p className='description__text'>Комплект беспроводных фотоэлементов «PR-01»</p>
                             {barrier.info === false ?
                                 <div onClick={this.handleToggleMainInfo} className="description__toggle">ХАРАКТЕРИСТИКИ</div> :
                                 <div onClick={this.handleToggleMainInfo} className="description__toggle">ПОКАЗАТЬ ОПИСАНИЕ</div>
@@ -108,33 +72,51 @@ class EmergencySirenPopup extends React.PureComponent<any> {
                         {barrier.info === false ? 
                             <Fragment>
                                 <div className="right-main__info main-info">
-                                    <p>Предназначена для подачи звукового сигнала при попытке несанкционированного, принудительного подъёма стрелы шлагбаума</p>
+                                    <p>
+                                        Комплект состоит из инфракрасного передатчика на стойке и навесного приемника. Предназначен для определения нахождения посторонних предметов на оптической оси между ними. Применение данного модуля позволяет исключить возможность опускания стрелы на проезжающее транспортное средство, а также организовать автоматическое опускание стрелы после проезда автомобиля через шлагбаум.
+                                    </p>
                                 </div>
                             </Fragment>
                             :
                             <Fragment>
                                 <div className="right-main__info main-info">
                                     <div className="main-info__heading">
-                                        <div>Аварийная сирена «DS-01»</div>
+                                        <div>Комплект беспроводных фотоэлементов «PR-01»:</div>
                                     </div>
                                     <div className="main-info__block">
                                         <div>Напряжение питания, В:</div>
-                                        <div>24</div>
+                                        <div>12-24</div>
+                                    </div>
+                                    <div className="main-info__block">
+                                        <div>Тип используемых батарей:</div>
+                                        <div>AA</div>
+                                    </div>
+                                    <div className="main-info__block">
+                                        <div>Рабочая сила тока Приемника, мA:</div>
+                                        <div>40</div>
+                                    </div>
+                                    <div className="main-info__block">
+                                        <div>Рабочая сила тока Передатчика, мA:</div>
+                                        <div>0.5</div>
+                                    </div>
+                                    <div className="main-info__block">
+                                        <div>Диапазон приемника, м:</div>
+                                        <div>≤12</div>
                                     </div>
                                     <div className="main-info__block">
                                         <div>Диапазон рабочих температур, °С:</div>
-                                        <div>-30... +55</div>
+                                        <div>-20... +60</div>
                                     </div>
                                     <div className="main-info__block">
                                         <div>Класс защиты IP:</div>
-                                        <div>20</div>
+                                        <div>54</div>
                                     </div>
                                 </div>
                             </Fragment>
                         }
                     </div>
                     <div className="right__footer footer">
-                        <div className="footer__price">1500 Р{/* {barrier.data.page_view.model_price} */}</div>
+                        <div className="footer__price">3500 P {/* {barrier.data.page_view.model_price} */}</div>
                         <div className="footer__btn">Закрыть</div>
                     </div>
                 </div>
@@ -152,4 +134,4 @@ export default connect(
         togglePopupWindowBarrier,
         togglePopupWindowMainInfoBarrier
     }
-)(EmergencySirenPopup);
+)(PhotoCells01Popup);
