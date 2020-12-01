@@ -50,28 +50,28 @@ class ArrowPopup extends React.PureComponent<any> {
         //}
         //console.log(turnstile.data.page_view.model_price)
         return (
-            <section className="popup-window window">
-                <div className="window__left">
+            <section className="popup">
+                <div className="popup__left">
                     <div className="left__image">
                         <img className="image" src={photo} alt="" />
                     </div>
                 </div>
-                <div className="window__right right">
-                    <div className="right__header right-header">
-                        <img src={inductanceLoopLogo} className="right-header__icon" alt='' />
-                        <div className="right-header__description description">
+                <div className="popup__right">
+                    <div className="right__header">
+                        <img src={inductanceLoopLogo} className="header__icon" alt='' />
+                        <div className="header__description">
                             <p className='description__text'>Модуль подключения петли индуктивности VLD-10</p>
                             {barrier.info === false ?
                                 <div onClick={this.handleToggleMainInfo} className="description__toggle">ХАРАКТЕРИСТИКИ</div> :
                                 <div onClick={this.handleToggleMainInfo} className="description__toggle">ПОКАЗАТЬ ОПИСАНИЕ</div>
                             }
                         </div>
-                        <div onClick={this.handleCloseModal} className="right-header__close" />
+                        <div onClick={this.handleCloseModal} className="header__close" />
                     </div>
-                    <div className="right__main right-main">
+                    <div className="right__main">
                         {barrier.info === false ? 
                             <Fragment>
-                                <div className="right-main__info main-info">
+                                <div className="main__info">
                                     <p>
                                         Стрела алюминиевая круглой формы, обеспечивает лучшие эксплуатационные показатели при ветровых нагрузках.
                                     </p>
@@ -79,23 +79,23 @@ class ArrowPopup extends React.PureComponent<any> {
                             </Fragment>
                             :
                             <Fragment>
-                                <div className="right-main__info main-info">
-                                    <div className="main-info__heading">
+                                <div className="main__info">
+                                    <div className="info__heading">
                                         <div>Стрела для шлагбаума  «SN-06С»:</div>
                                     </div>
-                                    <div className="main-info__block">
+                                    <div className="info__block">
                                         <div>Длина:</div>
                                         <div>6 м</div>
                                     </div>
-                                    <div className="main-info__block">
+                                    <div className="info__block">
                                         <div>Диаметр:</div>
                                         <div>60 мм</div>
                                     </div>
-                                    <div className="main-info__block">
+                                    <div className="info__block">
                                         <div>Толщина:</div>
                                         <div>2мм</div>
                                     </div>
-                                    <div className="main-info__block">
+                                    <div className="info__block">
                                         <div>Материал:</div>
                                         <div>Аллюминий</div>
                                     </div>
@@ -103,7 +103,7 @@ class ArrowPopup extends React.PureComponent<any> {
                             </Fragment>
                         }
                     </div>
-                    <div className="right__footer footer">
+                    <div className="right__footer">
                         <div className="footer__price">3500 P {/* {barrier.data.page_view.model_price} */}</div>
                         <div className="footer__btn">Закрыть</div>
                     </div>

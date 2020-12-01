@@ -50,28 +50,28 @@ class PhotoCells01Popup extends React.PureComponent<any> {
         //}
         //console.log(turnstile.data.page_view.model_price)
         return (
-            <section className="popup-window window">
-                <div className="window__left">
+            <section className="popup">
+                <div className="popup__left">
                     <div className="left__image">
                         <img className="image" src={photo} alt="" />
                     </div>
                 </div>
-                <div className="window__right right">
-                    <div className="right__header right-header">
-                        <img src={inductanceLoopLogo} className="right-header__icon" alt='' />
-                        <div className="right-header__description description">
+                <div className="popup__right">
+                    <div className="right__header">
+                        <img src={inductanceLoopLogo} className="header__icon" alt='' />
+                        <div className="header__description">
                             <p className='description__text'>Комплект беспроводных фотоэлементов «PR-01»</p>
                             {barrier.info === false ?
                                 <div onClick={this.handleToggleMainInfo} className="description__toggle">ХАРАКТЕРИСТИКИ</div> :
                                 <div onClick={this.handleToggleMainInfo} className="description__toggle">ПОКАЗАТЬ ОПИСАНИЕ</div>
                             }
                         </div>
-                        <div onClick={this.handleCloseModal} className="right-header__close" />
+                        <div onClick={this.handleCloseModal} className="header__close" />
                     </div>
-                    <div className="right__main right-main">
+                    <div className="right__main">
                         {barrier.info === false ? 
                             <Fragment>
-                                <div className="right-main__info main-info">
+                                <div className="main__info">
                                     <p>
                                         Комплект состоит из инфракрасного передатчика на стойке и навесного приемника. Предназначен для определения нахождения посторонних предметов на оптической оси между ними. Применение данного модуля позволяет исключить возможность опускания стрелы на проезжающее транспортное средство, а также организовать автоматическое опускание стрелы после проезда автомобиля через шлагбаум.
                                     </p>
@@ -79,35 +79,35 @@ class PhotoCells01Popup extends React.PureComponent<any> {
                             </Fragment>
                             :
                             <Fragment>
-                                <div className="right-main__info main-info">
-                                    <div className="main-info__heading">
+                                <div className="main__info">
+                                    <div className="info__heading">
                                         <div>Комплект беспроводных фотоэлементов «PR-01»:</div>
                                     </div>
-                                    <div className="main-info__block">
+                                    <div className="info__block">
                                         <div>Напряжение питания, В:</div>
                                         <div>12-24</div>
                                     </div>
-                                    <div className="main-info__block">
+                                    <div className="info__block">
                                         <div>Тип используемых батарей:</div>
                                         <div>AA</div>
                                     </div>
-                                    <div className="main-info__block">
+                                    <div className="info__block">
                                         <div>Рабочая сила тока Приемника, мA:</div>
                                         <div>40</div>
                                     </div>
-                                    <div className="main-info__block">
+                                    <div className="info__block">
                                         <div>Рабочая сила тока Передатчика, мA:</div>
                                         <div>0.5</div>
                                     </div>
-                                    <div className="main-info__block">
+                                    <div className="info__block">
                                         <div>Диапазон приемника, м:</div>
                                         <div>≤12</div>
                                     </div>
-                                    <div className="main-info__block">
+                                    <div className="info__block">
                                         <div>Диапазон рабочих температур, °С:</div>
                                         <div>-20... +60</div>
                                     </div>
-                                    <div className="main-info__block">
+                                    <div className="info__block">
                                         <div>Класс защиты IP:</div>
                                         <div>54</div>
                                     </div>
@@ -115,7 +115,7 @@ class PhotoCells01Popup extends React.PureComponent<any> {
                             </Fragment>
                         }
                     </div>
-                    <div className="right__footer footer">
+                    <div className="right__footer">
                         <div className="footer__price">3500 P {/* {barrier.data.page_view.model_price} */}</div>
                         <div className="footer__btn">Закрыть</div>
                     </div>
