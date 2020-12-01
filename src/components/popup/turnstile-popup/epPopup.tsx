@@ -66,28 +66,28 @@ class EPpopup extends React.PureComponent<any> {
         }
 
         return (
-            <section className="popup-window window">
-                <div className="window__left">
+            <section className="popup">
+                <div className="popup__left">
                     <div className="left__image">
                         <img className="image" src={popup.data.module_main_photo} alt='' />
                     </div>
                 </div>
-                <div className="window__right right">
-                    <div className="right__header right-header">
-                        <img src={logo} className="right-header__icon" alt='' />
-                        <div className="right-header__description description">
+                <div className="popup__right">
+                    <div className="right__header">
+                        <img src={logo} className="header__icon" alt='' />
+                        <div className="header__description">
                             <p className='description__text'>Универсальный сетевой контроллер расширения EP-2000</p>
                             {turnstile.info === false ? /** Перенести в экшены Popup */
                                 <div onClick={this.handleToggleMainInfo} className="description__toggle">ХАРАКТЕРИСТИКИ</div> :
                                 <div onClick={this.handleToggleMainInfo} className="description__toggle">ПОКАЗАТЬ ОПИСАНИЕ</div>
                             }
                         </div>
-                        <div onClick={this.handleCloseModal} className="right-header__close" />
+                        <div onClick={this.handleCloseModal} className="header__close" />
                     </div>
-                    <div className="right__main right-main">
+                    <div className="right__main">
                         {turnstile.info === false ? 
                             <React.Fragment>
-                                <div className="right-main__info main-info">
+                                <div className="main__info">
                                     <p>
                                         Модуль расширения “EP-2000” предназначен для расширения
                                         функционала турникетов CARDDEX.
@@ -136,43 +136,43 @@ class EPpopup extends React.PureComponent<any> {
                             </React.Fragment>
                             :
                             <React.Fragment>
-                                <div className="right-main__info main-info">
-                                    <div className="main-info__heading">
+                                <div className="main__info">
+                                    <div className="info__heading">
                                         <div>Технические характеристики:</div>
                                     </div>
-                                    <div className="main-info__block">
+                                    <div className="info__block">
                                         <div>Напряжение питания (постоянный ток):</div>
                                         <div>12 V</div>
                                     </div>
-                                    <div className="main-info__block">
+                                    <div className="info__block">
                                         <div>Максимальный потребляемый ток:</div>
                                         <div>2,6 A</div>
                                     </div>
-                                    <div className="main-info__block">
+                                    <div className="info__block">
                                         <div>Локальная память ключей:</div>
                                         <div>50000 ключей</div>
                                     </div>
-                                    <div className="main-info__block">
+                                    <div className="info__block">
                                         <div>Локальная память событий:</div>
                                         <div>250000 ключей</div>
                                     </div>
-                                    <div className="main-info__block">
+                                    <div className="info__block">
                                         <div> Локальная память отпечатков пальцев:</div>
                                         <div>500</div>
                                     </div>
-                                    <div className="main-info__block">
+                                    <div className="info__block">
                                         <div>Локальная память штрих-кодов:</div>
                                         <div>5000</div>
                                     </div>
-                                    <div className="main-info__block">
+                                    <div className="info__block">
                                         <div>Интерфейсы связи с внешними устройствами:</div>
                                         <div>Ethernet, RS-485, RS-232</div>
                                     </div>
-                                    <div className="main-info__block">
+                                    <div className="info__block">
                                         <div>Кол-во релейных выходов:</div>
                                         <div>1</div>
                                     </div>
-                                    <div className="main-info__block">
+                                    <div className="info__block">
                                         <div>Габаритные размеры:</div>
                                         <div>120 х 100 х 35 мм</div>
                                     </div>
@@ -180,7 +180,7 @@ class EPpopup extends React.PureComponent<any> {
                             </React.Fragment>
                         }
                     </div>
-                    <div className="right__footer footer">
+                    <div className="right__footer">
                         <div className="footer__price">{popup.data.module_price}</div>
                         {turnstile.data.page_view.module_selectors[0].state === 1 
                             ? 

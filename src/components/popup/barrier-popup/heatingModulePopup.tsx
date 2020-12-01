@@ -49,28 +49,28 @@ class HeatingModulePopup extends React.PureComponent<any> {
         //}
         //console.log(barrier.data.page_view.model_price)
         return (
-            <section className="popup-window window">
-                <div className="window__left">
+            <section className="popup">
+                <div className="popup__left">
                     <div className="left__image">
                         <img className="image" src={photo} alt="" />
                     </div>
                 </div>
-                <div className="window__right right">
-                    <div className="right__header right-header">
-                        <img src={heatingModuleLogo} className="right-header__icon" alt='' />
-                        <div className="right-header__description description">
+                <div className="popup__right">
+                    <div className="right__header">
+                        <img src={heatingModuleLogo} className="header__icon" alt='' />
+                        <div className="header__description">
                             <p className='description__text'>Модуль обогрева MHP</p>
                             {barrier.info === false ?
                                 <div onClick={this.handleToggleMainInfo} className="description__toggle">ХАРАКТЕРИСТИКИ</div> :
                                 <div onClick={this.handleToggleMainInfo} className="description__toggle">ПОКАЗАТЬ ОПИСАНИЕ</div>
                             }
                         </div>
-                        <div onClick={this.handleCloseModal} className="right-header__close" />
+                        <div onClick={this.handleCloseModal} className="header__close" />
                     </div>
-                    <div className="right__main right-main">
+                    <div className="right__main">
                         {barrier.info === false ? 
                             <Fragment>
-                                <div className="right-main__info main-info">
+                                <div className="main__info">
                                     <p>
                                         Предназначен для дополнительного обогрева линейного привода и электроники шлагбаума. Благодаря данному модулю, шлагбаумы могут использоваться в районах с холодными климатическими условиями.
                                     </p>
@@ -78,13 +78,13 @@ class HeatingModulePopup extends React.PureComponent<any> {
                             </Fragment>
                             :
                             <Fragment>
-                                <div className="right-main__info main-info">
+                                <div className="main__info">
                                     
                                 </div>
                             </Fragment>
                         }
                     </div>
-                    <div className="right__footer footer">
+                    <div className="right__footer">
                         <div className="footer__price">2500 P {/* {barrier.data.page_view.model_price} */}</div>
                         <div className="footer__btn">Закрыть</div>
                     </div>
