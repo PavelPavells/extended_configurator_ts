@@ -54,6 +54,10 @@
                 letter-spacing: 0.5px;
                 text-decoration: none;
                 color: $brandPantonBlue;
+
+                &:hover {
+                    cursor: pointer;
+                }
             }
         }
 

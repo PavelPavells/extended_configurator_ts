@@ -94,7 +94,7 @@ export const fetchDataTurnstile = (data: any, trigger: number) => async (dispatc
 export const fetchDataTurnstileGet = (trigger: number) => async (dispatch: Dispatch<TurnstileActions>) => {
     const params = new URLSearchParams(window.location.search);
     const model = params.get('model');
-    if(model) {
+    if (model) {
         await axios.get(`${site}/turnstile?model=${model}`)
         .then(data => {
             if(data.data.result.code >= 0) {

@@ -124,4 +124,4 @@ export default connect(
         fetchDataBarrier,
         togglePopupWindowBarrier
     }
-)(SelectorRadioRemote);
+)(SelectorRadioRemote as any);

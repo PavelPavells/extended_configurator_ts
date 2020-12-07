@@ -128,4 +128,4 @@ export default connect(
         fetchDataBarrier,
         togglePopupWindowBarrier
     }
-)(SelectorSignalLamp);
+)(SelectorSignalLamp as any);

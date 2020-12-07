@@ -245,5 +245,4 @@ export default connect(
     {
         fetchDataBarrier
     }
-    // @ts-ignore
-)(ModuleEquipment);
+)(ModuleEquipment as any);

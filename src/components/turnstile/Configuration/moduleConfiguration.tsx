@@ -66,5 +66,4 @@ export default connect(
     {
         fetchDataTurnstile
     }
-// @ts-ignore
-)(ModuleConfiguration);
+)(ModuleConfiguration as any);

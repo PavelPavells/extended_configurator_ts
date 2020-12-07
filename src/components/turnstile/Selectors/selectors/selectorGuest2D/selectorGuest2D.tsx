@@ -175,4 +175,4 @@ export default connect(
         fetchDataTurnstile,
         //togglePopupWindowTurnstile
     }
-)(SelectorGuest2D);
+)(SelectorGuest2D as any);

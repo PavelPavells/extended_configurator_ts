@@ -165,4 +165,4 @@ export default connect(
         fetchDataBarrier,
         togglePopupWindowBarrier
     }
-)(SelectorBackLightRGB);
+)(SelectorBackLightRGB as any);

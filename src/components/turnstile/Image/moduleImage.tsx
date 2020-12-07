@@ -40,5 +40,4 @@ export default connect(
     {
         fetchDataTurnstile
     }
-// @ts-ignore
-)(ModuleImage);
+)(ModuleImage as any);
