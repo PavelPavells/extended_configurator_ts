@@ -165,4 +165,4 @@ export default connect(
         fetchDataBarrier,
         togglePopupWindowBarrier
     }
-)(SelectorPhotoCells01);
+)(SelectorPhotoCells01 as any);

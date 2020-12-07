@@ -127,4 +127,4 @@ export default connect(
         fetchDataBarrier,
         togglePopupWindowBarrier
     }
-)(SelectorHeatingModule);
+)(SelectorHeatingModule as any);

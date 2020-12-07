@@ -162,4 +162,4 @@ export default connect(
         fetchDataBarrier,
         togglePopupWindowBarrier
     }
-)(SelectorInductanceLoop);
+)(SelectorInductanceLoop as any);

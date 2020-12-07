@@ -328,5 +328,4 @@ export default connect(
     {
         fetchDataTurnstile
     }
-// @ts-ignore
-)(EquipmentModal);
+)(EquipmentModal as any);

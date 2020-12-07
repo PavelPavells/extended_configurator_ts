@@ -402,4 +402,4 @@ export default connect(
     {
         fetchDataBarrier
     }
-)(EquipmentModal);
+)(EquipmentModal as any);

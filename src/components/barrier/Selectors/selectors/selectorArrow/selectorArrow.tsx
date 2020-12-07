@@ -165,4 +165,4 @@ export default connect(
         fetchDataBarrier,
         togglePopupWindowBarrier
     }
-)(SelectorArrow);
+)(SelectorArrow as any);

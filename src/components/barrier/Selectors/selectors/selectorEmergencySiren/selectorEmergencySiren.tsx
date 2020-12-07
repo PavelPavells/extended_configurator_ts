@@ -158,4 +158,4 @@ export default connect(
         fetchDataBarrier,
         togglePopupWindowBarrier
     }
-)(SelectorEmergencySiren);
+)(SelectorEmergencySiren as any);

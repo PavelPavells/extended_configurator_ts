@@ -116,4 +116,4 @@ export default connect(
         fetchDataBarrier,
         togglePopupWindowBarrier
     }
-)(SelectorControlBlock);
+)(SelectorControlBlock as any);

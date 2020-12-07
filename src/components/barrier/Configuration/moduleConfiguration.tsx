@@ -107,5 +107,4 @@ export default connect(
     {
         fetchDataBarrier
     }
-    // @ts-ignore
-)(ModuleConfiguration);
+)(ModuleConfiguration as any);

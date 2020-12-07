@@ -73,4 +73,4 @@ export default connect(
     {
         fetchDataTurnstile
     }
-)(ModuleList);
+)(ModuleList as any);

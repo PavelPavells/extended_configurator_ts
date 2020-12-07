@@ -3,8 +3,6 @@ import Loader from '../../../__utils__/Loader/Loader';
 
 import './moduleSelectors.scss';
 
-// const SelectorChangeColor = lazy(() => import('./selectors/selectorChangeColor/selectorChangeColor'));
-// const SelectorControlBlock = lazy(() => import('./selectors/selectorControlBlock/selectorControlBlock'));
 const SelectorEmergencySiren = lazy(() => import('./selectors/selectorEmergencySiren/selectorEmergencySiren'));
 const SelectorHeatingModule = lazy(() => import('./selectors/selectorHeatingModule/selectorHeatingModule'));
 const SelectorInductanceLoop = lazy(() => import('./selectors/selectorInductanceLoop/selectorInductanceLoop'));
@@ -31,8 +29,6 @@ const ModuleSelectors = () => {
                 <SelectorSignalLamp />
                 <SelectorEmergencySiren />
                 <SelectorExpansion />
-                {/* <SelectorControlBlock />
-                <SelectorChangeColor /> */}
             </section>
         </Suspense>
     );
