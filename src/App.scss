@@ -4,10 +4,10 @@
 //@import './styles/styles.scss';
 
 html {
-	height: 100%;
+	// height: 100%;
 }
 body, #root {
-	height: 100%;
+	// height: 100%;
 	margin: 0;
 	overflow: scroll;
   -ms-overflow-style: none; /* IE 11 */
@@ -20,5 +20,5 @@ body, #root {
 }
 .wrapper {
   //font-family: $font-regular;// $code;
-  height: 100%;
+  // height: 100%;
 }
