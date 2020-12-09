@@ -3,6 +3,8 @@
 .turnstile {
     display: flex;
     flex-direction: column;
+    // height: 100%;
+    margin: 20px;
 
     // &__basket {
     //    width: 100%;
@@ -10,8 +12,9 @@
 
     .turnstile__primary {
         display: flex;
-        width: 100%;
-        height: 95.5vh;
+        margin-bottom: 3vh;
+        // width: 100%;
+        // height: 100%;
         // padding-top: 40px;
         // background-color: #fafafa;
     
@@ -52,7 +55,7 @@
 
             .basis__selectors {
                 display: flex;
-                height: 60vh;
+                height: 55vh;
                 overflow: scroll;
             }
         }

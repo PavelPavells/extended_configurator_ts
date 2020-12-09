@@ -36,10 +36,10 @@ const Turnstile = () => {
                         </div>
                     </div>
                 </div>
-                {/*
                 <div className="turnstile__configuration">
                     <ModuleConfiguration />
                 </div>
+                {/*
                 <div className="turnstile__equipment">
                     <ModuleEquipment />
                 </div>
