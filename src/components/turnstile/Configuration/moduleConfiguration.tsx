@@ -67,8 +67,8 @@ class ModuleConfiguration extends React.PureComponent<ModuleConfigurationProps, 
                 <div onClick={this.handleChangeIsOpenOrderModal} className="configuration__button button">
                     <div className="button__icon" />
                     <div className="button__text">ЗАКАЗАТЬ ВЫБРАННУЮ МОДЕЛЬ</div>
-                    {isOpenOrderModal ? <ModalOrderProduct /> : null}
                 </div>
+                {isOpenOrderModal ? <ModalOrderProduct handleChangeIsOpenOrderModal={this.handleChangeIsOpenOrderModal} /> : null}
             </section>
         );
     }
