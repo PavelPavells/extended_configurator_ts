@@ -3,6 +3,7 @@
 .barrier {
     display: flex;
     flex-direction: column;
+    margin: 20px;
 
     // .barrier__basket {
     //    width: 100%;
@@ -10,8 +11,9 @@
 
     .barrier__primary {
         display: flex;
-        width: 100%;
-        height: 95.5vh;
+        margin-bottom: 3vh;
+        // width: 100%;
+        // height: 95.5vh;
         // padding-top: 40px;
         // background-color: #fafafa;
     
@@ -34,7 +36,7 @@
             .slider__list {
                 display: flex;
                 justify-content: flex-start;
-                align-items: center;
+                height: 20vh;
             }
         }
 

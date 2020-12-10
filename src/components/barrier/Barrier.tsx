@@ -7,7 +7,7 @@ import ModuleList from './List/moduleList';
 import ModuleButtons from './Buttons/moduleButtons';
 import ModuleSelectors from './Selectors/moduleSelectors';
 // import ModuleBasket from './Basket/moduleBasket';
-// import ModuleConfiguration from './Configuration/moduleConfiguration';
+import ModuleConfiguration from './Configuration/moduleConfiguration';
 // import ModuleEquipment from './Equipment/moduleEquipment';
 
 class Barrier extends React.PureComponent {
@@ -36,7 +36,7 @@ class Barrier extends React.PureComponent {
                     </div>
                 </div>
                 <div className="barrier__configuration">
-                    {/** <ModuleConfiguration /> */}
+                    <ModuleConfiguration />
                 </div>
                 <div className="barrier__equipment">
                     {/** <ModuleEquipment /> */}

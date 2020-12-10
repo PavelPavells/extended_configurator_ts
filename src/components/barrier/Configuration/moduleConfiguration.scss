@@ -6,14 +6,15 @@
     align-items: center;
     width: 100%;
     margin-right: 40px;
-    background-color: $white;
+    background-color: green;
+    font-family: $font-regular;
 
     &__options, .options {
         display: flex;
         justify-content: flex-start;
         align-items: center;
         // margin-left: 40px;
-        // width: 45%;
+        width: 48%;
         min-width: 450px;
 
         &__amount, .amount {

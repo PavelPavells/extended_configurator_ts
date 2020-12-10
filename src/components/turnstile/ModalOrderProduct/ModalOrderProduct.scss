@@ -8,6 +8,7 @@
     width: 100vw;
     height: 100vh;
     background: rgba(0,0,0,.473);
+    font-family: $font-regular;
     transition: all .25s cubic-bezier(.02,.01,.47,1);
     z-index: 10000;
 
@@ -32,8 +33,49 @@
 
         .order__header {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             width: 100%;
+
+            .header__description {
+                display: flex;
+                justify-content: space-between;
+
+                .close {
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .header__info {
+                display: flex;
+                border-bottom: 2px solid $brandPantonBorderButton;
+
+                .info {
+                    display: flex;
+                    flex-direction: column;
+                    flex: 1;
+                    padding: 30px 0;
+
+                    .model__text {
+                        margin-bottom: 10px;
+                        font-size: 12px;
+                        color: $brandPantonDescription;
+                    }
+
+                    .model__description {
+                        font-size: 14px;
+                        color: $brandPantonBlack;
+                    }
+                }
+
+                .info__amount {
+                    display: flex;
+                    flex: 1;
+                    flex-direction: column;
+                    border: 1px solid green;
+                }
+            }
 
             .text {
                 font-size: 26px;
@@ -41,9 +83,34 @@
             }
         }
         .order__main {
-            flex: 1;
             width: 100%;
-            border: 1px solid green;
+
+            .main {
+                display: flex;
+
+                .main__field:last-child {
+                    margin-bottom: 30px;
+                }
+
+                .main__field {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+
+                    .field__label {
+                        margin-top: 24px;
+                        font-size: 12px;
+                        color: $brandPantonDescription;
+                    }
+
+                    .field__input {
+                        padding: 12px 0;
+                        border: none;
+                        outline: none;
+                        border-bottom: 2px solid $brandPantonBorderButton;
+                    }
+                }
+            }
         }
         .order__footer {
             display: flex;
@@ -51,7 +118,7 @@
 
             .button__order {
                 margin-right: 40px;
-                padding: 13px 80px;
+                padding: 12px 80px;
                 border: none;
                 outline: none;
                 font-size: 16px;
@@ -59,11 +126,28 @@
                 letter-spacing: 1px;
                 background-color: $brandPantonBlue;
                 color: $white;
+
+                &:hover {
+                    cursor: pointer;
+                }
             }
 
-            .text {
+            .footer__text {
+                margin: 0;
                 font-size: 11px;
+
+                & > a {
+                    color: $brandPantonBlue;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
             }
         }
     }
+}
+
+::placeholder {
+    font-size: 14px;
 }
