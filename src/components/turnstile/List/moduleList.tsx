@@ -56,9 +56,9 @@ const ModuleList: React.FC<ModuleListProps> = ({ data }) => {
                     hideWindow={hideWindow}
                 /> : null}
             <p className="list__description">Состав модели:</p>
-            {turnstile.data.page_view.model_module_list.map((index: any) => (
+            {/*{turnstile.data.page_view.model_module_list.map((index: any) => (
                 <div className="list__options" key={index.index}>{index.caption}</div>
-            ))}
+            ))}*/}
         </section>
     );
     

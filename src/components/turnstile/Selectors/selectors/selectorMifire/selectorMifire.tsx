@@ -135,4 +135,4 @@ export default connect(
         fetchDataTurnstile,
         //togglePopupWindowTurnstile
     }
-)(SelectorMifire as any);
+)(SelectorMifire);

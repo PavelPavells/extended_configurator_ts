@@ -166,4 +166,4 @@ export default connect(
     { fetchDataTurnstile,
         //togglePopupWindowTurnstile
     }
-)(SelectorInfoTime as any);
+)(SelectorInfoTime);

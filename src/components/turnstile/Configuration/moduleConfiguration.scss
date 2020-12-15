@@ -12,8 +12,8 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        // margin-left: 40px;
-        width: 48%;
+        margin-left: 40px;
+        width: 45%;
         min-width: 450px;
 
         &__amount, .amount {
@@ -115,10 +115,6 @@
             line-height: 1.36;
             letter-spacing: 1px;
             color: $white;
-        }
-
-        &:hover {
-            cursor: pointer;
         }
     }
 }

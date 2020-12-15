@@ -3,7 +3,6 @@
 .barrier {
     display: flex;
     flex-direction: column;
-    margin: 20px;
 
     // .barrier__basket {
     //    width: 100%;
@@ -11,32 +10,31 @@
 
     .barrier__primary {
         display: flex;
-        margin-bottom: 3vh;
-        // width: 100%;
-        // height: 95.5vh;
-        // padding-top: 40px;
-        // background-color: #fafafa;
+        width: 100%;
+        height: 95.5vh;
+        padding-top: 40px;
+        background-color: #fafafa;
     
         .primary__slider {
             display: flex;
             flex-direction: column;
             height: 100%;
             width: 45%;
-            margin-right: 40px;
+            margin: 0 40px;
 
             .slider__image {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 height: 600px;
-                //min-width: 450px;
+                min-width: 450px;
                 background-color: $brandPantonGrey;
             }
 
             .slider__list {
                 display: flex;
                 justify-content: flex-start;
-                height: 20vh;
+                align-items: center;
             }
         }
 
@@ -44,7 +42,7 @@
             display: flex;
             flex-direction: column;
             width: 100%;
-            margin-right: 10px;
+            margin-right: 40px;
 
             .basis__buttons {
                 display: flex;
@@ -54,7 +52,7 @@
 
             .basis__selectors {
                 display: flex;
-                height: 5   0vh;
+                height: 50vh;
             }
         }
     }

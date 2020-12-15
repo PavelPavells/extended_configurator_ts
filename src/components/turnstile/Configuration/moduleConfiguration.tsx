@@ -3,7 +3,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../store/store';
 import { fetchDataTurnstile } from '../../../actions/TurnstileActions/TurnstileActions';
-import ModalOrderProduct from '../ModalOrderProduct/ModalOrderProduct';
 import Loader from '../../../__utils__/Loader/Loader';
 
 import './moduleConfiguration.scss';
@@ -13,16 +12,7 @@ interface ModuleConfigurationProps {
     readonly fetchDataTurnstile: () => void,
 }
 
-interface ModuleConfigurationState {
-    isOpenOrderModal: boolean;
-}
-
-class ModuleConfiguration extends React.PureComponent<ModuleConfigurationProps, ModuleConfigurationState> {
-
-    state: ModuleConfigurationState = {
-        isOpenOrderModal: false
-    }
-
+class ModuleConfiguration extends React.PureComponent<ModuleConfigurationProps> {
     private handleMinusOptions = () => {
         //const { page_view } = this.props.data.turnstile.data;
         //console.log(page_view);
@@ -35,15 +25,9 @@ class ModuleConfiguration extends React.PureComponent<ModuleConfigurationProps, 
         // some code
     }
 
-    private handleChangeIsOpenOrderModal = () => {
-        const { isOpenOrderModal } = this.state;
-        this.setState({ isOpenOrderModal: !isOpenOrderModal })
-    }
-
     public render () {
 
         const { turnstile, isFetching } = this.props.data;
-        const { isOpenOrderModal } = this.state;
 
         if (turnstile.data.length === 0 && !isFetching) {
             return <Loader />;
@@ -64,11 +48,10 @@ class ModuleConfiguration extends React.PureComponent<ModuleConfigurationProps, 
                         <span className="summ__value">{turnstile.data.page_view.model_price}</span>
                     </div>
                 </div>
-                <div onClick={this.handleChangeIsOpenOrderModal} className="configuration__button button">
+                <div className="configuration__button button">
                     <div className="button__icon" />
-                    <div className="button__text">ЗАКАЗАТЬ ВЫБРАННУЮ МОДЕЛЬ</div>
+                    <div className="button__text">ДОБАВИТЬ ЭТУ КОНФИГУРАЦИЮ</div>
                 </div>
-                {isOpenOrderModal ? <ModalOrderProduct handleChangeIsOpenOrderModal={this.handleChangeIsOpenOrderModal} /> : null}
             </section>
         );
     }
@@ -83,4 +66,5 @@ export default connect(
     {
         fetchDataTurnstile
     }
-)(ModuleConfiguration as any);
+// @ts-ignore
+)(ModuleConfiguration);

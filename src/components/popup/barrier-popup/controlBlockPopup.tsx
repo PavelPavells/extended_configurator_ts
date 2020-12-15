@@ -86,28 +86,28 @@ class ControlBlockPopup extends React.PureComponent<any> {
         /**
          * Компонент ControlBlockPopup
          */
-            <section className="popup">
-                <div className="popup_left">
+            <section className="popup-window window">
+                <div className="window__left">
                     <div className="left__image">
                         <img className="image" src={photo} alt="" />
                     </div>
                 </div>
-                <div className="popup__right">
-                    <div className="right__header">
-                        <img src={controlBlockLogo} className="header__icon" alt='' />
-                        <div className="header__description">
+                <div className="window__right right">
+                    <div className="right__header right-header">
+                        <img src={controlBlockLogo} className="right-header__icon" alt='' />
+                        <div className="right-header__description description">
                             <p className='description__text'>Блок управления ABC-21PS</p>
                             {barrier.info === false ?
                                 <div onClick={this.handleToggleMainInfo} className="description__toggle">ХАРАКТЕРИСТИКИ</div> :
                                 <div onClick={this.handleToggleMainInfo} className="description__toggle">ПОКАЗАТЬ ОПИСАНИЕ</div>
                             }
                         </div>
-                        <div onClick={this.handleCloseModal} className="header__close" />
+                        <div onClick={this.handleCloseModal} className="right-header__close" />
                     </div>
-                    <div className="right__main">
+                    <div className="right__main right-main">
                         {barrier.info === false ? 
                             <Fragment>
-                                <div className="main__info">
+                                <div className="right-main__info main-info">
                                     <p>
                                         Модуль расширения “EP-2000” предназначен для расширения
                                         функционала турникетов CARDDEX.
@@ -156,39 +156,39 @@ class ControlBlockPopup extends React.PureComponent<any> {
                             </Fragment>
                             :
                             <Fragment>
-                                <div className="main__info">
-                                    <div className="info__heading">
+                                <div className="right-main__info main-info">
+                                    <div className="main-info__heading">
                                         <div>Технические характеристики:</div>
                                     </div>
-                                    <div className="info__block">
+                                    <div className="main-info__block">
                                         <div>Напряжение питания (постоянный ток):</div>
                                         <div>12 V</div>
                                     </div>
-                                    <div className="info__block">
+                                    <div className="main-info__block">
                                         <div>Максимальный потребляемый ток:</div>
                                         <div>2,6 A</div>
                                     </div>
-                                    <div className="info__block">
+                                    <div className="main-info__block">
                                         <div>Локальная память ключей:</div>
                                         <div>50000 ключей</div>
                                     </div>
-                                    <div className="info__block">
+                                    <div className="main-info__block">
                                         <div>Локальная память событий:</div>
                                         <div>250000 ключей</div>
                                     </div>
-                                    <div className="info__block">
+                                    <div className="main-info__block">
                                         <div> Локальная память отпечатков пальцев:</div>
                                         <div>500</div>
                                     </div>
-                                    <div className="info__block">
+                                    <div className="main-info__block">
                                         <div>Локальная память штрих-кодов:</div>
                                         <div>5000</div>
                                     </div>
-                                    <div className="info__block">
+                                    <div className="main-info__block">
                                         <div>Интерфейсы связи с внешними устройствами:</div>
                                         <div>Ethernet, RS-485, RS-232</div>
                                     </div>
-                                    <div className="info__block">
+                                    <div className="main-info__block">
                                         <div>Кол-во релейных выходов:</div>
                                         <div>1</div>
                                     </div>
@@ -200,7 +200,7 @@ class ControlBlockPopup extends React.PureComponent<any> {
                             </Fragment>
                         }
                     </div>
-                    <div className="right__footer">
+                    <div className="right__footer footer">
                         <div className="footer__price">{barrier.data.page_view.model_price}</div>
                         <div className="footer__btn">Закрыть</div>
                     </div>

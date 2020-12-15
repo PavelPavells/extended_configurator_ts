@@ -208,4 +208,5 @@ export default connect(
     {
         fetchDataTurnstile
     }
-)(Offer as any);
+    // @ts-ignore
+)(Offer);

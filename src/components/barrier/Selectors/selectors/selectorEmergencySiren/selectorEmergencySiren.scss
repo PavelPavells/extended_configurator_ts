@@ -1,48 +1,18 @@
+/**
+    Импорт глобальных переменных
+*/
 @import '../../../../../styles/styles.scss';
 
-.selectors__module--barrier {
+/**
+    Стили компонента selectorInfoTime
+*/
+.selectors__module, .module {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 7px;
     font-size: 14px;
-
-    .module__left {
-        display: flex;
-        align-items: center;
-        width: 75%;
-
-        .left__icon {
-            display: block;
-            min-width: 30px;
-            height: 30px;
-            margin-right: 1%;
-        }
-
-        .left__text {
-            font-size: 14px;
-            line-height: 1.29;
-            color: $brandPantonText;
-        }
-
-        .left__info {
-            display: none;
-        }
-    }
-
-    .module__right {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-
-        .right__price {
-            margin-right: 10px;
-            font-size: 10px;
-            font-weight: 500;
-            color: $brandPantonBlue;
-        }
-    }
 
     &:hover {
         border-radius: 25px;
@@ -70,9 +40,49 @@
             }
         }
     }
+
+    &__left, .left {
+        display: flex;
+        align-items: center;
+        width: 75%;
+
+        &__icon {
+            display: block;
+            min-width: 30px;
+            height: 30px;
+            margin-right: 1%;
+        }
+
+        &__text {
+            font-size: 14px;
+            line-height: 1.29;
+            color: $brandPantonText;
+        }
+
+        &__info {
+            display: none;
+        }
+    }
+
+    &__right, .right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        &__price {
+            margin-right: 10px;
+            font-size: 10px;
+            font-weight: 500;
+            color: $brandPantonBlue;
+        }
+    }
+
 }
 
-.emergency--barrier {
+/**
+    Стили иконок компонента selectorEmergencySiren
+*/
+.time { /** изменить название класса + изменение в компоненте */
     display: block;
     min-width: 30px;
     height: 30px;
@@ -80,47 +90,53 @@
     background: url('../../../../../images/icon/emergency-siren.svg') no-repeat center;
 }
 
+/**
+    Стили для недоступных селекторов
+*/
 .none {
     opacity: 0.5;
 }
-
-.onoffswitch9 {
+  
+/**
+    Стили переключателя selectorInfoTime
+*/
+.onoffswitch5 {
     position: relative; min-width: 50px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
     }
-    .onoffswitch9-checkbox {
+    .onoffswitch5-checkbox {
     display: none;
     }
-    .onoffswitch9-label {
+    .onoffswitch5-label {
     display: block; overflow: hidden; cursor: pointer;
     border-radius: 15.5px;
     }
-    .onoffswitch9-inner {
+    .onoffswitch5-inner {
     display: block; width: 200%; margin-left: -100%;
     -webkit-transition: margin 0.1s ease-in 0s;
     -o-transition: margin 0.1s ease-in 0s;
     transition: margin 0.1s ease-in 0s;
     }
-    .onoffswitch9-inner:before, .onoffswitch9-inner:after {
+    .onoffswitch5-inner:before, .onoffswitch5-inner:after {
     display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
     font-size: 10px; color: white; font-family: 'Gotham Pro'; font-weight: bold;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     }
-    .onoffswitch9-inner:before {
+    .onoffswitch5-inner:before {
     content: "";
     padding-left: 7px;
     background-color: #1d68d9; 
     color: #FFFFFF;
     }
-    .onoffswitch9-inner:after {
+    .onoffswitch5-inner:after {
     content: "";
     padding-right: 7px;
     background-color: #ebeff3;  
     color: #666666;
     text-align: right;
     }
-.onoffswitch9-switch {
+.onoffswitch5-switch {
     display: block; 
     width: 25px; 
     margin: 2px;
@@ -138,9 +154,9 @@
         border: 1px solid #1d68d9;
     }  
 }
-.onoffswitch9-checkbox:checked + .onoffswitch9-label .onoffswitch9-inner {
+.onoffswitch5-checkbox:checked + .onoffswitch5-label .onoffswitch5-inner {
     margin-left: 0;
 }
-.onoffswitch9-checkbox:checked + .onoffswitch9-label .onoffswitch9-switch {
+.onoffswitch5-checkbox:checked + .onoffswitch5-label .onoffswitch5-switch {
     right: 0px; 
 }

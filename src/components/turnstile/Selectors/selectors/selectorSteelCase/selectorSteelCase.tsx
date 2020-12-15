@@ -180,4 +180,4 @@ export default connect(
         fetchDataTurnstile,
         //togglePopupWindowTurnstile
     }
-)(SelectorSteelCase as any);
+)(SelectorSteelCase);

@@ -1,14 +1,31 @@
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
+/**
+ * Импорт зависимостей из NPM
+ */
 import React, { Fragment } from 'react';
+// @ts-ignore
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../store/store';
-import { fetchDataBarrier } from '../../../actions/BarrierActions/BarrierActions';
-import ModalHelperProduct from '../../turnstile/ModalHelperProduct/ModalHelperProduct';
-import Loader from '../../../__utils__/Loader/Loader';
 
+/**
+ * Импорт экшенов
+ */
+import { fetchDataBarrier } from '../../../actions/BarrierActions/BarrierActions';
+
+/**
+ * Импорт стилей
+ */
 import './moduleButtons.scss';
 
+/**
+ * Импорт прелоадера
+ */
+import Loader from '../../../__utils__/Loader/Loader';
+
+/**
+ * Интерфейс компонента ModuleButtons
+ */
 interface ModuleButtonsProps {
     readonly data: any,
     readonly fetchDataBarrier: (data: any, trigger: number) => void
@@ -16,10 +33,9 @@ interface ModuleButtonsProps {
 
 class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
 
-    state = {
-        isOpenModalHelper: false
-    }
-
+    /**
+    * Запрос данных
+    */
     // public componentDidMount() {
     //     const { page_view } = this.props.data.barrier.data;
     //     let data = {
@@ -41,8 +57,13 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
     //     this.props.fetchDataBarrier(data, data.trigger);
     // }
 
+    /**
+    * Хэндлер для обработки запроса Серии STR
+    */
+    /**
+    * Хэндлер для обработки запроса Серии STR
+    */
    private handleClickSeriaRBS = () => {
-    return;
     const { page_view } = this.props.data.barrier.data;
     let data = {
         app_id: 'id',
@@ -61,11 +82,13 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
         selectEight: page_view.module_selectors[7].state !== -1 ? page_view.module_selectors[7].state : 0
 
     };
-    // this.props.fetchDataBarrier(data, data.trigger);
+    this.props.fetchDataBarrier(data, data.trigger);
 }
 
+    /**
+    * Хэндлер для обработки запроса Серии STX
+    */
     private handleClickSeriaSBA = () => {
-        return;
         const { page_view } = this.props.data.barrier.data;
         let data = {
             app_id: 'id',
@@ -83,11 +106,13 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
             selectSeven: page_view.module_selectors[6].state !== -1 ? page_view.module_selectors[6].state : 0,
             selectEight: page_view.module_selectors[7].state !== -1 ? page_view.module_selectors[7].state : 0
         };
-        // this.props.fetchDataBarrier(data, data.trigger);
+        this.props.fetchDataBarrier(data, data.trigger);
     }
 
+    /**
+    * Хэндлер для обработки запроса сброса выбранных селекторов
+    */
     private handleClickResetSelectors = () => {
-        return;
         const { page_view } = this.props.data.turnstile.data;
         let data = {
             trigger: this.props.data.turnstile.trigger,
@@ -106,25 +131,36 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
         this.props.fetchDataBarrier(data, data.trigger);
     }
 
-    private handleChangeIsOpenModalHelper = () => {
-        this.setState({ isOpenModalHelper: !this.state.isOpenModalHelper });
-    }
-
     public render () {
+        /**
+        * Данные из Глобального Стора
+        */
         const { barrier, isFetching } = this.props.data;
         //console.log(this.props.data.turnstile.trigger)
         // if (barrier.data.length === 0 && !isFetching) {
         //    return <Loader />;
         // }
         return (
+            /**
+             *  Модуль выбора Серии/Исполнения
+             */
             <section className="buttons--barrier">
                 <div className="buttons__top">
+
+                    {/**
+                     * Описание
+                     */}
                     <div className="top__captions">
                         <div className="captions">Модель</div>
+                        {/* <div className="captions__seria">Серия</div> */}
                         <div className="captions">Итоговая стоимость</div>
                     </div>
                     <div className="top__select">
                         <div className="model">RBS 00-00.0001{/* {barrier.data.page_view.model_name} */}</div>
+
+                        {/**
+                         * Серия STR/STX
+                         */}
                         <div className="select__seria">
                             {/* {true ?//barrier.data.page_view.btn_seria === 0 ?
                                 <Fragment>
@@ -146,20 +182,19 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
                         </div>
                         <div className="price">44 444P{/* {barrier.data.page_view.model_price} */}</div>
                     </div>
+
+                    {/**
+                     * Серия STR/STX
+                     */}
                     <div className="top__info">
                         <a
                             // href={barrier.data.page_view.download_broshure_button_link}
                             className="info"
-                            onClick={this.handleChangeIsOpenModalHelper}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
                             ПОДРОБНЕЕ О МОДЕЛИ
                         </a>
-                        {
-                            // @ts-ignore
-                            this.state.isOpenModalHelper ? <ModalHelperProduct isOpen={this.handleChangeIsOpenModalHelper} data={this.props.data} /> : null
-                        }
                         <a
                             // href={barrier.data.page_view.model_base_model}
                             className="info"
@@ -181,6 +216,10 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
                 </div>
                 <div className="buttons__bottom">
                     <div className="captions">Серия</div>
+
+                    {/**
+                     * Исполнение Компактный/Тумбовый
+                     */}
                     <div className="bottom__buttons">
                         {true ? //barrier.data.page_view.btn_corpse === 0 ?
                             <Fragment>
@@ -230,4 +269,4 @@ export default connect(
     {
         fetchDataBarrier
     }
-)(ModuleButtons as any);
+)(ModuleButtons);

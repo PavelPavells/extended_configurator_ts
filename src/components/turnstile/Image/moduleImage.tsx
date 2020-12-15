@@ -22,7 +22,7 @@ class ModuleImage extends React.PureComponent<ModuleImageProps> {
         return (
             <section className="image--turnstile">
                 <img
-                    src={turnstile.data.page_view.model_main_photo}
+                    // src={turnstile.data.page_view.model_main_photo}
                     className="image__turnstile"
                     alt=""
                 />
@@ -40,4 +40,5 @@ export default connect(
     {
         fetchDataTurnstile
     }
-)(ModuleImage as any);
+// @ts-ignore
+)(ModuleImage);

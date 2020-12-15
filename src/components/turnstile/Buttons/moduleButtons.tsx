@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { ConfiguratorState } from '../../../store/store';
 import { fetchDataTurnstile, fetchDataTurnstileGet } from '../../../actions/TurnstileActions/TurnstileActions';
-import ModalHelperProduct from '../ModalHelperProduct/ModalHelperProduct';
+
 import './moduleButtons.scss';
 
 import Loader from '../../../__utils__/Loader/Loader';
@@ -16,8 +16,7 @@ interface ModuleButtonsProps {
 class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
 
     state = {
-        frame: null,
-        isOpenModalHelper: false
+        frame: null
     }
     
     public componentDidMount () {
@@ -162,12 +161,8 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
         };
         this.props.fetchDataTurnstile(data, data.trigger);
     }
-
-    private handleChangeIsOpenModalHelper = () => {
-        this.setState({ isOpenModalHelper: !this.state.isOpenModalHelper });
-    }
-
     public render () {
+        console.log(this.state.frame);
         const { turnstile } = this.props.data;
 
         if (turnstile.data.length === 0) {
@@ -205,18 +200,13 @@ class ModuleButtons extends React.PureComponent<ModuleButtonsProps> {
                     </div>
                     <div className="top__info">
                         <a
-                            // href={turnstile.data.page_view.download_broshure_button_link}
+                            href={turnstile.data.page_view.download_broshure_button_link}
                             className="link"
-                            onClick={this.handleChangeIsOpenModalHelper}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
                             ПОДРОБНЕЕ О МОДЕЛИ
                         </a>
-                        {
-                            // @ts-ignore
-                            this.state.isOpenModalHelper ? <ModalHelperProduct isOpen={this.handleChangeIsOpenModalHelper} data={this.props.data} /> : null
-                        }
                         <a
                             href={turnstile.data.page_view.model_base_model}
                             className="link"
@@ -267,4 +257,4 @@ export default connect(
         fetchDataTurnstile,
         fetchDataTurnstileGet
     }
-)(ModuleButtons as any);
+)(ModuleButtons);
