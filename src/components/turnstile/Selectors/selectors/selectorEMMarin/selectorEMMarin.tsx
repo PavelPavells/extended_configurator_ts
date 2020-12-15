@@ -134,4 +134,4 @@ export default connect(
         fetchDataTurnstile,
         //togglePopupWindowTurnstile
     }
-)(SelectorEMMarin as any);
+)(SelectorEMMarin);

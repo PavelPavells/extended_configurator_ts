@@ -86,16 +86,16 @@ class InductanceLoopPopup extends React.PureComponent<any> {
         /**
          * Компонент InductanceLoopPopup
          */
-            <section className="popup">
-                <div className="popup__left">
+            <section className="popup-window window">
+                <div className="window__left">
                     <div className="left__image">
                         <img className="image" src={photo} alt="" />
                     </div>
                 </div>
-                <div className="popup__right">
-                    <div className="right__header">
-                        <img src={inductanceLoopLogo} className="header__icon" alt='' />
-                        <div className="header__description">
+                <div className="window__right right">
+                    <div className="right__header right-header">
+                        <img src={inductanceLoopLogo} className="right-header__icon" alt='' />
+                        <div className="right-header__description description">
                             <p className='description__text'>Модуль подключения петли индуктивности VLD-10</p>
                             {barrier.info === false ?
                                 <div onClick={this.handleToggleMainInfo} className="description__toggle">ХАРАКТЕРИСТИКИ</div> :
@@ -104,52 +104,53 @@ class InductanceLoopPopup extends React.PureComponent<any> {
                         </div>
                         <div onClick={this.handleCloseModal} className="right-header__close" />
                     </div>
-                    <div className="right__main">
+                    <div className="right__main right-main">
                         {barrier.info === false ? 
                             <Fragment>
-                                <div className="main__info">
+                                <div className="right-main__info main-info">
                                     <p>
-                                        Предназначен для определения наличия транспортного средства в рабочей зоне стрелы и автоматического закрытия шлагбаума после проезда автомобиля.
+                                        Модуль билетного доступа по QR-кодам “QS-03” используется в турникетах для контроля доступа в кинотеатры, музеи,выставочные центры, спортивные мероприятия и т.д. 
+                                        В качестве устройства идентификации используется 2D сканер. 
+                                        Данное решение предназначено для разового прохода посетителей по приглашению, пропуску или билету, смартфону, содержащему QR-код.
                                     </p>
-                                    <ul>
-                                        <li>Один канал для подключения индукционной петли</li>
-                                        <li>Регулировка чувствительности</li>
-                                        <li>Подключение на стандартный разъём расширения блока управления серии «ABC»</li>
-                                    </ul>
                                 </div>
                             </Fragment>
                             :
                             <Fragment>
-                                <div className="main__info">
-                                    <div className="info__heading">
-                                        <div>Модуль петли индуктивности «VLD-10»:</div>
+                                <div className="right-main__info main-info">
+                                    <div className="main-info__heading">
+                                        <div>Технические характеристики 2D сканера:</div>
                                     </div>
-                                    <div className="info__block">
-                                        <div>Напряжение питания, В:</div>
-                                        <div>24</div>
+                                    <div className="main-info__block">
+                                        <div>Поддерживаемые стандарты:</div>
+                                        <div>EAN-8, EAN-13, UPC-A, UPC-E, Code 39, Code 93, Code 128, EAN128, Codabar, Industrial 2 of 5, Interleave 2 of 5, Standard 25, Matrix 2 of 5, MSI, GS1, PDF417, MicroQR, DataMatrix, QR, HanXin, Aztec</div>
                                     </div>
-                                    <div className="info__block">
-                                        <div>Диапазон частот, кГц:</div>
-                                        <div>от 20 до 170</div>
+                                    <div className="main-info__block">
+                                        <div>Скорость сканирования:</div>
+                                        <div>1300 раз в секунду</div>
                                     </div>
-                                    <div className="info__block">
-                                        <div>Время реакции:</div>
-                                        <div>10мс</div>
+                                    <div className="main-info__block">
+                                        <div>Минимальный процент контрастности распознаваемого текста:</div>
+                                        <div>20%</div>
                                     </div>
-                                    <div className="info__block">
-                                        <div>Диапазон рабочих температур, °С:</div>
-                                        <div>-30... +55</div>
+                                    <div className="main-info__block">
+                                        <div>Допустимая освещенность окружающей поверхности:</div>
+                                        <div>0-120000 лк.</div>
                                     </div>
-                                    <div className="info__block">
-                                        <div>Класс защиты IP:</div>
-                                        <div>65</div>
+                                    <div className="main-info__block">
+                                        <div>Напряжение питания:</div>
+                                        <div>5В</div>
+                                    </div>
+                                    <div className="main-info__block">
+                                        <div>Потребляемый ток:</div>
+                                        <div>{'<200мА'}</div>
                                     </div>
                                 </div>
                             </Fragment>
                         }
                     </div>
-                    <div className="right__footer">
-                        <div className="footer__price">3500 P {/* {barrier.data.page_view.model_price} */}</div>
+                    <div className="right__footer footer">
+                        <div className="footer__price">{barrier.data.page_view.model_price}</div>
                         <div className="footer__btn">Закрыть</div>
                     </div>
                 </div>

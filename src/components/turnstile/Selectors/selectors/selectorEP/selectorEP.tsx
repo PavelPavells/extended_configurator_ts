@@ -126,4 +126,4 @@ export default connect(
         fetchDataTurnstile,
         //togglePopupWindowTurnstile
     }
-)(SelectorEP as any);
+)(SelectorEP);

@@ -139,4 +139,5 @@ export default connect(
         fetchDataTurnstile,
         //togglePopupWindowTurnstile
     }
-)(SelectorBiometry as any);
+    // @ts-ignore
+)(SelectorBiometry);

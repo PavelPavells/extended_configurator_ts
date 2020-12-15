@@ -173,7 +173,7 @@ class ChangeColorPopup extends React.PureComponent<any> {
                         }
                     </div>
                     <div className="right__footer footer">
-                        <div className="footer__price">11 111 P{/* {barrier.data.page_view.model_price} */}</div>
+                        <div className="footer__price">{barrier.data.page_view.model_price}</div>
                         <div className="footer__btn">Закрыть</div>
                     </div>
                 </div>

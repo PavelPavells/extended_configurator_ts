@@ -69,4 +69,5 @@ export default connect(
     {
         fetchDataBarrier
     }
-)(ModuleImage as any);
+    // @ts-ignore
+)(ModuleImage);

@@ -158,4 +158,4 @@ export default connect(
         fetchDataTurnstile,
         //togglePopupWindowTurnstile
     }
-)(SelectorRDU as any);
+)(SelectorRDU);

@@ -1,18 +1,39 @@
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
+/**
+ * Импорт зависимостей из NPM
+ */
 import React, { Fragment } from 'react';
-import { connect } from 'react-redux';
+// @ts-ignore
+import { connect } from '../selectorSignalLamp/node_modules/react-redux';
 import { ConfiguratorState } from '../../../../../store/store';
+
+/**
+ * Импорт экшенов
+ */
 import {
     fetchDataBarrier,
     togglePopupWindowBarrier
 } from '../../../../../actions/BarrierActions/BarrierActions';
 
+/**
+ * Импорт стилей
+ */
 import './selectorInductanceLoop.scss';
 
+/**
+ * Импорт Popup-окна
+ */
 import InductanceLoopPopUp from '../../../../popup/barrier-popup/inductanceLoopPopup';
+
+/**
+ * Импорт Лоадера
+ */
 import Loader from '../../../../../__utils__/Loader/Loader';
 
+/**
+ * Интерфейс компонента SelectorEmergencySiren
+ */
 interface SelectorInductanceLoopProps {
     readonly data: any,
     readonly fetchDataBarrier: (data: any, trigger: number) => void,
@@ -27,10 +48,16 @@ class SelectorInductanceLoop extends React.PureComponent<SelectorInductanceLoopP
 
     state: SelectorInductanceLoopState = { selectSix: 0 };
 
+    /**
+     * Открыть/Закрыть модальное окно
+     */
     private handleToggleModal = () => {
         this.props.togglePopupWindowBarrier();
     }
 
+    /**
+    * Хэндлер для обработки запроса селектора 'Модуль подключения петли индуктивности VLD-10'
+    */
     private handleClickSixSelect = () => {
         const { page_view } = this.props.data.barrier.data;
         this.setState({
@@ -57,22 +84,28 @@ class SelectorInductanceLoop extends React.PureComponent<SelectorInductanceLoopP
     }
 
     public render () {
-        // const { barrier, isFetching } = this.props.data;
-        // if (barrier.data.length === 0 && !isFetching) {
-        //    return <Loader />;
-        // }
+        /**
+         * Данные из глобального стора
+         */
+        const { barrier, isFetching } = this.props.data;
+        if (barrier.data.length === 0 && !isFetching) {
+           return <Loader />;
+        }
 
         return (
+            /**
+             * Селектор 'Модуль подключения петли индуктивности VLD-10'
+             */
             <Fragment>
-                {/* {barrier.data.page_view.module_selectors.slice(5, 6).map((index: { state: number; index: string | number | undefined; }) => {
+                {barrier.data.page_view.module_selectors.slice(5, 6).map((index: { state: number; index: string | number | undefined; }) => {
                     if (index.state === -1) {
                         return (
-                            <div key={index.index} className="selectors__module--barrier none">
-                                <div className="module__left">
+                            <div key={index.index} className="selectors__module module none">
+                                <div className="module__left left">
                                     <div className="left__icon one-visits" />
                                     <div className="left__text">Модуль подключения петли индуктивности VLD-10</div>
                                 </div>
-                                <div className="module__right">
+                                <div className="module__right right">
                                     <div className="onoffswitch6">
                                         <input
                                             type="checkbox"
@@ -88,22 +121,22 @@ class SelectorInductanceLoop extends React.PureComponent<SelectorInductanceLoopP
                             </div>
                         );
                     } else {
-                    return ( */}
-                            <div className="selectors__module--barrier">
-                                <div className="module__left">
-                                    <div className="left__icon loop--barrier" />
+                        return (
+                            <div key={index.index} className="selectors__module module">
+                                <div className="module__left left">
+                                    <div className="left__icon one-visits" />
                                     <div className="left__text">Модуль подключения петли индуктивности VLD-10</div>
-                                    <div className="left__info">
+                                    <div className="left__info info">
                                         <div className="info__text">
                                             <div onClick={this.handleToggleModal}>ПОДРОБНЕЕ</div>
                                         </div>
                                         <div className="info__arrow" />
                                     </div>
-                                    {/* {barrier.modal ? <InductanceLoopPopUp /> : null} */}
+                                    {barrier.modal ? <InductanceLoopPopUp /> : null}
                                 </div>
-                                <div className="module__right">
+                                <div className="module__right right">
                                     <div className="right__price">
-                                        {/* {barrier.data.page_view.model_module_list[1] !== undefined
+                                        {barrier.data.page_view.model_module_list[1] !== undefined
                                             && barrier.data.page_view.model_module_list[1].name === 'emergency'
                                             && '+ ' + barrier.data.page_view.model_module_list[1].price
                                         }
@@ -126,28 +159,28 @@ class SelectorInductanceLoop extends React.PureComponent<SelectorInductanceLoopP
                                         {barrier.data.page_view.model_module_list[6] !== undefined
                                             && barrier.data.page_view.model_module_list[6].name === 'emergency'
                                             && '+ ' + barrier.data.page_view.model_module_list[6].price
-                                        } */}
+                                        }
                                     </div>
-                                    <div className="onoffswitch3">
+                                    <div className="onoffswitch6">
                                         <input
                                             type="checkbox"
-                                            name="onoffswitch3"
-                                            className="onoffswitch3-checkbox"
-                                            id="header3-checkbox"
-                                            // onChange={this.handleClickSixSelect}
-                                            // checked={barrier.data.page_view.module_selectors[5].state}
+                                            name="onoffswitch6"
+                                            className="onoffswitch6-checkbox"
+                                            id="header6-checkbox"
+                                            onChange={this.handleClickSixSelect}
+                                            checked={barrier.data.page_view.module_selectors[5].state}
                                         />
-                                        <label className="onoffswitch3-label" htmlFor="header3-checkbox">
-                                            <span className="onoffswitch3-inner" />
-                                            <span className="onoffswitch3-switch" />
+                                        <label className="onoffswitch6-label" htmlFor="header6-checkbox">
+                                            <span className="onoffswitch6-inner" />
+                                            <span className="onoffswitch6-switch" />
                                         </label>
                                     </div>
                                 </div>
                             </div>
-                   {/*     );
+                        );
                     }
                 })
-                } */}
+                }
             </Fragment>
         );
     }
@@ -162,4 +195,4 @@ export default connect(
         fetchDataBarrier,
         togglePopupWindowBarrier
     }
-)(SelectorInductanceLoop as any);
+)(SelectorInductanceLoop);

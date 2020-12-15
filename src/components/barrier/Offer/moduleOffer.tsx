@@ -245,4 +245,5 @@ export default connect(
     {
         fetchDataBarrier
     }
-)(Offer as any);
+    // @ts-ignore
+)(Offer);

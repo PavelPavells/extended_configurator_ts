@@ -173,4 +173,4 @@ export default connect(
         fetchDataTurnstile,
         //togglePopupWindowTurnstile
     }
-)(SelectorControl2D as any);
+)(SelectorControl2D);

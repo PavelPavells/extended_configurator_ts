@@ -1,8 +1,6 @@
 @import '../../../styles/styles.scss';
 
 .image--turnstile {
-    display: flex;
-    align-items: center;
     width: 350px;
     height: 500px;
     padding: 25px;
@@ -10,6 +8,7 @@
     .image__turnstile {
         display: flex;
         width: 100%;
+        height: 100%;
         background-size: contain;
     }
 }

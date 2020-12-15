@@ -187,4 +187,5 @@ export default connect(
     {
         fetchDataTurnstile
     }
-)(ModuleEquipment as any);
+// @ts-ignore
+)(ModuleEquipment);
